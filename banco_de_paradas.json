@@ -1,0 +1,578 @@
+[
+    {
+        "id": 505204857,
+        "nome": "Ponto de Ônibus (Sem nome)",
+        "latitude": -1.4422035,
+        "longitude": -48.4915865,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": ""
+    },
+    {
+        "id": 505204860,
+        "nome": "Ponto de Ônibus (Sem nome)",
+        "latitude": -1.4425381,
+        "longitude": -48.4922645,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": ""
+    },
+    {
+        "id": 505204989,
+        "nome": "Ponto de Ônibus (Sem nome)",
+        "latitude": -1.4476836,
+        "longitude": -48.4873574,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": ""
+    },
+    {
+        "id": 505204990,
+        "nome": "Ponto de Ônibus (Sem nome)",
+        "latitude": -1.4440603,
+        "longitude": -48.4899934,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": ""
+    },
+    {
+        "id": 505204991,
+        "nome": "Ponto de Ônibus (Sem nome)",
+        "latitude": -1.4469913,
+        "longitude": -48.4874065,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": ""
+    },
+    {
+        "id": 1265207264,
+        "nome": "Ponto de Ônibus (Sem nome)",
+        "latitude": -1.452168,
+        "longitude": -48.4789183,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": ""
+    },
+    {
+        "id": 1295184130,
+        "nome": "Ponto de Ônibus (Sem nome)",
+        "latitude": -1.4565871,
+        "longitude": -48.4897405,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": ""
+    },
+    {
+        "id": 1433736041,
+        "nome": "Ponto de Ônibus (Sem nome)",
+        "latitude": -1.4374692,
+        "longitude": -48.4743843,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": ""
+    },
+    {
+        "id": 1433736045,
+        "nome": "Ponto de Ônibus (Sem nome)",
+        "latitude": -1.4395024,
+        "longitude": -48.4711301,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": ""
+    },
+    {
+        "id": 1433736050,
+        "nome": "Ponto de Ônibus (Sem nome)",
+        "latitude": -1.4369961,
+        "longitude": -48.4744694,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": ""
+    },
+    {
+        "id": 1433736055,
+        "nome": "Ponto de Ônibus (Sem nome)",
+        "latitude": -1.4390184,
+        "longitude": -48.4753515,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": ""
+    },
+    {
+        "id": 1433736059,
+        "nome": "Ponto de Ônibus (Sem nome)",
+        "latitude": -1.4384735,
+        "longitude": -48.4725733,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": ""
+    },
+    {
+        "id": 1961442465,
+        "nome": "Ponto de Ônibus (Sem nome)",
+        "latitude": -1.4551766,
+        "longitude": -48.4816541,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": ""
+    },
+    {
+        "id": 1961443940,
+        "nome": "Ponto de Ônibus (Sem nome)",
+        "latitude": -1.4478155,
+        "longitude": -48.4841694,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": ""
+    },
+    {
+        "id": 1961443941,
+        "nome": "Ponto de Ônibus (Sem nome)",
+        "latitude": -1.4488822,
+        "longitude": -48.4874691,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": ""
+    },
+    {
+        "id": 1961443942,
+        "nome": "Ponto de Ônibus (Sem nome)",
+        "latitude": -1.4451572,
+        "longitude": -48.4835503,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": ""
+    },
+    {
+        "id": 2632563626,
+        "nome": "Ponto de Ônibus (Sem nome)",
+        "latitude": -1.4554723,
+        "longitude": -48.4835319,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": ""
+    },
+    {
+        "id": 3374278369,
+        "nome": "Ponto de Ônibus (Sem nome)",
+        "latitude": -1.4637885,
+        "longitude": -48.4862845,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": ""
+    },
+    {
+        "id": 3374278370,
+        "nome": "Ponto de Ônibus (Sem nome)",
+        "latitude": -1.4645128,
+        "longitude": -48.4878502,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": ""
+    },
+    {
+        "id": 3374398324,
+        "nome": "Ponto de Ônibus (Sem nome)",
+        "latitude": -1.4629815,
+        "longitude": -48.4873697,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": ""
+    },
+    {
+        "id": 3374398325,
+        "nome": "Ponto de Ônibus (Sem nome)",
+        "latitude": -1.4612996,
+        "longitude": -48.4896107,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": ""
+    },
+    {
+        "id": 3374398326,
+        "nome": "Ponto de Ônibus (Sem nome)",
+        "latitude": -1.4598085,
+        "longitude": -48.4916425,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": ""
+    },
+    {
+        "id": 3374398327,
+        "nome": "Ponto de Ônibus (Sem nome)",
+        "latitude": -1.4570389,
+        "longitude": -48.4951367,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": ""
+    },
+    {
+        "id": 3605648415,
+        "nome": "Ponto de Ônibus (Sem nome)",
+        "latitude": -1.4646416,
+        "longitude": -48.4851411,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": ""
+    },
+    {
+        "id": 3655819027,
+        "nome": "Ponto de Ônibus (Sem nome)",
+        "latitude": -1.4550188,
+        "longitude": -48.4934819,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": ""
+    },
+    {
+        "id": 3655819028,
+        "nome": "Ponto de Ônibus (Sem nome)",
+        "latitude": -1.4566093,
+        "longitude": -48.4954137,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": ""
+    },
+    {
+        "id": 3658377322,
+        "nome": "Ponto de Ônibus (Sem nome)",
+        "latitude": -1.4350438,
+        "longitude": -48.472738,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": ""
+    },
+    {
+        "id": 3658381131,
+        "nome": "Ponto de Ônibus (Sem nome)",
+        "latitude": -1.4350063,
+        "longitude": -48.4723008,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": ""
+    },
+    {
+        "id": 3667328736,
+        "nome": "Ponto de Ônibus (Sem nome)",
+        "latitude": -1.4518525,
+        "longitude": -48.4746215,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": ""
+    },
+    {
+        "id": 3957398663,
+        "nome": "Ponto de Ônibus (Sem nome)",
+        "latitude": -1.4582283,
+        "longitude": -48.4962421,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": ""
+    },
+    {
+        "id": 3957418936,
+        "nome": "Ponto de Ônibus (Sem nome)",
+        "latitude": -1.4637787,
+        "longitude": -48.4706726,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": ""
+    },
+    {
+        "id": 4241001630,
+        "nome": "Ponto de Ônibus (Sem nome)",
+        "latitude": -1.4618766,
+        "longitude": -48.4971685,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": ""
+    },
+    {
+        "id": 4375122725,
+        "nome": "Ponto de Ônibus (Sem nome)",
+        "latitude": -1.4495452,
+        "longitude": -48.4828448,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": ""
+    },
+    {
+        "id": 4375122743,
+        "nome": "Ponto de Ônibus (Sem nome)",
+        "latitude": -1.4573537,
+        "longitude": -48.4851934,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": ""
+    },
+    {
+        "id": 4375122751,
+        "nome": "Ponto de Ônibus (Sem nome)",
+        "latitude": -1.4643071,
+        "longitude": -48.485302,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": ""
+    },
+    {
+        "id": 4392561724,
+        "nome": "Ponto de Ônibus (Sem nome)",
+        "latitude": -1.4572487,
+        "longitude": -48.4968329,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": ""
+    },
+    {
+        "id": 4531008189,
+        "nome": "Ponto de Ônibus (Sem nome)",
+        "latitude": -1.4426418,
+        "longitude": -48.4882014,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": ""
+    },
+    {
+        "id": 4531008190,
+        "nome": "Ponto de Ônibus (Sem nome)",
+        "latitude": -1.4409763,
+        "longitude": -48.4872435,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": ""
+    },
+    {
+        "id": 4905034724,
+        "nome": "Ponto de Ônibus (Sem nome)",
+        "latitude": -1.4449965,
+        "longitude": -48.4887788,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": ""
+    },
+    {
+        "id": 4905044042,
+        "nome": "Ponto de Ônibus (Sem nome)",
+        "latitude": -1.4537461,
+        "longitude": -48.4915736,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": ""
+    },
+    {
+        "id": 5256971232,
+        "nome": "Ponto de Ônibus (Sem nome)",
+        "latitude": -1.4472549,
+        "longitude": -48.4971392,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": ""
+    },
+    {
+        "id": 6211167885,
+        "nome": "Ponto de ônibus Av. 16 de Novembro com Triunvirato",
+        "latitude": -1.4609007,
+        "longitude": -48.4977671,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": ""
+    },
+    {
+        "id": 11347216393,
+        "nome": "Ponto de Ônibus (Sem nome)",
+        "latitude": -1.4472549,
+        "longitude": -48.4971392,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": ""
+    },
+    {
+        "id": 12388035328,
+        "nome": "Ponto de Ônibus (Sem nome)",
+        "latitude": -1.4397624,
+        "longitude": -48.4926645,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": ""
+    },
+    {
+        "id": 12388056543,
+        "nome": "Ponto de Ônibus (Sem nome)",
+        "latitude": -1.4373165,
+        "longitude": -48.4920055,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": ""
+    },
+    {
+        "id": 12388081679,
+        "nome": "Ponto de Ônibus (Sem nome)",
+        "latitude": -1.4405411,
+        "longitude": -48.4933394,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": ""
+    },
+    {
+        "id": 12388081947,
+        "nome": "Ponto de Ônibus (Sem nome)",
+        "latitude": -1.4394894,
+        "longitude": -48.4927662,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": ""
+    },
+    {
+        "id": 12542157668,
+        "nome": "Ponto de Ônibus (Sem nome)",
+        "latitude": -1.4528473,
+        "longitude": -48.4862345,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": ""
+    },
+    {
+        "id": 12542157669,
+        "nome": "Ponto de Ônibus (Sem nome)",
+        "latitude": -1.4561965,
+        "longitude": -48.4887144,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": ""
+    },
+    {
+        "id": 12542157670,
+        "nome": "Ponto de Ônibus (Sem nome)",
+        "latitude": -1.4522483,
+        "longitude": -48.4819567,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": ""
+    },
+    {
+        "id": 12542157671,
+        "nome": "Ponto de Ônibus (Sem nome)",
+        "latitude": -1.4508392,
+        "longitude": -48.4969849,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": ""
+    },
+    {
+        "id": 12542157672,
+        "nome": "Ponto de Ônibus (Sem nome)",
+        "latitude": -1.4531116,
+        "longitude": -48.4947029,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": ""
+    },
+    {
+        "id": 12542157673,
+        "nome": "Ponto de Ônibus (Sem nome)",
+        "latitude": -1.4560304,
+        "longitude": -48.4707426,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": ""
+    },
+    {
+        "id": 12542157674,
+        "nome": "Ponto de Ônibus (Sem nome)",
+        "latitude": -1.4596734,
+        "longitude": -48.4706789,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": ""
+    },
+    {
+        "id": 12542157685,
+        "nome": "Ponto de Ônibus (Sem nome)",
+        "latitude": -1.4543915,
+        "longitude": -48.4707605,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": ""
+    },
+    {
+        "id": 12543374071,
+        "nome": "Ponto de Ônibus (Sem nome)",
+        "latitude": -1.4483243,
+        "longitude": -48.4707663,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": ""
+    },
+    {
+        "id": 12543374072,
+        "nome": "Ponto de Ônibus (Sem nome)",
+        "latitude": -1.4483299,
+        "longitude": -48.4739704,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": ""
+    },
+    {
+        "id": 12543374073,
+        "nome": "Ponto de Ônibus (Sem nome)",
+        "latitude": -1.4483989,
+        "longitude": -48.4775452,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": ""
+    },
+    {
+        "id": 12543374074,
+        "nome": "Ponto de Ônibus (Sem nome)",
+        "latitude": -1.4497035,
+        "longitude": -48.4820942,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": ""
+    },
+    {
+        "id": 12543374075,
+        "nome": "Ponto de Ônibus (Sem nome)",
+        "latitude": -1.4489329,
+        "longitude": -48.479758,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": ""
+    },
+    {
+        "id": 12543374076,
+        "nome": "Ponto de Ônibus (Sem nome)",
+        "latitude": -1.4503909,
+        "longitude": -48.4845322,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": ""
+    },
+    {
+        "id": 12543374077,
+        "nome": "Ponto de Ônibus (Sem nome)",
+        "latitude": -1.4502707,
+        "longitude": -48.4862692,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": ""
+    },
+    {
+        "id": 12543374078,
+        "nome": "Ponto de Ônibus (Sem nome)",
+        "latitude": -1.4408205,
+        "longitude": -48.4945809,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": ""
+    },
+    {
+        "id": 12543374079,
+        "nome": "Ponto de Ônibus (Sem nome)",
+        "latitude": -1.4414158,
+        "longitude": -48.4947048,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": ""
+    }
+]
