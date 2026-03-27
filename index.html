@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bus Resenha - Protótipo</title>
+    
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+    <style>
+        body, html { margin: 0; padding: 0; height: 100%; font-family: Arial, sans-serif; }
+        #mapa { width: 100vw; height: 100vh; z-index: 1; }
+
+        .card-flutuante {
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: white;
+            padding: 15px 20px;
+            border-radius: 8px;
+            box-shadow: 0px 4px 10px rgba(0,0,0,0.2);
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 80%;
+            max-width: 350px;
+        }
+
+        .info-card h4 { margin: 0; font-size: 12px; color: #666; font-weight: normal;}
+        .info-card h2 { margin: 5px 0 0 0; font-size: 16px; color: #333; }
+        
+        .tempo-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: #009688;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card-flutuante">
+        <div class="info-card">
+            <h4>SENTIDO</h4>
+            <h2>UFPA X CENTRO</h2>
+        </div>
+        <div class="tempo-card">
+            <span>⏱️</span>
+            <span>Seguro</span>
+        </div>
+    </div>
+
+    <div id="mapa"></div>
+
+    <script>
+        var mapa = L.map('mapa', { zoomControl: false }).setView([-1.4500, -48.4800], 14);
+
+        L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+            attribution: '&copy; OpenStreetMap contributors'
+        }).addTo(mapa);
+
+        fetch('banco_de_paradas.json')
+            .then(resposta => resposta.json())
+            .then(dados => {
+                
+                dados.forEach(parada => {
+                    
+                    var pino = L.circleMarker([parada.latitude, parada.longitude], {
+                        color: '#ffffff',
+                        weight: 2,
+                        fillColor: '#009688',
+                        fillOpacity: 1,
+                        radius: 7
+                    }).addTo(mapa);
+                    
+                    // 1. Lógica da Imagem Clicável com a pergunta
+                    var imagemHtml = "";
+                    if (parada.foto_url && parada.foto_url !== "") {
+                        imagemHtml = `
+                            <div style="position: relative;">
+                                <img src="${parada.foto_url}" 
+                                     onclick="if(confirm('Deseja abrir a rota para esta parada no Google Maps?')) { window.open('https://www.google.com/maps/search/?api=1&query=${parada.latitude},${parada.longitude}', '_blank'); }"
+                                     style="width: 100%; border-radius: 8px; margin-bottom: 5px; box-shadow: 0px 2px 5px rgba(0,0,0,0.2); cursor: pointer;"
+                                     title="Clique para abrir no GPS">
+                                <div style="font-size: 10px; color: #666; margin-bottom: 10px;">Clique na foto para abrir o GPS</div>
+                            </div>
+                        `;
+                    }
+
+                    // 2. Lógica para limpar nomes vazios
+                    var nomeExibicao = parada.nome;
+                    if (!nomeExibicao || nomeExibicao === "Ponto de Ônibus (Sem nome)") {
+                        nomeExibicao = "Parada de Ônibus"; // Fica mais profissional que "Sem nome"
+                    }
+
+                    pino.bindPopup(`
+                        <div style="text-align: center; min-width: 180px;">
+                            ${imagemHtml}
+                            <b style="color: #333; font-size: 14px;">${nomeExibicao}</b><br>
+                            <span style="color: #009688; font-weight: bold;">🟢 Seguro e Movimentado</span><br>
+                        </div>
+                    `);
+                });
+            })
+            .catch(erro => console.error("Erro ao carregar as paradas:", erro));
+    </script>
+
+</body>
+</html>

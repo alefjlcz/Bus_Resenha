@@ -1,25 +1,25 @@
 [
     {
         "id": 505204857,
-        "nome": "Ponto de Ônibus (Sem nome)",
+        "nome": "Parada: Avenida Visconde de Souza Franco",
         "latitude": -1.4422035,
         "longitude": -48.4915865,
         "status_clima": "desconhecido",
         "status_lotacao": "verde",
-        "foto_url": ""
+        "foto_url": "fotos/parada_505204857.jpg"
     },
     {
         "id": 505204860,
-        "nome": "Ponto de Ônibus (Sem nome)",
+        "nome": "Parada: Avenida Municipalidade",
         "latitude": -1.4425381,
         "longitude": -48.4922645,
         "status_clima": "desconhecido",
         "status_lotacao": "verde",
-        "foto_url": ""
+        "foto_url": "fotos/parada_505204860.jpg"
     },
     {
         "id": 505204989,
-        "nome": "Ponto de Ônibus (Sem nome)",
+        "nome": "Parada: Avenida Visconde de Souza Franco",
         "latitude": -1.4476836,
         "longitude": -48.4873574,
         "status_clima": "desconhecido",
@@ -28,7 +28,7 @@
     },
     {
         "id": 505204990,
-        "nome": "Ponto de Ônibus (Sem nome)",
+        "nome": "Parada: Avenida Visconde de Souza Franco",
         "latitude": -1.4440603,
         "longitude": -48.4899934,
         "status_clima": "desconhecido",
@@ -37,52 +37,52 @@
     },
     {
         "id": 505204991,
-        "nome": "Ponto de Ônibus (Sem nome)",
+        "nome": "Parada: Avenida Visconde de Souza Franco",
         "latitude": -1.4469913,
         "longitude": -48.4874065,
         "status_clima": "desconhecido",
         "status_lotacao": "verde",
-        "foto_url": ""
+        "foto_url": "fotos/parada_505204991.jpg"
     },
     {
         "id": 1265207264,
-        "nome": "Ponto de Ônibus (Sem nome)",
+        "nome": "Parada: Avenida Governador Magalhães Barata",
         "latitude": -1.452168,
         "longitude": -48.4789183,
         "status_clima": "desconhecido",
         "status_lotacao": "verde",
-        "foto_url": ""
+        "foto_url": "fotos/parada_1265207264.jpg"
     },
     {
         "id": 1295184130,
-        "nome": "Ponto de Ônibus (Sem nome)",
+        "nome": "Parada: Avenida Gentil Bittencourt",
         "latitude": -1.4565871,
         "longitude": -48.4897405,
         "status_clima": "desconhecido",
         "status_lotacao": "verde",
-        "foto_url": ""
+        "foto_url": "fotos/parada_1295184130.jpg"
     },
     {
         "id": 1433736041,
-        "nome": "Ponto de Ônibus (Sem nome)",
+        "nome": "Parada: Avenida Marquês de Herval",
         "latitude": -1.4374692,
         "longitude": -48.4743843,
         "status_clima": "desconhecido",
         "status_lotacao": "verde",
-        "foto_url": ""
+        "foto_url": "fotos/parada_1433736041.jpg"
     },
     {
         "id": 1433736045,
-        "nome": "Ponto de Ônibus (Sem nome)",
+        "nome": "Parada: Vila São João",
         "latitude": -1.4395024,
         "longitude": -48.4711301,
         "status_clima": "desconhecido",
         "status_lotacao": "verde",
-        "foto_url": ""
+        "foto_url": "fotos/parada_1433736045.jpg"
     },
     {
         "id": 1433736050,
-        "nome": "Ponto de Ônibus (Sem nome)",
+        "nome": "Parada: Avenida Marquês de Herval",
         "latitude": -1.4369961,
         "longitude": -48.4744694,
         "status_clima": "desconhecido",
@@ -91,34 +91,34 @@
     },
     {
         "id": 1433736055,
-        "nome": "Ponto de Ônibus (Sem nome)",
+        "nome": "Parada: Avenida Marquês de Herval",
         "latitude": -1.4390184,
         "longitude": -48.4753515,
         "status_clima": "desconhecido",
         "status_lotacao": "verde",
-        "foto_url": ""
+        "foto_url": "fotos/parada_1433736055.jpg"
     },
     {
         "id": 1433736059,
-        "nome": "Ponto de Ônibus (Sem nome)",
+        "nome": "Parada: Travessa Curuzu",
         "latitude": -1.4384735,
         "longitude": -48.4725733,
         "status_clima": "desconhecido",
         "status_lotacao": "verde",
-        "foto_url": ""
+        "foto_url": "fotos/parada_1433736059.jpg"
     },
     {
         "id": 1961442465,
-        "nome": "Ponto de Ônibus (Sem nome)",
+        "nome": "Parada: Avenida Gentil Bittencourt",
         "latitude": -1.4551766,
         "longitude": -48.4816541,
         "status_clima": "desconhecido",
         "status_lotacao": "verde",
-        "foto_url": ""
+        "foto_url": "fotos/parada_1961442465.jpg"
     },
     {
         "id": 1961443940,
-        "nome": "Ponto de Ônibus (Sem nome)",
+        "nome": "Parada: Rua Boaventura da Silva",
         "latitude": -1.4478155,
         "longitude": -48.4841694,
         "status_clima": "desconhecido",
@@ -127,43 +127,43 @@
     },
     {
         "id": 1961443941,
-        "nome": "Ponto de Ônibus (Sem nome)",
+        "nome": "Parada: Rua Boaventura da Silva",
         "latitude": -1.4488822,
         "longitude": -48.4874691,
         "status_clima": "desconhecido",
         "status_lotacao": "verde",
-        "foto_url": ""
+        "foto_url": "fotos/parada_1961443941.jpg"
     },
     {
         "id": 1961443942,
-        "nome": "Ponto de Ônibus (Sem nome)",
+        "nome": "Parada: Travessa Dom Romualdo de Seixas",
         "latitude": -1.4451572,
         "longitude": -48.4835503,
         "status_clima": "desconhecido",
         "status_lotacao": "verde",
-        "foto_url": ""
+        "foto_url": "fotos/parada_1961443942.jpg"
     },
     {
         "id": 2632563626,
-        "nome": "Ponto de Ônibus (Sem nome)",
+        "nome": "Parada: Avenida Gentil Bittencourt",
         "latitude": -1.4554723,
         "longitude": -48.4835319,
         "status_clima": "desconhecido",
         "status_lotacao": "verde",
-        "foto_url": ""
+        "foto_url": "fotos/parada_2632563626.jpg"
     },
     {
         "id": 3374278369,
-        "nome": "Ponto de Ônibus (Sem nome)",
+        "nome": "Parada: Travessa Padre Eutíquio",
         "latitude": -1.4637885,
         "longitude": -48.4862845,
         "status_clima": "desconhecido",
         "status_lotacao": "verde",
-        "foto_url": ""
+        "foto_url": "fotos/parada_3374278369.jpg"
     },
     {
         "id": 3374278370,
-        "nome": "Ponto de Ônibus (Sem nome)",
+        "nome": "Parada: Travessa dos Apinagés",
         "latitude": -1.4645128,
         "longitude": -48.4878502,
         "status_clima": "desconhecido",
@@ -172,88 +172,88 @@
     },
     {
         "id": 3374398324,
-        "nome": "Ponto de Ônibus (Sem nome)",
+        "nome": "Parada: Travessa Padre Eutíquio",
         "latitude": -1.4629815,
         "longitude": -48.4873697,
         "status_clima": "desconhecido",
         "status_lotacao": "verde",
-        "foto_url": ""
+        "foto_url": "fotos/parada_3374398324.jpg"
     },
     {
         "id": 3374398325,
-        "nome": "Ponto de Ônibus (Sem nome)",
+        "nome": "Parada: Travessa Padre Eutíquio",
         "latitude": -1.4612996,
         "longitude": -48.4896107,
         "status_clima": "desconhecido",
         "status_lotacao": "verde",
-        "foto_url": ""
+        "foto_url": "fotos/parada_3374398325.jpg"
     },
     {
         "id": 3374398326,
-        "nome": "Ponto de Ônibus (Sem nome)",
+        "nome": "Parada: Travessa Padre Eutíquio",
         "latitude": -1.4598085,
         "longitude": -48.4916425,
         "status_clima": "desconhecido",
         "status_lotacao": "verde",
-        "foto_url": ""
+        "foto_url": "fotos/parada_3374398326.jpg"
     },
     {
         "id": 3374398327,
-        "nome": "Ponto de Ônibus (Sem nome)",
+        "nome": "Parada: Travessa Padre Eutíquio",
         "latitude": -1.4570389,
         "longitude": -48.4951367,
         "status_clima": "desconhecido",
         "status_lotacao": "verde",
-        "foto_url": ""
+        "foto_url": "fotos/parada_3374398327.jpg"
     },
     {
         "id": 3605648415,
-        "nome": "Ponto de Ônibus (Sem nome)",
+        "nome": "Parada: Travessa Padre Eutíquio",
         "latitude": -1.4646416,
         "longitude": -48.4851411,
         "status_clima": "desconhecido",
         "status_lotacao": "verde",
-        "foto_url": ""
+        "foto_url": "fotos/parada_3605648415.jpg"
     },
     {
         "id": 3655819027,
-        "nome": "Ponto de Ônibus (Sem nome)",
+        "nome": "Parada: Rua Gama Abreu",
         "latitude": -1.4550188,
         "longitude": -48.4934819,
         "status_clima": "desconhecido",
         "status_lotacao": "verde",
-        "foto_url": ""
+        "foto_url": "fotos/parada_3655819027.jpg"
     },
     {
         "id": 3655819028,
-        "nome": "Ponto de Ônibus (Sem nome)",
+        "nome": "Parada: Rua Gama Abreu",
         "latitude": -1.4566093,
         "longitude": -48.4954137,
         "status_clima": "desconhecido",
         "status_lotacao": "verde",
-        "foto_url": ""
+        "foto_url": "fotos/parada_3655819028.jpg"
     },
     {
         "id": 3658377322,
-        "nome": "Ponto de Ônibus (Sem nome)",
+        "nome": "Parada: Avenida Marquês de Herval",
         "latitude": -1.4350438,
         "longitude": -48.472738,
         "status_clima": "desconhecido",
         "status_lotacao": "verde",
-        "foto_url": ""
+        "foto_url": "fotos/parada_3658377322.jpg"
     },
     {
         "id": 3658381131,
-        "nome": "Ponto de Ônibus (Sem nome)",
+        "nome": "Parada: Travessa Humaitá",
         "latitude": -1.4350063,
         "longitude": -48.4723008,
         "status_clima": "desconhecido",
         "status_lotacao": "verde",
-        "foto_url": ""
+        "foto_url": "fotos/parada_3658381131.jpg"
     },
     {
         "id": 3667328736,
-        "nome": "Ponto de Ônibus (Sem nome)",
+        "nome": "Parada: Avenida Governador Magalhães Barata",
         "latitude": -1.4518525,
         "longitude": -48.4746215,
         "status_clima": "desconhecido",
@@ -262,79 +262,79 @@
     },
     {
         "id": 3957398663,
-        "nome": "Ponto de Ônibus (Sem nome)",
+        "nome": "Parada: Travessa São Pedro",
         "latitude": -1.4582283,
         "longitude": -48.4962421,
         "status_clima": "desconhecido",
         "status_lotacao": "verde",
-        "foto_url": ""
+        "foto_url": "fotos/parada_3957398663.jpg"
     },
     {
         "id": 3957418936,
-        "nome": "Ponto de Ônibus (Sem nome)",
+        "nome": "Parada: Travessa Castelo Branco",
         "latitude": -1.4637787,
         "longitude": -48.4706726,
         "status_clima": "desconhecido",
         "status_lotacao": "verde",
-        "foto_url": ""
+        "foto_url": "fotos/parada_3957418936.jpg"
     },
     {
         "id": 4241001630,
-        "nome": "Ponto de Ônibus (Sem nome)",
+        "nome": "Parada: Avenida 16 de Novembro",
         "latitude": -1.4618766,
         "longitude": -48.4971685,
         "status_clima": "desconhecido",
         "status_lotacao": "verde",
-        "foto_url": ""
+        "foto_url": "fotos/parada_4241001630.jpg"
     },
     {
         "id": 4375122725,
-        "nome": "Ponto de Ônibus (Sem nome)",
+        "nome": "Parada: Avenida Generalíssimo Deodoro",
         "latitude": -1.4495452,
         "longitude": -48.4828448,
         "status_clima": "desconhecido",
         "status_lotacao": "verde",
-        "foto_url": ""
+        "foto_url": "fotos/parada_4375122725.jpg"
     },
     {
         "id": 4375122743,
-        "nome": "Ponto de Ônibus (Sem nome)",
+        "nome": "Parada: Travessa Quintino Bocaiuva",
         "latitude": -1.4573537,
         "longitude": -48.4851934,
         "status_clima": "desconhecido",
         "status_lotacao": "verde",
-        "foto_url": ""
+        "foto_url": "fotos/parada_4375122743.jpg"
     },
     {
         "id": 4375122751,
-        "nome": "Ponto de Ônibus (Sem nome)",
+        "nome": "Parada: Avenida Engenheiro Fernando Guilhon",
         "latitude": -1.4643071,
         "longitude": -48.485302,
         "status_clima": "desconhecido",
         "status_lotacao": "verde",
-        "foto_url": ""
+        "foto_url": "fotos/parada_4375122751.jpg"
     },
     {
         "id": 4392561724,
-        "nome": "Ponto de Ônibus (Sem nome)",
+        "nome": "Parada: Avenida Almirante Tamandaré",
         "latitude": -1.4572487,
         "longitude": -48.4968329,
         "status_clima": "desconhecido",
         "status_lotacao": "verde",
-        "foto_url": ""
+        "foto_url": "fotos/parada_4392561724.jpg"
     },
     {
         "id": 4531008189,
-        "nome": "Ponto de Ônibus (Sem nome)",
+        "nome": "Parada: Rua Cônego Jerônimo Pimentel",
         "latitude": -1.4426418,
         "longitude": -48.4882014,
         "status_clima": "desconhecido",
         "status_lotacao": "verde",
-        "foto_url": ""
+        "foto_url": "fotos/parada_4531008189.jpg"
     },
     {
         "id": 4531008190,
-        "nome": "Ponto de Ônibus (Sem nome)",
+        "nome": "Parada: Rua Cônego Jerônimo Pimentel",
         "latitude": -1.4409763,
         "longitude": -48.4872435,
         "status_clima": "desconhecido",
@@ -343,7 +343,7 @@
     },
     {
         "id": 4905034724,
-        "nome": "Ponto de Ônibus (Sem nome)",
+        "nome": "Parada: Rua Bernal do Couto",
         "latitude": -1.4449965,
         "longitude": -48.4887788,
         "status_clima": "desconhecido",
@@ -352,21 +352,21 @@
     },
     {
         "id": 4905044042,
-        "nome": "Ponto de Ônibus (Sem nome)",
+        "nome": "Parada: Avenida Nossa Senhora de Nazaré",
         "latitude": -1.4537461,
         "longitude": -48.4915736,
         "status_clima": "desconhecido",
         "status_lotacao": "verde",
-        "foto_url": ""
+        "foto_url": "fotos/parada_4905044042.jpg"
     },
     {
         "id": 5256971232,
-        "nome": "Ponto de Ônibus (Sem nome)",
+        "nome": "Parada: Rua Municipalidade",
         "latitude": -1.4472549,
         "longitude": -48.4971392,
         "status_clima": "desconhecido",
         "status_lotacao": "verde",
-        "foto_url": ""
+        "foto_url": "fotos/parada_5256971232.jpg"
     },
     {
         "id": 6211167885,
@@ -375,74 +375,74 @@
         "longitude": -48.4977671,
         "status_clima": "desconhecido",
         "status_lotacao": "verde",
-        "foto_url": ""
+        "foto_url": "fotos/parada_6211167885.jpg"
     },
     {
         "id": 11347216393,
-        "nome": "Ponto de Ônibus (Sem nome)",
+        "nome": "Parada: Rua Municipalidade",
         "latitude": -1.4472549,
         "longitude": -48.4971392,
         "status_clima": "desconhecido",
         "status_lotacao": "verde",
-        "foto_url": ""
+        "foto_url": "fotos/parada_11347216393.jpg"
     },
     {
         "id": 12388035328,
-        "nome": "Ponto de Ônibus (Sem nome)",
+        "nome": "Parada: Avenida Pedro Álvares Cabral",
         "latitude": -1.4397624,
         "longitude": -48.4926645,
         "status_clima": "desconhecido",
         "status_lotacao": "verde",
-        "foto_url": ""
+        "foto_url": "fotos/parada_12388035328.jpg"
     },
     {
         "id": 12388056543,
-        "nome": "Ponto de Ônibus (Sem nome)",
+        "nome": "Parada: Avenida Pedro Álvares Cabral",
         "latitude": -1.4373165,
         "longitude": -48.4920055,
         "status_clima": "desconhecido",
         "status_lotacao": "verde",
-        "foto_url": ""
+        "foto_url": "fotos/parada_12388056543.jpg"
     },
     {
         "id": 12388081679,
-        "nome": "Ponto de Ônibus (Sem nome)",
+        "nome": "Parada: Avenida Pedro Álvares Cabral",
         "latitude": -1.4405411,
         "longitude": -48.4933394,
         "status_clima": "desconhecido",
         "status_lotacao": "verde",
-        "foto_url": ""
+        "foto_url": "fotos/parada_12388081679.jpg"
     },
     {
         "id": 12388081947,
-        "nome": "Ponto de Ônibus (Sem nome)",
+        "nome": "Parada: Avenida Pedro Álvares Cabral",
         "latitude": -1.4394894,
         "longitude": -48.4927662,
         "status_clima": "desconhecido",
         "status_lotacao": "verde",
-        "foto_url": ""
+        "foto_url": "fotos/parada_12388081947.jpg"
     },
     {
         "id": 12542157668,
-        "nome": "Ponto de Ônibus (Sem nome)",
+        "nome": "Parada: Travessa Quintino Bocaiuva",
         "latitude": -1.4528473,
         "longitude": -48.4862345,
         "status_clima": "desconhecido",
         "status_lotacao": "verde",
-        "foto_url": ""
+        "foto_url": "fotos/parada_12542157668.jpg"
     },
     {
         "id": 12542157669,
-        "nome": "Ponto de Ônibus (Sem nome)",
+        "nome": "Parada: Avenida Gentil Bittencourt",
         "latitude": -1.4561965,
         "longitude": -48.4887144,
         "status_clima": "desconhecido",
         "status_lotacao": "verde",
-        "foto_url": ""
+        "foto_url": "fotos/parada_12542157669.jpg"
     },
     {
         "id": 12542157670,
-        "nome": "Ponto de Ônibus (Sem nome)",
+        "nome": "Parada: Avenida Nossa Senhora de Nazaré",
         "latitude": -1.4522483,
         "longitude": -48.4819567,
         "status_clima": "desconhecido",
@@ -451,128 +451,812 @@
     },
     {
         "id": 12542157671,
-        "nome": "Ponto de Ônibus (Sem nome)",
+        "nome": "Parada: Avenida Presidente Vargas",
         "latitude": -1.4508392,
         "longitude": -48.4969849,
         "status_clima": "desconhecido",
         "status_lotacao": "verde",
-        "foto_url": ""
+        "foto_url": "fotos/parada_12542157671.jpg"
     },
     {
         "id": 12542157672,
-        "nome": "Ponto de Ônibus (Sem nome)",
+        "nome": "Parada: Avenida Presidente Vargas",
         "latitude": -1.4531116,
         "longitude": -48.4947029,
         "status_clima": "desconhecido",
         "status_lotacao": "verde",
-        "foto_url": ""
+        "foto_url": "fotos/parada_12542157672.jpg"
     },
     {
         "id": 12542157673,
-        "nome": "Ponto de Ônibus (Sem nome)",
+        "nome": "Parada: Travessa Francisco Caldeira Castelo Branco",
         "latitude": -1.4560304,
         "longitude": -48.4707426,
         "status_clima": "desconhecido",
         "status_lotacao": "verde",
-        "foto_url": ""
+        "foto_url": "fotos/parada_12542157673.jpg"
     },
     {
         "id": 12542157674,
-        "nome": "Ponto de Ônibus (Sem nome)",
+        "nome": "Parada: Travessa Castelo Branco",
         "latitude": -1.4596734,
         "longitude": -48.4706789,
         "status_clima": "desconhecido",
         "status_lotacao": "verde",
-        "foto_url": ""
+        "foto_url": "fotos/parada_12542157674.jpg"
     },
     {
         "id": 12542157685,
-        "nome": "Ponto de Ônibus (Sem nome)",
+        "nome": "Parada: Travessa Francisco Caldeira Castelo Branco",
         "latitude": -1.4543915,
         "longitude": -48.4707605,
         "status_clima": "desconhecido",
         "status_lotacao": "verde",
-        "foto_url": ""
+        "foto_url": "fotos/parada_12542157685.jpg"
     },
     {
         "id": 12543374071,
-        "nome": "Ponto de Ônibus (Sem nome)",
+        "nome": "Parada: Avenida Governador José Malcher",
         "latitude": -1.4483243,
         "longitude": -48.4707663,
         "status_clima": "desconhecido",
         "status_lotacao": "verde",
-        "foto_url": ""
+        "foto_url": "fotos/parada_12543374071.jpg"
     },
     {
         "id": 12543374072,
-        "nome": "Ponto de Ônibus (Sem nome)",
+        "nome": "Parada: Avenida Governador José Malcher",
         "latitude": -1.4483299,
         "longitude": -48.4739704,
         "status_clima": "desconhecido",
         "status_lotacao": "verde",
-        "foto_url": ""
+        "foto_url": "fotos/parada_12543374072.jpg"
     },
     {
         "id": 12543374073,
-        "nome": "Ponto de Ônibus (Sem nome)",
+        "nome": "Parada: Avenida Governador José Malcher",
         "latitude": -1.4483989,
         "longitude": -48.4775452,
         "status_clima": "desconhecido",
         "status_lotacao": "verde",
-        "foto_url": ""
+        "foto_url": "fotos/parada_12543374073.jpg"
     },
     {
         "id": 12543374074,
-        "nome": "Ponto de Ônibus (Sem nome)",
+        "nome": "Parada: Avenida Governador José Malcher",
         "latitude": -1.4497035,
         "longitude": -48.4820942,
         "status_clima": "desconhecido",
         "status_lotacao": "verde",
-        "foto_url": ""
+        "foto_url": "fotos/parada_12543374074.jpg"
     },
     {
         "id": 12543374075,
-        "nome": "Ponto de Ônibus (Sem nome)",
+        "nome": "Parada: Avenida Governador José Malcher",
         "latitude": -1.4489329,
         "longitude": -48.479758,
         "status_clima": "desconhecido",
         "status_lotacao": "verde",
-        "foto_url": ""
+        "foto_url": "fotos/parada_12543374075.jpg"
     },
     {
         "id": 12543374076,
-        "nome": "Ponto de Ônibus (Sem nome)",
+        "nome": "Parada: Avenida Governador José Malcher",
         "latitude": -1.4503909,
         "longitude": -48.4845322,
         "status_clima": "desconhecido",
         "status_lotacao": "verde",
-        "foto_url": ""
+        "foto_url": "fotos/parada_12543374076.jpg"
     },
     {
         "id": 12543374077,
-        "nome": "Ponto de Ônibus (Sem nome)",
+        "nome": "Parada: Avenida Visconde Souza Franco",
         "latitude": -1.4502707,
         "longitude": -48.4862692,
         "status_clima": "desconhecido",
         "status_lotacao": "verde",
-        "foto_url": ""
+        "foto_url": "fotos/parada_12543374077.jpg"
     },
     {
         "id": 12543374078,
-        "nome": "Ponto de Ônibus (Sem nome)",
+        "nome": "Parada: Avenida Marechal Hérmes",
         "latitude": -1.4408205,
         "longitude": -48.4945809,
         "status_clima": "desconhecido",
         "status_lotacao": "verde",
-        "foto_url": ""
+        "foto_url": "fotos/parada_12543374078.jpg"
     },
     {
         "id": 12543374079,
-        "nome": "Ponto de Ônibus (Sem nome)",
+        "nome": "Parada: Avenida Marechal Hérmes",
         "latitude": -1.4414158,
         "longitude": -48.4947048,
         "status_clima": "desconhecido",
         "status_lotacao": "verde",
-        "foto_url": ""
+        "foto_url": "fotos/parada_12543374079.jpg"
+    },
+    {
+        "id": 3605648417,
+        "nome": "Parada: Avenida Perimetral da Ciência",
+        "latitude": -1.4720755,
+        "longitude": -48.4558972,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_3605648417.jpg"
+    },
+    {
+        "id": 3605648419,
+        "nome": "Parada: Rua Augusto Corrêa",
+        "latitude": -1.4759296,
+        "longitude": -48.4594663,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_3605648419.jpg"
+    },
+    {
+        "id": 3605648420,
+        "nome": "Parada: Rua Augusto Corrêa",
+        "latitude": -1.4759093,
+        "longitude": -48.4596145,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_3605648420.jpg"
+    },
+    {
+        "id": 3655819032,
+        "nome": "Parada: Avenida Bernardo Sayão",
+        "latitude": -1.4744696,
+        "longitude": -48.4704674,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_3655819032.jpg"
+    },
+    {
+        "id": 3655819033,
+        "nome": "Parada: Avenida Bernardo Sayão",
+        "latitude": -1.4745855,
+        "longitude": -48.4714792,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_3655819033.jpg"
+    },
+    {
+        "id": 3655819034,
+        "nome": "Parada: Avenida Bernardo Sayão",
+        "latitude": -1.4750905,
+        "longitude": -48.4738605,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_3655819034.jpg"
+    },
+    {
+        "id": 3763227786,
+        "nome": "Parada: Avenida Perimetral da Ciência",
+        "latitude": -1.4723115,
+        "longitude": -48.4562105,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_3763227786.jpg"
+    },
+    {
+        "id": 3957418921,
+        "nome": "Parada: Rua Barão de Igarapé Miri",
+        "latitude": -1.4672161,
+        "longitude": -48.4626099,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_3957418921.jpg"
+    },
+    {
+        "id": 3957418922,
+        "nome": "Parada: Avenida José Bonifácio",
+        "latitude": -1.4608962,
+        "longitude": -48.4688809,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_3957418922.jpg"
+    },
+    {
+        "id": 3957418923,
+        "nome": "Parada: Avenida José Bonifácio",
+        "latitude": -1.4603493,
+        "longitude": -48.4687117,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_3957418923.jpg"
+    },
+    {
+        "id": 3957418924,
+        "nome": "Parada: Rua Augusto Corrêa",
+        "latitude": -1.4681342,
+        "longitude": -48.4584723,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_3957418924.jpg"
+    },
+    {
+        "id": 3957418925,
+        "nome": "Parada: Rua Barão de Igarapé Miri",
+        "latitude": -1.4673448,
+        "longitude": -48.4678938,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_3957418925.jpg"
+    },
+    {
+        "id": 3957418926,
+        "nome": "Parada: Rua Barão de Igarapé Miri",
+        "latitude": -1.4671732,
+        "longitude": -48.4607323,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_3957418926.jpg"
+    },
+    {
+        "id": 3957418927,
+        "nome": "Parada: Rua Barão de Igarapé Miri",
+        "latitude": -1.467318,
+        "longitude": -48.4654852,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_3957418927.jpg"
+    },
+    {
+        "id": 3957418928,
+        "nome": "Parada: Rua Augusto Corrêa",
+        "latitude": -1.4678918,
+        "longitude": -48.4582647,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_3957418928.jpg"
+    },
+    {
+        "id": 3957418930,
+        "nome": "Parada: Avenida José Bonifácio",
+        "latitude": -1.4636714,
+        "longitude": -48.4688192,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_3957418930.jpg"
+    },
+    {
+        "id": 3957418931,
+        "nome": "Parada: Rua Barão de Igarapé Miri",
+        "latitude": -1.4674044,
+        "longitude": -48.4584723,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_3957418931.jpg"
+    },
+    {
+        "id": 3957418932,
+        "nome": "Parada: Rua Augusto Corrêa",
+        "latitude": -1.4719138,
+        "longitude": -48.4588441,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_3957418932.jpg"
+    },
+    {
+        "id": 3957418933,
+        "nome": "Parada: Avenida José Bonifácio",
+        "latitude": -1.4664922,
+        "longitude": -48.4686261,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_3957418933.jpg"
+    },
+    {
+        "id": 3957418934,
+        "nome": "Parada: Rua Barão de Igarapé Miri",
+        "latitude": -1.4674628,
+        "longitude": -48.4667512,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_3957418934.jpg"
+    },
+    {
+        "id": 3957418937,
+        "nome": "Parada: Avenida Perimetral da Ciência",
+        "latitude": -1.4713776,
+        "longitude": -48.4582969,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_3957418937.jpg"
+    },
+    {
+        "id": 3957418938,
+        "nome": "Parada: Avenida José Bonifácio",
+        "latitude": -1.4567268,
+        "longitude": -48.4688165,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_3957418938.jpg"
+    },
+    {
+        "id": 3957418939,
+        "nome": "Parada: Avenida José Bonifácio",
+        "latitude": -1.4624755,
+        "longitude": -48.4686931,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_3957418939.jpg"
+    },
+    {
+        "id": 3957418940,
+        "nome": "Parada: Avenida José Bonifácio",
+        "latitude": -1.4669695,
+        "longitude": -48.4687468,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_3957418940.jpg"
+    },
+    {
+        "id": 3957418941,
+        "nome": "Parada: Avenida José Bonifácio",
+        "latitude": -1.4581345,
+        "longitude": -48.4687951,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_3957418941.jpg"
+    },
+    {
+        "id": 3957418942,
+        "nome": "Parada: Rua Barão de Igarapé Miri",
+        "latitude": -1.4673448,
+        "longitude": -48.4604856,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_3957418942.jpg"
+    },
+    {
+        "id": 4403115724,
+        "nome": "Parada: Rua Lgarapé Tucunduba",
+        "latitude": -1.4728408,
+        "longitude": -48.4585666,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_4403115724.jpg"
+    },
+    {
+        "id": 5203438229,
+        "nome": "Parada: Avenida Perimetral da Ciência",
+        "latitude": -1.4550228,
+        "longitude": -48.4460066,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_5203438229.jpg"
+    },
+    {
+        "id": 5203438230,
+        "nome": "Parada de Ônibus",
+        "latitude": -1.4552769,
+        "longitude": -48.4462091,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_5203438230.jpg"
+    },
+    {
+        "id": 5429874371,
+        "nome": "Parada: Estrada da UFPA",
+        "latitude": -1.4685203,
+        "longitude": -48.4482881,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_5429874371.jpg"
+    },
+    {
+        "id": 5429874374,
+        "nome": "Parada: Rua Lgarapé Tucunduba",
+        "latitude": -1.4731845,
+        "longitude": -48.4558962,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_5429874374.jpg"
+    },
+    {
+        "id": 5429874376,
+        "nome": "Parada: Calçadão",
+        "latitude": -1.4744822,
+        "longitude": -48.4557769,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_5429874376.jpg"
+    },
+    {
+        "id": 5429874378,
+        "nome": "Parada: Rua do Chalé de Ferro",
+        "latitude": -1.4758845,
+        "longitude": -48.4555851,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_5429874378.jpg"
+    },
+    {
+        "id": 5429874386,
+        "nome": "Parada: Estrada da Ufra",
+        "latitude": -1.4673821,
+        "longitude": -48.4474942,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_5429874386.jpg"
+    },
+    {
+        "id": 5429874388,
+        "nome": "Parada: Estrada da UFPA",
+        "latitude": -1.4674665,
+        "longitude": -48.4475338,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_5429874388.jpg"
+    },
+    {
+        "id": 5429874390,
+        "nome": "Parada: Estrada da UFPA",
+        "latitude": -1.4685444,
+        "longitude": -48.4481728,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_5429874390.jpg"
+    },
+    {
+        "id": 5429874392,
+        "nome": "Parada: Rua do Betina",
+        "latitude": -1.4696438,
+        "longitude": -48.4464696,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_5429874392.jpg"
+    },
+    {
+        "id": 5429874396,
+        "nome": "Parada: Rua do Chalé de Ferro",
+        "latitude": -1.4764597,
+        "longitude": -48.4548783,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_5429874396.jpg"
+    },
+    {
+        "id": 5429874397,
+        "nome": "Parada: Rua do NEB",
+        "latitude": -1.471606,
+        "longitude": -48.4498256,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_5429874397.jpg"
+    },
+    {
+        "id": 5429874399,
+        "nome": "Parada: Calçadão",
+        "latitude": -1.4715287,
+        "longitude": -48.44999,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_5429874399.jpg"
+    },
+    {
+        "id": 5429874401,
+        "nome": "Parada: Calçadão",
+        "latitude": -1.4727414,
+        "longitude": -48.4514548,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_5429874401.jpg"
+    },
+    {
+        "id": 5429874403,
+        "nome": "Parada: PORTÃO 3 AO ITEC B - (PCD)",
+        "latitude": -1.4729207,
+        "longitude": -48.4516064,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_5429874403.jpg"
+    },
+    {
+        "id": 5429874405,
+        "nome": "Parada: Calçadão",
+        "latitude": -1.4732517,
+        "longitude": -48.4540454,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_5429874405.jpg"
+    },
+    {
+        "id": 5429874406,
+        "nome": "Parada: Rua do Chalé de Ferro",
+        "latitude": -1.4753067,
+        "longitude": -48.4542004,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_5429874406.jpg"
+    },
+    {
+        "id": 5429874408,
+        "nome": "Parada: Rua do Chalé de Ferro",
+        "latitude": -1.4754521,
+        "longitude": -48.4539999,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_5429874408.jpg"
+    },
+    {
+        "id": 5429874409,
+        "nome": "Parada: Rua do Chalé de Ferro",
+        "latitude": -1.4765334,
+        "longitude": -48.4548736,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_5429874409.jpg"
+    },
+    {
+        "id": 5429874411,
+        "nome": "Parada: Rua Lgarapé Tucunduba",
+        "latitude": -1.4778191,
+        "longitude": -48.4566888,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_5429874411.jpg"
+    },
+    {
+        "id": 5429874413,
+        "nome": "Parada: Rua Lgarapé Tucunduba",
+        "latitude": -1.4775537,
+        "longitude": -48.4580105,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_5429874413.jpg"
+    },
+    {
+        "id": 5429874415,
+        "nome": "Parada: Rua Lgarapé Tucunduba",
+        "latitude": -1.4769892,
+        "longitude": -48.4582546,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_5429874415.jpg"
+    },
+    {
+        "id": 5429874417,
+        "nome": "Parada: Rua Lgarapé Tucunduba",
+        "latitude": -1.4750909,
+        "longitude": -48.4583665,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_5429874417.jpg"
+    },
+    {
+        "id": 5432096614,
+        "nome": "Parada: Rua Lgarapé Tucunduba",
+        "latitude": -1.4723666,
+        "longitude": -48.4572715,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_5432096614.jpg"
+    },
+    {
+        "id": 9689044356,
+        "nome": "Parada: Travessa Guerra Passos",
+        "latitude": -1.4555473,
+        "longitude": -48.462122,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_9689044356.jpg"
+    },
+    {
+        "id": 9689044357,
+        "nome": "Parada: Avenida Conselheiro Furtado",
+        "latitude": -1.455794,
+        "longitude": -48.4649728,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_9689044357.jpg"
+    },
+    {
+        "id": 9689044359,
+        "nome": "Parada: Travessa Guerra Passos",
+        "latitude": -1.4555117,
+        "longitude": -48.4620084,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_9689044359.jpg"
+    },
+    {
+        "id": 9689044361,
+        "nome": "Parada: Travessa Teófilo Conduru",
+        "latitude": -1.4556091,
+        "longitude": -48.4607163,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_9689044361.jpg"
+    },
+    {
+        "id": 9694079884,
+        "nome": "Parada: Rua dos Mundurucus",
+        "latitude": -1.4571091,
+        "longitude": -48.4631159,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_9694079884.jpg"
+    },
+    {
+        "id": 9694079889,
+        "nome": "Parada: Travessa Guerra Passos",
+        "latitude": -1.4568297,
+        "longitude": -48.4618891,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_9694079889.jpg"
+    },
+    {
+        "id": 9694079890,
+        "nome": "Parada: Rua dos Mundurucus",
+        "latitude": -1.4569455,
+        "longitude": -48.4608992,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_9694079890.jpg"
+    },
+    {
+        "id": 9694079892,
+        "nome": "Parada: Passagem Napoleão Laureano",
+        "latitude": -1.4599377,
+        "longitude": -48.4603768,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_9694079892.jpg"
+    },
+    {
+        "id": 9694079894,
+        "nome": "Parada: Passagem Brasília",
+        "latitude": -1.4599902,
+        "longitude": -48.460471,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_9694079894.jpg"
+    },
+    {
+        "id": 9694079895,
+        "nome": "Parada: Passagem Napoleão Laureano",
+        "latitude": -1.4600158,
+        "longitude": -48.4598215,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_9694079895.jpg"
+    },
+    {
+        "id": 9694110023,
+        "nome": "Parada: Passagem Napoleão Laureano",
+        "latitude": -1.4598241,
+        "longitude": -48.4613357,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_9694110023.jpg"
+    },
+    {
+        "id": 9694110024,
+        "nome": "Parada: Travessa Guerra Passos",
+        "latitude": -1.4596619,
+        "longitude": -48.4615328,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_9694110024.jpg"
+    },
+    {
+        "id": 9694110025,
+        "nome": "Parada: Passagem Rosa",
+        "latitude": -1.4578227,
+        "longitude": -48.4616328,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_9694110025.jpg"
+    },
+    {
+        "id": 12334638449,
+        "nome": "Parada: Avenida José Bonifácio",
+        "latitude": -1.4655886,
+        "longitude": -48.4686262,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_12334638449.jpg"
+    },
+    {
+        "id": 12334638450,
+        "nome": "Parada: Avenida José Bonifácio",
+        "latitude": -1.4646105,
+        "longitude": -48.4687707,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_12334638450.jpg"
+    },
+    {
+        "id": 12542157675,
+        "nome": "Parada: Avenida José Bonifácio",
+        "latitude": -1.4613538,
+        "longitude": -48.4688454,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_12542157675.jpg"
+    },
+    {
+        "id": 12542157676,
+        "nome": "Parada: Avenida José Bonifácio",
+        "latitude": -1.4692617,
+        "longitude": -48.4686675,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_12542157676.jpg"
+    },
+    {
+        "id": 12542157677,
+        "nome": "Parada: Avenida José Bonifácio",
+        "latitude": -1.4690508,
+        "longitude": -48.4685612,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_12542157677.jpg"
+    },
+    {
+        "id": 12542157678,
+        "nome": "Parada: Avenida José Bonifácio",
+        "latitude": -1.4716774,
+        "longitude": -48.4686099,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_12542157678.jpg"
+    },
+    {
+        "id": 12542157679,
+        "nome": "Parada: Avenida José Bonifácio",
+        "latitude": -1.4730165,
+        "longitude": -48.4685007,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_12542157679.jpg"
+    },
+    {
+        "id": 12542157680,
+        "nome": "Parada: Avenida José Bonifácio",
+        "latitude": -1.4738625,
+        "longitude": -48.46863,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_12542157680.jpg"
+    },
+    {
+        "id": 12542157681,
+        "nome": "Parada: Passagem Monte Serrat",
+        "latitude": -1.4748068,
+        "longitude": -48.4665046,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_12542157681.jpg"
+    },
+    {
+        "id": 12542157682,
+        "nome": "Parada: Avenida Bernardo Sayão",
+        "latitude": -1.4759224,
+        "longitude": -48.4608489,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_12542157682.jpg"
+    },
+    {
+        "id": 12542157683,
+        "nome": "Parada: Avenida Bernardo Sayão",
+        "latitude": -1.4751727,
+        "longitude": -48.4641051,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_12542157683.jpg"
+    },
+    {
+        "id": 12542157684,
+        "nome": "Parada: Avenida Bernardo Sayão",
+        "latitude": -1.4754184,
+        "longitude": -48.4642889,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_12542157684.jpg"
     }
 ]
