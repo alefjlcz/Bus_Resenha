@@ -2,7 +2,7 @@ import json
 import requests
 import time
 
-ARQUIVO = "banco_de_paradas.json"
+ARQUIVO = "../banco_de_paradas.json"
 
 # Lendo o seu banco de dados atual
 with open(ARQUIVO, 'r', encoding='utf-8') as f:

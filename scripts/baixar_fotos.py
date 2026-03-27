@@ -5,8 +5,8 @@ import time
 
 # 1. Configurações Iniciais
 API_KEY = "AIzaSyBJSM8NS_YU3qHBKdWwmwDf7F-NgTsPDvg"
-ARQUIVO_JSON = "banco_de_paradas.json"
-PASTA_FOTOS = "fotos"
+ARQUIVO_JSON = "../banco_de_paradas.json"
+PASTA_FOTOS = "../fotos"
 
 # Criar a pasta "fotos" caso ela ainda não exista
 if not os.path.exists(PASTA_FOTOS):
