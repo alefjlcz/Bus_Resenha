@@ -1,11 +1,11 @@
 import requests
 import json
 
-# URL da Overpass API (Usando o servidor da França que é mais rápido e seguro)
+# Usando o servidor da França pois é mais rápida e está funcionando
 url = "https://overpass.openstreetmap.fr/api/interpreter"
 
-# Coordenadas do "quadrado" (Nazaré, Batista Campos e Umarizal)
-# ATENÇÃO: Os números devem ser grudados pela vírgula, sem espaços!
+# Coordenadas do "quadrado" (Nazaré, Batista Campos, Umarizal etc... )
+# Os números devem ser grudados pela vírgula, sem espaços, pois dá erro na hora da busca!
 query = """
 [out:json][timeout:25];
 (
@@ -14,11 +14,10 @@ query = """
 out body;
 """
 
-print("Iniciando a varredura em Nazaré, Batista Campos e Umarizal...")
 print("Buscando pontos de ônibus no OpenStreetMap. Aguarde...")
 
 try:
-    # O Python envia a nossa pesquisa com o nosso "crachá" para não ser bloqueado
+    # O Python envia a nossa pesquisa para não ser bloqueado
     cabecalho = {'User-Agent': 'BusResenhaApp/1.0'}
     resposta = requests.post(url, data={'data': query}, headers=cabecalho)
     
@@ -49,7 +48,6 @@ try:
         }
         paradas_limpas.append(parada)
 
-    # ⚠️ A MÁGICA DO DIRETÓRIO AQUI: O '../' manda ele salvar na raiz do projeto!
     caminho_arquivo = '../banco_de_paradas.json'
     
     with open(caminho_arquivo, 'w', encoding='utf-8') as arquivo:

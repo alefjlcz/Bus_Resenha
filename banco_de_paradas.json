@@ -1258,5 +1258,248 @@
         "status_clima": "desconhecido",
         "status_lotacao": "verde",
         "foto_url": "fotos/parada_12542157684.jpg"
+    },
+    {
+        "id": 1762281461,
+        "nome": "Parada: Avenida Senador Lemos",
+        "latitude": -1.427998,
+        "longitude": -48.4846912,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_1762281461.jpg"
+    },
+    {
+        "id": 3658377319,
+        "nome": "Parada: Avenida Marquês de Herval",
+        "latitude": -1.4344593,
+        "longitude": -48.4728158,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_3658377319.jpg"
+    },
+    {
+        "id": 3658377320,
+        "nome": "Parada: Avenida Marquês de Herval",
+        "latitude": -1.4263669,
+        "longitude": -48.4670115,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_3658377320.jpg"
+    },
+    {
+        "id": 3658377321,
+        "nome": "Parada: Avenida Marquês de Herval",
+        "latitude": -1.4320568,
+        "longitude": -48.4711957,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_3658377321.jpg"
+    },
+    {
+        "id": 3658381125,
+        "nome": "Parada: Avenida Marquês de Herval",
+        "latitude": -1.4243719,
+        "longitude": -48.4656811,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_3658381125.jpg"
+    },
+    {
+        "id": 3658381127,
+        "nome": "Parada: Avenida Marquês de Herval",
+        "latitude": -1.427611,
+        "longitude": -48.4678349,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_3658381127.jpg"
+    },
+    {
+        "id": 3658381129,
+        "nome": "Parada: Avenida Marquês de Herval",
+        "latitude": -1.4258601,
+        "longitude": -48.4671027,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_3658381129.jpg"
+    },
+    {
+        "id": 3658381132,
+        "nome": "Parada: Avenida Marquês de Herval",
+        "latitude": -1.4300538,
+        "longitude": -48.4694523,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_3658381132.jpg"
+    },
+    {
+        "id": 3658381133,
+        "nome": "Parada: Avenida Marquês de Herval",
+        "latitude": -1.427485,
+        "longitude": -48.4682024,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_3658381133.jpg"
+    },
+    {
+        "id": 3658381138,
+        "nome": "Parada: Avenida Marquês de Herval",
+        "latitude": -1.4294344,
+        "longitude": -48.469471,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_3658381138.jpg"
+    },
+    {
+        "id": 3658381139,
+        "nome": "Parada: Avenida Marquês de Herval",
+        "latitude": -1.42438,
+        "longitude": -48.4661076,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_3658381139.jpg"
+    },
+    {
+        "id": 3658381140,
+        "nome": "Parada: Avenida Marquês de Herval",
+        "latitude": -1.4325233,
+        "longitude": -48.4710965,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_3658381140.jpg"
+    },
+    {
+        "id": 3658381141,
+        "nome": "Parada: Travessa da Estrella",
+        "latitude": -1.430893,
+        "longitude": -48.470662,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_3658381141.jpg"
+    },
+    {
+        "id": 4538869184,
+        "nome": "Parada: Avenida Pedro Miranda",
+        "latitude": -1.4308102,
+        "longitude": -48.4737461,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_4538869184.jpg"
+    },
+    {
+        "id": 4538869199,
+        "nome": "Parada: Avenida Pedro Miranda",
+        "latitude": -1.4335595,
+        "longitude": -48.4756064,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_4538869199.jpg"
+    },
+    {
+        "id": 4905134122,
+        "nome": "Parada: Avenida Pedro Miranda",
+        "latitude": -1.4301019,
+        "longitude": -48.4736926,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_4905134122.jpg"
+    },
+    {
+        "id": 6352913458,
+        "nome": "Parada: Travessa Lomas Valentinas",
+        "latitude": -1.4260503,
+        "longitude": -48.467254,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_6352913458.jpg"
+    },
+    {
+        "id": 10854049066,
+        "nome": "Parada: Travessa Mauriti",
+        "latitude": -1.42618,
+        "longitude": -48.4750361,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_10854049066.jpg"
+    },
+    {
+        "id": 10854049067,
+        "nome": "Parada: Travessa da Estrella",
+        "latitude": -1.4291557,
+        "longitude": -48.4732184,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_10854049067.jpg"
+    },
+    {
+        "id": 12708204749,
+        "nome": "Parada: Avenida Pedro Miranda",
+        "latitude": -1.4283595,
+        "longitude": -48.4721132,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_12708204749.jpg"
+    },
+    {
+        "id": 12708204750,
+        "nome": "Parada: Avenida Pedro Miranda",
+        "latitude": -1.4257828,
+        "longitude": -48.4703757,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_12708204750.jpg"
+    },
+    {
+        "id": 12708206072,
+        "nome": "Parada: Avenida Pedro Miranda",
+        "latitude": -1.4269449,
+        "longitude": -48.4712259,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_12708206072.jpg"
+    },
+    {
+        "id": 12708214441,
+        "nome": "Parada: Avenida Pedro Miranda",
+        "latitude": -1.4276067,
+        "longitude": -48.4720735,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_12708214441.jpg"
+    },
+    {
+        "id": 12708215108,
+        "nome": "Parada: Avenida Pedro Miranda",
+        "latitude": -1.4289769,
+        "longitude": -48.472976,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_12708215108.jpg"
+    },
+    {
+        "id": 12708222160,
+        "nome": "Parada: Avenida Pedro Miranda",
+        "latitude": -1.4265446,
+        "longitude": -48.4713625,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_12708222160.jpg"
+    },
+    {
+        "id": 12708236027,
+        "nome": "Parada: Travessa Angustura",
+        "latitude": -1.4256764,
+        "longitude": -48.4701406,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_12708236027.jpg"
+    },
+    {
+        "id": 12708255418,
+        "nome": "Parada: Avenida Pedro Miranda",
+        "latitude": -1.4248296,
+        "longitude": -48.4698047,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_12708255418.jpg"
     }
 ]
