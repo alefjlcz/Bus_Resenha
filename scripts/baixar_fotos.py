@@ -14,11 +14,11 @@ if not os.path.exists(PASTA_FOTOS):
     os.makedirs(PASTA_FOTOS)
     print(f"Pasta '{PASTA_FOTOS}' criada com sucesso.")
 
-print("A carregar o ficheiro de paragens...")
+print("A carregar o ficheiro...")
 with open(ARQUIVO_JSON, 'r', encoding='utf-8') as f:
     paradas = json.load(f)
 
-print(f"Encontradas {len(paradas)} paragens. A iniciar a descarga das imagens do Google Street View...\n")
+print(f"Encontradas {len(paradas)} paradas. Baixando das imagens do Google Street View...\n")
 
 contador = 0
 for parada in paradas:
@@ -49,8 +49,8 @@ for parada in paradas:
     
     time.sleep(0.5)
 
-print("\nA atualizar o banco de dados (ficheiro JSON)...")
+print("\nAtualizando o banco de dados...")
 with open(ARQUIVO_JSON, 'w', encoding='utf-8') as f:
     json.dump(paradas, f, ensure_ascii=False, indent=4)
 
-print("🎉 Processo concluído! O seu mapa agora tem fotos reais.")
+print("🎉 Processo concluído! O seu mapa agora está atualizado.")

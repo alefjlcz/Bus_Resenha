@@ -12,8 +12,7 @@ URL_BASE_NOMINATIM = os.getenv("URL_NOMINATIM")
 with open(ARQUIVO, 'r', encoding='utf-8') as f:
     paradas = json.load(f)
 
-print("Iniciando o Radar de Endereços...")
-print("Buscando o nome das ruas. Isso leva um tempinho para não sobrecarregar o servidor gratuito.\n")
+print("Buscando o nome das ruas. Isso leva um tempinho para não sobrecarregar o servidor.\n")
 
 contador = 0
 for parada in paradas:
@@ -50,4 +49,4 @@ for parada in paradas:
 with open(ARQUIVO, 'w', encoding='utf-8') as f:
     json.dump(paradas, f, ensure_ascii=False, indent=4)
 
-print(f"\n🎉 Sucesso! {contador} paradas foram atualizadas com os nomes reais das ruas.")
+print(f"\n🎉 Sucesso! {contador} paradas foram atualizadas.")

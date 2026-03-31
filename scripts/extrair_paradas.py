@@ -15,7 +15,7 @@ query = """
 out body;
 """
 
-print("Buscando pontos de ônibus no OpenStreetMap. Aguarde...")
+print("Buscando pontos de ônibus. Aguarde...")
 
 try:
     cabecalho = {'User-Agent': 'BusResenhaApp/1.0'}

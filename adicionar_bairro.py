@@ -17,25 +17,38 @@ URL_NOMINATIM = os.getenv("URL_NOMINATIM")
 ARQUIVO_JSON = "banco_de_paradas.json"
 PASTA_FOTOS = "fotos"
 
-# CATÁLOGO DE BAIRROS (Bounding Boxes)
-# Formato: "Sul, Oeste, Norte, Leste"
+# CATÁLOGO DE BAIRROS 
+
 CATALOGO_BAIRROS = {
-    "guama": "-1.4850,-48.4750,-1.4550,-48.4450",
+#    --- BAIRROS DO CENTRO DE BELÉM ---
+    "umarizal": "-1.4460,-48.4850,-1.4330,-48.4730",
+    "nazare": "-1.4550,-48.4850,-1.4410,-48.4710",
+    "batista_campos": "-1.4650,-48.4950,-1.4520,-48.4820",
+    "reduto": "-1.4480,-48.4980,-1.4380,-48.4880",
+    "campina": "-1.4580,-48.5050,-1.4480,-48.4940",
+    "cidade_velha": "-1.4680,-48.5080,-1.4550,-48.4980",
+    "sao_bras": "-1.4450,-48.4750,-1.4350,-48.4620",
+    "pedreira": "-1.4350,-48.4850,-1.4150,-48.4650",
     "marco": "-1.4450,-48.4650,-1.4250,-48.4450",
-    "pedreira": "-1.4350,-48.4850,-1.4150,-48.4650"
+    "guama": "-1.4850,-48.4750,-1.4550,-48.4450",
+    "jurunas": "-1.4750,-48.5000,-1.4600,-48.4850",
+    "cremacao": "-1.4650,-48.4850,-1.4500,-48.4650",
+    "condor": "-1.4780,-48.4900,-1.4600,-48.4750",
+    "sacramenta": "-1.4250,-48.4750,-1.4050,-48.4550",
+    "telegrafo": "-1.4250,-48.4850,-1.4050,-48.4700",
 }
 
 # ==========================================
-# A FUNÇÃO MÁGICA (A Esteira de Dados)
+#             FUNÇÃO PRINCIPAL
 # ==========================================
 def adicionar_novo_bairro(bbox, nome_bairro):
-    print(f"\n🚀 Iniciando a Esteira do Bus Resenha para o bairro: {nome_bairro.upper()}...")
+    print(f"\n🚀 Iniciando a pesquisa sobre o bairro: {nome_bairro.upper()}...")
     novas_paradas = []
     
-    # --- 1. BUSCAR PARADAS (Overpass API) ---
-    print("📍 Passo 1: Caçando paradas no mapa...")
+    # --- BUSCAR PARADAS ---
+    print("📍 Procurando paradas no mapa...")
     
-    # Criando a query do Overpass e o crachá de identificação (User-Agent)
+    # Criando a query do Overpass e o crachá de identificação 
     query = f'[out:json][timeout:25];(node["highway"="bus_stop"]({bbox}););out body;'
     cabecalho = {'User-Agent': 'BusResenhaApp/1.0'}
     
@@ -43,20 +56,20 @@ def adicionar_novo_bairro(bbox, nome_bairro):
         # Usando a URL segura que veio do .env
         resp_overpass = requests.post(URL_OVERPASS, data={'data': query}, headers=cabecalho)
         
-        # Se o servidor chiar, a gente mostra o motivo real agora
+        # Se o servidor der problema vai mostrar o motivo
         if resp_overpass.status_code != 200:
             print(f"❌ O servidor do mapa recusou o acesso (Código {resp_overpass.status_code}).")
             print("Motivo:", resp_overpass.text)
             return
 
         elementos = resp_overpass.json().get('elements', [])
-        print(f"Encontradas {len(elementos)} paradas brutas nessa região.")
+        print(f"Encontradas {len(elementos)} paradas nessa região.")
         
     except Exception as e:
         print(f"❌ Erro ao conectar no OpenStreetMap: {e}")
         return
 
-    # --- 2. CARREGAR BANCO EXISTENTE ---
+    # --- CARREGAR BANCO DE DADOS  ---
     if os.path.exists(ARQUIVO_JSON):
         with open(ARQUIVO_JSON, 'r', encoding='utf-8') as f:
             banco_atual = json.load(f)
@@ -66,7 +79,7 @@ def adicionar_novo_bairro(bbox, nome_bairro):
     # Criando uma lista rápida só com os IDs para não cadastrar a mesma parada duas vezes
     ids_existentes = {parada['id'] for parada in banco_atual}
 
-    # --- 3. PROCESSAR CADA PARADA ---
+    # --- PROCESSAR CADA PARADA ---
     contador = 0
     print("\n⚙️ Passo 2: Buscando nomes das ruas e fotos reais...")
     for el in elementos:
@@ -79,7 +92,7 @@ def adicionar_novo_bairro(bbox, nome_bairro):
         lat = el.get('lat')
         lon = el.get('lon')
         
-        # A. Buscar o Nome (Nominatim)
+        #  Buscar o Nome pela API Nominatim
         nome_rua = "Parada de Ônibus"
         # Montando a URL dinamicamente com a base do .env
         url_nome = f"{URL_NOMINATIM}?format=json&lat={lat}&lon={lon}&zoom=18"
@@ -94,7 +107,7 @@ def adicionar_novo_bairro(bbox, nome_bairro):
         
         time.sleep(1.5) # Pausa obrigatória para não ser bloqueado pelo Nominatim
         
-        # B. Buscar a Foto (Google Street View)
+        #  Buscar a Foto pela API do Google Street View
         caminho_foto = ""
         url_foto = f"https://maps.googleapis.com/maps/api/streetview?size=600x400&location={lat},{lon}&key={API_KEY_GOOGLE}"
         try:
@@ -106,7 +119,7 @@ def adicionar_novo_bairro(bbox, nome_bairro):
         except: 
             pass
         
-        # C. Montar o Pacote final da Parada
+        #  Montar o Pacote no banco de dados
         parada_pronta = {
             "id": id_parada,
             "nome": nome_rua,
@@ -121,7 +134,7 @@ def adicionar_novo_bairro(bbox, nome_bairro):
         contador += 1
         print(f"✅ Adicionada: {nome_rua}")
 
-    # --- 4. SALVAR TUDO NO BANCO ---
+    # --- SALVAR TUDO NO BANCO ---
     if contador > 0:
         banco_atual.extend(novas_paradas)
         with open(ARQUIVO_JSON, 'w', encoding='utf-8') as f:
@@ -131,7 +144,7 @@ def adicionar_novo_bairro(bbox, nome_bairro):
         print(f"\n⚠️ Nenhuma parada nova foi encontrada (ou todas já estavam cadastradas).")
 
 # ==========================================
-# MOTOR DE PARTIDA (Lendo o Terminal)
+#               PARTIDA
 # ==========================================
 if __name__ == "__main__":
     # Garante que a pasta de fotos existe
@@ -140,15 +153,14 @@ if __name__ == "__main__":
     
     # Verifica se você digitou o bairro no terminal
     if len(sys.argv) < 2:
-        print("\n❌ Erro: Você esqueceu de informar o bairro!")
-        print("💡 Exemplo de uso: python adicionar_bairro.py guama")
+        print("\n💡 Exemplo de uso: python adicionar_bairro.py guama")
         print("👉 Bairros disponíveis no catálogo:", ", ".join(CATALOGO_BAIRROS.keys()))
         sys.exit() 
         
     # Pega a palavra que você digitou e transforma em minúscula
     bairro_digitado = sys.argv[1].lower()
     
-    # Verifica se o bairro existe no catálogo e roda a esteira
+    # Verifica se o bairro existe no catálogo 
     if bairro_digitado in CATALOGO_BAIRROS:
         bbox_do_bairro = CATALOGO_BAIRROS[bairro_digitado]
         adicionar_novo_bairro(bbox_do_bairro, bairro_digitado)

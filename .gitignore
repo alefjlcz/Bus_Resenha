@@ -1,3 +1,13 @@
+# Senhas e chaves
 .env
+
+# Imagens 
 fotos/
+
+# Arquivos temporários do Python
 __pycache__/
+*.pyc
+
+# Arquivos pesados do Node/React Native
+node_modules/
+.expo/
