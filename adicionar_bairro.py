@@ -3,11 +3,17 @@ import json
 import os
 import time
 import sys
+from dotenv import load_dotenv
 
-# ==========================================
-# CONFIGURAÇÕES PRINCIPAIS
-# ==========================================
-API_KEY_GOOGLE = "AIzaSyBJSM8NS_YU3qHBKdWwmwDf7F-NgTsPDvg"
+load_dotenv()
+
+# 
+# CONFIGURAÇÕES APIs
+# 
+API_KEY_GOOGLE = os.getenv("API_KEY_GOOGLE")
+URL_OVERPASS = os.getenv("URL_OVERPASS")
+URL_NOMINATIM = os.getenv("URL_NOMINATIM")
+
 ARQUIVO_JSON = "banco_de_paradas.json"
 PASTA_FOTOS = "fotos"
 
@@ -26,7 +32,7 @@ def adicionar_novo_bairro(bbox, nome_bairro):
     print(f"\n🚀 Iniciando a Esteira do Bus Resenha para o bairro: {nome_bairro.upper()}...")
     novas_paradas = []
     
-   # --- 1. BUSCAR PARADAS (Overpass API) ---
+    # --- 1. BUSCAR PARADAS (Overpass API) ---
     print("📍 Passo 1: Caçando paradas no mapa...")
     
     # Criando a query do Overpass e o crachá de identificação (User-Agent)
@@ -34,7 +40,8 @@ def adicionar_novo_bairro(bbox, nome_bairro):
     cabecalho = {'User-Agent': 'BusResenhaApp/1.0'}
     
     try:
-        resp_overpass = requests.post("https://overpass.openstreetmap.fr/api/interpreter", data={'data': query}, headers=cabecalho)
+        # Usando a URL segura que veio do .env
+        resp_overpass = requests.post(URL_OVERPASS, data={'data': query}, headers=cabecalho)
         
         # Se o servidor chiar, a gente mostra o motivo real agora
         if resp_overpass.status_code != 200:
@@ -74,7 +81,8 @@ def adicionar_novo_bairro(bbox, nome_bairro):
         
         # A. Buscar o Nome (Nominatim)
         nome_rua = "Parada de Ônibus"
-        url_nome = f"https://nominatim.openstreetmap.org/reverse?format=json&lat={lat}&lon={lon}&zoom=18"
+        # Montando a URL dinamicamente com a base do .env
+        url_nome = f"{URL_NOMINATIM}?format=json&lat={lat}&lon={lon}&zoom=18"
         try:
             resp_nome = requests.get(url_nome, headers={'User-Agent': 'BusResenhaApp/1.0'})
             if resp_nome.status_code == 200:
@@ -133,7 +141,7 @@ if __name__ == "__main__":
     # Verifica se você digitou o bairro no terminal
     if len(sys.argv) < 2:
         print("\n❌ Erro: Você esqueceu de informar o bairro!")
-        print("💡 Exemplo de uso: python adicionar_bairro.py ufpa")
+        print("💡 Exemplo de uso: python adicionar_bairro.py guama")
         print("👉 Bairros disponíveis no catálogo:", ", ".join(CATALOGO_BAIRROS.keys()))
         sys.exit() 
         

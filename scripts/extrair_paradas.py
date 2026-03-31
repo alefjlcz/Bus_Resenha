@@ -1,11 +1,12 @@
 import requests
 import json
+import os
+from dotenv import load_dotenv
 
-# Usando o servidor da França pois é mais rápida e está funcionando
-url = "https://overpass.openstreetmap.fr/api/interpreter"
+load_dotenv()
 
-# Coordenadas do "quadrado" (Nazaré, Batista Campos, Umarizal etc... )
-# Os números devem ser grudados pela vírgula, sem espaços, pois dá erro na hora da busca!
+url = os.getenv("URL_OVERPASS")
+
 query = """
 [out:json][timeout:25];
 (
@@ -17,7 +18,6 @@ out body;
 print("Buscando pontos de ônibus no OpenStreetMap. Aguarde...")
 
 try:
-    # O Python envia a nossa pesquisa para não ser bloqueado
     cabecalho = {'User-Agent': 'BusResenhaApp/1.0'}
     resposta = requests.post(url, data={'data': query}, headers=cabecalho)
     
