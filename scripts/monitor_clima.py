@@ -1,49 +1,89 @@
 import requests
-import schedule
-import time
+import json
 import os
+import time
+import sys
 from dotenv import load_dotenv
 
-load_dotenv() 
+# ==========================================
+# CONFIGURAÇÃO DE CAMINHOS DINÂMICOS
+# ==========================================
+# Descobre a pasta atual (scripts) e define a raiz (Bus Resenha)
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-URL_BASE_METEO = os.getenv("URL_OPEN_METEO")
+# Carrega o .env que está na raiz
+load_dotenv(os.path.join(BASE_DIR, ".env"))
 
-LAT = "-1.454061"
-LON = "-48.481225"
+# Configurações vindas do .env e Caminhos
+URL_CLIMA = os.getenv("URL_OPEN_METEO")
+ARQUIVO_JSON = os.path.join(BASE_DIR, "assets", "dados", "banco_de_paradas.json")
 
-def verificar_clima():
-    url = f"{URL_BASE_METEO}?latitude={LAT}&longitude={LON}&current_weather=true"
+# ==========================================
+# FUNÇÃO PARA TRADUZIR CÓDIGOS DE CLIMA (WMO)
+# ==========================================
+def traduzir_clima(codigo):
+    """
+    Traduz os códigos da Open-Meteo para o linguajar do Bus Resenha.
+    """
+    if codigo == 0: return "☀️ Limpo"
+    if codigo in [1, 2, 3]: return "⛅ Parcial. Nublado"
+    if codigo in [45, 48]: return "🌫️ Nevoeiro"
+    if codigo in [51, 53, 55]: return "🌧️ Chuva Leve"
+    if codigo in [61, 63, 65]: return "🌧️ Chuvoso"
+    if codigo in [80, 81, 82]: return "🌦️ Pancadas de Chuva"
+    if codigo in [95, 96, 99]: return "⚡ Tempestade"
+    return "☁️ Nublado"
 
-    try:
-        resposta = requests.get(url)
-        dados = resposta.json()
+# ==========================================
+#             LÓGICA PRINCIPAL
+# ==========================================
+def atualizar_monitoramento_clima():
+    if not os.path.exists(ARQUIVO_JSON):
+        print(f"❌ Erro: Banco de dados não encontrado em {ARQUIVO_JSON}")
+        return
 
-        if resposta.status_code == 200:
-            clima = dados['current_weather']
-            temperatura = clima['temperature']
-            codigo_clima = clima['weathercode']
-            
-            esta_chovendo = codigo_clima >= 50 
+    print("📖 Lendo banco de paradas para atualização climática...")
+    with open(ARQUIVO_JSON, 'r', encoding='utf-8') as f:
+        paradas = json.load(f)
 
-            hora_atual = time.strftime('%H:%M:%S')
-            print(f"[{hora_atual}] Nazaré/Belém - Temperatura atual: {temperatura}°C")
+    print(f"🌡️ Verificando clima para {len(paradas)} paradas. Aguarde...\n")
+    
+    contador = 0
+    for parada in paradas:
+        lat = parada["latitude"]
+        lon = parada["longitude"]
 
-            if esta_chovendo:
-                print("⚠️ ALERTA: Chuva ou garoa detectada! Atualizando status das paradas.\n")
-            else:
-                print("✅ Tempo firme. Sem alertas climáticos no momento.\n")
+        # Monta a URL de consulta (Current Weather)
+        # Usamos a base do .env e adicionamos os parâmetros de lat/lon
+        url_final = f"{URL_CLIMA}?latitude={lat}&longitude={lon}&current_weather=true"
+
+        try:
+            resposta = requests.get(url_final)
+            if resposta.status_code == 200:
+                dados_clima = resposta.json()
+                codigo_wmo = dados_clima["current_weather"]["weathercode"]
+                temperatura = dados_clima["current_weather"]["temperature"]
                 
-        else:
-            print("Erro ao acessar a API.")
-            
-    except Exception as e:
-        print(f"Erro no código ou sem internet: {e}")
+                # Traduz e atualiza o campo no banco
+                clima_texto = traduzir_clima(codigo_wmo)
+                parada["status_clima"] = f"{clima_texto} ({temperatura}°C)"
+                
+                contador += 1
+                print(f"✅ [{contador}] {parada['nome']}: {clima_texto} {temperatura}°C")
+            else:
+                print(f"⚠️ Erro ao buscar clima para ID {parada['id']}: Status {resposta.status_code}")
 
-schedule.every(10).minutes.do(verificar_clima)
+        except Exception as e:
+            print(f"❌ Falha na conexão para ID {parada['id']}: {e}")
 
-print("Iniciando o motor climático do Bus Resenha (via Open-Meteo)...")
-verificar_clima()
+        # Pausa rápida para não sobrecarregar a API gratuita
+        time.sleep(0.2)
 
-while True:
-    schedule.run_pending()
-    time.sleep(1)
+    # Salvando os dados atualizados
+    with open(ARQUIVO_JSON, 'w', encoding='utf-8') as f:
+        json.dump(paradas, f, ensure_ascii=False, indent=4)
+
+    print(f"\n🎉 Sucesso! O clima de {contador} paradas foi atualizado em tempo real.")
+
+if __name__ == "__main__":
+    atualizar_monitoramento_clima()

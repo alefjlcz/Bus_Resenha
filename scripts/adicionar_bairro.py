@@ -5,19 +5,28 @@ import time
 import sys
 from dotenv import load_dotenv
 
-load_dotenv()
+# ==========================================
+# CONFIGURAÇÃO DE CAMINHOS DINÂMICOS
+# ==========================================
+# 1. Descobre a pasta atual onde este script está (pasta "scripts")
+DIRETORIO_SCRIPT = os.path.dirname(os.path.abspath(__file__))
 
-# 
+# 2. "Volta" uma pasta para chegar na raiz do projeto ("Bus Resenha")
+DIRETORIO_RAIZ = os.path.dirname(DIRETORIO_SCRIPT)
+
+# 3. Carrega o .env que agora está na raiz do projeto
+load_dotenv(os.path.join(DIRETORIO_RAIZ, '.env'))
+
+# 4. Define os caminhos exatos para o JSON e para as Fotos
+ARQUIVO_JSON = os.path.join(DIRETORIO_RAIZ, 'assets', 'dados', 'banco_de_paradas.json')
+PASTA_FOTOS = os.path.join(DIRETORIO_RAIZ, 'assets', 'images') # Mudamos de 'fotos' para 'assets/images'
+
+# ==========================================
 # CONFIGURAÇÕES APIs
-# 
+# ==========================================
 API_KEY_GOOGLE = os.getenv("API_KEY_GOOGLE")
 URL_OVERPASS = os.getenv("URL_OVERPASS")
 URL_NOMINATIM = os.getenv("URL_NOMINATIM")
-
-ARQUIVO_JSON = "banco_de_paradas.json"
-PASTA_FOTOS = "fotos"
-
-# CATÁLOGO DE BAIRROS 
 
 CATALOGO_BAIRROS = {
 #    --- BAIRROS DO CENTRO DE BELÉM ---
@@ -39,7 +48,7 @@ CATALOGO_BAIRROS = {
 }
 
 # ==========================================
-#             FUNÇÃO PRINCIPAL
+#              PRINCIPAL
 # ==========================================
 def adicionar_novo_bairro(bbox, nome_bairro):
     print(f"\n🚀 Iniciando a pesquisa sobre o bairro: {nome_bairro.upper()}...")
@@ -74,6 +83,8 @@ def adicionar_novo_bairro(bbox, nome_bairro):
         with open(ARQUIVO_JSON, 'r', encoding='utf-8') as f:
             banco_atual = json.load(f)
     else:
+        # Cria o diretório se ele não existir
+        os.makedirs(os.path.dirname(ARQUIVO_JSON), exist_ok=True)
         banco_atual = []
     
     # Criando uma lista rápida só com os IDs para não cadastrar a mesma parada duas vezes
@@ -108,18 +119,21 @@ def adicionar_novo_bairro(bbox, nome_bairro):
         time.sleep(1.5) # Pausa obrigatória para não ser bloqueado pelo Nominatim
         
         #  Buscar a Foto pela API do Google Street View
-        caminho_foto = ""
+        nome_arquivo_foto = f"parada_{id_parada}.jpg"
+        caminho_foto_completo = os.path.join(PASTA_FOTOS, nome_arquivo_foto)
         url_foto = f"https://maps.googleapis.com/maps/api/streetview?size=600x400&location={lat},{lon}&key={API_KEY_GOOGLE}"
         try:
             resp_foto = requests.get(url_foto)
             if resp_foto.status_code == 200:
-                caminho_foto = f"{PASTA_FOTOS}/parada_{id_parada}.jpg"
-                with open(caminho_foto, 'wb') as img:
+                with open(caminho_foto_completo, 'wb') as img:
                     img.write(resp_foto.content)
         except: 
             pass
         
         #  Montar o Pacote no banco de dados
+        # Salvamos o caminho relativo da foto para o React Native conseguir ler
+        caminho_foto_relativo = f"../../assets/images/{nome_arquivo_foto}"
+        
         parada_pronta = {
             "id": id_parada,
             "nome": nome_rua,
@@ -127,7 +141,7 @@ def adicionar_novo_bairro(bbox, nome_bairro):
             "longitude": lon,
             "status_clima": "desconhecido",
             "status_lotacao": "verde",
-            "foto_url": caminho_foto
+            "foto_url": caminho_foto_relativo 
         }
         
         novas_paradas.append(parada_pronta)
@@ -144,7 +158,7 @@ def adicionar_novo_bairro(bbox, nome_bairro):
         print(f"\n⚠️ Nenhuma parada nova foi encontrada (ou todas já estavam cadastradas).")
 
 # ==========================================
-#               PARTIDA
+#              PARTIDA
 # ==========================================
 if __name__ == "__main__":
     # Garante que a pasta de fotos existe
@@ -153,7 +167,7 @@ if __name__ == "__main__":
     
     # Verifica se você digitou o bairro no terminal
     if len(sys.argv) < 2:
-        print("\n💡 Exemplo de uso: python adicionar_bairro.py guama")
+        print("\n💡 Exemplo de uso: python scripts/adicionar_bairro.py guama")
         print("👉 Bairros disponíveis no catálogo:", ", ".join(CATALOGO_BAIRROS.keys()))
         sys.exit() 
         
