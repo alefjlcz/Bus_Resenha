@@ -1,28 +1,53 @@
-import React, { useState, useEffect } from 'react';
-import { View, Text, StatusBar, Alert } from 'react-native';
-import MapView, { Marker } from 'react-native-maps';
 import * as Location from 'expo-location';
-import { getDistance } from 'geolib'; // <-- 1. IMPORTANDO O GEOLIB
+import { getDistance } from 'geolib';
+import React, { useEffect, useState } from 'react';
+import { Alert, StatusBar, Text, View } from 'react-native';
 
 import paradasData from '../../assets/dados/banco_de_paradas.json';
 import { styles } from './styles';
+
 import CardParada from '../../components/CardParada';
+import MapaResenha from '../../components/MapaResenha';
 
 export default function App() {
   const [paradaSelecionada, setParadaSelecionada] = useState<any>(null); 
   const [minhaLocalizacao, setMinhaLocalizacao] = useState<any>(null);
-  
-  // <-- 2. NOVO ESTADO: Guarda em qual parada o usuário está fisicamente agora
-  const [paradaAtualGeofence, setParadaAtualGeofence] = useState<any>(null); 
+  const [paradaAtualGeofence, setParadaAtualGeofence] = useState<any>(null);
+
+  // --- NOVO: ESTADO GLOBAL DE RESENHAS ---
+  // Guarda o status das paradas. Ex: { "1234": "alagada", "5678": "perigosa" }
+  const [statusGlobal, setStatusGlobal] = useState<Record<string, string>>({});
+
+  // Simulação do "Tempo Real" a cada 15 minutos
+  useEffect(() => {
+    const tempoDeAtualizacao = 15 * 60 * 1000; // 15 minutos em milissegundos
+    // DICA: Para testar rápido, troque a linha de cima por: const tempoDeAtualizacao = 15000; (15 segundos)
+
+    const intervalo = setInterval(() => {
+      console.log("🔄 Buscando novas resenhas do servidor na nuvem...");
+      // No futuro, aqui entrará o código para buscar os dados do Firebase/Supabase
+      // Por enquanto, ele apenas avisa que o ciclo de 15 min rodou.
+    }, tempoDeAtualizacao);
+
+    return () => clearInterval(intervalo);
+  }, []);
+
+  // Função que o Card vai chamar quando alguém reportar um problema
+  const registrarResenha = (idParada: string, status: string) => {
+    setStatusGlobal(prev => ({
+      ...prev,
+      [idParada]: status
+    }));
+  };
+  // ----------------------------------------
 
   useEffect(() => {
     (async () => {
       let enabled = await Location.hasServicesEnabledAsync();
       if (!enabled) {
         Alert.alert("GPS Desativado", "Por favor, ligue a localização.");
-        return; // Boa prática: parar a execução aqui se não tiver GPS
+        return;
       }
-
       let { status } = await Location.requestForegroundPermissionsAsync();
       if (status !== 'granted') return;
 
@@ -31,34 +56,27 @@ export default function App() {
         (location: any) => {
           const coordsAtual = { 
             latitude: location.coords.latitude, 
-            longitude: location.coords.longitude 
+            longitude: location.coords.longitude,
+            latitudeDelta: 0.005, 
+            longitudeDelta: 0.005,
           };
           setMinhaLocalizacao(coordsAtual);
 
-          // <-- 3. LÓGICA DO GEOFENCING 
           let encontrouParadaProxima = null;
-
           for (let parada of paradasData) {
             const distancia = getDistance(
               { latitude: coordsAtual.latitude, longitude: coordsAtual.longitude },
               { latitude: parada.latitude, longitude: parada.longitude }
             );
-
-            // Se estiver num raio de 30 metros ou menos
             if (distancia <= 30) {
               encontrouParadaProxima = parada;
-              break; // Achou uma, para o loop pra economizar processamento
+              break;
             }
           }
-
           if (encontrouParadaProxima) {
-            // Atualiza o estado dizendo que você está dentro do raio dessa parada
             setParadaAtualGeofence(encontrouParadaProxima);
-            
-            // Opcional mas recomendado: Auto-seleciona a parada para o Card subir na tela sozinho!
             setParadaSelecionada(encontrouParadaProxima); 
           } else {
-            // Se saiu do raio de 30m de qualquer parada, zera o estado
             setParadaAtualGeofence(null);
           }
         }
@@ -72,30 +90,23 @@ export default function App() {
       
       <View style={styles.header}>
         <Text style={styles.headerTitle}>Bus Resenha</Text>
-        <Text style={styles.headerSubtitle}>Mapeamento Inteligente de Paradas</Text>
+        <Text style={styles.headerSubtitle}>Vem beber com nós</Text>
       </View>
 
-      <MapView 
-        style={styles.map}
-        initialRegion={{ latitude: -1.4550, longitude: -48.4800, latitudeDelta: 0.05, longitudeDelta: 0.05 }}
-        showsUserLocation={true}
-        followsUserLocation={true}
-        onPress={() => setParadaSelecionada(null)} 
-      >
-        {paradasData.map((parada) => (
-          <Marker
-            key={parada.id.toString()}
-            coordinate={{ latitude: parada.latitude, longitude: parada.longitude }}
-            onPress={() => setParadaSelecionada(parada)}
-            pinColor={paradaSelecionada?.id === parada.id ? "#FF3B30" : "#00A86B"}
-          />
-        ))}
-      </MapView>
+      <MapaResenha 
+        paradas={paradasData}
+        minhaLocalizacao={minhaLocalizacao}
+        paradaSelecionada={paradaSelecionada}
+        setParadaSelecionada={setParadaSelecionada}
+        statusGlobal={statusGlobal} // <-- Passando as resenhas para o mapa
+      />
 
-      {/* <-- 4. PASSANDO A NOVA INFORMAÇÃO PRO CARD */}
       <CardParada 
         parada={paradaSelecionada} 
         usuarioEstaNaParada={paradaAtualGeofence?.id === paradaSelecionada?.id} 
+        fecharCard={() => setParadaSelecionada(null)}
+        statusGlobal={statusGlobal} // <-- Passando as resenhas para o card
+        registrarResenha={registrarResenha} // <-- Passando a função de reportar
       />
       
     </View>

@@ -19,7 +19,8 @@ load_dotenv(os.path.join(DIRETORIO_RAIZ, '.env'))
 
 # 4. Define os caminhos exatos para o JSON e para as Fotos
 ARQUIVO_JSON = os.path.join(DIRETORIO_RAIZ, 'assets', 'dados', 'banco_de_paradas.json')
-PASTA_FOTOS = os.path.join(DIRETORIO_RAIZ, 'assets', 'images') # Mudamos de 'fotos' para 'assets/images'
+# PASTA_FOTOS foi atualizada para refletir a sua estrutura real (na raiz)
+PASTA_FOTOS = os.path.join(DIRETORIO_RAIZ, 'fotos') 
 
 # ==========================================
 # CONFIGURAÇÕES APIs
@@ -29,7 +30,7 @@ URL_OVERPASS = os.getenv("URL_OVERPASS")
 URL_NOMINATIM = os.getenv("URL_NOMINATIM")
 
 CATALOGO_BAIRROS = {
-#    --- BAIRROS DO CENTRO DE BELÉM ---
+#           --- BAIRROS DO CENTRO DE BELÉM ---
     "umarizal": "-1.4460,-48.4850,-1.4330,-48.4730",
     "nazare": "-1.4550,-48.4850,-1.4410,-48.4710",
     "batista_campos": "-1.4650,-48.4950,-1.4520,-48.4820",
@@ -45,6 +46,9 @@ CATALOGO_BAIRROS = {
     "condor": "-1.4780,-48.4900,-1.4600,-48.4750",
     "sacramenta": "-1.4250,-48.4750,-1.4050,-48.4550",
     "telegrafo": "-1.4250,-48.4850,-1.4050,-48.4700",
+
+#        --- BAIRROS DO CENTRO DE ANANINDEUA ---
+    "cidade_nova": "-1.3900,-48.4050,-1.3450,-48.3600",
 }
 
 # ==========================================
@@ -57,22 +61,19 @@ def adicionar_novo_bairro(bbox, nome_bairro):
     # --- BUSCAR PARADAS ---
     print("📍 Procurando paradas no mapa...")
     
-    # Criando a query do Overpass e o crachá de identificação 
-    query = f'[out:json][timeout:25];(node["highway"="bus_stop"]({bbox}););out body;'
+    # Aumentei o timeout para 60 para evitar aquele erro de servidor ocupado
+    query = f'[out:json][timeout:60];(node["highway"="bus_stop"]({bbox}););out body;'
     cabecalho = {'User-Agent': 'BusResenhaApp/1.0'}
     
     try:
-        # Usando a URL segura que veio do .env
         resp_overpass = requests.post(URL_OVERPASS, data={'data': query}, headers=cabecalho)
         
-        # Se o servidor der problema vai mostrar o motivo
         if resp_overpass.status_code != 200:
             print(f"❌ O servidor do mapa recusou o acesso (Código {resp_overpass.status_code}).")
             print("Motivo:", resp_overpass.text)
             return
 
         elementos = resp_overpass.json().get('elements', [])
-        print(f"Encontradas {len(elementos)} paradas nessa região.")
         
     except Exception as e:
         print(f"❌ Erro ao conectar no OpenStreetMap: {e}")
@@ -83,29 +84,35 @@ def adicionar_novo_bairro(bbox, nome_bairro):
         with open(ARQUIVO_JSON, 'r', encoding='utf-8') as f:
             banco_atual = json.load(f)
     else:
-        # Cria o diretório se ele não existir
         os.makedirs(os.path.dirname(ARQUIVO_JSON), exist_ok=True)
         banco_atual = []
     
-    # Criando uma lista rápida só com os IDs para não cadastrar a mesma parada duas vezes
+    # --- NOVA LÓGICA: FILTRAR O QUE JÁ EXISTE ---
     ids_existentes = {parada['id'] for parada in banco_atual}
+    paradas_para_processar = []
 
-    # --- PROCESSAR CADA PARADA ---
-    contador = 0
-    print("\n⚙️ Passo 2: Buscando nomes das ruas e fotos reais...")
     for el in elementos:
-        id_parada = el.get('id')
-        
-        # Se a parada já estiver no banco, pula!
-        if id_parada in ids_existentes:
-            continue
+        if el.get('id') not in ids_existentes:
+            paradas_para_processar.append(el)
             
+    print(f"🔎 O mapa retornou {len(elementos)} paradas na região.")
+    print(f"🆕 Vou processar e adicionar apenas as {len(paradas_para_processar)} paradas INÉDITAS.\n")
+
+    # Se não tiver nada novo, já encerra aqui e economiza tempo
+    if not paradas_para_processar:
+        print(f"⚠️ Todas as paradas do {nome_bairro.upper()} já estão cadastradas no seu aplicativo!")
+        return
+
+    # --- PROCESSAR APENAS AS NOVAS PARADAS ---
+    contador = 0
+    print("⚙️ Passo 2: Buscando nomes das ruas e verificando fotos...")
+    for el in paradas_para_processar:
+        id_parada = el.get('id')
         lat = el.get('lat')
         lon = el.get('lon')
         
         #  Buscar o Nome pela API Nominatim
         nome_rua = "Parada de Ônibus"
-        # Montando a URL dinamicamente com a base do .env
         url_nome = f"{URL_NOMINATIM}?format=json&lat={lat}&lon={lon}&zoom=18"
         try:
             resp_nome = requests.get(url_nome, headers={'User-Agent': 'BusResenhaApp/1.0'})
@@ -116,24 +123,25 @@ def adicionar_novo_bairro(bbox, nome_bairro):
         except: 
             pass
         
-        time.sleep(1.5) # Pausa obrigatória para não ser bloqueado pelo Nominatim
+        time.sleep(1.5) # Pausa obrigatória para o Nominatim
         
-        #  Buscar a Foto pela API do Google Street View
+        #  Tratamento Inteligente de Fotos
         nome_arquivo_foto = f"parada_{id_parada}.jpg"
         caminho_foto_completo = os.path.join(PASTA_FOTOS, nome_arquivo_foto)
-        url_foto = f"https://maps.googleapis.com/maps/api/streetview?size=600x400&location={lat},{lon}&key={API_KEY_GOOGLE}"
-        try:
-            resp_foto = requests.get(url_foto)
-            if resp_foto.status_code == 200:
-                with open(caminho_foto_completo, 'wb') as img:
-                    img.write(resp_foto.content)
-        except: 
-            pass
+        caminho_foto_relativo = f"fotos/{nome_arquivo_foto}" # Mantendo o padrão que o app lê
+
+        # SÓ BAIXA SE A FOTO NÃO EXISTIR NA PASTA
+        if not os.path.exists(caminho_foto_completo):
+            url_foto = f"https://maps.googleapis.com/maps/api/streetview?size=600x400&location={lat},{lon}&key={API_KEY_GOOGLE}"
+            try:
+                resp_foto = requests.get(url_foto)
+                if resp_foto.status_code == 200:
+                    with open(caminho_foto_completo, 'wb') as img:
+                        img.write(resp_foto.content)
+            except: 
+                pass
         
         #  Montar o Pacote no banco de dados
-        # Salvamos o caminho relativo da foto para o React Native conseguir ler
-        caminho_foto_relativo = f"../../assets/images/{nome_arquivo_foto}"
-        
         parada_pronta = {
             "id": id_parada,
             "nome": nome_rua,
@@ -146,35 +154,29 @@ def adicionar_novo_bairro(bbox, nome_bairro):
         
         novas_paradas.append(parada_pronta)
         contador += 1
-        print(f"✅ Adicionada: {nome_rua}")
+        print(f"✅ Nova adicionada: {nome_rua}")
 
     # --- SALVAR TUDO NO BANCO ---
     if contador > 0:
         banco_atual.extend(novas_paradas)
         with open(ARQUIVO_JSON, 'w', encoding='utf-8') as f:
             json.dump(banco_atual, f, ensure_ascii=False, indent=4)
-        print(f"\n🎉 SUCESSO! {contador} novas paradas do bairro {nome_bairro.upper()} foram salvas no sistema!")
-    else:
-        print(f"\n⚠️ Nenhuma parada nova foi encontrada (ou todas já estavam cadastradas).")
+        print(f"\n🎉 SUCESSO! {contador} novas paradas foram inseridas e salvas!")
 
 # ==========================================
 #              PARTIDA
 # ==========================================
 if __name__ == "__main__":
-    # Garante que a pasta de fotos existe
     if not os.path.exists(PASTA_FOTOS): 
         os.makedirs(PASTA_FOTOS)
     
-    # Verifica se você digitou o bairro no terminal
     if len(sys.argv) < 2:
         print("\n💡 Exemplo de uso: python scripts/adicionar_bairro.py guama")
         print("👉 Bairros disponíveis no catálogo:", ", ".join(CATALOGO_BAIRROS.keys()))
         sys.exit() 
         
-    # Pega a palavra que você digitou e transforma em minúscula
     bairro_digitado = sys.argv[1].lower()
     
-    # Verifica se o bairro existe no catálogo 
     if bairro_digitado in CATALOGO_BAIRROS:
         bbox_do_bairro = CATALOGO_BAIRROS[bairro_digitado]
         adicionar_novo_bairro(bbox_do_bairro, bairro_digitado)
