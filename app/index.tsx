@@ -1,18 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import { SafeAreaView, StatusBar, StyleSheet, View } from 'react-native';
 
-// 🧩 IMPORTAÇÃO DOS COMPONENTES VISUAIS (As peças de Lego)
-import paradasData from '../../assets/dados/banco_de_paradas.json';
-import CardParada from '../../components/CardParada';
-import HeaderHome from '../../components/HeaderHome';
-import MapaResenha from '../../components/MapaResenha';
-import MenuLateral from '../../components/MenuLateral';
+// IMPORTAÇÃO DOS COMPONENTES VISUAIS 
+import paradasData from '../assets/dados/banco_de_paradas.json';
+import CardParada from '../components/CardParada';
+import HeaderHome from '../components/HeaderHome';
+import MapaResenha from '../components/MapaResenha';
+import MenuLateral from '../components/MenuLateral';
 
-// 🧠 IMPORTAÇÃO DA LÓGICA (O Cérebro)
-import { useGPS } from '../../hooks/useGPS';
+import { useGPS } from '../hooks/useGPS';
 
 export default function App() {
-  // 1. O Maestro puxando a lógica oculta do GPS
+  // 1. Puxando a lógica oculta do GPS
   const { minhaLocalizacao, paradaAtualGeofence } = useGPS();
 
   // 2. Estados simples de controle de tela
