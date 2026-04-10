@@ -1,17 +1,17 @@
 // Arquivo: Bus Resenha/components/MenuLateral.tsx
-import React, { useRef, useEffect } from 'react';
-import { 
-  View, 
-  Text, 
-  TouchableOpacity, 
-  StyleSheet, 
-  Modal, 
-  Pressable, 
+import { Ionicons } from '@expo/vector-icons';
+import { useRouter } from 'expo-router';
+import React, { useEffect, useRef } from 'react';
+import {
   Animated,
-  Dimensions
+  Dimensions,
+  Modal,
+  Pressable,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View
 } from 'react-native';
-import { Ionicons } from '@expo/vector-icons'; 
-import { useRouter } from 'expo-router'; 
 
 const LARGURA_TELA = Dimensions.get('window').width;
 const LARGURA_GAVETA = LARGURA_TELA * 0.7;
@@ -45,7 +45,7 @@ export default function MenuLateral({ visivel, fecharMenu }: MenuLateralProps) {
   const irParaChat = () => {
     fecharMenu();
     setTimeout(() => {
-      router.push('/chat'); 
+      router.push('/lista_chats'); 
     }, 300);
   };
 

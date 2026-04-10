@@ -1,52 +1,58 @@
 import React, { useEffect, useState } from 'react';
 import {
-    FlatList,
-    KeyboardAvoidingView,
-    Platform,
-    StyleSheet,
-    Text,
-    TextInput,
-    TouchableOpacity,
-    View
+  FlatList,
+  KeyboardAvoidingView,
+  Platform,
+  StyleSheet,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  View
 } from 'react-native';
 
-// Importando as funções do Firebase que o seu amigo fez
+// 🎒 ESSA É A FERRAMENTA QUE PEGA O ID DA LINHA DA TELA ANTERIOR
+import { useLocalSearchParams } from 'expo-router';
+
 import { enviarMensagem, ouvirMensagens } from '../chat/firebase';
 
 export default function ChatTeste() {
   const [mensagens, setMensagens] = useState<any[]>([]);
   const [texto, setTexto] = useState('');
   
-  // Nome fixo para testarmos agora
   const usuarioAtual = 'Alessandro'; 
-  
-  // ID da sala de chat para o teste
-  const chatIdTeste = 'chat_cidade_nova_teste';
 
-  // 1. OUVINTE DO FIREBASE (Fica buscando mensagens novas em tempo real)
+  // 1. ABRINDO A MALA: Pegamos o ID e o Nome que vieram da Lista de Chats
+  const { idLinha, nomeLinha } = useLocalSearchParams();
+
+  // 2. SALA DINÂMICA: Criamos o nome do chat baseado na linha!
+  // Se for a linha 932, a sala vai se chamar "chat_linha_932"
+  const salaDoChat = idLinha ? `chat_linha_${idLinha}` : 'chat_geral_teste';
+  
+  // O Título lá no topo também muda de acordo com o ônibus escolhido
+  const tituloDaTela = nomeLinha ? nomeLinha : 'Resenha do Busão';
+
+  // 3. OUVINTE DO FIREBASE (Agora escuta só a sala específica)
   useEffect(() => {
-    const unsubscribe = ouvirMensagens(chatIdTeste, (msgs: any[]) => {
+    const unsubscribe = ouvirMensagens(salaDoChat, (msgs: any[]) => {
       setMensagens(msgs);
     });
 
-    // Desliga o ouvinte quando sair da tela
     return () => unsubscribe();
-  }, []);
+  }, [salaDoChat]); // 👈 Isso garante que se a sala mudar, ele limpa a tela e carrega a nova
 
-  // 2. FUNÇÃO DE ENVIAR MENSAGEM
+  // 4. FUNÇÃO DE ENVIAR MENSAGEM (Envia para a sala específica)
   const handleEnviar = async () => {
     if (texto.trim() === '') return; 
 
     try {
-      await enviarMensagem(chatIdTeste, texto, usuarioAtual);
-      setTexto(''); // Limpa a caixa de texto
+      await enviarMensagem(salaDoChat, texto, usuarioAtual);
+      setTexto(''); 
     } catch (error) {
       console.error("Erro ao enviar:", error);
       alert("Deu erro ao enviar. O Firestore está em modo de teste?");
     }
   };
 
-  // 3. DESENHO DOS BALÕES DE MENSAGEM (Estilo Zap)
   const renderMensagem = ({ item }: { item: any }) => {
     const isMinhaMensagem = item.usuario === usuarioAtual;
 
@@ -69,7 +75,8 @@ export default function ChatTeste() {
       behavior={Platform.OS === 'ios' ? 'padding' : undefined}
     >
       <View style={styles.header}>
-        <Text style={styles.headerTitle}>Chat: Cidade Nova</Text>
+        {/* O título dinâmico entra aqui */}
+        <Text style={styles.headerTitle}>{tituloDaTela}</Text>
       </View>
 
       <FlatList
@@ -82,7 +89,7 @@ export default function ChatTeste() {
       <View style={styles.inputContainer}>
         <TextInput
           style={styles.input}
-          placeholder="Manda a resenha do busão..."
+          placeholder={`Manda a resenha do ${idLinha ? idLinha : 'busão'}...`}
           value={texto}
           onChangeText={setTexto}
         />
