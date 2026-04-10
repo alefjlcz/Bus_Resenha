@@ -1,4 +1,3 @@
-// Arquivo: Bus Resenha/components/MenuLateral.tsx
 import { Ionicons } from '@expo/vector-icons';
 import { useRouter } from 'expo-router';
 import React, { useEffect, useRef } from 'react';
@@ -72,7 +71,7 @@ export default function MenuLateral({ visivel, fecharMenu }: MenuLateralProps) {
 
           <TouchableOpacity style={styles.itemMenu} onPress={irParaChat}>
             <Ionicons name="chatbubbles" size={24} color="#00A86B" />
-            <Text style={styles.textoItemMenu}>Resenha (Chat)</Text>
+            <Text style={styles.textoItemMenu}>Chat da Resenha</Text>
           </TouchableOpacity>
 
           <TouchableOpacity style={styles.itemMenu} onPress={() => alert('Em breve!')}>

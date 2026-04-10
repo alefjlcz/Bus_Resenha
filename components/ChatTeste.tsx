@@ -38,18 +38,23 @@ export default function ChatTeste() {
     });
 
     return () => unsubscribe();
-  }, [salaDoChat]); // 👈 Isso garante que se a sala mudar, ele limpa a tela e carrega a nova
+  }, [salaDoChat]); // Isso garante que se a sala mudar, ele limpa a tela e carrega a nova
 
-  // 4. FUNÇÃO DE ENVIAR MENSAGEM (Envia para a sala específica)
+  // FUNÇÃO DE ENVIAR MENSAGEM 
   const handleEnviar = async () => {
     if (texto.trim() === '') return; 
 
+    const mensagemGuardada = texto; // Guarda o texto rápido
+    setTexto(''); // Limpa a caixa na mesma hora 
+
     try {
-      await enviarMensagem(salaDoChat, texto, usuarioAtual);
-      setTexto(''); 
+      // Tenta enviar para a nuvem depois que a tela já limpou
+      await enviarMensagem(salaDoChat, mensagemGuardada, usuarioAtual);
     } catch (error) {
       console.error("Erro ao enviar:", error);
-      alert("Deu erro ao enviar. O Firestore está em modo de teste?");
+      // Se der erro, devolve o texto pra caixa pra pessoa não perder o que digitou
+      setTexto(mensagemGuardada); 
+      alert("Deu erro ao enviar para o servidor.");
     }
   };
 
@@ -72,7 +77,10 @@ export default function ChatTeste() {
   return (
     <KeyboardAvoidingView 
       style={styles.container} 
-      behavior={Platform.OS === 'ios' ? 'padding' : undefined}
+      // Muda o comportamento dependendo se é iPhone ou Android
+      behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+      // Compensa o tamanho do cabeçalho verde (tente 90 ou 100 se precisar)
+      keyboardVerticalOffset={Platform.OS === 'ios' ? 90 : 0}
     >
       <View style={styles.header}>
         {/* O título dinâmico entra aqui */}
@@ -84,12 +92,13 @@ export default function ChatTeste() {
         keyExtractor={(item) => item.id}
         renderItem={renderMensagem}
         contentContainerStyle={styles.listaMensagens}
+        removeClippedSubviews={false}
       />
 
       <View style={styles.inputContainer}>
         <TextInput
           style={styles.input}
-          placeholder={`Manda a resenha do ${idLinha ? idLinha : 'busão'}...`}
+          placeholder={`Onde está o ${idLinha ? idLinha : 'busão'}?`}
           value={texto}
           onChangeText={setTexto}
         />

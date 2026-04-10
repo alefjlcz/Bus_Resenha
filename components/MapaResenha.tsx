@@ -2,8 +2,9 @@ import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { StyleSheet } from 'react-native';
 import MapView, { Circle, Marker } from 'react-native-maps';
 
-// Ícone nativo (Alta performance)
+// Ícone nativo 
 const iconeOnibusLocal = require('../assets/images/icon_bus.png'); 
+const iconePersonagem = require('../assets/images/icon_usuario.png');
 
 // Função matemática para o filtro de 500m
 const calcularDistanciaEmKm = (lat1: number, lon1: number, lat2: number, lon2: number): number => {
@@ -39,7 +40,7 @@ export default function MapaResenha({
 
   const RAIO_MAXIMO_KM = 0.5; // 500 metros
 
-  // 🚀 FILTRO DE PERFORMANCE: Só processa o que o usuário vê
+  // FILTRO: Só processa o que o usuário vê
   const paradasProximas = useMemo(() => {
     if (!minhaLocalizacao || !paradas || paradas.length === 0) return [];
 
@@ -72,18 +73,17 @@ export default function MapaResenha({
     }
   }, [minhaLocalizacao, focoInicialFeito]);
 
-  return (
+return (
     <MapView 
       ref={mapRef}
       style={styles.map}
-      // Foco inicial padrão na Cidade Nova
       initialRegion={{ 
         latitude: -1.3700, 
         longitude: -48.3800, 
         latitudeDelta: 0.02, 
         longitudeDelta: 0.02 
       }}
-      showsUserLocation={true}
+      showsUserLocation={false} // Deixei false para a bolinha azul do Google não ficar embaixo do boneco
       showsMyLocationButton={true}
       onPress={() => setParadaSelecionada(null)} 
     >
@@ -101,24 +101,34 @@ export default function MapaResenha({
         />
       )}
 
+      {/* PERSONAGEM ICON */}
+      {minhaLocalizacao && (
+        <Marker
+          coordinate={{
+            latitude: minhaLocalizacao.latitude,
+            longitude: minhaLocalizacao.longitude
+          }}
+          title="Você está aqui"
+          icon={iconePersonagem} // Se for trocar icone, colocar dimensão 120x120
+          zIndex={100} 
+        />
+      )}
+
       {/* Renderização das Paradas Filtradas */}
       {paradasProximas.map((parada) => {
         const isSelecionada = paradaSelecionada?.id === parada.id;
 
         return (
           <Marker
-            key={`parada-${parada.id}`} 
-            coordinate={{ 
-              latitude: Number(parada.latitude), 
-              longitude: Number(parada.longitude) 
+            key={`parada-${parada.id}`} // Isso evita a tela branca!
+            coordinate={{
+              latitude: Number(parada.latitude),
+              longitude: Number(parada.longitude)
             }}
             onPress={() => setParadaSelecionada(parada)}
-            icon={iconeOnibusLocal}
-            // 🛡️ Impedindo tremedeira: tracksViewChanges como false economiza CPU
-            // Só permitimos true se a parada for a selecionada (caso queira animar algo nela)
+            icon={iconeOnibusLocal} 
             tracksViewChanges={isSelecionada}
-            // Garante que a parada clicada fique por cima das outras
-            zIndex={isSelecionada ? 99 : 1}
+            zIndex={isSelecionada ? 99 : 1} 
           />
         );
       })}
