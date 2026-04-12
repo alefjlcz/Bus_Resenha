@@ -30,7 +30,7 @@ export const db = getFirestore(app);
 
 
 // =============================
-// 🏙️ CRIAR CHAT POR BAIRRO/LINHA
+//  CRIAR CHAT POR BAIRRO/LINHA
 // =============================
 export async function criarChat(chatId: string, nomeLinha: string, bairro: string) {
   // Mudamos para setDoc! Assim a pasta ganha o nome exato (ex: "chat_linha_932")
@@ -71,7 +71,7 @@ export function verChats(filtro: string, callback: any) {
 
 
 // =============================
-// 📨 ENVIAR MENSAGEM
+//       ENVIAR MENSAGEM
 // =============================
 export async function enviarMensagem(
   chatId: string,
@@ -87,7 +87,7 @@ export async function enviarMensagem(
 
 
 // =============================
-//  VER MENSAGENS
+//        VER MENSAGENS
 // =============================
 export function ouvirMensagens(chatId: string, callback: any) {
   const q = query(
@@ -108,7 +108,7 @@ export function ouvirMensagens(chatId: string, callback: any) {
 
 
 // =============================
-// ⭐ FAVORITAR CHAT
+//       FAVORITAR CHAT
 // =============================
 export async function favoritarChat(userId: string, chatId: string) {
   await setDoc(doc(db, "usuarios", userId, "favoritos", chatId), {
