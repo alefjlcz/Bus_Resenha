@@ -1,17 +1,17 @@
 /* FIREBASE */
 import { initializeApp } from "firebase/app";
 import {
-    addDoc,
-    collection,
-    deleteDoc,
-    doc,
-    getFirestore,
-    onSnapshot,
-    orderBy,
-    query,
-    serverTimestamp,
-    setDoc,
-    where
+  addDoc,
+  collection,
+  deleteDoc,
+  doc,
+  getFirestore,
+  onSnapshot,
+  orderBy,
+  query,
+  serverTimestamp,
+  setDoc,
+  where
 } from "firebase/firestore";
 
 /* CONFIGURAÇÃO SEGURA PUXANDO DO .ENV */
@@ -30,19 +30,20 @@ export const db = getFirestore(app);
 
 
 // =============================
-// 🏙️ CRIAR CHAT POR BAIRRO
+// 🏙️ CRIAR CHAT POR BAIRRO/LINHA
 // =============================
-export async function criarChat(bairro: string) {
-  await addDoc(collection(db, "chats"), {
-    nome: bairro,
-    bairro,
+export async function criarChat(chatId: string, nomeLinha: string, bairro: string) {
+  // Mudamos para setDoc! Assim a pasta ganha o nome exato (ex: "chat_linha_932")
+  await setDoc(doc(db, "chats", chatId), {
+    nome: nomeLinha,
+    bairro: bairro,
     criadoEm: serverTimestamp(),
   });
 }
 
 
 // =============================
-// 🔍 VER CHATS (COM FILTRO)
+//          VER CHATS
 // =============================
 export function verChats(filtro: string, callback: any) {
   let q;

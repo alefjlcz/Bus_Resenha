@@ -10,7 +10,7 @@ import {
   View
 } from 'react-native';
 
-// 🎒 ESSA É A FERRAMENTA QUE PEGA O ID DA LINHA DA TELA ANTERIOR
+// ESSA É A FERRAMENTA QUE PEGA O ID DA LINHA DA TELA ANTERIOR
 import { useLocalSearchParams } from 'expo-router';
 
 import { enviarMensagem, ouvirMensagens } from '../chat/firebase';
@@ -34,6 +34,7 @@ export default function ChatTeste() {
   // 3. OUVINTE DO FIREBASE (Agora escuta só a sala específica)
   useEffect(() => {
     const unsubscribe = ouvirMensagens(salaDoChat, (msgs: any[]) => {
+      console.log("Mensagens que chegaram da nuvem: ", msgs.length);
       setMensagens(msgs);
     });
 
@@ -44,17 +45,23 @@ export default function ChatTeste() {
   const handleEnviar = async () => {
     if (texto.trim() === '') return; 
 
-    const mensagemGuardada = texto; // Guarda o texto rápido
-    setTexto(''); // Limpa a caixa na mesma hora 
+    const mensagemGuardada = texto;
+    setTexto(''); 
 
     try {
-      // Tenta enviar para a nuvem depois que a tela já limpou
+      console.log(`Tentando enviar "${mensagemGuardada}" para a sala: ${salaDoChat}`);
+      
+      // Tenta mandar pra nuvem
       await enviarMensagem(salaDoChat, mensagemGuardada, usuarioAtual);
-    } catch (error) {
-      console.error("Erro ao enviar:", error);
-      // Se der erro, devolve o texto pra caixa pra pessoa não perder o que digitou
+      
+      // SE CHEGAR NESSA LINHA, É 100% DE CERTEZA QUE ESTÁ LÁ!
+      console.log("🚀 SUCESSO TOTAL! O Firebase confirmou o recebimento!");
+      alert("✅ Mensagem enviada com sucesso pro Firebase!");
+      
+    } catch (error: any) {
+      console.error("❌ Ocorreu um erro oculto:", error);
       setTexto(mensagemGuardada); 
-      alert("Deu erro ao enviar para o servidor.");
+      alert(`Erro: ${error.message}`);
     }
   };
 

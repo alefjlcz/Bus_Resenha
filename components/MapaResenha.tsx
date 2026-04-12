@@ -73,6 +73,18 @@ export default function MapaResenha({
     }
   }, [minhaLocalizacao, focoInicialFeito]);
 
+  //  FUNÇÃO PARA CENTRALIZAR O MAPA NO USUÁRIO
+  const centralizarNoUsuario = () => {
+    if (minhaLocalizacao && mapRef.current) {
+      mapRef.current.animateToRegion({
+        latitude: minhaLocalizacao.latitude,
+        longitude: minhaLocalizacao.longitude,
+        latitudeDelta: 0.005, // Nível de zoom bem focado
+        longitudeDelta: 0.005,
+      }, 1000); // Animação suave de 1 segundo
+    }
+  };
+
 return (
     <MapView 
       ref={mapRef}
@@ -130,6 +142,7 @@ return (
             tracksViewChanges={isSelecionada}
             zIndex={isSelecionada ? 99 : 1} 
           />
+
         );
       })}
     </MapView>
