@@ -1,28 +1,74 @@
+import * as Google from 'expo-auth-session/providers/google';
 import { router } from 'expo-router';
-import { onAuthStateChanged } from 'firebase/auth';
+import * as WebBrowser from 'expo-web-browser';
+import { GoogleAuthProvider, signInWithCredential } from 'firebase/auth';
+import { doc, getDoc, serverTimestamp, setDoc } from 'firebase/firestore';
 import React, { useEffect, useState } from 'react';
 import { Alert, KeyboardAvoidingView, Platform, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
 
-// Puxando APENAS as funções do nosso banco para E-mail e Senha
-import { auth, criarConta, entrarNaConta, sairDaConta } from '../chat/firebase';
+// Puxando as funções do nosso banco
+import { auth, criarConta, db, entrarNaConta } from '../chat/firebase';
+
+// Isso é obrigatório para a janelinha do Google conseguir fechar e voltar pro app
+WebBrowser.maybeCompleteAuthSession();
 
 export default function TelaLogin() {
+  // === CONFIGURAÇÃO DO GOOGLE (PUXANDO DO .ENV) ===
+  const clientId = process.env.EXPO_PUBLIC_GOOGLE_CLIENT_ID;
+
+  const [request, response, promptAsync] = Google.useAuthRequest({
+    webClientId: clientId, 
+    androidClientId: clientId, // O TRUQUE: Enganando o Android no Expo Go
+    iosClientId: clientId,     // O TRUQUE: Enganando o iOS no Expo Go
+  });
+  // ===============================
+
   const [modoCadastro, setModoCadastro] = useState(false);
   const [nome, setNome] = useState('');
   const [email, setEmail] = useState('');
   const [senha, setSenha] = useState('');
   const [carregando, setCarregando] = useState(false);
 
-  // === 🔄 AUTO-LOGIN (LEMBRAR CONTA) ===
+  // === OUVINTE DO GOOGLE ===
+  // Fica esperando a janelinha do Google fechar para pegar os dados
   useEffect(() => {
-    const ouvinte = onAuthStateChanged(auth, (user) => {
-      // Só joga pro mapa se o cara tiver logado E com e-mail verificado!
-      if (user && user.emailVerified) {
-        router.replace('/home');
-      }
-    });
-    return () => ouvinte();
-  }, []);
+    if (response?.type === 'success') {
+      const { id_token } = response.params;
+      const credencial = GoogleAuthProvider.credential(id_token);
+      
+      signInWithCredential(auth, credencial)
+        .then(async (resultado) => {
+          const usuario = resultado.user;
+          
+          // Verifica se é a primeira vez que essa pessoa entra com o Google
+          const docRef = doc(db, "usuarios", usuario.uid);
+          const docSnap = await getDoc(docRef);
+
+          if (!docSnap.exists()) {
+             // Se for a primeira vez, cria o perfil dele no banco!
+             const isUniversitario = usuario.email?.endsWith('.edu.br') || 
+                                     usuario.email?.includes('@alunos.estacio.br') || 
+                                     usuario.email?.includes('@ufpa.br') ||
+                                     usuario.email?.includes('@uepa.br');
+
+             await setDoc(doc(db, "usuarios", usuario.uid), {
+                id: usuario.uid,
+                nome: usuario.displayName || 'Sem Nome',
+                email: usuario.email,
+                isUniversitario: isUniversitario,
+                contaCriadaEm: serverTimestamp(),
+                verificado: usuario.emailVerified
+             });
+          }
+          
+          Alert.alert('Sucesso!', 'Logado com o Google!');
+          router.replace('/home'); 
+        })
+        .catch((error) => {
+          Alert.alert('Erro no Google', error.message);
+        });
+    }
+  }, [response]);
 
   const handleAutenticacao = async () => {
     if (!email || !senha || (modoCadastro && !nome)) {
@@ -34,35 +80,12 @@ export default function TelaLogin() {
     
     try {
       if (modoCadastro) {
-        // 1. Cria a conta e o Firebase já manda o e-mail automático
         await criarConta(nome, email.trim(), senha);
-        Alert.alert(
-          'Quase lá!', 
-          'Conta criada com sucesso! 📧 Vá na sua caixa de entrada (ou spam) e clique no link para confirmar.'
-        );
-        
-        // 2. Desloga a pessoa para ela não entrar "burlada"
-        await sairDaConta(); 
-        setModoCadastro(false); // Volta a tela para o modo "Entrar"
-        
+        Alert.alert('Sucesso!', 'Conta criada com sucesso!');
       } else {
-        // 3. Tenta fazer o Login
-        const usuario = await entrarNaConta(email.trim(), senha);
-        
-        // 4. TRAVA DE SEGURANÇA 🔒
-        if (!usuario.emailVerified) {
-          await sairDaConta(); // Expulsa o usuário se não confirmou
-          Alert.alert(
-            'Acesso Bloqueado', 
-            'Você ainda não confirmou seu e-mail! Vá na sua caixa de entrada e clique no link que enviamos.'
-          );
-          setCarregando(false);
-          return; 
-        }
-
-        // Se chegou aqui, o e-mail tá verificado! 
-        // O Auto-login lá de cima já vai jogar o usuário pra /home automaticamente!
+        await entrarNaConta(email.trim(), senha);
       }
+      router.replace('/home'); 
     } catch (error: any) {
       Alert.alert('Erro', error.message); 
     } finally {
@@ -87,7 +110,7 @@ export default function TelaLogin() {
 
         <TextInput
           style={styles.input}
-          placeholder="E-mail"
+          placeholder="E-mail (use o da faculdade se tiver!)"
           keyboardType="email-address"
           autoCapitalize="none"
           value={email}
@@ -104,6 +127,15 @@ export default function TelaLogin() {
 
         <TouchableOpacity style={styles.botaoPrincipal} onPress={handleAutenticacao} disabled={carregando}>
           <Text style={styles.textoBotao}>{carregando ? 'Aguarde...' : (modoCadastro ? 'Cadastrar' : 'Entrar')}</Text>
+        </TouchableOpacity>
+
+        {/* O BOTÃO DO GOOGLE AGORA ESTÁ VIVO! */}
+        <TouchableOpacity 
+          style={styles.botaoGoogle} 
+          onPress={() => promptAsync()} 
+          disabled={!request}
+        >
+          <Text style={styles.textoGoogle}>G Continuar com o Google</Text>
         </TouchableOpacity>
 
         <TouchableOpacity onPress={() => setModoCadastro(!modoCadastro)}>
@@ -124,5 +156,7 @@ const styles = StyleSheet.create({
   input: { backgroundColor: '#F0F0F0', borderRadius: 8, padding: 15, marginBottom: 15, fontSize: 16 },
   botaoPrincipal: { backgroundColor: '#00A86B', padding: 15, borderRadius: 8, alignItems: 'center', marginBottom: 15 },
   textoBotao: { color: '#FFF', fontSize: 16, fontWeight: 'bold' },
+  botaoGoogle: { backgroundColor: '#FFF', borderWidth: 1, borderColor: '#DDD', padding: 15, borderRadius: 8, alignItems: 'center', marginBottom: 20 },
+  textoGoogle: { color: '#333', fontSize: 16, fontWeight: 'bold' },
   textoTrocar: { textAlign: 'center', color: '#00A86B', fontWeight: 'bold', marginTop: 10 }
 });

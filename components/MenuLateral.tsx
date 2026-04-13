@@ -2,6 +2,7 @@ import { Ionicons } from '@expo/vector-icons';
 import { useRouter } from 'expo-router';
 import React, { useEffect, useRef } from 'react';
 import {
+  Alert,
   Animated,
   Dimensions,
   Modal,
@@ -11,6 +12,9 @@ import {
   TouchableOpacity,
   View
 } from 'react-native';
+
+// Importando a nossa nova função de Sair!
+import { sairDaConta } from '../chat/firebase';
 
 const LARGURA_TELA = Dimensions.get('window').width;
 const LARGURA_GAVETA = LARGURA_TELA * 0.7;
@@ -48,6 +52,24 @@ export default function MenuLateral({ visivel, fecharMenu }: MenuLateralProps) {
     }, 300);
   };
 
+  const irParaPerfil = () => {
+  fecharMenu();
+  setTimeout(() => {
+    router.push('/perfil'); 
+  }, 300);
+  };
+
+  // === 🚪 NOVA FUNÇÃO DE LOGOUT ===
+  const fazerLogout = async () => {
+    try {
+      await sairDaConta(); // Limpa a memória do celular lá no Firebase
+      fecharMenu(); // Fecha a gavetinha
+      router.replace('/'); // Manda o usuário de volta para a tela de Login!
+    } catch (error) {
+      Alert.alert("Erro", "Não foi possível sair da conta.");
+    }
+  };
+
   return (
     <Modal
       visible={visivel}
@@ -69,14 +91,27 @@ export default function MenuLateral({ visivel, fecharMenu }: MenuLateralProps) {
             <Text style={styles.tituloGaveta}>Opções</Text>
           </View>
 
-          <TouchableOpacity style={styles.itemMenu} onPress={irParaChat}>
-            <Ionicons name="chatbubbles" size={24} color="#00A86B" />
-            <Text style={styles.textoItemMenu}>Chat da Resenha</Text>
-          </TouchableOpacity>
+          <View style={styles.containerItens}>
+            <TouchableOpacity style={styles.itemMenu} onPress={irParaChat}>
+              <Ionicons name="chatbubbles" size={24} color="#00A86B" />
+              <Text style={styles.textoItemMenu}>Chat da Resenha</Text>
+            </TouchableOpacity>
 
-          <TouchableOpacity style={styles.itemMenu} onPress={() => alert('Em breve!')}>
-            <Ionicons name="settings" size={24} color="#666" />
-            <Text style={styles.textoItemMenu}>Configurações</Text>
+            <TouchableOpacity style={styles.itemMenu} onPress={() => alert('Em breve!')}>
+              <Ionicons name="settings" size={24} color="#666" />
+              <Text style={styles.textoItemMenu}>Configurações</Text>
+            </TouchableOpacity>
+          </View>
+
+            <TouchableOpacity style={styles.itemMenu} onPress={irParaPerfil}>
+              <Ionicons name="person-circle" size={24} color="#00A86B" />
+              <Text style={styles.textoItemMenu}>O Meu Perfil</Text>
+            </TouchableOpacity>
+
+          {/* === BOTÃO DE SAIR LÁ EMBAIXO === */}
+          <TouchableOpacity style={styles.itemMenuSair} onPress={fazerLogout}>
+            <Ionicons name="log-out-outline" size={26} color="#D9534F" />
+            <Text style={styles.textoItemMenuSair}>Sair da Conta</Text>
           </TouchableOpacity>
 
         </Animated.View>
@@ -96,9 +131,13 @@ const styles = StyleSheet.create({
     shadowColor: '#000',
     shadowOpacity: 0.5,
     shadowRadius: 10,
+    justifyContent: 'space-between', // Espalha os itens pra cima e pra baixo
   },
   headerGaveta: { backgroundColor: '#00A86B', padding: 20, paddingTop: 40, marginBottom: 10 },
   tituloGaveta: { fontSize: 22, fontWeight: 'bold', color: '#FFF' },
+  containerItens: {
+    flex: 1, // Faz os itens normais ocuparem o espaço do meio
+  },
   itemMenu: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -106,5 +145,21 @@ const styles = StyleSheet.create({
     borderBottomWidth: 1,
     borderBottomColor: '#F0F0F0',
   },
-  textoItemMenu: { fontSize: 18, marginLeft: 15, color: '#333', fontWeight: '500' }
+  textoItemMenu: { fontSize: 18, marginLeft: 15, color: '#333', fontWeight: '500' },
+  
+  // Estilos específicos para o botão de sair (Vermelho)
+  itemMenuSair: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    padding: 20,
+    borderTopWidth: 1,
+    borderTopColor: '#F0F0F0',
+    backgroundColor: '#FFF5F5', // Um fundinho vermelho bem claro
+  },
+  textoItemMenuSair: { 
+    fontSize: 18, 
+    marginLeft: 15, 
+    color: '#D9534F', 
+    fontWeight: 'bold' 
+  }
 });

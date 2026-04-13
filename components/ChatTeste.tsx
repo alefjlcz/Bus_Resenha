@@ -1,4 +1,7 @@
+import { doc, getDoc } from 'firebase/firestore';
 import React, { useEffect, useState } from 'react';
+import { auth, db } from '../chat/firebase';
+
 import {
   FlatList,
   KeyboardAvoidingView,
@@ -14,12 +17,33 @@ import {
 import { useLocalSearchParams } from 'expo-router';
 
 import { enviarMensagem, ouvirMensagens } from '../chat/firebase';
-
 export default function ChatTeste() {
   const [mensagens, setMensagens] = useState<any[]>([]);
   const [texto, setTexto] = useState('');
-  
-  const usuarioAtual = 'Alessandro'; 
+
+  // Estados para guardar quem é o usuário logado
+  const [usuarioAtual, setUsuarioAtual] = useState('Carregando...');
+  const [isUniversitario, setIsUniversitario] = useState(false);
+
+  // Busca o usuário logado assim que a tela de chat abre
+  useEffect(() => {
+    const buscarUsuario = async () => {
+      const user = auth.currentUser;
+      if (user) {
+        // Vai lá na pasta "usuarios" procurar o selo dele
+        const docRef = doc(db, "usuarios", user.uid);
+        const docSnap = await getDoc(docRef);
+
+        if (docSnap.exists()) {
+          setUsuarioAtual(docSnap.data().nome);
+          setIsUniversitario(docSnap.data().isUniversitario);
+        } else {
+          setUsuarioAtual(user.email?.split('@')[0] || 'Usuário'); 
+        }
+      }
+    };
+    buscarUsuario();
+  }, []);
 
   // 1. ABRINDO A MALA: Pegamos o ID e o Nome que vieram da Lista de Chats
   const { idLinha, nomeLinha } = useLocalSearchParams();
@@ -52,7 +76,7 @@ export default function ChatTeste() {
       console.log(`Tentando enviar "${mensagemGuardada}" para a sala: ${salaDoChat}`);
       
       // Tenta mandar pra nuvem
-      await enviarMensagem(salaDoChat, mensagemGuardada, usuarioAtual);
+      await enviarMensagem(salaDoChat, mensagemGuardada, usuarioAtual + (isUniversitario ? ' 🎓' : ''));
       
       // SE CHEGAR NESSA LINHA, É 100% DE CERTEZA QUE ESTÁ LÁ!
       console.log("🚀 SUCESSO TOTAL! O Firebase confirmou o recebimento!");

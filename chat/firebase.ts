@@ -1,5 +1,17 @@
 /* FIREBASE */
-import { initializeApp } from "firebase/app";
+import ReactNativeAsyncStorage from '@react-native-async-storage/async-storage';
+import { getApp, getApps, initializeApp } from "firebase/app";
+// @ts-ignore
+import {
+  createUserWithEmailAndPassword,
+  getAuth // Importamos o getAuth para caso ele já esteja rodando
+  ,
+  getReactNativePersistence,
+  initializeAuth,
+  sendEmailVerification,
+  signInWithEmailAndPassword,
+  signOut
+} from "firebase/auth";
 import {
   addDoc,
   collection,
@@ -14,20 +26,76 @@ import {
   where
 } from "firebase/firestore";
 
-/* CONFIGURAÇÃO SEGURA PUXANDO DO .ENV */
+/* CONFIGURAÇÃO COM A SUA CHAVE DIRETA */
 const firebaseConfig = {
-  apiKey: process.env.EXPO_PUBLIC_FIREBASE_API_KEY,
-  authDomain: process.env.EXPO_PUBLIC_FIREBASE_AUTH_DOMAIN,
-  projectId: process.env.EXPO_PUBLIC_FIREBASE_PROJECT_ID,
-  storageBucket: process.env.EXPO_PUBLIC_FIREBASE_STORAGE_BUCKET,
-  messagingSenderId: process.env.EXPO_PUBLIC_FIREBASE_MESSAGING_SENDER_ID,
-  appId: process.env.EXPO_PUBLIC_FIREBASE_APP_ID,
-  measurementId: process.env.EXPO_PUBLIC_FIREBASE_MEASUREMENT_ID
+  apiKey: "AIzaSyAbI_hrb6zQf-U93kPdIl_MBy6kpGSwxc0",
+  authDomain: "resenhabus.firebaseapp.com",
+  projectId: "resenhabus",
+  storageBucket: "resenhabus.firebasestorage.app",
+  messagingSenderId: "531865506051",
+  appId: "1:531865506051:web:e2ae22ec6a05a7047c9936",
+  measurementId: "G-8YJ271DM1T"
 };
 
-const app = initializeApp(firebaseConfig);
+// 1. ESCUDO ANTI TELA VERMELHA: Inicializa apenas se não houver um já rodando
+const app = getApps().length === 0 ? initializeApp(firebaseConfig) : getApp();
+
+// 2. Inicializa o Banco
 export const db = getFirestore(app);
 
+// 3. ESCUDO DO AUTH: Tenta criar a persistência de memória, se já existir, apenas pega a instância
+let authInstance;
+try {
+  authInstance = initializeAuth(app, {
+    persistence: getReactNativePersistence(ReactNativeAsyncStorage)
+  });
+} catch (error) {
+  authInstance = getAuth(app);
+}
+
+export const auth = authInstance;
+
+// =============================
+// 🔐 AUTENTICAÇÃO E PERFIL
+// =============================
+export async function criarConta(nome: string, email: string, senha: string) {
+  // 1. Cria a conta no cofre do Firebase
+  const credencial = await createUserWithEmailAndPassword(auth, email, senha);
+  const usuario = credencial.user;
+
+  // 📧 DISPARA O E-MAIL DE VERIFICAÇÃO AQUI!
+  await sendEmailVerification(usuario);
+  
+  // 2. Lógica para detectar se é universitário (buscando e-mails de faculdades)
+  const isUniversitario = email.endsWith('.edu.br') || 
+                          email.includes('@alunos.estacio.br') || 
+                          email.includes('@ufpa.br') || 
+                          email.includes('@uepa.br');
+
+  // 3. Cria o perfil público no Firestore com a mesma ID da conta
+  await setDoc(doc(db, "usuarios", usuario.uid), {
+    id: usuario.uid,
+    nome: nome,
+    email: email,
+    isUniversitario: isUniversitario,
+    contaCriadaEm: serverTimestamp(),
+    verificado: usuario.emailVerified // Inicialmente false
+  });
+
+  return usuario;
+}
+
+export async function entrarNaConta(email: string, senha: string) {
+  const credencial = await signInWithEmailAndPassword(auth, email, senha);
+  return credencial.user;
+}
+
+// =============================
+// 🚪 SAIR DA CONTA
+// =============================
+export async function sairDaConta() {
+  await signOut(auth);
+}
 
 // =============================
 //  CRIAR CHAT POR BAIRRO/LINHA
