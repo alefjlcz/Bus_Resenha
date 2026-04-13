@@ -1,8 +1,10 @@
+import { Ionicons } from '@expo/vector-icons';
+import * as Location from 'expo-location';
+import { useLocalSearchParams, useRouter } from 'expo-router';
 import { doc, getDoc } from 'firebase/firestore';
-import React, { useEffect, useState } from 'react';
-import { auth, db } from '../chat/firebase';
-
+import React, { useEffect, useRef, useState } from 'react';
 import {
+  Alert,
   FlatList,
   KeyboardAvoidingView,
   Platform,
@@ -13,27 +15,24 @@ import {
   View
 } from 'react-native';
 
-// ESSA É A FERRAMENTA QUE PEGA O ID DA LINHA DA TELA ANTERIOR
-import { useLocalSearchParams } from 'expo-router';
+import { auth, atualizarPosicao, db, enviarLocalizacao, enviarMensagem, ouvirMensagens } from '../chat/firebase';
 
-import { enviarMensagem, ouvirMensagens } from '../chat/firebase';
 export default function ChatTeste() {
+  const router = useRouter();
   const [mensagens, setMensagens] = useState<any[]>([]);
   const [texto, setTexto] = useState('');
-
-  // Estados para guardar quem é o usuário logado
   const [usuarioAtual, setUsuarioAtual] = useState('Carregando...');
   const [isUniversitario, setIsUniversitario] = useState(false);
 
-  // Busca o usuário logado assim que a tela de chat abre
+  // Guarda o "rastreador" do GPS para podermos desligar depois
+  const rastreadorGps = useRef<Location.LocationSubscription | null>(null);
+
   useEffect(() => {
     const buscarUsuario = async () => {
       const user = auth.currentUser;
       if (user) {
-        // Vai lá na pasta "usuarios" procurar o selo dele
         const docRef = doc(db, "usuarios", user.uid);
         const docSnap = await getDoc(docRef);
-
         if (docSnap.exists()) {
           setUsuarioAtual(docSnap.data().nome);
           setIsUniversitario(docSnap.data().isUniversitario);
@@ -45,58 +44,129 @@ export default function ChatTeste() {
     buscarUsuario();
   }, []);
 
-  // 1. ABRINDO A MALA: Pegamos o ID e o Nome que vieram da Lista de Chats
   const { idLinha, nomeLinha } = useLocalSearchParams();
-
-  // 2. SALA DINÂMICA: Criamos o nome do chat baseado na linha!
-  // Se for a linha 932, a sala vai se chamar "chat_linha_932"
   const salaDoChat = idLinha ? `chat_linha_${idLinha}` : 'chat_geral_teste';
-  
-  // O Título lá no topo também muda de acordo com o ônibus escolhido
   const tituloDaTela = nomeLinha ? nomeLinha : 'Resenha do Busão';
 
-  // 3. OUVINTE DO FIREBASE (Agora escuta só a sala específica)
   useEffect(() => {
     const unsubscribe = ouvirMensagens(salaDoChat, (msgs: any[]) => {
-      console.log("Mensagens que chegaram da nuvem: ", msgs.length);
       setMensagens(msgs);
     });
-
     return () => unsubscribe();
-  }, [salaDoChat]); // Isso garante que se a sala mudar, ele limpa a tela e carrega a nova
+  }, [salaDoChat]);
 
-  // FUNÇÃO DE ENVIAR MENSAGEM 
+  // =============================
+  // LÓGICA DO GPS
+  // =============================
+  const iniciarGpsRealTime = async (minutos: number) => {
+    let { status } = await Location.requestForegroundPermissionsAsync();
+    
+    if (status !== 'granted') {
+      Alert.alert("Aviso", "Precisamos do GPS para compartilhar a viagem!");
+      return;
+    }
+
+    try {
+      Alert.alert("Iniciando", "Conectando ao satélite...");
+      
+      // Pega a posição logo de cara
+      let localizacaoInicial = await Location.getCurrentPositionAsync({});
+      
+      const nomeCompleto = usuarioAtual + (isUniversitario ? ' 🎓' : '');
+      
+      // 1. Cria a mensagem especial de localização no banco
+      const msgId = await enviarLocalizacao(salaDoChat, nomeCompleto, minutos);
+      
+      // 2. Atualiza com a primeira coordenada
+      await atualizarPosicao(
+        salaDoChat, msgId, 
+        localizacaoInicial.coords.latitude, 
+        localizacaoInicial.coords.longitude
+      );
+
+      // 3. Fica vigiando o movimento do ônibus
+      rastreadorGps.current = await Location.watchPositionAsync(
+        {
+          accuracy: Location.Accuracy.High,
+          timeInterval: 5000, 
+          distanceInterval: 10,
+        },
+        (novaPosicao) => {
+          atualizarPosicao(
+            salaDoChat, msgId, 
+            novaPosicao.coords.latitude, 
+            novaPosicao.coords.longitude
+          );
+        }
+      );
+
+      Alert.alert("Sucesso!", `Sua viagem está sendo compartilhada por ${minutos} min.`);
+    } catch (error) {
+      Alert.alert("Erro", "Não foi possível ligar o GPS.");
+    }
+  };
+
+  const abrirMenuGPS = () => {
+    Alert.alert(
+      "📍 Compartilhar Viagem",
+      "Por quanto tempo você quer enviar a localização do busão?",
+      [
+        { text: "Cancelar", style: "cancel" },
+        { text: "15 Minutos", onPress: () => iniciarGpsRealTime(15) },
+        { text: "30 Minutos", onPress: () => iniciarGpsRealTime(30) },
+        { text: "1 Hora", onPress: () => iniciarGpsRealTime(60) }
+      ]
+    );
+  };
+
   const handleEnviar = async () => {
     if (texto.trim() === '') return; 
-
     const mensagemGuardada = texto;
     setTexto(''); 
 
     try {
-      console.log(`Tentando enviar "${mensagemGuardada}" para a sala: ${salaDoChat}`);
-      
-      // Tenta mandar pra nuvem
       await enviarMensagem(salaDoChat, mensagemGuardada, usuarioAtual + (isUniversitario ? ' 🎓' : ''));
-      
-      // SE CHEGAR NESSA LINHA, É 100% DE CERTEZA QUE ESTÁ LÁ!
-      console.log("🚀 SUCESSO TOTAL! O Firebase confirmou o recebimento!");
-      alert("✅ Mensagem enviada com sucesso pro Firebase!");
-      
     } catch (error: any) {
-      console.error("❌ Ocorreu um erro oculto:", error);
       setTexto(mensagemGuardada); 
-      alert(`Erro: ${error.message}`);
+      Alert.alert("Erro", "Falha ao enviar mensagem.");
     }
   };
 
+  // =============================
+  // DESENHO DAS MENSAGENS
+  // =============================
   const renderMensagem = ({ item }: { item: any }) => {
-    const isMinhaMensagem = item.usuario === usuarioAtual;
+    const isMinhaMensagem = item.usuario.includes(usuarioAtual);
 
+    // SE A MENSAGEM FOR UM GPS, DESENHA O CARD DE LOCALIZAÇÃO
+    if (item.tipo === 'localizacao') {
+      return (
+        <View style={[styles.balaoContainer, isMinhaMensagem ? styles.minhaMensagem : styles.outraMensagem]}>
+          {!isMinhaMensagem && <Text style={styles.nome}>{item.usuario}</Text>}
+          
+          <Text style={[styles.texto, isMinhaMensagem ? styles.textoBranco : null, { fontWeight: 'bold', marginBottom: 5 }]}>
+            📍 Viagem ao Vivo
+          </Text>
+          <Text style={[styles.texto, isMinhaMensagem ? styles.textoBranco : null, { fontSize: 12, marginBottom: 10 }]}>
+            {item.texto}
+          </Text>
+          
+          <TouchableOpacity 
+            style={styles.botaoAcompanhar}
+            onPress={() => router.push({ 
+              pathname: '/mapa_viagem', 
+              params: { chatId: salaDoChat, msgId: item.id } 
+            })}
+          >
+            <Text style={styles.textoBotaoAcompanhar}>🗺️ Ver no Mapa</Text>
+          </TouchableOpacity>
+        </View>
+      );
+    }
+
+    // SE FOR MENSAGEM DE TEXTO COMUM, SEGUE NORMAL
     return (
-      <View style={[
-        styles.balaoContainer, 
-        isMinhaMensagem ? styles.minhaMensagem : styles.outraMensagem
-      ]}>
+      <View style={[styles.balaoContainer, isMinhaMensagem ? styles.minhaMensagem : styles.outraMensagem]}>
         {!isMinhaMensagem && <Text style={styles.nome}>{item.usuario}</Text>}
         <Text style={[styles.texto, isMinhaMensagem ? styles.textoBranco : null]}>
           {item.texto}
@@ -108,13 +178,10 @@ export default function ChatTeste() {
   return (
     <KeyboardAvoidingView 
       style={styles.container} 
-      // Muda o comportamento dependendo se é iPhone ou Android
       behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
-      // Compensa o tamanho do cabeçalho verde (tente 90 ou 100 se precisar)
       keyboardVerticalOffset={Platform.OS === 'ios' ? 90 : 0}
     >
       <View style={styles.header}>
-        {/* O título dinâmico entra aqui */}
         <Text style={styles.headerTitle}>{tituloDaTela}</Text>
       </View>
 
@@ -127,9 +194,14 @@ export default function ChatTeste() {
       />
 
       <View style={styles.inputContainer}>
+        {/* BOTÃO DOS 3 PONTINHOS / ANEXO */}
+        <TouchableOpacity style={styles.botaoAnexo} onPress={abrirMenuGPS}>
+          <Ionicons name="add-circle" size={32} color="#00A86B" />
+        </TouchableOpacity>
+
         <TextInput
           style={styles.input}
-          placeholder={`Onde está o ${idLinha ? idLinha : 'busão'}?`}
+          placeholder={`Onde está o busão?`}
           value={texto}
           onChangeText={setTexto}
         />
@@ -143,54 +215,24 @@ export default function ChatTeste() {
 
 const styles = StyleSheet.create({
   container: { flex: 1, backgroundColor: '#E5DDD5' },
-  header: {
-    backgroundColor: '#00A86B',
-    padding: 15,
-    paddingTop: 40,
-    alignItems: 'center',
-  },
+  header: { backgroundColor: '#00A86B', padding: 15, paddingTop: 40, alignItems: 'center' },
   headerTitle: { color: '#FFF', fontSize: 18, fontWeight: 'bold' },
   listaMensagens: { padding: 10 },
-  balaoContainer: {
-    maxWidth: '80%',
-    padding: 10,
-    borderRadius: 8,
-    marginBottom: 10,
-  },
-  minhaMensagem: {
-    alignSelf: 'flex-end',
-    backgroundColor: '#00A86B',
-    borderBottomRightRadius: 0,
-  },
-  outraMensagem: {
-    alignSelf: 'flex-start',
-    backgroundColor: '#FFF',
-    borderBottomLeftRadius: 0,
-  },
+  balaoContainer: { maxWidth: '80%', padding: 10, borderRadius: 8, marginBottom: 10 },
+  minhaMensagem: { alignSelf: 'flex-end', backgroundColor: '#00A86B', borderBottomRightRadius: 0 },
+  outraMensagem: { alignSelf: 'flex-start', backgroundColor: '#FFF', borderBottomLeftRadius: 0 },
   nome: { fontSize: 12, color: '#666', marginBottom: 4, fontWeight: 'bold' },
   texto: { fontSize: 16, color: '#333' },
   textoBranco: { color: '#FFF' },
-  inputContainer: {
-    flexDirection: 'row',
-    padding: 10,
-    backgroundColor: '#FFF',
-    borderTopWidth: 1,
-    borderColor: '#CCC',
-  },
-  input: {
-    flex: 1,
-    height: 40,
-    backgroundColor: '#F0F0F0',
-    borderRadius: 20,
-    paddingHorizontal: 15,
-    marginRight: 10,
-  },
-  botaoEnviar: {
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#00A86B',
-    borderRadius: 20,
-    paddingHorizontal: 15,
-  },
-  textoBotao: { color: '#FFF', fontWeight: 'bold' }
+  
+  // Estilos da Base do Chat
+  inputContainer: { flexDirection: 'row', padding: 10, backgroundColor: '#FFF', borderTopWidth: 1, borderColor: '#CCC', alignItems: 'center' },
+  botaoAnexo: { marginRight: 10 }, // Espaçamento dos 3 pontinhos
+  input: { flex: 1, height: 40, backgroundColor: '#F0F0F0', borderRadius: 20, paddingHorizontal: 15, marginRight: 10 },
+  botaoEnviar: { justifyContent: 'center', alignItems: 'center', backgroundColor: '#00A86B', borderRadius: 20, paddingHorizontal: 15, height: 40 },
+  textoBotao: { color: '#FFF', fontWeight: 'bold' },
+
+  // Estilos do Card de GPS
+  botaoAcompanhar: { backgroundColor: '#FFF', padding: 8, borderRadius: 8, alignItems: 'center', marginTop: 5 },
+  textoBotaoAcompanhar: { color: '#00A86B', fontWeight: 'bold' }
 });
