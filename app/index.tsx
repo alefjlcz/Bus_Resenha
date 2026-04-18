@@ -13,7 +13,7 @@ export default function TelaLogin() {
   const [senha, setSenha] = useState('');
   const [carregando, setCarregando] = useState(false);
 
-  // === 🔄 AUTO-LOGIN (LEMBRAR CONTA) ===
+  //       LEMBRAR CONTA 
   useEffect(() => {
     const ouvinte = onAuthStateChanged(auth, (user) => {
       // Só joga pro mapa se o cara tiver logado E com e-mail verificado!
@@ -34,22 +34,22 @@ export default function TelaLogin() {
     
     try {
       if (modoCadastro) {
-        // 1. Cria a conta e o Firebase já manda o e-mail automático
+        // Cria a conta e o Firebase já manda o e-mail automático
         await criarConta(nome, email.trim(), senha);
         Alert.alert(
           'Quase lá!', 
           'Conta criada com sucesso! 📧 Vá na sua caixa de entrada (ou spam) e clique no link para confirmar.'
         );
         
-        // 2. Desloga a pessoa para ela não entrar "burlada"
+        //  Desloga a pessoa para ela não entrar "burlada"
         await sairDaConta(); 
         setModoCadastro(false); // Volta a tela para o modo "Entrar"
         
       } else {
-        // 3. Tenta fazer o Login
+        // Tenta fazer o Login
         const usuario = await entrarNaConta(email.trim(), senha);
         
-        // 4. TRAVA DE SEGURANÇA 🔒
+        // TRAVA DE SEGURANÇA 🔒
         if (!usuario.emailVerified) {
           await sairDaConta(); // Expulsa o usuário se não confirmou
           Alert.alert(
@@ -59,7 +59,7 @@ export default function TelaLogin() {
           setCarregando(false);
           return; 
         }
-
+ 
         // Se chegou aqui, o e-mail tá verificado! 
         // O Auto-login lá de cima já vai jogar o usuário pra /home automaticamente!
       }

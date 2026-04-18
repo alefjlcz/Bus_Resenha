@@ -116,10 +116,13 @@ export function verChats(filtro: string, callback: any) {
 // =============================
 //       ENVIAR MENSAGEM COMUM
 // =============================
-export async function enviarMensagem(chatId: string, texto: string, usuario: string) {
+// MUDANÇA: Adicionamos o avatarId aqui
+export async function enviarMensagem(chatId: string, texto: string, usuario: string, tagLinha: string = "", avatarId: string = "padrao") {
   await addDoc(collection(db, "chats", chatId, "mensagens"), {
     texto,
     usuario,
+    tagLinha, 
+    avatarId, // <-- Salvando a foto na mensagem!
     tipo: 'texto',
     timestamp: serverTimestamp(),
   });
@@ -154,15 +157,19 @@ export function ouvirFavoritos(userId: string, callback: any) {
 }
 
 // =============================
-// 📍 COMPARTILHAR GPS
+//      COMPARTILHAR GPS
 // =============================
-export async function enviarLocalizacao(chatId: string, usuario: string, minutos: number) {
+// 
+
+export async function enviarLocalizacao(chatId: string, usuario: string, minutos: number, tagLinha: string = "", avatarId: string = "padrao") {
   const agora = new Date();
   const expiraEm = new Date(agora.getTime() + minutos * 60000);
 
   const docRef = await addDoc(collection(db, "chats", chatId, "mensagens"), {
     usuario,
     texto: `Compartilhando viagem por ${minutos} min`,
+    tagLinha,
+    avatarId, 
     tipo: 'localizacao',
     latitude: 0,
     longitude: 0,
@@ -175,4 +182,19 @@ export async function enviarLocalizacao(chatId: string, usuario: string, minutos
 export async function atualizarPosicao(chatId: string, mensagemId: string, lat: number, lon: number) {
   const docRef = doc(db, "chats", chatId, "mensagens", mensagemId);
   await updateDoc(docRef, { latitude: lat, longitude: lon });
+}
+
+// =============================
+//      ATUALIZAR TAG
+// =============================
+
+export async function atualizarTagLinha(userId: string, novaTag: string) {
+  await updateDoc(doc(db, "usuarios", userId), { tagLinha: novaTag });
+}
+
+// =============================
+//      ATUALIZAR AVATAR
+// =============================
+export async function atualizarAvatar(userId: string, avatarId: string) {
+  await updateDoc(doc(db, "usuarios", userId), { avatarId: avatarId });
 }

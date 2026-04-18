@@ -132,7 +132,7 @@ return (
 
         return (
           <Marker
-            key={`parada-${parada.id}`} // Isso evita a tela branca!
+            key={`parada-${parada.id}`} 
             coordinate={{
               latitude: Number(parada.latitude),
               longitude: Number(parada.longitude)

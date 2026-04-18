@@ -1,11 +1,13 @@
 import { Ionicons } from '@expo/vector-icons';
 import * as Location from 'expo-location';
 import { useLocalSearchParams, useRouter } from 'expo-router';
-import { doc, getDoc } from 'firebase/firestore';
+// MUDANÇA: Trocamos getDoc por onSnapshot
+import { doc, onSnapshot } from 'firebase/firestore';
 import React, { useEffect, useRef, useState } from 'react';
 import {
   Alert,
   FlatList,
+  Image,
   KeyboardAvoidingView,
   Platform,
   StyleSheet,
@@ -15,33 +17,43 @@ import {
   View
 } from 'react-native';
 
-import { auth, atualizarPosicao, db, enviarLocalizacao, enviarMensagem, ouvirMensagens } from '../chat/firebase';
+import { atualizarPosicao, auth, db, enviarLocalizacao, enviarMensagem, ouvirMensagens } from '../chat/firebase';
+
+const LISTA_AVATARES = [
+  { id: 'homem', img: require('../assets/avatares/meditacao_homem.png') },
+  { id: 'mulher', img: require('../assets/avatares/meditacao_mulher.png') }
+];
 
 export default function ChatTeste() {
   const router = useRouter();
   const [mensagens, setMensagens] = useState<any[]>([]);
   const [texto, setTexto] = useState('');
+  
   const [usuarioAtual, setUsuarioAtual] = useState('Carregando...');
   const [isUniversitario, setIsUniversitario] = useState(false);
+  const [minhaTag, setMinhaTag] = useState('');
+  const [meuAvatar, setMeuAvatar] = useState('homem'); 
 
-  // Guarda o "rastreador" do GPS para podermos desligar depois
+  // MUDANÇA: Referência para forçar o scroll da lista
+  const flatListRef = useRef<FlatList>(null);
   const rastreadorGps = useRef<Location.LocationSubscription | null>(null);
 
   useEffect(() => {
-    const buscarUsuario = async () => {
-      const user = auth.currentUser;
-      if (user) {
-        const docRef = doc(db, "usuarios", user.uid);
-        const docSnap = await getDoc(docRef);
+    const user = auth.currentUser;
+    if (user) {
+      // MUDANÇA: onSnapshot escuta o seu perfil em tempo real! Mudou lá, muda aqui na hora.
+      const unsubscribeUsuario = onSnapshot(doc(db, "usuarios", user.uid), (docSnap) => {
         if (docSnap.exists()) {
           setUsuarioAtual(docSnap.data().nome);
           setIsUniversitario(docSnap.data().isUniversitario);
+          setMinhaTag(docSnap.data().tagLinha || '');
+          setMeuAvatar(docSnap.data().avatarId || 'homem'); 
         } else {
           setUsuarioAtual(user.email?.split('@')[0] || 'Usuário'); 
         }
-      }
-    };
-    buscarUsuario();
+      });
+      return () => unsubscribeUsuario();
+    }
   }, []);
 
   const { idLinha, nomeLinha } = useLocalSearchParams();
@@ -55,9 +67,6 @@ export default function ChatTeste() {
     return () => unsubscribe();
   }, [salaDoChat]);
 
-  // =============================
-  // LÓGICA DO GPS
-  // =============================
   const iniciarGpsRealTime = async (minutos: number) => {
     let { status } = await Location.requestForegroundPermissionsAsync();
     
@@ -69,34 +78,17 @@ export default function ChatTeste() {
     try {
       Alert.alert("Iniciando", "Conectando ao satélite...");
       
-      // Pega a posição logo de cara
       let localizacaoInicial = await Location.getCurrentPositionAsync({});
-      
       const nomeCompleto = usuarioAtual + (isUniversitario ? ' 🎓' : '');
       
-      // 1. Cria a mensagem especial de localização no banco
-      const msgId = await enviarLocalizacao(salaDoChat, nomeCompleto, minutos);
+      const msgId = await enviarLocalizacao(salaDoChat, nomeCompleto, minutos, minhaTag, meuAvatar);
       
-      // 2. Atualiza com a primeira coordenada
-      await atualizarPosicao(
-        salaDoChat, msgId, 
-        localizacaoInicial.coords.latitude, 
-        localizacaoInicial.coords.longitude
-      );
+      await atualizarPosicao(salaDoChat, msgId, localizacaoInicial.coords.latitude, localizacaoInicial.coords.longitude);
 
-      // 3. Fica vigiando o movimento do ônibus
       rastreadorGps.current = await Location.watchPositionAsync(
-        {
-          accuracy: Location.Accuracy.High,
-          timeInterval: 5000, 
-          distanceInterval: 10,
-        },
+        { accuracy: Location.Accuracy.High, timeInterval: 5000, distanceInterval: 10 },
         (novaPosicao) => {
-          atualizarPosicao(
-            salaDoChat, msgId, 
-            novaPosicao.coords.latitude, 
-            novaPosicao.coords.longitude
-          );
+          atualizarPosicao(salaDoChat, msgId, novaPosicao.coords.latitude, novaPosicao.coords.longitude);
         }
       );
 
@@ -125,52 +117,57 @@ export default function ChatTeste() {
     setTexto(''); 
 
     try {
-      await enviarMensagem(salaDoChat, mensagemGuardada, usuarioAtual + (isUniversitario ? ' 🎓' : ''));
+      await enviarMensagem(salaDoChat, mensagemGuardada, usuarioAtual + (isUniversitario ? ' 🎓' : ''), minhaTag, meuAvatar);
     } catch (error: any) {
       setTexto(mensagemGuardada); 
       Alert.alert("Erro", "Falha ao enviar mensagem.");
     }
   };
 
-  // =============================
-  // DESENHO DAS MENSAGENS
-  // =============================
   const renderMensagem = ({ item }: { item: any }) => {
     const isMinhaMensagem = item.usuario.includes(usuarioAtual);
+    
+    // MUDANÇA: O "Truque do Espelho". Se for sua mensagem, força usar a foto atual do seu estado!
+    const idDoAvatar = isMinhaMensagem ? meuAvatar : item.avatarId;
+    const imagemDoAvatar = LISTA_AVATARES.find(a => a.id === idDoAvatar)?.img || LISTA_AVATARES[0].img;
 
-    // SE A MENSAGEM FOR UM GPS, DESENHA O CARD DE LOCALIZAÇÃO
-    if (item.tipo === 'localizacao') {
-      return (
-        <View style={[styles.balaoContainer, isMinhaMensagem ? styles.minhaMensagem : styles.outraMensagem]}>
-          {!isMinhaMensagem && <Text style={styles.nome}>{item.usuario}</Text>}
-          
-          <Text style={[styles.texto, isMinhaMensagem ? styles.textoBranco : null, { fontWeight: 'bold', marginBottom: 5 }]}>
-            📍 Viagem ao Vivo
-          </Text>
-          <Text style={[styles.texto, isMinhaMensagem ? styles.textoBranco : null, { fontSize: 12, marginBottom: 10 }]}>
-            {item.texto}
-          </Text>
-          
-          <TouchableOpacity 
-            style={styles.botaoAcompanhar}
-            onPress={() => router.push({ 
-              pathname: '/mapa_viagem', 
-              params: { chatId: salaDoChat, msgId: item.id } 
-            })}
-          >
-            <Text style={styles.textoBotaoAcompanhar}>🗺️ Ver no Mapa</Text>
-          </TouchableOpacity>
-        </View>
-      );
-    }
-
-    // SE FOR MENSAGEM DE TEXTO COMUM, SEGUE NORMAL
     return (
-      <View style={[styles.balaoContainer, isMinhaMensagem ? styles.minhaMensagem : styles.outraMensagem]}>
-        {!isMinhaMensagem && <Text style={styles.nome}>{item.usuario}</Text>}
-        <Text style={[styles.texto, isMinhaMensagem ? styles.textoBranco : null]}>
-          {item.texto}
-        </Text>
+      <View style={[styles.mensagemWrapper, isMinhaMensagem ? styles.wrapperMinha : styles.wrapperOutra]}>
+        
+        <Image 
+          source={imagemDoAvatar} 
+          style={[styles.avatarImg, isMinhaMensagem ? styles.avatarMinhaImg : null]} 
+        />
+
+        <View style={[styles.balaoContainer, isMinhaMensagem ? styles.minhaMensagem : styles.outraMensagem]}>
+          <View style={styles.headerMensagem}>
+            <Text style={[styles.nome, isMinhaMensagem ? styles.nomeBranco : null]}>
+              {item.usuario}
+            </Text>
+            
+            {item.tagLinha ? (
+              <View style={[styles.discordBadge, isMinhaMensagem ? styles.discordBadgeMinha : null]}>
+                <Text style={[styles.discordBadgeText, isMinhaMensagem ? styles.discordBadgeTextMinha : null]}>
+                  🚌 {item.tagLinha}
+                </Text>
+              </View>
+            ) : null}
+          </View>
+
+          {item.tipo === 'localizacao' ? (
+            <>
+              <Text style={[styles.texto, isMinhaMensagem ? styles.textoBranco : null, { fontWeight: 'bold', marginBottom: 5 }]}>📍 Viagem ao Vivo</Text>
+              <Text style={[styles.texto, isMinhaMensagem ? styles.textoBranco : null, { fontSize: 12, marginBottom: 10 }]}>{item.texto}</Text>
+              <TouchableOpacity style={styles.botaoAcompanhar} onPress={() => router.push({ pathname: '/mapa_viagem', params: { chatId: salaDoChat, msgId: item.id } })}>
+                <Text style={styles.textoBotaoAcompanhar}>🗺️ Ver no Mapa</Text>
+              </TouchableOpacity>
+            </>
+          ) : (
+            <Text style={[styles.texto, isMinhaMensagem ? styles.textoBranco : null]}>
+              {item.texto}
+            </Text>
+          )}
+        </View>
       </View>
     );
   };
@@ -186,15 +183,18 @@ export default function ChatTeste() {
       </View>
 
       <FlatList
+        ref={flatListRef}
         data={mensagens}
+        extraData={meuAvatar} // <-- ESSA É A MÁGICA QUE FALTAVA!
         keyExtractor={(item) => item.id}
         renderItem={renderMensagem}
         contentContainerStyle={styles.listaMensagens}
         removeClippedSubviews={false}
+        onContentSizeChange={() => flatListRef.current?.scrollToEnd({ animated: true })}
+        onLayout={() => flatListRef.current?.scrollToEnd({ animated: true })}
       />
 
       <View style={styles.inputContainer}>
-        {/* BOTÃO DOS 3 PONTINHOS / ANEXO */}
         <TouchableOpacity style={styles.botaoAnexo} onPress={abrirMenuGPS}>
           <Ionicons name="add-circle" size={32} color="#00A86B" />
         </TouchableOpacity>
@@ -217,22 +217,36 @@ const styles = StyleSheet.create({
   container: { flex: 1, backgroundColor: '#E5DDD5' },
   header: { backgroundColor: '#00A86B', padding: 15, paddingTop: 40, alignItems: 'center' },
   headerTitle: { color: '#FFF', fontSize: 18, fontWeight: 'bold' },
-  listaMensagens: { padding: 10 },
-  balaoContainer: { maxWidth: '80%', padding: 10, borderRadius: 8, marginBottom: 10 },
-  minhaMensagem: { alignSelf: 'flex-end', backgroundColor: '#00A86B', borderBottomRightRadius: 0 },
-  outraMensagem: { alignSelf: 'flex-start', backgroundColor: '#FFF', borderBottomLeftRadius: 0 },
-  nome: { fontSize: 12, color: '#666', marginBottom: 4, fontWeight: 'bold' },
+  listaMensagens: { padding: 10, paddingBottom: 20 }, // Adicionado um fôlego embaixo
+  
+  mensagemWrapper: { flexDirection: 'row', marginBottom: 15, alignItems: 'flex-end' },
+  wrapperMinha: { flexDirection: 'row-reverse', alignSelf: 'flex-end' },
+  wrapperOutra: { flexDirection: 'row', alignSelf: 'flex-start' },
+  
+  avatarImg: { width: 36, height: 36, borderRadius: 18, marginHorizontal: 8, backgroundColor: '#CCC' },
+  avatarMinhaImg: { borderWidth: 2, borderColor: '#00A86B' },
+
+  balaoContainer: { maxWidth: '75%', padding: 10, borderRadius: 12, elevation: 1 },
+  minhaMensagem: { backgroundColor: '#00A86B', borderBottomRightRadius: 0 },
+  outraMensagem: { backgroundColor: '#FFF', borderBottomLeftRadius: 0 },
+  
+  headerMensagem: { flexDirection: 'row', alignItems: 'center', marginBottom: 6, flexWrap: 'wrap' },
+  nome: { fontSize: 12, color: '#666', fontWeight: 'bold' },
+  nomeBranco: { color: '#E0E0E0' }, 
+  
+  discordBadge: { backgroundColor: '#1E1F22', paddingHorizontal: 6, paddingVertical: 2, borderRadius: 6, marginLeft: 6 },
+  discordBadgeMinha: { backgroundColor: '#FFF' }, 
+  discordBadgeText: { color: '#FFF', fontSize: 10, fontWeight: 'bold' },
+  discordBadgeTextMinha: { color: '#00A86B' }, 
+  
   texto: { fontSize: 16, color: '#333' },
   textoBranco: { color: '#FFF' },
   
-  // Estilos da Base do Chat
   inputContainer: { flexDirection: 'row', padding: 10, backgroundColor: '#FFF', borderTopWidth: 1, borderColor: '#CCC', alignItems: 'center' },
-  botaoAnexo: { marginRight: 10 }, // Espaçamento dos 3 pontinhos
+  botaoAnexo: { marginRight: 10 }, 
   input: { flex: 1, height: 40, backgroundColor: '#F0F0F0', borderRadius: 20, paddingHorizontal: 15, marginRight: 10 },
   botaoEnviar: { justifyContent: 'center', alignItems: 'center', backgroundColor: '#00A86B', borderRadius: 20, paddingHorizontal: 15, height: 40 },
   textoBotao: { color: '#FFF', fontWeight: 'bold' },
-
-  // Estilos do Card de GPS
   botaoAcompanhar: { backgroundColor: '#FFF', padding: 8, borderRadius: 8, alignItems: 'center', marginTop: 5 },
   textoBotaoAcompanhar: { color: '#00A86B', fontWeight: 'bold' }
 });
