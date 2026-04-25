@@ -17,7 +17,9 @@ import {
   serverTimestamp,
   setDoc,
   updateDoc,
-  where
+  where,
+  arrayUnion,
+  arrayRemove
 } from "firebase/firestore";
 
 /* CONFIGURAÇÃO COM A SUA CHAVE DIRETA */
@@ -169,6 +171,24 @@ export function ouvirFavoritos(userId: string, callback: any) {
     snapshot.forEach((doc) => { favoritos.push(doc.id); });
     callback(favoritos);
   });
+}
+
+// =============================
+//     FAVORITAR PARADA
+// =============================
+export async function favoritarParada(userId: string, paradaId: string, isFavorito: boolean) {
+  const userRef = doc(db, "usuarios", userId);
+  try {
+    if (isFavorito) {
+      // Adiciona o ID da parada na lista de favoritas do usuário
+      await updateDoc(userRef, { paradasFavoritas: arrayUnion(paradaId) });
+    } else {
+      // Remove o ID da parada da lista
+      await updateDoc(userRef, { paradasFavoritas: arrayRemove(paradaId) });
+    }
+  } catch (error) {
+    console.error("Erro ao favoritar:", error);
+  }
 }
 
 // =============================

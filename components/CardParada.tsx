@@ -2,8 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { Alert, Image, Modal, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { mapaFotos } from '../assets/dados/mapa_fotos';
 
-// IMPORTANTE: Trazendo a função que salva no banco de dados de verdade!
-import { registrarResenhaNoBanco } from '../chat/firebase';
+// IMPORTANTE: Trazendo a função que salva no banco de dados de verdade e a autenticação!
+import { auth, favoritarParada, registrarResenhaNoBanco } from '../chat/firebase';
 
 // 1. Interface unificada e limpa!
 interface CardParadaProps {
@@ -12,6 +12,7 @@ interface CardParadaProps {
   fecharCard: () => void;
   statusGlobal: Record<string, string>; 
   clima: string; // <-- A prop do clima que vem da Home
+  favoritas: string[]; // <-- LISTA DE FAVORITAS QUE VEM DA HOME
 }
 
 export default function CardParada({ 
@@ -19,7 +20,8 @@ export default function CardParada({
   usuarioEstaNaParada, 
   fecharCard,
   statusGlobal,
-  clima // 2. Puxando a variável para usar dentro do componente
+  clima,
+  favoritas = [] // Valor padrão vazio por segurança
 }: CardParadaProps) {
   
   const [modalVisivel, setModalVisivel] = useState(false);
@@ -32,6 +34,21 @@ export default function CardParada({
   if (!parada) return null; 
 
   // =============================
+  // ❤️ LÓGICA DE FAVORITOS
+  // =============================
+  // Verifica se o ID desta parada está dentro da lista de favoritas do usuário
+  const isFavorita = favoritas.includes(parada.id.toString());
+
+  const handleFavoritar = async () => {
+    if (auth.currentUser) {
+      // Se já é favorita, manda remover (false). Se não é, manda adicionar (true).
+      await favoritarParada(auth.currentUser.uid, parada.id.toString(), !isFavorita);
+    } else {
+      Alert.alert("Erro", "Você precisa estar logado para favoritar.");
+    }
+  };
+
+  // =============================
   // 📢 SALVAR RESENHA NO BANCO
   // =============================
   const enviarReporte = async (statusId: string, mensagem: string) => {
@@ -40,7 +57,7 @@ export default function CardParada({
       Alert.alert("Resenha Registrada!", mensagem);
       setModalVisivel(false); 
     } catch (error) {
-      Alert.alert("Erro", "Não foi possível registrar a resenha.");
+      Alert.alert("Erro", "Não foi possível registrar o feedback.");
     }
   };
 
@@ -107,7 +124,7 @@ export default function CardParada({
           <Text style={[styles.badgeText, { color: corStatusTexto }]}>{iconeStatus}</Text>
         </View>
         
-        {/* 3. Aqui nós colocamos a variável do Clima ao vivo! */}
+        {/* Aqui nós colocamos a variável do Clima ao vivo! */}
         <View style={[styles.badge, { backgroundColor: '#E3F2FD' }]}>
           <Text style={[styles.badgeText, { color: '#1565C0' }]}>
             {clima}
@@ -126,21 +143,35 @@ export default function CardParada({
           ? "Atenção: Relatos de alagamento ou situação que exige cuidado nesta parada." 
           : statusAtual === "perigoso"
           ? "Atenção máxima: Evite este local. Relatos de perigo/assalto recentemente."
-          : "A resenha desta parada está tranquila. Local com fluxo normal e seguro."}
+          : "Esta parada está tranquila. Local com fluxo normal e seguro."}
       </Text>
 
+      {/* ===================== */}
+      {/* ÁREA DE BOTÕES        */}
+      {/* ===================== */}
+
       <TouchableOpacity style={styles.button} onPress={() => setModalVisivel(true)}>
-        <Text style={styles.buttonText}>Lançar a Resenha (Reportar)</Text>
+        <Text style={styles.buttonText}>Lançar o Feedback (Reportar)</Text>
       </TouchableOpacity>
 
       <TouchableOpacity style={[styles.button, styles.botaoEmergencia]} onPress={simularChamada190}>
         <Text style={styles.buttonText}>🚨 Acionar 190 (Polícia)</Text>
       </TouchableOpacity>
 
+      {/* NOVO: BOTÃO DE FAVORITAR */}
+      <TouchableOpacity 
+        style={[styles.button, { backgroundColor: isFavorita ? '#FFF' : '#F0F0F0', borderColor: '#FF4B4B', borderWidth: 2 }]} 
+        onPress={handleFavoritar}
+      >
+        <Text style={[styles.buttonText, { color: '#FF4B4B' }]}>
+          {isFavorita ? '❤️ Remover dos Favoritos' : '🤍 Salvar como Favorita'}
+        </Text>
+      </TouchableOpacity>
+
       <Modal animationType="slide" transparent={true} visible={modalVisivel} onRequestClose={() => setModalVisivel(false)}>
         <View style={styles.modalOverlay}>
           <View style={styles.modalContent}>
-            <Text style={styles.modalTitle}>Qual a resenha da parada?</Text>
+            <Text style={styles.modalTitle}>Qual o feedback da parada?</Text>
           
             <TouchableOpacity style={styles.reportOption} onPress={() => enviarReporte("ok", "Que bom que está tudo seguro!")}>
               <Text style={styles.reportOptionText}>✅ Verde: Tudo Normal/Seguro</Text>
