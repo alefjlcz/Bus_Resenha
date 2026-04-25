@@ -5,19 +5,21 @@ import { mapaFotos } from '../assets/dados/mapa_fotos';
 // IMPORTANTE: Trazendo a função que salva no banco de dados de verdade!
 import { registrarResenhaNoBanco } from '../chat/firebase';
 
+// 1. Interface unificada e limpa!
 interface CardParadaProps {
   parada: any;
   usuarioEstaNaParada?: boolean; 
   fecharCard: () => void;
   statusGlobal: Record<string, string>; 
-  registrarResenha?: (id: string, status: string) => void; 
+  clima: string; // <-- A prop do clima que vem da Home
 }
 
 export default function CardParada({ 
   parada, 
   usuarioEstaNaParada, 
   fecharCard,
-  statusGlobal
+  statusGlobal,
+  clima // 2. Puxando a variável para usar dentro do componente
 }: CardParadaProps) {
   
   const [modalVisivel, setModalVisivel] = useState(false);
@@ -34,7 +36,6 @@ export default function CardParada({
   // =============================
   const enviarReporte = async (statusId: string, mensagem: string) => {
     try {
-      // Agora o botão avisa o Firebase!
       await registrarResenhaNoBanco(parada.id.toString(), statusId);
       Alert.alert("Resenha Registrada!", mensagem);
       setModalVisivel(false); 
@@ -106,9 +107,10 @@ export default function CardParada({
           <Text style={[styles.badgeText, { color: corStatusTexto }]}>{iconeStatus}</Text>
         </View>
         
+        {/* 3. Aqui nós colocamos a variável do Clima ao vivo! */}
         <View style={[styles.badge, { backgroundColor: '#E3F2FD' }]}>
           <Text style={[styles.badgeText, { color: '#1565C0' }]}>
-            {parada.status_clima !== "desconhecido" ? parada.status_clima : "⛅ Clima: Limpo"}
+            {clima}
           </Text>
         </View>
 
