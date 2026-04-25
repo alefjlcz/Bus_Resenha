@@ -1,135 +1,124 @@
 import React, { useEffect, useState } from 'react';
-import { Alert, Image, Modal, StyleSheet, Text, TouchableOpacity, View } from 'react-native'; 
-import { mapaFotos } from '../assets/dados/mapa_fotos'; 
+import { Alert, Image, Modal, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { mapaFotos } from '../assets/dados/mapa_fotos';
 
-/**
- * @interface CardParadaProps
- * @description Define as propriedades (Props) esperadas pelo componente CardParada.
- * O TypeScript garante que quem chamar este componente forneça os dados corretos.
- */
+// IMPORTANTE: Trazendo a função que salva no banco de dados de verdade!
+import { registrarResenhaNoBanco } from '../chat/firebase';
+
 interface CardParadaProps {
-  // Objeto contendo os dados da parada (id, nome, coordenadas, etc.)
   parada: any;
-  // Flag booleana que indica se o usuário está fisicamente perto da parada
   usuarioEstaNaParada?: boolean; 
-  // Função de callback para esconder o card da tela
   fecharCard: () => void;
-  // Objeto dicionário que guarda o status de todas as paradas (ex: { "1": "perigoso", "2": "ok" })
   statusGlobal: Record<string, string>; 
-  // Função para enviar uma nova resenha (reporte) para o banco de dados principal
-  registrarResenha: (id: string, status: string) => void; 
+  registrarResenha?: (id: string, status: string) => void; 
 }
 
-/**
- * @component CardParada
- * @description Componente de interface (UI) que exibe os detalhes de um ponto de ônibus específico.
- * Ele permite visualizar a foto do local, o status de segurança e o clima, além de 
- * permitir que o usuário envie alertas em tempo real.
- */
 export default function CardParada({ 
   parada, 
   usuarioEstaNaParada, 
   fecharCard,
-  statusGlobal,
-  registrarResenha
+  statusGlobal
 }: CardParadaProps) {
   
-  // =============================
-  //    GESTÃO DE ESTADOS (STATE)
-  // =============================
-  
-  // Controla a visibilidade do Pop-up (Modal) de reporte
   const [modalVisivel, setModalVisivel] = useState(false);
-  
-  // Simula a contagem de pessoas na parada para avaliar lotação
   const [pessoasNaParada, setPessoasNaParada] = useState(12); 
 
-  // Se o GPS detectar que o usuário chegou na parada, incrementa a lotação
   useEffect(() => {
     if (usuarioEstaNaParada) setPessoasNaParada(prev => prev + 1);
   }, [usuarioEstaNaParada]); 
 
-  // Proteção: Se a parada não existir, não renderiza nada para evitar crashes
   if (!parada) return null; 
 
   // =============================
-  //     LÓGICA DE NEGÓCIO
+  // 📢 SALVAR RESENHA NO BANCO
   // =============================
-
-  /**
-   * Função executada quando o usuário clica em uma das opções de reporte no Modal.
-   * Ela chama o callback do componente pai e fecha a janela.
-   */
-  const enviarReporte = (statusId: string, mensagem: string) => {
-    registrarResenha(parada.id.toString(), statusId);
-    Alert.alert("Resenha Registrada!", mensagem);
-    setModalVisivel(false); 
+  const enviarReporte = async (statusId: string, mensagem: string) => {
+    try {
+      // Agora o botão avisa o Firebase!
+      await registrarResenhaNoBanco(parada.id.toString(), statusId);
+      Alert.alert("Resenha Registrada!", mensagem);
+      setModalVisivel(false); 
+    } catch (error) {
+      Alert.alert("Erro", "Não foi possível registrar a resenha.");
+    }
   };
 
   // =============================
-  // PREPARAÇÃO DE DADOS PARA A TELA
+  // 🚨 LÓGICA DE EMERGÊNCIA (190)
   // =============================
+  const simularChamada190 = () => {
+    Alert.alert(
+      "🚨 EMERGÊNCIA 190",
+      `Tem certeza que deseja acionar a viatura para a parada:\n${parada.nome}?`,
+      [
+        { text: "Cancelar", style: "cancel" },
+        { 
+          text: "CHAMAR AGORA", 
+          style: "destructive", 
+          onPress: async () => {
+            Alert.alert(
+              "🚓 Polícia Acionada!", 
+              "A viatura mais próxima recebeu as coordenadas deste ponto e está a caminho. Procure um local seguro."
+            );
+            
+            // Lança resenha de Perigo Máximo pro Firebase!
+            await registrarResenhaNoBanco(parada.id.toString(), "perigoso");
+            fecharCard();
+          } 
+        }
+      ]
+    );
+  };
 
-  // Tenta buscar a foto da rua baseada no ID.
-  const fotoDaRua = mapaFotos[parada.id.toString()];
-  
-  // Pega o status atual desta parada específica. Se não houver, assume que está "ok"
+  const fotoDaRua = mapaFotos ? mapaFotos[parada.id.toString()] : null;
   const statusAtual = statusGlobal[parada.id.toString()] || "ok";
   
-  // Variáveis padrão para o estilo dinâmico do "Badge" de segurança
   let iconeStatus = "✅ Tudo Ok";
-  let corStatusFundo = "#E8F5E9"; // Verde claro
-  let corStatusTexto = "#2E7D32"; // Verde escuro
+  let corStatusFundo = "#E8F5E9"; // Verde
+  let corStatusTexto = "#2E7D32";
 
-  // Lógica Condicional: Muda as cores e o texto do Badge baseado no alerta da galera
   if (statusAtual === "cuidado") {
     iconeStatus = "⚠️ Cuidado/Alagada";
-    corStatusFundo = "#FFF9C4"; // Amarelo claro
-    corStatusTexto = "#F57F17"; // Amarelo escuro (quase laranja para dar leitura)
+    corStatusFundo = "#FFF9C4"; // Amarelo
+    corStatusTexto = "#F57F17"; 
   } else if (statusAtual === "perigoso") {
     iconeStatus = "🚨 Perigoso";
-    corStatusFundo = "#FFEBEE"; // Vermelho claro
-    corStatusTexto = "#C62828"; // Vermelho escuro
+    corStatusFundo = "#FFEBEE"; // Vermelho
+    corStatusTexto = "#C62828"; 
   }
 
-  // =============================
-  //   RENDERIZAÇÃO DA INTERFACE
-  // =============================
   return (
     <View style={styles.cardContainer}>
-      
-      {/* Botão de Fechar flutuante */}
       <TouchableOpacity style={styles.closeButton} onPress={fecharCard}>
         <Text style={styles.closeButtonText}>✕</Text>
       </TouchableOpacity>
 
-      {/* Renderização da Foto: Mostra a imagem se existir, senão mostra um bloco cinza */}
       {fotoDaRua ? (
         <Image source={fotoDaRua} style={styles.imagemParada} resizeMode="cover" />
       ) : (
         <View style={styles.imagemPlaceholder}><Text style={styles.textoPlaceholder}>Foto indisponível</Text></View>
       )}
 
-      {/* Nome Principal da Parada */}
       <Text style={styles.cardTitle}>{parada.nome}</Text>
       
-      {/* Área das Tags / Badges */}
       <View style={styles.badgesRow}>
-        
-        {/* Status Dinâmico de Segurança */}
         <View style={[styles.badge, { backgroundColor: corStatusFundo }]}>
           <Text style={[styles.badgeText, { color: corStatusTexto }]}>{iconeStatus}</Text>
         </View>
         
-        {/* Status Estático de Clima  */}
         <View style={[styles.badge, { backgroundColor: '#E3F2FD' }]}>
           <Text style={[styles.badgeText, { color: '#1565C0' }]}>
             {parada.status_clima !== "desconhecido" ? parada.status_clima : "⛅ Clima: Limpo"}
           </Text>
         </View>
+
+        {usuarioEstaNaParada && (
+          <View style={[styles.badge, { backgroundColor: '#00A86B' }]}>
+            <Text style={[styles.badgeText, { color: '#FFF' }]}>📍 Você está aqui</Text>
+          </View>
+        )}
       </View>
 
-      {/* Descrição em texto baseada no status de segurança */}
       <Text style={styles.cardDescription}>
         {statusAtual === "cuidado" 
           ? "Atenção: Relatos de alagamento ou situação que exige cuidado nesta parada." 
@@ -138,25 +127,19 @@ export default function CardParada({
           : "A resenha desta parada está tranquila. Local com fluxo normal e seguro."}
       </Text>
 
-      {/* Botão que aciona o Modal de Reporte */}
       <TouchableOpacity style={styles.button} onPress={() => setModalVisivel(true)}>
         <Text style={styles.buttonText}>Lançar a Resenha (Reportar)</Text>
       </TouchableOpacity>
 
-      {/* =============================
-          MODAL OCULTO (MENU DE OPÇÕES)
-          ============================= */}
-      <Modal 
-        animationType="slide" 
-        transparent={true} 
-        visible={modalVisivel} 
-        onRequestClose={() => setModalVisivel(false)}
-      >
+      <TouchableOpacity style={[styles.button, styles.botaoEmergencia]} onPress={simularChamada190}>
+        <Text style={styles.buttonText}>🚨 Acionar 190 (Polícia)</Text>
+      </TouchableOpacity>
+
+      <Modal animationType="slide" transparent={true} visible={modalVisivel} onRequestClose={() => setModalVisivel(false)}>
         <View style={styles.modalOverlay}>
           <View style={styles.modalContent}>
             <Text style={styles.modalTitle}>Qual a resenha da parada?</Text>
           
-            {/* Opções de Reporte (Disparam a função enviarReporte) */}
             <TouchableOpacity style={styles.reportOption} onPress={() => enviarReporte("ok", "Que bom que está tudo seguro!")}>
               <Text style={styles.reportOptionText}>✅ Verde: Tudo Normal/Seguro</Text>
             </TouchableOpacity>
@@ -169,7 +152,6 @@ export default function CardParada({
               <Text style={styles.reportOptionText}>🚨 Vermelho: Local Perigoso</Text>
             </TouchableOpacity>
 
-            {/* Botão para cancelar e voltar sem fazer nada */}
             <TouchableOpacity style={[styles.reportOption, styles.cancelButton]} onPress={() => setModalVisivel(false)}>
               <Text style={styles.cancelButtonText}>Cancelar</Text>
             </TouchableOpacity>
@@ -179,7 +161,6 @@ export default function CardParada({
     </View>
   );
 }
-
 
 const styles = StyleSheet.create({
   cardContainer: { position: 'absolute', bottom: 30, left: 20, right: 20, backgroundColor: '#fff', borderRadius: 15, padding: 20, shadowColor: '#000', shadowOffset: { width: 0, height: 4 }, shadowOpacity: 0.3, shadowRadius: 5, elevation: 8 },
@@ -193,11 +174,14 @@ const styles = StyleSheet.create({
   badge: { paddingVertical: 5, paddingHorizontal: 10, borderRadius: 20, marginRight: 10, marginBottom: 5 }, 
   badgeText: { fontSize: 12, fontWeight: 'bold' },
   cardDescription: { fontSize: 14, color: '#666', marginBottom: 15, lineHeight: 20 },
-  button: { backgroundColor: '#00A86B', paddingVertical: 12, borderRadius: 8, alignItems: 'center' },
+  
+  button: { backgroundColor: '#00A86B', paddingVertical: 12, borderRadius: 8, alignItems: 'center', marginBottom: 10 },
   buttonText: { color: '#fff', fontSize: 16, fontWeight: 'bold' },
+  botaoEmergencia: { backgroundColor: '#D9534F', marginTop: 5, borderWidth: 2, borderColor: '#C9302C' },
+  
   modalOverlay: { flex: 1, backgroundColor: 'rgba(0, 0, 0, 0.5)', justifyContent: 'center', alignItems: 'center' },
   modalContent: { width: '85%', backgroundColor: '#fff', borderRadius: 20, padding: 20, alignItems: 'center', shadowColor: '#000', shadowOffset: { width: 0, height: 2 }, shadowOpacity: 0.25, shadowRadius: 4, elevation: 5 },
-  modalTitle: { fontSize: 20, fontWeight: 'bold', color: '#333', marginBottom: 15 },
+  modalTitle: { fontSize: 20, fontWeight: 'bold', color: '#333', marginBottom: 15, textAlign: 'center' },
   reportOption: { width: '100%', backgroundColor: '#f0f0f0', padding: 15, borderRadius: 10, marginBottom: 10, alignItems: 'center' },
   reportOptionText: { fontSize: 16, fontWeight: 'bold', color: '#333' },
   cancelButton: { backgroundColor: '#333', marginTop: 10 },

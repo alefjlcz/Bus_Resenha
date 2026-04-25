@@ -1,6 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { SafeAreaView, StatusBar, StyleSheet, View } from 'react-native';
 
+// IMPORTAÇÃO DO FIREBASE (A Mágica do Tempo Real)
+import { collection, onSnapshot } from 'firebase/firestore';
+import { db } from '../chat/firebase';
+
 // IMPORTAÇÃO DOS COMPONENTES VISUAIS 
 import paradasData from '../assets/dados/banco_de_paradas.json';
 import CardParada from '../components/CardParada';
@@ -11,26 +15,34 @@ import MenuLateral from '../components/MenuLateral';
 import { useGPS } from '../hooks/useGPS';
 
 export default function App() {
-  // 1. Puxando a lógica oculta do GPS
+  // 1. Puxando a lógica do GPS
   const { minhaLocalizacao, paradaAtualGeofence } = useGPS();
 
-  // 2. Estados simples de controle de tela
+  // 2. Estados de controle de tela e banco de dados
   const [menuAberto, setMenuAberto] = useState(false);
   const [paradaSelecionada, setParadaSelecionada] = useState<any>(null); 
   const [statusGlobal, setStatusGlobal] = useState<Record<string, string>>({});
 
-  const registrarResenha = (idParada: string, status: string) => {
-    setStatusGlobal(prev => ({ ...prev, [idParada]: status }));
-  };
-
+  // 3. O Ouvinte do Firebase (Substitui o setInterval antigo)
   useEffect(() => {
-    const intervalo = setInterval(() => {
-      console.log("🔄 Buscando novas resenhas...");
-    }, 15 * 60 * 1000);
-    return () => clearInterval(intervalo);
+    const q = collection(db, "status_paradas");
+    
+    // Fica escutando o banco 24h por dia. 
+    const unsubscribe = onSnapshot(q, (snapshot) => {
+      const novosStatus: Record<string, string> = {};
+      snapshot.forEach((doc) => {
+        novosStatus[doc.id] = doc.data().status;
+      });
+      
+      // Atualiza o mapa na hora!
+      setStatusGlobal(novosStatus);
+    });
+
+    // Desliga a escuta se a tela for fechada (economiza bateria)
+    return () => unsubscribe();
   }, []);
 
-  // 3. Renderização extremamente limpa!
+  // 4. Renderização
   return (
     <SafeAreaView style={styles.container}>
       <StatusBar barStyle="light-content" backgroundColor="#00A86B" />
@@ -45,7 +57,7 @@ export default function App() {
           minhaLocalizacao={minhaLocalizacao}
           paradaSelecionada={paradaSelecionada}
           setParadaSelecionada={setParadaSelecionada}
-          statusGlobal={statusGlobal} 
+          statusGlobal={statusGlobal} // Passa os dados do Firebase pro mapa
         />
       </View>
 
@@ -61,7 +73,9 @@ export default function App() {
         usuarioEstaNaParada={paradaAtualGeofence?.id === paradaSelecionada?.id} 
         fecharCard={() => setParadaSelecionada(null)}
         statusGlobal={statusGlobal} 
-        registrarResenha={registrarResenha} 
+        // Passando uma função vazia só pro TypeScript não reclamar, 
+        // já que o próprio CardParada agora salva direto no Firebase!
+        registrarResenha={() => {}} 
       />
       
     </SafeAreaView>

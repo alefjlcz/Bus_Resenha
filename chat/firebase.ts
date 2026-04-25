@@ -114,6 +114,21 @@ export function verChats(filtro: string, callback: any) {
 }
 
 // =============================
+// 📢 REGISTRAR RESENHA DA PARADA
+// =============================
+export async function registrarResenhaNoBanco(paradaId: string, novoStatus: string) {
+  try {
+    // Criamos ou atualizamos um documento na coleção "status_paradas"
+    await setDoc(doc(db, "status_paradas", paradaId), {
+      status: novoStatus,
+      atualizadoEm: serverTimestamp(),
+    }, { merge: true }); // O merge garante que não apague outros dados da parada
+  } catch (error) {
+    console.error("Erro ao salvar status:", error);
+  }
+}
+
+// =============================
 //       ENVIAR MENSAGEM COMUM
 // =============================
 // MUDANÇA: Adicionamos o avatarId aqui
