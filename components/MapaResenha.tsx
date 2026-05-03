@@ -42,8 +42,8 @@ export default function MapaResenha({
   const mapRef = useRef<MapView>(null);
   const [focoInicialFeito, setFocoInicialFeito] = useState(false);
 
-  // 500 metros para APARECER no mapa
-  const RAIO_VISUAL_KM = 0.5; 
+  // 500 metros para APARECER no mapa 0.5;
+   const RAIO_VISUAL_KM = 0.5;  
   // 30 metros para considerar que a pessoa está DENTRO da parada
   const RAIO_PRESENCA_KM = 0.03; 
 
