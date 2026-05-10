@@ -16,7 +16,7 @@ export default function HeaderHome({ abrirMenu }: HeaderProps) {
 
       <View style={styles.tituloContainer}>
         <Text style={styles.headerTitle}>Bus Resenha</Text>
-        <Text style={styles.headerSubtitle}>Vem beber com nós</Text>
+        <Text style={styles.headerSubtitle}>Qual parada vamos hoje?</Text>
       </View>
 
       <View style={{ width: 40 }} /> 

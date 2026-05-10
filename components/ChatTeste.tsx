@@ -1,7 +1,6 @@
 import { Ionicons } from '@expo/vector-icons';
 import * as Location from 'expo-location';
 import { useLocalSearchParams, useRouter } from 'expo-router';
-// MUDANÇA: Trocamos getDoc por onSnapshot
 import { doc, onSnapshot } from 'firebase/firestore';
 import React, { useEffect, useRef, useState } from 'react';
 import {
@@ -19,9 +18,10 @@ import {
 
 import { atualizarPosicao, auth, db, enviarLocalizacao, enviarMensagem, ouvirMensagens } from '../chat/firebase';
 
+// 1. CORREÇÃO DOS IDs: Agora eles batem exatamente com o que é salvo no perfil.tsx!
 const LISTA_AVATARES = [
-  { id: 'homem', img: require('../assets/avatares/meditacao_homem.png') },
-  { id: 'mulher', img: require('../assets/avatares/meditacao_mulher.png') }
+  { id: 'Homem Meditando', img: require('../assets/avatares/meditacao_homem.png') },
+  { id: 'Mulher Meditando', img: require('../assets/avatares/meditacao_mulher.png') }
 ];
 
 export default function ChatTeste() {
@@ -32,22 +32,25 @@ export default function ChatTeste() {
   const [usuarioAtual, setUsuarioAtual] = useState('Carregando...');
   const [isUniversitario, setIsUniversitario] = useState(false);
   const [minhaTag, setMinhaTag] = useState('');
-  const [meuAvatar, setMeuAvatar] = useState('homem'); 
+  
+  // 2. NOVOS ESTADOS PARA FOTOS
+  const [meuAvatar, setMeuAvatar] = useState('Homem Meditando'); 
+  const [minhaFotoGaleria, setMinhaFotoGaleria] = useState<string | null>(null);
 
-  // MUDANÇA: Referência para forçar o scroll da lista
   const flatListRef = useRef<FlatList>(null);
   const rastreadorGps = useRef<Location.LocationSubscription | null>(null);
 
   useEffect(() => {
     const user = auth.currentUser;
     if (user) {
-      // MUDANÇA: onSnapshot escuta o seu perfil em tempo real! Mudou lá, muda aqui na hora.
       const unsubscribeUsuario = onSnapshot(doc(db, "usuarios", user.uid), (docSnap) => {
         if (docSnap.exists()) {
-          setUsuarioAtual(docSnap.data().nome);
-          setIsUniversitario(docSnap.data().isUniversitario);
-          setMinhaTag(docSnap.data().tagLinha || '');
-          setMeuAvatar(docSnap.data().avatarId || 'homem'); 
+          const dados = docSnap.data();
+          setUsuarioAtual(dados.nome);
+          setIsUniversitario(dados.isUniversitario);
+          setMinhaTag(dados.tagLinha || '');
+          setMeuAvatar(dados.avatarId || 'Homem Meditando'); 
+          setMinhaFotoGaleria(dados.fotoPerfil || null); // Puxa a foto da galeria (se existir)
         } else {
           setUsuarioAtual(user.email?.split('@')[0] || 'Usuário'); 
         }
@@ -81,7 +84,10 @@ export default function ChatTeste() {
       let localizacaoInicial = await Location.getCurrentPositionAsync({});
       const nomeCompleto = usuarioAtual + (isUniversitario ? ' 🎓' : '');
       
-      const msgId = await enviarLocalizacao(salaDoChat, nomeCompleto, minutos, minhaTag, meuAvatar);
+      // Define o que vai ser enviado: a string da galeria ou o nome do avatar
+      const avatarParaSalvar = minhaFotoGaleria ? minhaFotoGaleria : meuAvatar;
+      
+      const msgId = await enviarLocalizacao(salaDoChat, nomeCompleto, minutos, minhaTag, avatarParaSalvar);
       
       await atualizarPosicao(salaDoChat, msgId, localizacaoInicial.coords.latitude, localizacaoInicial.coords.longitude);
 
@@ -117,7 +123,9 @@ export default function ChatTeste() {
     setTexto(''); 
 
     try {
-      await enviarMensagem(salaDoChat, mensagemGuardada, usuarioAtual + (isUniversitario ? ' 🎓' : ''), minhaTag, meuAvatar);
+      // Define o que vai ser enviado: a string da galeria ou o nome do avatar
+      const avatarParaSalvar = minhaFotoGaleria ? minhaFotoGaleria : meuAvatar;
+      await enviarMensagem(salaDoChat, mensagemGuardada, usuarioAtual + (isUniversitario ? ' 🎓' : ''), minhaTag, avatarParaSalvar);
     } catch (error: any) {
       setTexto(mensagemGuardada); 
       Alert.alert("Erro", "Falha ao enviar mensagem.");
@@ -127,15 +135,26 @@ export default function ChatTeste() {
   const renderMensagem = ({ item }: { item: any }) => {
     const isMinhaMensagem = item.usuario.includes(usuarioAtual);
     
-    // MUDANÇA: O "Truque do Espelho". Se for sua mensagem, força usar a foto atual do seu estado!
-    const idDoAvatar = isMinhaMensagem ? meuAvatar : item.avatarId;
-    const imagemDoAvatar = LISTA_AVATARES.find(a => a.id === idDoAvatar)?.img || LISTA_AVATARES[0].img;
+    // O Truque do Espelho turbinado:
+    // Se for minha mensagem, força a ler do meu estado atual (atualiza mensagens do passado).
+    // Se for de outro usuário, lê o que veio do banco.
+    const identificadorFoto = isMinhaMensagem ? (minhaFotoGaleria || meuAvatar) : item.avatarId;
+    
+    let imagemDaMensagem;
+
+    // Se o identificador começar com "data:image", sabemos que é uma foto da galeria!
+    if (identificadorFoto && identificadorFoto.startsWith('data:image')) {
+      imagemDaMensagem = { uri: identificadorFoto };
+    } else {
+      // Caso contrário, é um desenho do nosso catálogo
+      imagemDaMensagem = LISTA_AVATARES.find(a => a.id === identificadorFoto)?.img || LISTA_AVATARES[0].img;
+    }
 
     return (
       <View style={[styles.mensagemWrapper, isMinhaMensagem ? styles.wrapperMinha : styles.wrapperOutra]}>
         
         <Image 
-          source={imagemDoAvatar} 
+          source={imagemDaMensagem} 
           style={[styles.avatarImg, isMinhaMensagem ? styles.avatarMinhaImg : null]} 
         />
 
@@ -185,7 +204,8 @@ export default function ChatTeste() {
       <FlatList
         ref={flatListRef}
         data={mensagens}
-        extraData={meuAvatar} // <-- ESSA É A MÁGICA QUE FALTAVA!
+        // extraData força a lista a re-desenhar as mensagens antigas quando você troca a foto
+        extraData={{ meuAvatar, minhaFotoGaleria }} 
         keyExtractor={(item) => item.id}
         renderItem={renderMensagem}
         contentContainerStyle={styles.listaMensagens}
@@ -217,7 +237,7 @@ const styles = StyleSheet.create({
   container: { flex: 1, backgroundColor: '#E5DDD5' },
   header: { backgroundColor: '#00A86B', padding: 15, paddingTop: 40, alignItems: 'center' },
   headerTitle: { color: '#FFF', fontSize: 18, fontWeight: 'bold' },
-  listaMensagens: { padding: 10, paddingBottom: 20 }, // Adicionado um fôlego embaixo
+  listaMensagens: { padding: 10, paddingBottom: 20 }, 
   
   mensagemWrapper: { flexDirection: 'row', marginBottom: 15, alignItems: 'flex-end' },
   wrapperMinha: { flexDirection: 'row-reverse', alignSelf: 'flex-end' },

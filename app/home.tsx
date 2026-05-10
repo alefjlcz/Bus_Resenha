@@ -2,7 +2,8 @@ import React, { useEffect, useState, useRef } from 'react';
 import { SafeAreaView, StatusBar, StyleSheet, View, Alert } from 'react-native';
 
 import { collection, onSnapshot, doc } from 'firebase/firestore';
-import { db, auth } from '../chat/firebase'; // <-- Adicionado auth
+// Unificamos as importações do Firebase na mesma linha
+import { db, auth, verificarEResetarChats } from '../chat/firebase'; 
 
 import paradasData from '../assets/dados/banco_de_paradas.json';
 import CardParada from '../components/CardParada';
@@ -32,10 +33,16 @@ export default function App() {
   const [statusGlobal, setStatusGlobal] = useState<Record<string, string>>({});
   const [climaAtual, setClimaAtual] = useState("🌦️ Buscando clima...");
   
-  // NOVO: Estado para guardar os favoritos do usuário
   const [minhasFavoritas, setMinhasFavoritas] = useState<string[]>([]);
-  // Usamos um Ref para evitar que o alerta fique repetindo sem parar para o mesmo perigo
   const alertasEnviados = useRef<Set<string>>(new Set());
+
+  // ==========================================
+  // 🧹 0. VERIFICAÇÃO DE LIMPEZA GLOBAL (48H)
+  // ==========================================
+  useEffect(() => {
+    // Roda a verificação de 48h assim que o mapa inicia
+    verificarEResetarChats();
+  }, []);
 
   // ==========================================
   // 1. ESCUTAR DADOS DO USUÁRIO (Favoritos)
@@ -71,33 +78,29 @@ export default function App() {
   // 🚨 3. O CÉREBRO DAS NOTIFICAÇÕES
   // ==========================================
   useEffect(() => {
-    // Cruza as informações: Tem alguma favorita que está perigosa?
     minhasFavoritas.forEach(idParada => {
       if (statusGlobal[idParada] === "perigoso") {
         
-        // Se já avisou dessa parada, não avisa de novo para não travar o celular do cara
         if (!alertasEnviados.current.has(idParada)) {
-          
           const nomeDaParada = paradasData.find(p => p.id.toString() === idParada)?.nome || "Uma parada favorita";
           
-          // Dispara o "Push Notification" (Alerta)
           Alert.alert(
             "🔔 ALERTA DE SEGURANÇA",
             `Atenção! Relatos de PERIGO recentes em sua parada favorita:\n\n📍 ${nomeDaParada}\n\nEvite o local e mantenha-se seguro.`
           );
 
-          // Marca que já avisou
           alertasEnviados.current.add(idParada);
         }
       } else {
-        // Se a parada ficou segura de novo (voltou a ser azul), a gente "reseta" o aviso pra ela poder alertar no futuro
         alertasEnviados.current.delete(idParada);
       }
     });
   }, [statusGlobal, minhasFavoritas]); 
 
 
-  // Motor de Clima
+  // ==========================================
+  // 🌤️ 4. MOTOR DE CLIMA
+  // ==========================================
   useEffect(() => {
     const buscarClima = async () => {
       if (!minhaLocalizacao) return; 
@@ -139,7 +142,7 @@ export default function App() {
         fecharCard={() => setParadaSelecionada(null)}
         statusGlobal={statusGlobal} 
         clima={climaAtual} 
-        favoritas={minhasFavoritas} // <-- PASSA AS FAVORITAS PRO CARD
+        favoritas={minhasFavoritas} 
       />
     </SafeAreaView>
   );

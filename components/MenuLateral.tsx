@@ -13,7 +13,7 @@ import {
   View
 } from 'react-native';
 
-// Importando a nossa nova função de Sair!
+// Importando a nossa função de Sair!
 import { sairDaConta } from '../chat/firebase';
 
 const LARGURA_TELA = Dimensions.get('window').width;
@@ -53,10 +53,18 @@ export default function MenuLateral({ visivel, fecharMenu }: MenuLateralProps) {
   };
 
   const irParaPerfil = () => {
-  fecharMenu();
-  setTimeout(() => {
-    router.push('/perfil'); 
-  }, 300);
+    fecharMenu();
+    setTimeout(() => {
+      router.push('/perfil'); 
+    }, 300);
+  };
+
+  // NOVA FUNÇÃO: Ir para a tela de configurações recém criada
+  const irParaConfiguracoes = () => {
+    fecharMenu();
+    setTimeout(() => {
+      router.push('/configuracoes'); 
+    }, 300);
   };
 
   // === 🚪 NOVA FUNÇÃO DE LOGOUT ===
@@ -92,28 +100,31 @@ export default function MenuLateral({ visivel, fecharMenu }: MenuLateralProps) {
           </View>
 
           <View style={styles.containerItens}>
+            
             <TouchableOpacity style={styles.itemMenu} onPress={irParaChat}>
               <Ionicons name="chatbubbles" size={24} color="#00A86B" />
               <Text style={styles.textoItemMenu}>Chat da Resenha</Text>
             </TouchableOpacity>
-
-            <TouchableOpacity style={styles.itemMenu} onPress={() => alert('Em breve!')}>
-              <Ionicons name="settings" size={24} color="#666" />
-              <Text style={styles.textoItemMenu}>Configurações</Text>
-            </TouchableOpacity>
-          </View>
 
             <TouchableOpacity style={styles.itemMenu} onPress={irParaPerfil}>
               <Ionicons name="person-circle" size={24} color="#00A86B" />
               <Text style={styles.textoItemMenu}>O Meu Perfil</Text>
             </TouchableOpacity>
 
+            {/* AQUI ESTÁ: O botão que conecta com a sua tela nova! */}
+            <TouchableOpacity style={styles.itemMenu} onPress={irParaConfiguracoes}>
+              <Ionicons name="settings" size={24} color="#666" />
+              <Text style={styles.textoItemMenu}>Configurações</Text>
+            </TouchableOpacity>
+
+          </View>
+
           {/* === BOTÃO DE SAIR LÁ EMBAIXO === */}
           <TouchableOpacity style={styles.itemMenuSair} onPress={fazerLogout}>
             <Ionicons name="log-out-outline" size={26} color="#D9534F" />
             <Text style={styles.textoItemMenuSair}>Sair da Conta</Text>
           </TouchableOpacity>
-
+          
         </Animated.View>
       </View>
     </Modal>
@@ -131,12 +142,12 @@ const styles = StyleSheet.create({
     shadowColor: '#000',
     shadowOpacity: 0.5,
     shadowRadius: 10,
-    justifyContent: 'space-between', // Espalha os itens pra cima e pra baixo
+    justifyContent: 'space-between', 
   },
   headerGaveta: { backgroundColor: '#00A86B', padding: 20, paddingTop: 40, marginBottom: 10 },
   tituloGaveta: { fontSize: 22, fontWeight: 'bold', color: '#FFF' },
   containerItens: {
-    flex: 1, // Faz os itens normais ocuparem o espaço do meio
+    flex: 1, 
   },
   itemMenu: {
     flexDirection: 'row',
@@ -147,14 +158,13 @@ const styles = StyleSheet.create({
   },
   textoItemMenu: { fontSize: 18, marginLeft: 15, color: '#333', fontWeight: '500' },
   
-  // Estilos específicos para o botão de sair (Vermelho)
   itemMenuSair: {
     flexDirection: 'row',
     alignItems: 'center',
     padding: 20,
     borderTopWidth: 1,
     borderTopColor: '#F0F0F0',
-    backgroundColor: '#FFF5F5', // Um fundinho vermelho bem claro
+    backgroundColor: '#FFF5F5', 
   },
   textoItemMenuSair: { 
     fontSize: 18, 

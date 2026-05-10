@@ -74,12 +74,12 @@ export default function TelaLogin() {
     <KeyboardAvoidingView style={styles.container} behavior={Platform.OS === 'ios' ? 'padding' : 'height'}>
       <View style={styles.box}>
         <Text style={styles.titulo}>Bus Resenha</Text>
-        <Text style={styles.subtitulo}>{modoCadastro ? 'Crie sua conta' : 'Bem-vindo de volta!'}</Text>
+        <Text style={styles.subtitulo}>{modoCadastro ? 'Crie sua conta' : 'Bem-vindo!'}</Text>
 
         {modoCadastro && (
           <TextInput
             style={styles.input}
-            placeholder="Seu Nome (Ex: Alessandro)"
+            placeholder="Seu Nome"
             value={nome}
             onChangeText={setNome}
           />
@@ -96,7 +96,7 @@ export default function TelaLogin() {
 
         <TextInput
           style={styles.input}
-          placeholder="Senha (mínimo 6 caracteres)"
+          placeholder="Senha"
           secureTextEntry
           value={senha}
           onChangeText={setSenha}
