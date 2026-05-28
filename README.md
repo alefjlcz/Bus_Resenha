@@ -49,8 +49,8 @@ Certifique-se de ter instalado em sua máquina:
 ### 1. Clonando o Repositório
 
 ```bash
-git clone [https://github.com/SEU-USUARIO/vem-busao.git](https://github.com/SEU-USUARIO/vem-busao.git)
-cd vem-busao
+git clone [https://github.com/alefjlcz/bus_resenha.git](https://github.com/alefjlcz/bus_resenha.git)
+cd bus_resenha
 ```
 
 ### 2. Configurando o Frontend
