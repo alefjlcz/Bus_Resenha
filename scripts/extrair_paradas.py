@@ -13,11 +13,11 @@ API_KEY = os.getenv("GOOGLE_API_KEY")
 ARQUIVO_JSON = os.path.join(BASE_DIR, "assets", "dados", "banco_de_paradas.json")
 
 # ==========================================
-# CONFIGURAÇÃO DA VARREDURA (CIDADE NOVA)
+# CONFIGURAÇÃO DA VARREDURA (MARACANGALHA)
 # ==========================================
-# Definimos o "quadrado" que engloba a Cidade Nova
-LAT_SUL, LON_OESTE = -1.3900, -48.4050
-LAT_NORTE, LON_LESTE = -1.3450, -48.3600
+# Definimos o "quadrado" que engloba o bairro Maracangalha e arredores (Marex, Júlio César)
+LAT_SUL, LON_OESTE = -1.4050, -48.4900
+LAT_NORTE, LON_LESTE = -1.3750, -48.4650
 
 # Tamanho do "pulo" do scanner (aprox. 600 metros)
 PASSO = 0.006 
@@ -26,7 +26,7 @@ def buscar_todas_as_paradas():
     url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json"
     todas_paradas = {} # Dicionário para evitar duplicados pelo ID
 
-    print("🛰️ Iniciando varredura profunda na Cidade Nova...")
+    print("🛰️ Iniciando varredura profunda no bairro Maracangalha...")
 
     lat_atual = LAT_SUL
     while lat_atual <= LAT_NORTE:
@@ -60,7 +60,7 @@ def buscar_todas_as_paradas():
                                 "foto_url": f"fotos/parada_{pid}.jpg"
                             }
                 
-                # O Google pede um descanso entre as buscas
+                # O Google pede um descanso entre as buscas para não bloquear a chave
                 time.sleep(0.2)
                 
             except Exception as e:
@@ -78,6 +78,7 @@ if resultado:
     os.makedirs(os.path.dirname(ARQUIVO_JSON), exist_ok=True)
     with open(ARQUIVO_JSON, 'w', encoding='utf-8') as f:
         json.dump(resultado, f, ensure_ascii=False, indent=4)
-    print(f"\n✅ SUCESSO! Varredura concluída. {len(resultado)} paradas únicas salvas.")
+    print(f"\n✅ SUCESSO! Varredura concluída. {len(resultado)} paradas únicas salvas na Maracangalha.")
 else:
     print("❌ Nenhuma parada encontrada. Verifique sua chave no .env.")
+    sys.exit(1)

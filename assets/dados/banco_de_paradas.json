@@ -1,2000 +1,1145 @@
 [
     {
-        "id": "ChIJQTmuQ8iKpJIRUWgRSZeVZN8",
-        "nome": "BR-316 | Shopping Metrópole",
-        "latitude": -1.3860304,
-        "longitude": -48.407371,
-        "status_clima": "⛅ Parcial. Nublado (29.8°C)",
+        "id": "ChIJqdbun52JpJIREEhr-mEVr1o",
+        "nome": "Avenida Arthur Bernardes, 241",
+        "latitude": -1.4003405,
+        "longitude": -48.4912998,
+        "status_clima": "desconhecido",
         "status_lotacao": "verde",
-        "foto_url": "fotos/parada_ChIJQTmuQ8iKpJIRUWgRSZeVZN8.jpg"
+        "foto_url": "fotos/parada_ChIJqdbun52JpJIREEhr-mEVr1o.jpg"
     },
     {
-        "id": "ChIJn89S_seKpJIRRy3KnoWxRxw",
-        "nome": "Estrada da Providência | Shopping Metróple Ananindeu",
-        "latitude": -1.3849502,
-        "longitude": -48.4089244,
-        "status_clima": "⛅ Parcial. Nublado (29.8°C)",
+        "id": "ChIJxfKyam6JpJIRlNHZuIuGDHs",
+        "nome": "Avenida Arthur Bernardes, 811",
+        "latitude": -1.4095088,
+        "longitude": -48.49248619999999,
+        "status_clima": "desconhecido",
         "status_lotacao": "verde",
-        "foto_url": "fotos/parada_ChIJn89S_seKpJIRRy3KnoWxRxw.jpg"
+        "foto_url": "fotos/parada_ChIJxfKyam6JpJIRlNHZuIuGDHs.jpg"
     },
     {
-        "id": "ChIJeXOCYbiKpJIRlukpvl4Mu-Y",
-        "nome": "Rodovia Mário Covas | oposto Shopping Metróple Ananindeua",
-        "latitude": -1.3843256,
-        "longitude": -48.4110801,
-        "status_clima": "⛅ Parcial. Nublado (29.8°C)",
+        "id": "ChIJ8wIem52JpJIRkdngB9Fm5Qk",
+        "nome": "Avenida Arthur Bernardes, 44",
+        "latitude": -1.4007041,
+        "longitude": -48.4916901,
+        "status_clima": "desconhecido",
         "status_lotacao": "verde",
-        "foto_url": "fotos/parada_ChIJeXOCYbiKpJIRlukpvl4Mu-Y.jpg"
+        "foto_url": "fotos/parada_ChIJ8wIem52JpJIRkdngB9Fm5Qk.jpg"
     },
     {
-        "id": "ChIJ6R7gx7WKpJIRtJh8LkHKrlY",
-        "nome": "BR-316, 13190",
-        "latitude": -1.3833316,
-        "longitude": -48.4026356,
-        "status_clima": "⛅ Parcial. Nublado (29.8°C)",
+        "id": "ChIJNxSd6naJpJIRKc8uS-Xmdhc",
+        "nome": "Avenida Arthur Bernardes, 361",
+        "latitude": -1.403984,
+        "longitude": -48.49236,
+        "status_clima": "desconhecido",
         "status_lotacao": "verde",
-        "foto_url": "fotos/parada_ChIJ6R7gx7WKpJIRtJh8LkHKrlY.jpg"
+        "foto_url": "fotos/parada_ChIJNxSd6naJpJIRKc8uS-Xmdhc.jpg"
     },
     {
-        "id": "ChIJj2xUeriKpJIRwhpPIdFGTqg",
-        "nome": "Rodovia Mário Covas | Shopping Metróple Ananindeua",
-        "latitude": -1.3844374,
-        "longitude": -48.41084660000001,
-        "status_clima": "⛅ Parcial. Nublado (29.8°C)",
+        "id": "ChIJJ7LiPm6JpJIRpt5HSzQzZBI",
+        "nome": "Avenida Arthur Bernardes, 810",
+        "latitude": -1.4093774,
+        "longitude": -48.4923086,
+        "status_clima": "desconhecido",
         "status_lotacao": "verde",
-        "foto_url": "fotos/parada_ChIJj2xUeriKpJIRwhpPIdFGTqg.jpg"
+        "foto_url": "fotos/parada_ChIJJ7LiPm6JpJIRpt5HSzQzZBI.jpg"
     },
     {
-        "id": "ChIJpx8R8_iLpJIRFYZdc9tDeJw",
-        "nome": "Viaduto do Coqueiro",
-        "latitude": -1.387356,
-        "longitude": -48.40993460000001,
-        "status_clima": "⛅ Parcial. Nublado (29.8°C)",
+        "id": "ChIJW2plRIKJpJIRhklOHx4zNnc",
+        "nome": "Rua Trinta, 192",
+        "latitude": -1.3999202,
+        "longitude": -48.4854072,
+        "status_clima": "desconhecido",
         "status_lotacao": "verde",
-        "foto_url": "fotos/parada_ChIJpx8R8_iLpJIRFYZdc9tDeJw.jpg"
+        "foto_url": "fotos/parada_ChIJW2plRIKJpJIRhklOHx4zNnc.jpg"
     },
     {
-        "id": "ChIJKzsuc1WLpJIRneDsHeyF8Fs",
-        "nome": "Transportes Águas Lindas - Zona Sul",
-        "latitude": -1.3844511,
-        "longitude": -48.3985209,
-        "status_clima": "⛅ Parcial. Nublado (29.8°C)",
+        "id": "ChIJxwxhy4KJpJIRKWR-PycGvgg",
+        "nome": "Avenida Sul, 181",
+        "latitude": -1.3999787,
+        "longitude": -48.488786,
+        "status_clima": "desconhecido",
         "status_lotacao": "verde",
-        "foto_url": "fotos/parada_ChIJKzsuc1WLpJIRneDsHeyF8Fs.jpg"
+        "foto_url": "fotos/parada_ChIJxwxhy4KJpJIRKWR-PycGvgg.jpg"
     },
     {
-        "id": "ChIJQ8WGf3_1pJIR4nYX-TnoN4E",
-        "nome": "Ponto de ônibus rua Um",
-        "latitude": -1.3845669,
-        "longitude": -48.3880743,
-        "status_clima": "⛅ Parcial. Nublado (29.8°C)",
+        "id": "ChIJgZ5J7IKJpJIRi5I8OIHVZik",
+        "nome": "Avenida Sul, 181",
+        "latitude": -1.4000408,
+        "longitude": -48.4867939,
+        "status_clima": "desconhecido",
         "status_lotacao": "verde",
-        "foto_url": "fotos/parada_ChIJQ8WGf3_1pJIR4nYX-TnoN4E.jpg"
+        "foto_url": "fotos/parada_ChIJgZ5J7IKJpJIRi5I8OIHVZik.jpg"
     },
     {
-        "id": "ChIJEWGFsF31pJIRONG-rbHHKc0",
-        "nome": "Ponto de ônibus do final da linha",
-        "latitude": -1.3885614,
-        "longitude": -48.38062679999999,
-        "status_clima": "⛅ Parcial. Nublado (29.8°C)",
+        "id": "ChIJKbVAIoKJpJIRA59leWmQRas",
+        "nome": "Avenida Sul, 200",
+        "latitude": -1.400082,
+        "longitude": -48.4841187,
+        "status_clima": "desconhecido",
         "status_lotacao": "verde",
-        "foto_url": "fotos/parada_ChIJEWGFsF31pJIRONG-rbHHKc0.jpg"
+        "foto_url": "fotos/parada_ChIJKbVAIoKJpJIRA59leWmQRas.jpg"
     },
     {
-        "id": "ChIJ7QtGZfn1pJIRim96q_3fRwQ",
-        "nome": "Ponto de ônibus 17",
-        "latitude": -1.3961217,
-        "longitude": -48.3818654,
-        "status_clima": "⛅ Parcial. Nublado (29.8°C)",
+        "id": "ChIJFfTEI4KJpJIRWb3oQBG_tPM",
+        "nome": "Avenida Sul, 202",
+        "latitude": -1.3999912,
+        "longitude": -48.48433199999999,
+        "status_clima": "desconhecido",
         "status_lotacao": "verde",
-        "foto_url": "fotos/parada_ChIJ7QtGZfn1pJIRim96q_3fRwQ.jpg"
+        "foto_url": "fotos/parada_ChIJFfTEI4KJpJIRWb3oQBG_tPM.jpg"
     },
     {
-        "id": "ChIJe1Ube7z1pJIRJFv0f0FCmQA",
-        "nome": "Pracinha do final da linha",
-        "latitude": -1.3888377,
-        "longitude": -48.3808514,
-        "status_clima": "⛅ Parcial. Nublado (29.8°C)",
+        "id": "ChIJgT6c5JyJpJIRQNJdCutLpdk",
+        "nome": "Avenida Arthur Bernardes, 15886",
+        "latitude": -1.3991383,
+        "longitude": -48.4904956,
+        "status_clima": "desconhecido",
         "status_lotacao": "verde",
-        "foto_url": "fotos/parada_ChIJe1Ube7z1pJIRJFv0f0FCmQA.jpg"
+        "foto_url": "fotos/parada_ChIJgT6c5JyJpJIRQNJdCutLpdk.jpg"
     },
     {
-        "id": "ChIJK7rPHQD1pJIRkdJ8gBzSMOA",
-        "nome": "Final da linha | 980 Águas Brancas P.Vargas",
-        "latitude": -1.3936763,
-        "longitude": -48.3675219,
-        "status_clima": "⛅ Parcial. Nublado (29.8°C)",
+        "id": "ChIJjcHzRYKJpJIRDkD0JvdqMck",
+        "nome": "Avenida Norte, 131",
+        "latitude": -1.3997369,
+        "longitude": -48.4857318,
+        "status_clima": "desconhecido",
         "status_lotacao": "verde",
-        "foto_url": "fotos/parada_ChIJK7rPHQD1pJIRkdJ8gBzSMOA.jpg"
+        "foto_url": "fotos/parada_ChIJjcHzRYKJpJIRDkD0JvdqMck.jpg"
     },
     {
-        "id": "ChIJkR7f4rmKpJIRm-STxI6Xwcw",
-        "nome": "Estrada da Providência, 200",
-        "latitude": -1.3816883,
-        "longitude": -48.4089477,
-        "status_clima": "⛅ Parcial. Nublado (29.8°C)",
+        "id": "ChIJo8qzQYKJpJIR9Qx_fIiD5fw",
+        "nome": "Avenida Sul, 192",
+        "latitude": -1.4000971,
+        "longitude": -48.4851444,
+        "status_clima": "desconhecido",
         "status_lotacao": "verde",
-        "foto_url": "fotos/parada_ChIJkR7f4rmKpJIRm-STxI6Xwcw.jpg"
+        "foto_url": "fotos/parada_ChIJo8qzQYKJpJIR9Qx_fIiD5fw.jpg"
     },
     {
-        "id": "ChIJj_MY4rmKpJIRfFmuVLrK1xY",
-        "nome": "Estrada da Providência, 199",
-        "latitude": -1.3818473,
-        "longitude": -48.408873,
-        "status_clima": "⛅ Parcial. Nublado (29.8°C)",
+        "id": "ChIJGfx97JyJpJIRvNC6qR10UTc",
+        "nome": "Avenida Arthur Bernardes, 16040",
+        "latitude": -1.3987511,
+        "longitude": -48.4903613,
+        "status_clima": "desconhecido",
         "status_lotacao": "verde",
-        "foto_url": "fotos/parada_ChIJj_MY4rmKpJIRfFmuVLrK1xY.jpg"
+        "foto_url": "fotos/parada_ChIJGfx97JyJpJIRvNC6qR10UTc.jpg"
     },
     {
-        "id": "ChIJoxm1d7qKpJIR-k_sgLAwLdg",
-        "nome": "Estrada da Providência, 26a",
-        "latitude": -1.3799248,
-        "longitude": -48.4088865,
-        "status_clima": "⛅ Parcial. Nublado (29.8°C)",
+        "id": "ChIJR-OW3IKJpJIRj8bR1hUUbVk",
+        "nome": "Avenida Norte, 1",
+        "latitude": -1.3997083,
+        "longitude": -48.4877354,
+        "status_clima": "desconhecido",
         "status_lotacao": "verde",
-        "foto_url": "fotos/parada_ChIJoxm1d7qKpJIR-k_sgLAwLdg.jpg"
+        "foto_url": "fotos/parada_ChIJR-OW3IKJpJIRj8bR1hUUbVk.jpg"
     },
     {
-        "id": "ChIJixYEebqKpJIRerMWsT1_kkE",
-        "nome": "Estrada da Providência, 65",
-        "latitude": -1.3796862,
-        "longitude": -48.4089804,
-        "status_clima": "⛅ Parcial. Nublado (29.8°C)",
+        "id": "ChIJgQhDL52JpJIR3jnAgGuPn1g",
+        "nome": "Avenida Norte, 1",
+        "latitude": -1.3996661,
+        "longitude": -48.489482,
+        "status_clima": "desconhecido",
         "status_lotacao": "verde",
-        "foto_url": "fotos/parada_ChIJixYEebqKpJIRerMWsT1_kkE.jpg"
+        "foto_url": "fotos/parada_ChIJgQhDL52JpJIR3jnAgGuPn1g.jpg"
     },
     {
-        "id": "ChIJUeJSNbSKpJIRcGZaZSdu36A",
-        "nome": "BR-316, 31812",
-        "latitude": -1.382869,
-        "longitude": -48.4025914,
-        "status_clima": "⛅ Parcial. Nublado (29.8°C)",
+        "id": "ChIJl6OL-oKJpJIRp8tLdqSSjjo",
+        "nome": "Avenida Norte, 1",
+        "latitude": -1.3997034,
+        "longitude": -48.4867054,
+        "status_clima": "desconhecido",
         "status_lotacao": "verde",
-        "foto_url": "fotos/parada_ChIJUeJSNbSKpJIRcGZaZSdu36A.jpg"
+        "foto_url": "fotos/parada_ChIJl6OL-oKJpJIRp8tLdqSSjjo.jpg"
     },
     {
-        "id": "ChIJMYh4q7SKpJIRBnhH_crX35o",
-        "nome": "BR-316, 4800",
-        "latitude": -1.3811784,
-        "longitude": -48.3989717,
-        "status_clima": "⛅ Parcial. Nublado (29.8°C)",
+        "id": "ChIJD-Q1QYKJpJIRmkD5SzKXGKA",
+        "nome": "Avenida Sul, 193",
+        "latitude": -1.3999843,
+        "longitude": -48.4852194,
+        "status_clima": "desconhecido",
         "status_lotacao": "verde",
-        "foto_url": "fotos/parada_ChIJMYh4q7SKpJIRBnhH_crX35o.jpg"
+        "foto_url": "fotos/parada_ChIJD-Q1QYKJpJIRmkD5SzKXGKA.jpg"
     },
     {
-        "id": "ChIJvxgKrUz1pJIRYdTGBu_r_4M",
-        "nome": "BR-316, 1081",
-        "latitude": -1.3805791,
-        "longitude": -48.3986673,
-        "status_clima": "⛅ Parcial. Nublado (29.8°C)",
+        "id": "ChIJdz7aO52JpJIRvyf1-ObqfXk",
+        "nome": "Avenida Sul, 108",
+        "latitude": -1.3999796,
+        "longitude": -48.4895827,
+        "status_clima": "desconhecido",
         "status_lotacao": "verde",
-        "foto_url": "fotos/parada_ChIJvxgKrUz1pJIRYdTGBu_r_4M.jpg"
+        "foto_url": "fotos/parada_ChIJdz7aO52JpJIRvyf1-ObqfXk.jpg"
     },
     {
-        "id": "ChIJq3YSGU71pJIRk7SA3icZkkM",
-        "nome": "BR-316 | Faculdade Católica de Belém",
-        "latitude": -1.3775035,
-        "longitude": -48.3928013,
-        "status_clima": "⛅ Parcial. Nublado (29.8°C)",
+        "id": "ChIJz1n7xYKJpJIRzMwS4tD8Qdo",
+        "nome": "Avenida Sul, 301",
+        "latitude": -1.3999952,
+        "longitude": -48.4880611,
+        "status_clima": "desconhecido",
         "status_lotacao": "verde",
-        "foto_url": "fotos/parada_ChIJq3YSGU71pJIRk7SA3icZkkM.jpg"
+        "foto_url": "fotos/parada_ChIJz1n7xYKJpJIRzMwS4tD8Qdo.jpg"
     },
     {
-        "id": "ChIJIwlmjuf1pJIRBr4rEtKDA1g",
-        "nome": "Parada: Centro, S/N",
-        "latitude": -1.3786639,
-        "longitude": -48.3763657,
-        "status_clima": "⛅ Parcial. Nublado (29.8°C)",
+        "id": "ChIJH6iN8X6JpJIRhh30CZ5lOCM",
+        "nome": "Rua Rio Tapajos, 07",
+        "latitude": -1.403507,
+        "longitude": -48.4817617,
+        "status_clima": "desconhecido",
         "status_lotacao": "verde",
-        "foto_url": "fotos/parada_ChIJIwlmjuf1pJIRBr4rEtKDA1g.jpg"
+        "foto_url": "fotos/parada_ChIJH6iN8X6JpJIRhh30CZ5lOCM.jpg"
     },
     {
-        "id": "ChIJu9sEfKWKpJIRzRuJpRxKBWs",
-        "nome": "Estrada da Providência, 6",
-        "latitude": -1.3759616,
-        "longitude": -48.4090769,
-        "status_clima": "⛅ Parcial. Nublado (29.8°C)",
+        "id": "ChIJUV_H3nyJpJIR3CJ8Zc7BE48",
+        "nome": "Avenida dos Tucanos, 71-03",
+        "latitude": -1.407597,
+        "longitude": -48.481459,
+        "status_clima": "desconhecido",
         "status_lotacao": "verde",
-        "foto_url": "fotos/parada_ChIJu9sEfKWKpJIRzRuJpRxKBWs.jpg"
+        "foto_url": "fotos/parada_ChIJUV_H3nyJpJIR3CJ8Zc7BE48.jpg"
     },
     {
-        "id": "ChIJh2gtrqiKpJIR7qcs2R7JAIE",
-        "nome": "Estrada da Providência, 419",
-        "latitude": -1.3735323,
-        "longitude": -48.4082132,
-        "status_clima": "⛅ Parcial. Nublado (29.8°C)",
+        "id": "ChIJVYLh_GKJpJIRmdkO6DADAW4",
+        "nome": "Travessa Alferes Costa, 332",
+        "latitude": -1.4097555,
+        "longitude": -48.4810594,
+        "status_clima": "desconhecido",
         "status_lotacao": "verde",
-        "foto_url": "fotos/parada_ChIJh2gtrqiKpJIR7qcs2R7JAIE.jpg"
+        "foto_url": "fotos/parada_ChIJVYLh_GKJpJIRmdkO6DADAW4.jpg"
     },
     {
-        "id": "ChIJTe5IP6aKpJIRS13E26HXx20",
-        "nome": "Avenida Três Corações, 181",
-        "latitude": -1.3727913,
-        "longitude": -48.4099832,
-        "status_clima": "⛅ Parcial. Nublado (29.8°C)",
+        "id": "ChIJN9yWRn6JpJIRbaYq9rzBONA",
+        "nome": "Avenida dos Tucanos, 88",
+        "latitude": -1.4034286,
+        "longitude": -48.4802374,
+        "status_clima": "desconhecido",
         "status_lotacao": "verde",
-        "foto_url": "fotos/parada_ChIJTe5IP6aKpJIRS13E26HXx20.jpg"
+        "foto_url": "fotos/parada_ChIJN9yWRn6JpJIRbaYq9rzBONA.jpg"
     },
     {
-        "id": "ChIJh_wNf6WKpJIRE_GnUfJ5OAs",
-        "nome": "Estrada da Providência, 3510",
-        "latitude": -1.375782,
-        "longitude": -48.4089938,
-        "status_clima": "⛅ Parcial. Nublado (29.8°C)",
+        "id": "ChIJ1aIHlYGJpJIR8JA_WTqX3uY",
+        "nome": "Avenida Sul, 181",
+        "latitude": -1.4000477,
+        "longitude": -48.4824046,
+        "status_clima": "desconhecido",
         "status_lotacao": "verde",
-        "foto_url": "fotos/parada_ChIJh_wNf6WKpJIRE_GnUfJ5OAs.jpg"
+        "foto_url": "fotos/parada_ChIJ1aIHlYGJpJIR8JA_WTqX3uY.jpg"
     },
     {
-        "id": "ChIJ5W1grqiKpJIRWsheiXK-8h8",
-        "nome": "Estrada da Providência, 2",
-        "latitude": -1.3735896,
-        "longitude": -48.4083268,
-        "status_clima": "⛅ Parcial. Nublado (29.8°C)",
+        "id": "ChIJzyMNX2KJpJIRgst2LYVEhh0",
+        "nome": "Travessa Alferes Costa, 16",
+        "latitude": -1.4101832,
+        "longitude": -48.4801622,
+        "status_clima": "desconhecido",
         "status_lotacao": "verde",
-        "foto_url": "fotos/parada_ChIJ5W1grqiKpJIRWsheiXK-8h8.jpg"
+        "foto_url": "fotos/parada_ChIJzyMNX2KJpJIRgst2LYVEhh0.jpg"
     },
     {
-        "id": "ChIJQUU4bKaKpJIRIFImcTg3jXA",
-        "nome": "Avenida Três Corações, 1b",
-        "latitude": -1.3733107,
-        "longitude": -48.4102896,
-        "status_clima": "⛅ Parcial. Nublado (29.8°C)",
+        "id": "ChIJXYG9X2KJpJIRfM0GFKQIigM",
+        "nome": "Travessa Alferes Costa, 16b",
+        "latitude": -1.4101792,
+        "longitude": -48.4800817,
+        "status_clima": "desconhecido",
         "status_lotacao": "verde",
-        "foto_url": "fotos/parada_ChIJQUU4bKaKpJIRIFImcTg3jXA.jpg"
+        "foto_url": "fotos/parada_ChIJXYG9X2KJpJIRfM0GFKQIigM.jpg"
     },
     {
-        "id": "ChIJ58TM4FH1pJIRTgbWiyTlMno",
-        "nome": "BR-316 | SEFA Ananindeua",
-        "latitude": -1.3769626,
-        "longitude": -48.3926852,
-        "status_clima": "⛅ Parcial. Nublado (29.8°C)",
+        "id": "ChIJwYNrNoCJpJIRu-Yob6piNOE",
+        "nome": "Avenida Sul, 191",
+        "latitude": -1.4001476,
+        "longitude": -48.4808524,
+        "status_clima": "desconhecido",
         "status_lotacao": "verde",
-        "foto_url": "fotos/parada_ChIJ58TM4FH1pJIRTgbWiyTlMno.jpg"
+        "foto_url": "fotos/parada_ChIJwYNrNoCJpJIRu-Yob6piNOE.jpg"
     },
     {
-        "id": "ChIJUYEvZFD1pJIRuULrI3P3OHY",
-        "nome": "BR-316 | Acesso Conjunto Júlia Sefer",
-        "latitude": -1.3756157,
-        "longitude": -48.3897436,
-        "status_clima": "⛅ Parcial. Nublado (29.8°C)",
+        "id": "ChIJtUXvwH6JpJIRXZcz79T3LBQ",
+        "nome": "Rua Rio Tapajos, 3",
+        "latitude": -1.4036953,
+        "longitude": -48.4826861,
+        "status_clima": "desconhecido",
         "status_lotacao": "verde",
-        "foto_url": "fotos/parada_ChIJUYEvZFD1pJIRuULrI3P3OHY.jpg"
+        "foto_url": "fotos/parada_ChIJtUXvwH6JpJIRXZcz79T3LBQ.jpg"
     },
     {
-        "id": "ChIJvxMmYFD1pJIRHVvYsUmdwA8",
-        "nome": "BR-316 | Risoca",
-        "latitude": -1.3753181,
-        "longitude": -48.3899729,
-        "status_clima": "⛅ Parcial. Nublado (29.8°C)",
+        "id": "ChIJWdIw936JpJIRiB0F0SslZ-o",
+        "nome": "Rua Rio Tapajos, 028",
+        "latitude": -1.4033678,
+        "longitude": -48.48150589999999,
+        "status_clima": "desconhecido",
         "status_lotacao": "verde",
-        "foto_url": "fotos/parada_ChIJvxMmYFD1pJIRHVvYsUmdwA8.jpg"
+        "foto_url": "fotos/parada_ChIJWdIw936JpJIRiB0F0SslZ-o.jpg"
     },
     {
-        "id": "ChIJNT9Tzsf1pJIRR8KiG1PHYfA",
-        "nome": "[BRT Metropolitano] Terminal Ananindeua",
-        "latitude": -1.3761079,
-        "longitude": -48.38778749999999,
-        "status_clima": "⛅ Parcial. Nublado (29.8°C)",
+        "id": "ChIJ67j2c2KJpJIRSKWxWIL-lis",
+        "nome": "Travessa Alferes Costa, 83",
+        "latitude": -1.4108241,
+        "longitude": -48.4790544,
+        "status_clima": "desconhecido",
         "status_lotacao": "verde",
-        "foto_url": "fotos/parada_ChIJNT9Tzsf1pJIRR8KiG1PHYfA.jpg"
+        "foto_url": "fotos/parada_ChIJ67j2c2KJpJIRSKWxWIL-lis.jpg"
     },
     {
-        "id": "ChIJHXd84AJgpJIR_BiL0Gub2Pg",
-        "nome": "Travessa WE 16 (Cidade Nova II)",
-        "latitude": -1.3684831,
-        "longitude": -48.4075266,
-        "status_clima": "⛅ Parcial. Nublado (29.8°C)",
+        "id": "ChIJ9b6xbn6JpJIRkHi0VBuG5Gc",
+        "nome": "Avenida dos Tucanos, 7",
+        "latitude": -1.4039744,
+        "longitude": -48.4803325,
+        "status_clima": "desconhecido",
         "status_lotacao": "verde",
-        "foto_url": "fotos/parada_ChIJHXd84AJgpJIR_BiL0Gub2Pg.jpg"
+        "foto_url": "fotos/parada_ChIJ9b6xbn6JpJIRkHi0VBuG5Gc.jpg"
     },
     {
-        "id": "ChIJ6-l6hAJgpJIRA83iZhMppoI",
-        "nome": "Avenida Doutor Nonato Sanova, 1540",
-        "latitude": -1.369975,
-        "longitude": -48.4067456,
-        "status_clima": "⛅ Parcial. Nublado (29.8°C)",
+        "id": "ChIJc0xsyn6JpJIRp8xmHJr9iUU",
+        "nome": "Rua Rio Tapajos, 22",
+        "latitude": -1.4037599,
+        "longitude": -48.4835029,
+        "status_clima": "desconhecido",
         "status_lotacao": "verde",
-        "foto_url": "fotos/parada_ChIJ6-l6hAJgpJIRA83iZhMppoI.jpg"
+        "foto_url": "fotos/parada_ChIJc0xsyn6JpJIRp8xmHJr9iUU.jpg"
     },
     {
-        "id": "ChIJqSYM3hxgpJIRiN1mAwXG1pI",
-        "nome": "Travessa WE 16 (Cidade Nova II), 412",
-        "latitude": -1.3682467,
-        "longitude": -48.4098205,
-        "status_clima": "⛅ Parcial. Nublado (29.8°C)",
+        "id": "ChIJnTovMICJpJIRnl--2xlWMj0",
+        "nome": "Avenida Sul, 190",
+        "latitude": -1.400065,
+        "longitude": -48.4808314,
+        "status_clima": "desconhecido",
         "status_lotacao": "verde",
-        "foto_url": "fotos/parada_ChIJqSYM3hxgpJIRiN1mAwXG1pI.jpg"
+        "foto_url": "fotos/parada_ChIJnTovMICJpJIRnl--2xlWMj0.jpg"
     },
     {
-        "id": "ChIJH_xGRQJgpJIRNnyJbPv_BJs",
-        "nome": "Avenida Doutor Nonato Sanova, 58",
-        "latitude": -1.3688478,
-        "longitude": -48.4056311,
-        "status_clima": "⛅ Parcial. Nublado (29.8°C)",
+        "id": "ChIJw85n032JpJIRIEjklRMQWLI",
+        "nome": "Avenida dos Tucanos, 10",
+        "latitude": -1.4049137,
+        "longitude": -48.4811386,
+        "status_clima": "desconhecido",
         "status_lotacao": "verde",
-        "foto_url": "fotos/parada_ChIJH_xGRQJgpJIRNnyJbPv_BJs.jpg"
+        "foto_url": "fotos/parada_ChIJw85n032JpJIRIEjklRMQWLI.jpg"
     },
     {
-        "id": "ChIJ85m3qAJgpJIRMeZmh2E61ho",
-        "nome": "Travessa We Treze -B, 141",
-        "latitude": -1.37002,
-        "longitude": -48.40824720000001,
-        "status_clima": "⛅ Parcial. Nublado (29.8°C)",
+        "id": "ChIJB0ywutSLpJIR_cjfEJUS_ik",
+        "nome": "Passagem Santo Amaro, 517",
+        "latitude": -1.4013896,
+        "longitude": -48.4743673,
+        "status_clima": "desconhecido",
         "status_lotacao": "verde",
-        "foto_url": "fotos/parada_ChIJ85m3qAJgpJIRMeZmh2E61ho.jpg"
+        "foto_url": "fotos/parada_ChIJB0ywutSLpJIR_cjfEJUS_ik.jpg"
     },
     {
-        "id": "ChIJdQtqbaiKpJIRC7kKjiCiTSQ",
-        "nome": "Avenida Três Corações, 3550",
-        "latitude": -1.371139,
-        "longitude": -48.40807179999999,
-        "status_clima": "⛅ Parcial. Nublado (29.8°C)",
+        "id": "ChIJ67hl1dSLpJIRgHBGYMzD-G0",
+        "nome": "Avenida Contôrno Leste, 392",
+        "latitude": -1.4009711,
+        "longitude": -48.4761944,
+        "status_clima": "desconhecido",
         "status_lotacao": "verde",
-        "foto_url": "fotos/parada_ChIJdQtqbaiKpJIRC7kKjiCiTSQ.jpg"
+        "foto_url": "fotos/parada_ChIJ67hl1dSLpJIRgHBGYMzD-G0.jpg"
     },
     {
-        "id": "ChIJ1zVWFB1gpJIRA20WFzHt0-I",
-        "nome": "Estrada da Providência, 441B",
-        "latitude": -1.369235,
-        "longitude": -48.4102326,
-        "status_clima": "⛅ Parcial. Nublado (29.8°C)",
+        "id": "ChIJobagTtWLpJIRy1olM6CK-os",
+        "nome": "Avenida Oeste, 72",
+        "latitude": -1.401163,
+        "longitude": -48.47784859999999,
+        "status_clima": "desconhecido",
         "status_lotacao": "verde",
-        "foto_url": "fotos/parada_ChIJ1zVWFB1gpJIRA20WFzHt0-I.jpg"
+        "foto_url": "fotos/parada_ChIJobagTtWLpJIRy1olM6CK-os.jpg"
     },
     {
-        "id": "ChIJSzIC9wNgpJIRGWxixGChMkc",
-        "nome": "Avenida Doutor Nonato Sanova, 512",
-        "latitude": -1.3666267,
-        "longitude": -48.4045804,
-        "status_clima": "⛅ Parcial. Nublado (29.8°C)",
+        "id": "ChIJrYHiKiuKpJIRZHrbd3ymWtE",
+        "nome": "Avenida Contôrno Leste, 361",
+        "latitude": -1.4008236,
+        "longitude": -48.4761089,
+        "status_clima": "desconhecido",
         "status_lotacao": "verde",
-        "foto_url": "fotos/parada_ChIJSzIC9wNgpJIRGWxixGChMkc.jpg"
+        "foto_url": "fotos/parada_ChIJrYHiKiuKpJIRZHrbd3ymWtE.jpg"
     },
     {
-        "id": "ChIJ7cPaUwJgpJIRXho0GdYoKzo",
-        "nome": "Travessa SN 03, 12",
-        "latitude": -1.3685502,
-        "longitude": -48.4058824,
-        "status_clima": "⛅ Parcial. Nublado (29.8°C)",
+        "id": "ChIJ9dv6TtWLpJIRyb0x2ZC8t0Q",
+        "nome": "Avenida Oeste, 73",
+        "latitude": -1.4012532,
+        "longitude": -48.4779095,
+        "status_clima": "desconhecido",
         "status_lotacao": "verde",
-        "foto_url": "fotos/parada_ChIJ7cPaUwJgpJIRXho0GdYoKzo.jpg"
+        "foto_url": "fotos/parada_ChIJ9dv6TtWLpJIRyb0x2ZC8t0Q.jpg"
     },
     {
-        "id": "ChIJM-6jaRtgpJIR4_WpTQvsmzY",
-        "nome": "Estrada da Providência, 298",
-        "latitude": -1.3661618,
-        "longitude": -48.4101824,
-        "status_clima": "⛅ Parcial. Nublado (29.8°C)",
+        "id": "ChIJ1Zg6sNiLpJIRIiMY6jieudE",
+        "nome": "Travessa Alferes Costa, 88",
+        "latitude": -1.4115333,
+        "longitude": -48.4780566,
+        "status_clima": "desconhecido",
         "status_lotacao": "verde",
-        "foto_url": "fotos/parada_ChIJM-6jaRtgpJIR4_WpTQvsmzY.jpg"
+        "foto_url": "fotos/parada_ChIJ1Zg6sNiLpJIRIiMY6jieudE.jpg"
     },
     {
-        "id": "ChIJKQcOaxtgpJIRMZ3ywsdDJDE",
-        "nome": "Estrada da Providência, 285",
-        "latitude": -1.3657909,
-        "longitude": -48.4102625,
-        "status_clima": "⛅ Parcial. Nublado (29.8°C)",
+        "id": "ChIJGcJP3H-JpJIR_CdQjb1Y1Yw",
+        "nome": "Avenida dos Tucanos, 6",
+        "latitude": -1.4020129,
+        "longitude": -48.4791518,
+        "status_clima": "desconhecido",
         "status_lotacao": "verde",
-        "foto_url": "fotos/parada_ChIJKQcOaxtgpJIRMZ3ywsdDJDE.jpg"
+        "foto_url": "fotos/parada_ChIJGcJP3H-JpJIR_CdQjb1Y1Yw.jpg"
     },
     {
-        "id": "ChIJRyrghgNgpJIRS3b-s1EGShc",
-        "nome": "Travessa SN 03, 263",
-        "latitude": -1.3666386,
-        "longitude": -48.4059062,
-        "status_clima": "⛅ Parcial. Nublado (29.8°C)",
+        "id": "ChIJ8Q8O_tGLpJIRuuns7WRWcUc",
+        "nome": "Avenida Júlio César, 80",
+        "latitude": -1.4045969,
+        "longitude": -48.4687217,
+        "status_clima": "desconhecido",
         "status_lotacao": "verde",
-        "foto_url": "fotos/parada_ChIJRyrghgNgpJIRS3b-s1EGShc.jpg"
+        "foto_url": "fotos/parada_ChIJ8Q8O_tGLpJIRuuns7WRWcUc.jpg"
     },
     {
-        "id": "ChIJu5-pDl_1pJIRfsT8yrzgl-I",
-        "nome": "BR-316 | Havan Ananindeua",
-        "latitude": -1.3708052,
-        "longitude": -48.3816902,
-        "status_clima": "⛅ Parcial. Nublado (29.8°C)",
+        "id": "ChIJPasJz8SLpJIRhnIJGIinacA",
+        "nome": "Avenida Pedro Álvares Cabral, 4",
+        "latitude": -1.4104406,
+        "longitude": -48.4682136,
+        "status_clima": "desconhecido",
         "status_lotacao": "verde",
-        "foto_url": "fotos/parada_ChIJu5-pDl_1pJIRfsT8yrzgl-I.jpg"
+        "foto_url": "fotos/parada_ChIJPasJz8SLpJIRhnIJGIinacA.jpg"
     },
     {
-        "id": "ChIJayFZcl_1pJIRBpAUgxeyNxs",
-        "nome": "BR-316 | Havan Ananindeua (sentido Belém)",
-        "latitude": -1.3704526,
-        "longitude": -48.3818766,
-        "status_clima": "⛅ Parcial. Nublado (29.8°C)",
+        "id": "ChIJW4B7AM6LpJIRJIu0RGmUuYI",
+        "nome": "Avenida Júlio César, 90",
+        "latitude": -1.4044482,
+        "longitude": -48.468556,
+        "status_clima": "desconhecido",
         "status_lotacao": "verde",
-        "foto_url": "fotos/parada_ChIJayFZcl_1pJIRBpAUgxeyNxs.jpg"
+        "foto_url": "fotos/parada_ChIJW4B7AM6LpJIRJIu0RGmUuYI.jpg"
     },
     {
-        "id": "ChIJdVvciV_1pJIRwPcnq8Tf6rc",
-        "nome": "BR-316, 4573",
-        "latitude": -1.3696536,
-        "longitude": -48.3805101,
-        "status_clima": "⛅ Parcial. Nublado (29.8°C)",
+        "id": "ChIJMYIPvCyKpJIRvX_IyL7pN7c",
+        "nome": "Avenida Júlio César, 4596",
+        "latitude": -1.3999758,
+        "longitude": -48.4729318,
+        "status_clima": "desconhecido",
         "status_lotacao": "verde",
-        "foto_url": "fotos/parada_ChIJdVvciV_1pJIRwPcnq8Tf6rc.jpg"
+        "foto_url": "fotos/parada_ChIJMYIPvCyKpJIRvX_IyL7pN7c.jpg"
     },
     {
-        "id": "ChIJ4a-p-4pfpJIR0-qrxrPrQo0",
-        "nome": "BR-316 | Praça 2 de Junho - Zona Sul (Centro de Ananindeua)",
-        "latitude": -1.3680541,
-        "longitude": -48.376826,
-        "status_clima": "⛅ Parcial. Nublado (29.8°C)",
+        "id": "ChIJHznlZtuLpJIRRHj22TTS46w",
+        "nome": "Avenida Pedro Álvares Cabral, 357",
+        "latitude": -1.4114218,
+        "longitude": -48.47017,
+        "status_clima": "desconhecido",
         "status_lotacao": "verde",
-        "foto_url": "fotos/parada_ChIJ4a-p-4pfpJIR0-qrxrPrQo0.jpg"
+        "foto_url": "fotos/parada_ChIJHznlZtuLpJIRRHj22TTS46w.jpg"
     },
     {
-        "id": "ChIJKeqTz4pfpJIR3n86tt2dDZs",
-        "nome": "BR-316 | Assep",
-        "latitude": -1.3682874,
-        "longitude": -48.3782905,
-        "status_clima": "⛅ Parcial. Nublado (29.8°C)",
+        "id": "ChIJ4w20tiyKpJIRywQumYisa_g",
+        "nome": "Avenida Júlio César, 26",
+        "latitude": -1.4006803,
+        "longitude": -48.4726064,
+        "status_clima": "desconhecido",
         "status_lotacao": "verde",
-        "foto_url": "fotos/parada_ChIJKeqTz4pfpJIR3n86tt2dDZs.jpg"
+        "foto_url": "fotos/parada_ChIJ4w20tiyKpJIRywQumYisa_g.jpg"
     },
     {
-        "id": "ChIJzepaUvVfpJIRf-ajWbF6oqQ",
-        "nome": "BR-316, 792",
-        "latitude": -1.3692286,
-        "longitude": -48.3790496,
-        "status_clima": "⛅ Parcial. Nublado (29.8°C)",
+        "id": "ChIJHUhSc8-LpJIRoKHW8MJ-uL0",
+        "nome": "Avenida Júlio César, 160",
+        "latitude": -1.4071678,
+        "longitude": -48.4659144,
+        "status_clima": "desconhecido",
         "status_lotacao": "verde",
-        "foto_url": "fotos/parada_ChIJzepaUvVfpJIRf-ajWbF6oqQ.jpg"
+        "foto_url": "fotos/parada_ChIJHUhSc8-LpJIRoKHW8MJ-uL0.jpg"
     },
     {
-        "id": "ChIJuY0aG4lfpJIRS-wqiKvQIV8",
-        "nome": "Rodoviária de Ananindeua",
-        "latitude": -1.3670657,
-        "longitude": -48.3718065,
-        "status_clima": "⛅ Parcial. Nublado (29.8°C)",
+        "id": "ChIJVQtoe8-LpJIRjHVCFixKQYA",
+        "nome": "Avenida Júlio César, 1792",
+        "latitude": -1.4077218,
+        "longitude": -48.465691,
+        "status_clima": "desconhecido",
         "status_lotacao": "verde",
-        "foto_url": "fotos/parada_ChIJuY0aG4lfpJIRS-wqiKvQIV8.jpg"
+        "foto_url": "fotos/parada_ChIJVQtoe8-LpJIRjHVCFixKQYA.jpg"
     },
     {
-        "id": "ChIJZb_HD39fpJIRhPE6MJJWPjs",
-        "nome": "Ananindeua Bus Terminal",
-        "latitude": -1.367188,
-        "longitude": -48.3716375,
-        "status_clima": "⛅ Parcial. Nublado (29.8°C)",
+        "id": "ChIJI1DVM8uLpJIRUcRnA_DWYQU",
+        "nome": "Avenida Paragominas, 864d",
+        "latitude": -1.4008721,
+        "longitude": -48.4620566,
+        "status_clima": "desconhecido",
         "status_lotacao": "verde",
-        "foto_url": "fotos/parada_ChIJZb_HD39fpJIRhPE6MJJWPjs.jpg"
+        "foto_url": "fotos/parada_ChIJI1DVM8uLpJIRUcRnA_DWYQU.jpg"
     },
     {
-        "id": "ChIJZbSJe4lfpJIRaNdoL7DHBJ0",
-        "nome": "BR-316 | Passarela da Igreja Matriz de Ananindeua",
-        "latitude": -1.3673569,
-        "longitude": -48.3735538,
-        "status_clima": "⛅ Parcial. Nublado (29.8°C)",
+        "id": "ChIJHSH_1MeLpJIRw_WDtNetYKw",
+        "nome": "Avenida Pedro Álvares Cabral, 540",
+        "latitude": -1.4080051,
+        "longitude": -48.4610892,
+        "status_clima": "desconhecido",
         "status_lotacao": "verde",
-        "foto_url": "fotos/parada_ChIJZbSJe4lfpJIRaNdoL7DHBJ0.jpg"
+        "foto_url": "fotos/parada_ChIJHSH_1MeLpJIRw_WDtNetYKw.jpg"
     },
     {
-        "id": "ChIJ88ruoIhfpJIRtuIHic56EEE",
-        "nome": "BR-316 | Assaí Atacadista",
-        "latitude": -1.3664979,
-        "longitude": -48.368986,
-        "status_clima": "⛅ Parcial. Nublado (29.8°C)",
+        "id": "ChIJWz6ePMuLpJIRovBVJEU3F6c",
+        "nome": "Rua da Mata, 864",
+        "latitude": -1.4012759,
+        "longitude": -48.461953,
+        "status_clima": "desconhecido",
         "status_lotacao": "verde",
-        "foto_url": "fotos/parada_ChIJ88ruoIhfpJIRtuIHic56EEE.jpg"
+        "foto_url": "fotos/parada_ChIJWz6ePMuLpJIRovBVJEU3F6c.jpg"
     },
     {
-        "id": "ChIJFbSBIYlfpJIRrOSPRh4aSbA",
-        "nome": "BR-316 | Oposto Rodoviária de Ananindeua",
-        "latitude": -1.3666016,
-        "longitude": -48.37167840000001,
-        "status_clima": "⛅ Parcial. Nublado (29.8°C)",
+        "id": "ChIJfQBmOcuLpJIRC1hKtA_DNAs",
+        "nome": "Avenida Paragominas, 86",
+        "latitude": -1.4011577,
+        "longitude": -48.4621978,
+        "status_clima": "desconhecido",
         "status_lotacao": "verde",
-        "foto_url": "fotos/parada_ChIJFbSBIYlfpJIRrOSPRh4aSbA.jpg"
+        "foto_url": "fotos/parada_ChIJfQBmOcuLpJIRC1hKtA_DNAs.jpg"
     },
     {
-        "id": "ChIJo4HjUIFfpJIR27_eOn3IVvo",
-        "nome": "BR-316, 49660",
-        "latitude": -1.3659304,
-        "longitude": -48.3634096,
-        "status_clima": "⛅ Parcial. Nublado (29.8°C)",
+        "id": "ChIJoaevf8iLpJIRNGw_B18vMsU",
+        "nome": "Avenida Pedro Álvares Cabral, 540",
+        "latitude": -1.4077894,
+        "longitude": -48.46110969999999,
+        "status_clima": "desconhecido",
         "status_lotacao": "verde",
-        "foto_url": "fotos/parada_ChIJo4HjUIFfpJIR27_eOn3IVvo.jpg"
+        "foto_url": "fotos/parada_ChIJoaevf8iLpJIRNGw_B18vMsU.jpg"
     },
     {
-        "id": "ChIJy5wWAIRfpJIRVOKLWVk4V_0",
-        "nome": "BR-316, 45758",
-        "latitude": -1.3655942,
-        "longitude": -48.36396149999999,
-        "status_clima": "⛅ Parcial. Nublado (29.8°C)",
+        "id": "ChIJVTYt5sqLpJIR2I5SyZO646o",
+        "nome": "Rua da Mata, 76",
+        "latitude": -1.4015572,
+        "longitude": -48.4606782,
+        "status_clima": "desconhecido",
         "status_lotacao": "verde",
-        "foto_url": "fotos/parada_ChIJy5wWAIRfpJIRVOKLWVk4V_0.jpg"
+        "foto_url": "fotos/parada_ChIJVTYt5sqLpJIR2I5SyZO646o.jpg"
     },
     {
-        "id": "ChIJP6cp4oBfpJIRRn1fIdEAjvE",
-        "nome": "Terminal Rodoviário de Marituba",
-        "latitude": -1.3675196,
-        "longitude": -48.3623278,
-        "status_clima": "⛅ Parcial. Nublado (29.8°C)",
+        "id": "ChIJI5TR7TSKpJIRY9VszsSBi7k",
+        "nome": "Avenida Paragominas, 205",
+        "latitude": -1.3989444,
+        "longitude": -48.462171,
+        "status_clima": "desconhecido",
         "status_lotacao": "verde",
-        "foto_url": "fotos/parada_ChIJP6cp4oBfpJIRRn1fIdEAjvE.jpg"
+        "foto_url": "fotos/parada_ChIJI5TR7TSKpJIRY9VszsSBi7k.jpg"
     },
     {
-        "id": "ChIJcWE1GoFfpJIRWX57lLIS2fE",
-        "nome": "Bus Terminal Strap Road",
-        "latitude": -1.3675089,
-        "longitude": -48.3623397,
-        "status_clima": "⛅ Parcial. Nublado (29.8°C)",
+        "id": "ChIJ80qKwjSKpJIRimxxqXh9YAU",
+        "nome": "Avenida Paragominas, 174",
+        "latitude": -1.3997378,
+        "longitude": -48.46203449999999,
+        "status_clima": "desconhecido",
         "status_lotacao": "verde",
-        "foto_url": "fotos/parada_ChIJcWE1GoFfpJIRWX57lLIS2fE.jpg"
+        "foto_url": "fotos/parada_ChIJ80qKwjSKpJIRimxxqXh9YAU.jpg"
     },
     {
-        "id": "ChIJS-7BM39fpJIRo_ZHwINfoLo",
-        "nome": "BR-316 | Mix Atacarejo",
-        "latitude": -1.3656776,
-        "longitude": -48.3572692,
-        "status_clima": "⛅ Parcial. Nublado (29.8°C)",
+        "id": "ChIJGZo2PNqLpJIRHMpYDzpQPH8",
+        "nome": "Ponto de Ônibus Passagem Haroldo Veloso",
+        "latitude": -1.4077599,
+        "longitude": -48.4611155,
+        "status_clima": "desconhecido",
         "status_lotacao": "verde",
-        "foto_url": "fotos/parada_ChIJS-7BM39fpJIRo_ZHwINfoLo.jpg"
+        "foto_url": "fotos/parada_ChIJGZo2PNqLpJIRHMpYDzpQPH8.jpg"
     },
     {
-        "id": "ChIJLVsDIYJfpJIRGpjtUP9KAds",
-        "nome": "BR-316 | Scania",
-        "latitude": -1.3654333,
-        "longitude": -48.360347,
-        "status_clima": "⛅ Parcial. Nublado (29.8°C)",
+        "id": "ChIJ70QFv8qLpJIRyP11eYpiEuM",
+        "nome": "Rua da Mata, 44B",
+        "latitude": -1.401348,
+        "longitude": -48.4598163,
+        "status_clima": "desconhecido",
         "status_lotacao": "verde",
-        "foto_url": "fotos/parada_ChIJLVsDIYJfpJIRGpjtUP9KAds.jpg"
+        "foto_url": "fotos/parada_ChIJ70QFv8qLpJIRyP11eYpiEuM.jpg"
     },
     {
-        "id": "ChIJp5wO-QVgpJIRBWLCCm8zN88",
-        "nome": "Avenida Doutor Nonato Sanova, 161b",
-        "latitude": -1.3629974,
-        "longitude": -48.4042507,
-        "status_clima": "⛅ Parcial. Nublado (29.8°C)",
+        "id": "ChIJSRVYWDSKpJIRNb3secvfWwg",
+        "nome": "Avenida Paragominas, 75",
+        "latitude": -1.3983737,
+        "longitude": -48.4620392,
+        "status_clima": "desconhecido",
         "status_lotacao": "verde",
-        "foto_url": "fotos/parada_ChIJp5wO-QVgpJIRBWLCCm8zN88.jpg"
+        "foto_url": "fotos/parada_ChIJSRVYWDSKpJIRNb3secvfWwg.jpg"
     },
     {
-        "id": "ChIJh2lJLARgpJIRoPPkcjSJ5BI",
-        "nome": "Avenida Doutor Nonato Sanova, 162c",
-        "latitude": -1.3648261,
-        "longitude": -48.4042542,
-        "status_clima": "⛅ Parcial. Nublado (29.8°C)",
+        "id": "ChIJQ8341JqJpJIR8CwhrEttrsI",
+        "nome": "Avenida Arthur Bernardes, 16441",
+        "latitude": -1.3955572,
+        "longitude": -48.48887149999999,
+        "status_clima": "desconhecido",
         "status_lotacao": "verde",
-        "foto_url": "fotos/parada_ChIJh2lJLARgpJIRoPPkcjSJ5BI.jpg"
+        "foto_url": "fotos/parada_ChIJQ8341JqJpJIR8CwhrEttrsI.jpg"
     },
     {
-        "id": "ChIJbxfc0whgpJIR6brNKMvMvKo",
-        "nome": "Travessa We-31 (Cj Cidade Nova V), 242",
-        "latitude": -1.3612986,
-        "longitude": -48.4035196,
-        "status_clima": "⛅ Parcial. Nublado (29.8°C)",
+        "id": "ChIJA7NMV4WJpJIRmD7tXPnis9w",
+        "nome": "Avenida Arthur Bernardes, 10",
+        "latitude": -1.3940707,
+        "longitude": -48.488153,
+        "status_clima": "desconhecido",
         "status_lotacao": "verde",
-        "foto_url": "fotos/parada_ChIJbxfc0whgpJIR6brNKMvMvKo.jpg"
+        "foto_url": "fotos/parada_ChIJA7NMV4WJpJIRmD7tXPnis9w.jpg"
     },
     {
-        "id": "ChIJjUvOKQ9gpJIR6vPB_FD98Xk",
-        "nome": "Avenida Doutor Nonato Sanova, 171a",
-        "latitude": -1.3610506,
-        "longitude": -48.404249,
-        "status_clima": "⛅ Parcial. Nublado (29.8°C)",
+        "id": "ChIJF9vsWYWJpJIRx4EJgO6PimE",
+        "nome": "Avenida Arthur Bernardes, 09",
+        "latitude": -1.394031,
+        "longitude": -48.48802269999999,
+        "status_clima": "desconhecido",
         "status_lotacao": "verde",
-        "foto_url": "fotos/parada_ChIJjUvOKQ9gpJIR6vPB_FD98Xk.jpg"
+        "foto_url": "fotos/parada_ChIJF9vsWYWJpJIRx4EJgO6PimE.jpg"
     },
     {
-        "id": "ChIJ6Q3gVghgpJIRDHylXcF5WOI",
-        "nome": "Travessa We-31 (Cj Cidade Nova V), 472",
-        "latitude": -1.3612901,
-        "longitude": -48.4010822,
-        "status_clima": "⛅ Parcial. Nublado (29.8°C)",
+        "id": "ChIJ70ekWJuJpJIRRto3DP6yk0Y",
+        "nome": "Avenida Arthur Bernardes, 16152",
+        "latitude": -1.3975118,
+        "longitude": -48.48960820000001,
+        "status_clima": "desconhecido",
         "status_lotacao": "verde",
-        "foto_url": "fotos/parada_ChIJ6Q3gVghgpJIRDHylXcF5WOI.jpg"
+        "foto_url": "fotos/parada_ChIJ70ekWJuJpJIRRto3DP6yk0Y.jpg"
     },
     {
-        "id": "ChIJcwkkcQ9gpJIRm_nRIcXdNPQ",
-        "nome": "Travessa SN 03, 18",
-        "latitude": -1.3622904,
-        "longitude": -48.4059353,
-        "status_clima": "⛅ Parcial. Nublado (29.8°C)",
+        "id": "ChIJsVlV1YSJpJIRwr-YqqUIOsM",
+        "nome": "Avenida Arthur Bernardes, 16440",
+        "latitude": -1.3956832,
+        "longitude": -48.48871949999999,
+        "status_clima": "desconhecido",
         "status_lotacao": "verde",
-        "foto_url": "fotos/parada_ChIJcwkkcQ9gpJIRm_nRIcXdNPQ.jpg"
+        "foto_url": "fotos/parada_ChIJsVlV1YSJpJIRwr-YqqUIOsM.jpg"
     },
     {
-        "id": "ChIJBc89AQlgpJIRPlxCJtaVNoI",
-        "nome": "Travessa We 32, 433",
-        "latitude": -1.3607837,
-        "longitude": -48.4015253,
-        "status_clima": "⛅ Parcial. Nublado (29.8°C)",
+        "id": "ChIJU3hVdIGJpJIRpiBJbP8asQY",
+        "nome": "Avenida Norte, 12",
+        "latitude": -1.3990675,
+        "longitude": -48.482662,
+        "status_clima": "desconhecido",
         "status_lotacao": "verde",
-        "foto_url": "fotos/parada_ChIJBc89AQlgpJIRPlxCJtaVNoI.jpg"
+        "foto_url": "fotos/parada_ChIJU3hVdIGJpJIRpiBJbP8asQY.jpg"
     },
     {
-        "id": "ChIJnwzOThBgpJIR0a5mXIgnWJk",
-        "nome": "Estrada da Providência, 69",
-        "latitude": -1.3614572,
-        "longitude": -48.4103813,
-        "status_clima": "⛅ Parcial. Nublado (29.8°C)",
+        "id": "ChIJvYt044CJpJIR2GRC-Pfnrkg",
+        "nome": "Avenida Norte, 3",
+        "latitude": -1.3986116,
+        "longitude": -48.4809816,
+        "status_clima": "desconhecido",
         "status_lotacao": "verde",
-        "foto_url": "fotos/parada_ChIJnwzOThBgpJIR0a5mXIgnWJk.jpg"
+        "foto_url": "fotos/parada_ChIJvYt044CJpJIR2GRC-Pfnrkg.jpg"
     },
     {
-        "id": "ChIJ_y4FdBBgpJIRcvQScIQs4dw",
-        "nome": "Estrada da Providência, 1714",
-        "latitude": -1.3631486,
-        "longitude": -48.4103287,
-        "status_clima": "⛅ Parcial. Nublado (29.8°C)",
+        "id": "ChIJcSYS6oCJpJIRX-AUQAqfPdc",
+        "nome": "Avenida Norte, 13",
+        "latitude": -1.3982749,
+        "longitude": -48.480228,
+        "status_clima": "desconhecido",
         "status_lotacao": "verde",
-        "foto_url": "fotos/parada_ChIJ_y4FdBBgpJIRcvQScIQs4dw.jpg"
+        "foto_url": "fotos/parada_ChIJcSYS6oCJpJIRX-AUQAqfPdc.jpg"
     },
     {
-        "id": "ChIJ49_sDeNfpJIRZIGJouwZdGk",
-        "nome": "Ponto Final - Cidade Nova 5",
-        "latitude": -1.3612857,
-        "longitude": -48.395312,
-        "status_clima": "⛅ Parcial. Nublado (29.8°C)",
+        "id": "ChIJ1X665oCJpJIROU8gxqQjPi8",
+        "nome": "Avenida Norte, 3",
+        "latitude": -1.3984471,
+        "longitude": -48.4808727,
+        "status_clima": "desconhecido",
         "status_lotacao": "verde",
-        "foto_url": "fotos/parada_ChIJ49_sDeNfpJIRZIGJouwZdGk.jpg"
+        "foto_url": "fotos/parada_ChIJ1X665oCJpJIROU8gxqQjPi8.jpg"
     },
     {
-        "id": "ChIJRaAMjuJfpJIR3uIkGrC1Azk",
-        "nome": "Travessa We-31 (Cj Cidade Nova V), 772",
-        "latitude": -1.3612861,
-        "longitude": -48.3979028,
-        "status_clima": "⛅ Parcial. Nublado (29.8°C)",
+        "id": "ChIJrwLy6oCJpJIRaMJ48G-9ID0",
+        "nome": "Avenida Norte, 12",
+        "latitude": -1.3983097,
+        "longitude": -48.4800948,
+        "status_clima": "desconhecido",
         "status_lotacao": "verde",
-        "foto_url": "fotos/parada_ChIJRaAMjuJfpJIR3uIkGrC1Azk.jpg"
+        "foto_url": "fotos/parada_ChIJrwLy6oCJpJIRaMJ48G-9ID0.jpg"
     },
     {
-        "id": "ChIJWXuUzQlgpJIRQwkMQrVq06c",
-        "nome": "Travessa We 32, 621",
-        "latitude": -1.3607548,
-        "longitude": -48.3995032,
-        "status_clima": "⛅ Parcial. Nublado (29.8°C)",
+        "id": "ChIJi78svYCJpJIRV29Msm5Xo6g",
+        "nome": "Avenida Norte, 2382",
+        "latitude": -1.398126,
+        "longitude": -48.4793551,
+        "status_clima": "desconhecido",
         "status_lotacao": "verde",
-        "foto_url": "fotos/parada_ChIJWXuUzQlgpJIRQwkMQrVq06c.jpg"
+        "foto_url": "fotos/parada_ChIJi78svYCJpJIRV29Msm5Xo6g.jpg"
     },
     {
-        "id": "ChIJjfQpq-NfpJIRAX_QQW51dbk",
-        "nome": "Travessa We 32, 922",
-        "latitude": -1.3607331,
-        "longitude": -48.396303,
-        "status_clima": "⛅ Parcial. Nublado (29.8°C)",
+        "id": "ChIJmyllf4GJpJIRh72pg_u15Gg",
+        "nome": "Avenida Norte, 1768",
+        "latitude": -1.3992233,
+        "longitude": -48.4834763,
+        "status_clima": "desconhecido",
         "status_lotacao": "verde",
-        "foto_url": "fotos/parada_ChIJjfQpq-NfpJIRAX_QQW51dbk.jpg"
+        "foto_url": "fotos/parada_ChIJmyllf4GJpJIRh72pg_u15Gg.jpg"
     },
     {
-        "id": "ChIJnx2ugeNfpJIRgVV1ydgIAT0",
-        "nome": "Travessa We 32, 1722",
-        "latitude": -1.3607162,
-        "longitude": -48.3940068,
-        "status_clima": "⛅ Parcial. Nublado (29.8°C)",
+        "id": "ChIJY14y0iuKpJIRbhJd4LKL1dY",
+        "nome": "Avenida Contôrno Leste, 118",
+        "latitude": -1.3981542,
+        "longitude": -48.4760541,
+        "status_clima": "desconhecido",
         "status_lotacao": "verde",
-        "foto_url": "fotos/parada_ChIJnx2ugeNfpJIRgVV1ydgIAT0.jpg"
+        "foto_url": "fotos/parada_ChIJY14y0iuKpJIRbhJd4LKL1dY.jpg"
     },
     {
-        "id": "ChIJnzVzeWFfpJIRBXqqQutTA1g",
-        "nome": "Final da linha Cidade Nova 5",
-        "latitude": -1.3613032,
-        "longitude": -48.3953162,
-        "status_clima": "⛅ Parcial. Nublado (29.8°C)",
+        "id": "ChIJYVoTsyuKpJIRo4w7G5DhcGE",
+        "nome": "Avenida Contôrno Leste, 32",
+        "latitude": -1.3978167,
+        "longitude": -48.47611370000001,
+        "status_clima": "desconhecido",
         "status_lotacao": "verde",
-        "foto_url": "fotos/parada_ChIJnzVzeWFfpJIRBXqqQutTA1g.jpg"
+        "foto_url": "fotos/parada_ChIJYVoTsyuKpJIRo4w7G5DhcGE.jpg"
     },
     {
-        "id": "ChIJWbb1MYlfpJIR1_b-6Ngdcx4",
-        "nome": "Avenida Zacarias de Assunção, 96",
-        "latitude": -1.3652512,
-        "longitude": -48.37195089999999,
-        "status_clima": "⛅ Parcial. Nublado (29.8°C)",
+        "id": "ChIJx6FcJiqKpJIROx9BHb3iREI",
+        "nome": "Avenida Norte, 1",
+        "latitude": -1.3974148,
+        "longitude": -48.4769734,
+        "status_clima": "desconhecido",
         "status_lotacao": "verde",
-        "foto_url": "fotos/parada_ChIJWbb1MYlfpJIR1_b-6Ngdcx4.jpg"
+        "foto_url": "fotos/parada_ChIJx6FcJiqKpJIROx9BHb3iREI.jpg"
     },
     {
-        "id": "ChIJhyisKZBfpJIRpA4DzxcNv8I",
-        "nome": "Avenida Zacarias de Assunção, 559",
-        "latitude": -1.3620437,
-        "longitude": -48.3709286,
-        "status_clima": "⛅ Parcial. Nublado (29.8°C)",
+        "id": "ChIJdc6SgCmKpJIRpStTyTvx2iM",
+        "nome": "Avenida Norte, 2992",
+        "latitude": -1.3971892,
+        "longitude": -48.4764292,
+        "status_clima": "desconhecido",
         "status_lotacao": "verde",
-        "foto_url": "fotos/parada_ChIJhyisKZBfpJIRpA4DzxcNv8I.jpg"
+        "foto_url": "fotos/parada_ChIJdc6SgCmKpJIRpStTyTvx2iM.jpg"
     },
     {
-        "id": "ChIJESVTXJNfpJIR-_JSPTyl1TY",
-        "nome": "Terminal Marituba (BRT Metropolitano)",
-        "latitude": -1.3646094,
-        "longitude": -48.3585357,
-        "status_clima": "⛅ Parcial. Nublado (29.8°C)",
+        "id": "ChIJJ4e2wCuKpJIRPw8cAoihwCc",
+        "nome": "Avenida Júlio César, 4758",
+        "latitude": -1.3980811,
+        "longitude": -48.4751914,
+        "status_clima": "desconhecido",
         "status_lotacao": "verde",
-        "foto_url": "fotos/parada_ChIJESVTXJNfpJIR-_JSPTyl1TY.jpg"
+        "foto_url": "fotos/parada_ChIJJ4e2wCuKpJIRPw8cAoihwCc.jpg"
     },
     {
-        "id": "ChIJ0aKzGHNgpJIRLR8uIx7sWtE",
-        "nome": "Final da Linha | Ônibus Cidade Nova 4",
-        "latitude": -1.3546331,
-        "longitude": -48.405981,
-        "status_clima": "⛅ Parcial. Nublado (29.8°C)",
+        "id": "ChIJHS0e6iuKpJIR_OFxXZ9U2XU",
+        "nome": "Avenida Júlio César, 4758",
+        "latitude": -1.3979073,
+        "longitude": -48.4749874,
+        "status_clima": "desconhecido",
         "status_lotacao": "verde",
-        "foto_url": "fotos/parada_ChIJ0aKzGHNgpJIRLR8uIx7sWtE.jpg"
+        "foto_url": "fotos/parada_ChIJHS0e6iuKpJIR_OFxXZ9U2XU.jpg"
     },
     {
-        "id": "ChIJGf1ONQtgpJIRvt_LWMHrO-E",
-        "nome": "Avenida Dom Vicente Zico, 750",
-        "latitude": -1.3555317,
-        "longitude": -48.4025109,
-        "status_clima": "⛅ Parcial. Nublado (29.8°C)",
+        "id": "ChIJy9cmJiqKpJIRbap0cuKkmOE",
+        "nome": "Ponto Final - 631",
+        "latitude": -1.396791,
+        "longitude": -48.4767088,
+        "status_clima": "desconhecido",
         "status_lotacao": "verde",
-        "foto_url": "fotos/parada_ChIJGf1ONQtgpJIRvt_LWMHrO-E.jpg"
+        "foto_url": "fotos/parada_ChIJy9cmJiqKpJIRbap0cuKkmOE.jpg"
     },
     {
-        "id": "ChIJ8a8z6QpgpJIRT9beRo52B1k",
-        "nome": "Avenida Dom Vicente Zico, 56",
-        "latitude": -1.3565989,
-        "longitude": -48.4004831,
-        "status_clima": "⛅ Parcial. Nublado (29.8°C)",
+        "id": "ChIJDcqu0jWKpJIRtrpxgtsKf5g",
+        "nome": "Rua Cafezal, 115",
+        "latitude": -1.3973683,
+        "longitude": -48.4611569,
+        "status_clima": "desconhecido",
         "status_lotacao": "verde",
-        "foto_url": "fotos/parada_ChIJ8a8z6QpgpJIRT9beRo52B1k.jpg"
+        "foto_url": "fotos/parada_ChIJDcqu0jWKpJIRtrpxgtsKf5g.jpg"
     },
     {
-        "id": "ChIJaWhcAgxgpJIRUJW4i5dKjJI",
-        "nome": "Avenida Doutor Nonato Sanova, 151c",
-        "latitude": -1.3591262,
-        "longitude": -48.4042508,
-        "status_clima": "⛅ Parcial. Nublado (29.8°C)",
+        "id": "ChIJ3cNXwjWKpJIRgCYTakB0BbQ",
+        "nome": "Rua Cafezal, 25a",
+        "latitude": -1.3974667,
+        "longitude": -48.46011,
+        "status_clima": "desconhecido",
         "status_lotacao": "verde",
-        "foto_url": "fotos/parada_ChIJaWhcAgxgpJIRUJW4i5dKjJI.jpg"
+        "foto_url": "fotos/parada_ChIJ3cNXwjWKpJIRgCYTakB0BbQ.jpg"
     },
     {
-        "id": "ChIJ8-sChQxgpJIRLRq7NuU1mxw",
-        "nome": "Avenida Doutor Nonato Sanova, 510",
-        "latitude": -1.3570053,
-        "longitude": -48.40428319999999,
-        "status_clima": "⛅ Parcial. Nublado (29.8°C)",
+        "id": "ChIJ35Cm6DWKpJIRRhD0I8i5nIQ",
+        "nome": "Rua Cafezal, 15",
+        "latitude": -1.3974043,
+        "longitude": -48.4597333,
+        "status_clima": "desconhecido",
         "status_lotacao": "verde",
-        "foto_url": "fotos/parada_ChIJ8-sChQxgpJIRLRq7NuU1mxw.jpg"
+        "foto_url": "fotos/parada_ChIJ35Cm6DWKpJIRRhD0I8i5nIQ.jpg"
     },
     {
-        "id": "ChIJqxa99hJgpJIRcpIS9rSbfpw",
-        "nome": "Ponto de Ônibus",
-        "latitude": -1.3573246,
-        "longitude": -48.4104056,
-        "status_clima": "⛅ Parcial. Nublado (29.8°C)",
+        "id": "ChIJu8Wx5o6JpJIRPxQ9B0KoM2s",
+        "nome": "Rodovia Arthur Bernardes, 142",
+        "latitude": -1.3917313,
+        "longitude": -48.4852516,
+        "status_clima": "desconhecido",
         "status_lotacao": "verde",
-        "foto_url": "fotos/parada_ChIJqxa99hJgpJIRcpIS9rSbfpw.jpg"
+        "foto_url": "fotos/parada_ChIJu8Wx5o6JpJIRPxQ9B0KoM2s.jpg"
     },
     {
-        "id": "ChIJ5VEFY3NgpJIRF6yiTMk56LE",
-        "nome": "Avenida Dom Vicente Zico, 713c",
-        "latitude": -1.354261,
-        "longitude": -48.4040021,
-        "status_clima": "⛅ Parcial. Nublado (29.8°C)",
+        "id": "ChIJe9zWOY-JpJIRDfwXPR_M14U",
+        "nome": "Avenida Pará, 1017",
+        "latitude": -1.3926298,
+        "longitude": -48.48438059999999,
+        "status_clima": "desconhecido",
         "status_lotacao": "verde",
-        "foto_url": "fotos/parada_ChIJ5VEFY3NgpJIRF6yiTMk56LE.jpg"
+        "foto_url": "fotos/parada_ChIJe9zWOY-JpJIRDfwXPR_M14U.jpg"
     },
     {
-        "id": "ChIJSXkUcnNgpJIRQ3XgGgsYL2Y",
-        "nome": "Avenida Dom Vicente Zico, 496",
-        "latitude": -1.3541481,
-        "longitude": -48.40481219999999,
-        "status_clima": "⛅ Parcial. Nublado (29.8°C)",
+        "id": "ChIJB2pC0oiJpJIRg3_CIeW5O-g",
+        "nome": "Avenida Pará, 970",
+        "latitude": -1.3923691,
+        "longitude": -48.4835044,
+        "status_clima": "desconhecido",
         "status_lotacao": "verde",
-        "foto_url": "fotos/parada_ChIJSXkUcnNgpJIRQ3XgGgsYL2Y.jpg"
+        "foto_url": "fotos/parada_ChIJB2pC0oiJpJIRg3_CIeW5O-g.jpg"
     },
     {
-        "id": "ChIJP7LkWnNgpJIRn49denvH8Gw",
-        "nome": "Avenida Doutor Nonato Sanova, 152",
-        "latitude": -1.3549951,
-        "longitude": -48.4043173,
-        "status_clima": "⛅ Parcial. Nublado (29.8°C)",
+        "id": "ChIJqdv6somJpJIRaCHbcd7FzCI",
+        "nome": "Avenida Pará | Aeroporto",
+        "latitude": -1.3917618,
+        "longitude": -48.4804749,
+        "status_clima": "desconhecido",
         "status_lotacao": "verde",
-        "foto_url": "fotos/parada_ChIJP7LkWnNgpJIRn49denvH8Gw.jpg"
+        "foto_url": "fotos/parada_ChIJqdv6somJpJIRaCHbcd7FzCI.jpg"
     },
     {
-        "id": "ChIJay8PegpgpJIRA06LX3_9qag",
-        "nome": "Avenida Dom Vicente Zico, 21",
-        "latitude": -1.357704,
-        "longitude": -48.3991777,
-        "status_clima": "⛅ Parcial. Nublado (29.8°C)",
+        "id": "ChIJcfshDYiJpJIRI92h51OapvY",
+        "nome": "Avenida Júlio César, 64",
+        "latitude": -1.3932692,
+        "longitude": -48.4798289,
+        "status_clima": "desconhecido",
         "status_lotacao": "verde",
-        "foto_url": "fotos/parada_ChIJay8PegpgpJIRA06LX3_9qag.jpg"
+        "foto_url": "fotos/parada_ChIJcfshDYiJpJIRI92h51OapvY.jpg"
     },
     {
-        "id": "ChIJGe2tzBJgpJIRhC621QR_0B8",
-        "nome": "Estrada da Providência, 452",
-        "latitude": -1.35595,
-        "longitude": -48.41040599999999,
-        "status_clima": "⛅ Parcial. Nublado (29.8°C)",
+        "id": "ChIJW4F4pICJpJIRn9ROV9jkm3U",
+        "nome": "Avenida Norte, 02",
+        "latitude": -1.3979891,
+        "longitude": -48.47916619999999,
+        "status_clima": "desconhecido",
         "status_lotacao": "verde",
-        "foto_url": "fotos/parada_ChIJGe2tzBJgpJIRhC621QR_0B8.jpg"
+        "foto_url": "fotos/parada_ChIJW4F4pICJpJIRn9ROV9jkm3U.jpg"
     },
     {
-        "id": "ChIJY5vIK-JfpJIRzHEhSRD7sWs",
-        "nome": "Avenida Dom Vicente Zico, 862",
-        "latitude": -1.359174,
-        "longitude": -48.3965699,
-        "status_clima": "⛅ Parcial. Nublado (29.8°C)",
+        "id": "ChIJP8gziSOKpJIRbM7aI0EyMPA",
+        "nome": "Rodovia Desembargador Paulo Frota, 1500",
+        "latitude": -1.3896242,
+        "longitude": -48.4720613,
+        "status_clima": "desconhecido",
         "status_lotacao": "verde",
-        "foto_url": "fotos/parada_ChIJY5vIK-JfpJIRzHEhSRD7sWs.jpg"
+        "foto_url": "fotos/parada_ChIJP8gziSOKpJIRbM7aI0EyMPA.jpg"
     },
     {
-        "id": "ChIJdQyihuFfpJIRHPDQb6mSSAU",
-        "nome": "Avenida Dom Vicente Zico, 892",
-        "latitude": -1.3588247,
-        "longitude": -48.396712,
-        "status_clima": "⛅ Parcial. Nublado (29.8°C)",
+        "id": "ChIJQVnHjSOKpJIRORP9bZ5QZSo",
+        "nome": "Rodovia Desembargador Paulo Frota, 1501",
+        "latitude": -1.3894627,
+        "longitude": -48.4722437,
+        "status_clima": "desconhecido",
         "status_lotacao": "verde",
-        "foto_url": "fotos/parada_ChIJdQyihuFfpJIRHPDQb6mSSAU.jpg"
+        "foto_url": "fotos/parada_ChIJQVnHjSOKpJIRORP9bZ5QZSo.jpg"
     },
     {
-        "id": "ChIJl-honApgpJIRy1wPooHGhlQ",
-        "nome": "Travessa Sn-23, 651",
-        "latitude": -1.3566582,
-        "longitude": -48.3990663,
-        "status_clima": "⛅ Parcial. Nublado (29.8°C)",
+        "id": "ChIJfUSozTyKpJIR587LS5m7wDw",
+        "nome": "Rodovia Desembargador Paulo Frota, 1040",
+        "latitude": -1.3884772,
+        "longitude": -48.4690806,
+        "status_clima": "desconhecido",
         "status_lotacao": "verde",
-        "foto_url": "fotos/parada_ChIJl-honApgpJIRy1wPooHGhlQ.jpg"
+        "foto_url": "fotos/parada_ChIJfUSozTyKpJIR587LS5m7wDw.jpg"
     },
     {
-        "id": "ChIJQ-SsoQpgpJIRBR0l1Ytsr7A",
-        "nome": "Travessa Sn-23, 2492",
-        "latitude": -1.3562545,
-        "longitude": -48.3989811,
-        "status_clima": "⛅ Parcial. Nublado (29.8°C)",
+        "id": "ChIJ0W090zyKpJIRo10RXRJvLH4",
+        "nome": "Rodovia Desembargador Paulo Frota, 2",
+        "latitude": -1.3882922,
+        "longitude": -48.46898540000001,
+        "status_clima": "desconhecido",
         "status_lotacao": "verde",
-        "foto_url": "fotos/parada_ChIJQ-SsoQpgpJIRBR0l1Ytsr7A.jpg"
+        "foto_url": "fotos/parada_ChIJ0W090zyKpJIRo10RXRJvLH4.jpg"
     },
     {
-        "id": "ChIJ4f2W-OZfpJIRrGYIIA0UCKA",
-        "nome": "Avenida Milton Taveira, 1382",
-        "latitude": -1.357393,
-        "longitude": -48.3913823,
-        "status_clima": "⛅ Parcial. Nublado (29.8°C)",
+        "id": "ChIJhY7Tgj6KpJIRDZbkID7uWoo",
+        "nome": "Rodovia Desembargador Paulo Frota | Shopping Grão-Pará",
+        "latitude": -1.3882868,
+        "longitude": -48.4635352,
+        "status_clima": "desconhecido",
         "status_lotacao": "verde",
-        "foto_url": "fotos/parada_ChIJ4f2W-OZfpJIRrGYIIA0UCKA.jpg"
+        "foto_url": "fotos/parada_ChIJhY7Tgj6KpJIRDZbkID7uWoo.jpg"
     },
     {
-        "id": "ChIJDefDIORfpJIRZMa0TcVcKg8",
-        "nome": "Avenida Milton Taveira, 24",
-        "latitude": -1.3590157,
-        "longitude": -48.39233189999999,
-        "status_clima": "⛅ Parcial. Nublado (29.8°C)",
+        "id": "ChIJQUETMjyKpJIRIP33z97qTGo",
+        "nome": "Rodovia Desembargador Paulo Frota | Oposto Shopping Grão-Pará",
+        "latitude": -1.3880355,
+        "longitude": -48.4640998,
+        "status_clima": "desconhecido",
         "status_lotacao": "verde",
-        "foto_url": "fotos/parada_ChIJDefDIORfpJIRZMa0TcVcKg8.jpg"
+        "foto_url": "fotos/parada_ChIJQUETMjyKpJIRIP33z97qTGo.jpg"
     },
     {
-        "id": "ChIJWVEclOdfpJIRD3PM6duhWXo",
-        "nome": "Avenida Milton Taveira, 1492",
-        "latitude": -1.3559764,
-        "longitude": -48.3903867,
-        "status_clima": "⛅ Parcial. Nublado (29.8°C)",
+        "id": "ChIJTWeAZO2JpJIRQTa63gZFsNo",
+        "nome": "Rodovia Arthur Bernardes | Oposto Aeroporto",
+        "latitude": -1.3852915,
+        "longitude": -48.4890433,
+        "status_clima": "desconhecido",
         "status_lotacao": "verde",
-        "foto_url": "fotos/parada_ChIJWVEclOdfpJIRD3PM6duhWXo.jpg"
+        "foto_url": "fotos/parada_ChIJTWeAZO2JpJIRQTa63gZFsNo.jpg"
     },
     {
-        "id": "ChIJJVI29uZfpJIRXM4ajpUZrU8",
-        "nome": "Avenida Milton Taveira, 1372",
-        "latitude": -1.3576908,
-        "longitude": -48.3914035,
-        "status_clima": "⛅ Parcial. Nublado (29.8°C)",
+        "id": "ChIJCdbSYu2JpJIRW0ymme2n1ig",
+        "nome": "Rodovia Arhur Bernardes | Aeroporto",
+        "latitude": -1.3851775,
+        "longitude": -48.4888491,
+        "status_clima": "desconhecido",
         "status_lotacao": "verde",
-        "foto_url": "fotos/parada_ChIJJVI29uZfpJIRXM4ajpUZrU8.jpg"
+        "foto_url": "fotos/parada_ChIJCdbSYu2JpJIRW0ymme2n1ig.jpg"
     },
     {
-        "id": "ChIJszluvudfpJIRTN28ZSgNgvM",
-        "nome": "Avenida Milton Taveira, 1471",
-        "latitude": -1.3562432,
-        "longitude": -48.3903545,
-        "status_clima": "⛅ Parcial. Nublado (29.8°C)",
+        "id": "ChIJj-8qXhWKpJIRCCzBNTQw6gQ",
+        "nome": "Avenida Centenário, 528",
+        "latitude": -1.3858096,
+        "longitude": -48.45998,
+        "status_clima": "desconhecido",
         "status_lotacao": "verde",
-        "foto_url": "fotos/parada_ChIJszluvudfpJIRTN28ZSgNgvM.jpg"
+        "foto_url": "fotos/parada_ChIJj-8qXhWKpJIRCCzBNTQw6gQ.jpg"
     },
     {
-        "id": "ChIJJ7-1nuZfpJIRaMc1uN5bknU",
-        "nome": "Avenida Milton Taveira, 56",
-        "latitude": -1.3587258,
-        "longitude": -48.39234099999999,
-        "status_clima": "⛅ Parcial. Nublado (29.8°C)",
+        "id": "ChIJocpZSfiJpJIRfJnS1tPoOo8",
+        "nome": "Rodovia Arthur Bernardes, 119",
+        "latitude": -1.3779528,
+        "longitude": -48.4808615,
+        "status_clima": "desconhecido",
         "status_lotacao": "verde",
-        "foto_url": "fotos/parada_ChIJJ7-1nuZfpJIRaMc1uN5bknU.jpg"
+        "foto_url": "fotos/parada_ChIJocpZSfiJpJIRfJnS1tPoOo8.jpg"
     },
     {
-        "id": "ChIJeeN-oeZfpJIREZJQjQgDUCE",
-        "nome": "Travessa SN 21, 190",
-        "latitude": -1.3587334,
-        "longitude": -48.3927476,
-        "status_clima": "⛅ Parcial. Nublado (29.8°C)",
+        "id": "ChIJfaei6_iJpJIReWLyqT-CIqI",
+        "nome": "Rodovia Arthur Bernardes, 20",
+        "latitude": -1.3765775,
+        "longitude": -48.4802256,
+        "status_clima": "desconhecido",
         "status_lotacao": "verde",
-        "foto_url": "fotos/parada_ChIJeeN-oeZfpJIREZJQjQgDUCE.jpg"
+        "foto_url": "fotos/parada_ChIJfaei6_iJpJIReWLyqT-CIqI.jpg"
     },
     {
-        "id": "ChIJZZsrPudfpJIRqvXsncMfBVg",
-        "nome": "Travessa SN 21, 378",
-        "latitude": -1.3563814,
-        "longitude": -48.3926107,
-        "status_clima": "⛅ Parcial. Nublado (29.8°C)",
+        "id": "ChIJJ_Z2LviJpJIRO0t022t7rPE",
+        "nome": "Rodovia Arthur Bernardes, 1555",
+        "latitude": -1.3787294,
+        "longitude": -48.4809959,
+        "status_clima": "desconhecido",
         "status_lotacao": "verde",
-        "foto_url": "fotos/parada_ChIJZZsrPudfpJIRqvXsncMfBVg.jpg"
+        "foto_url": "fotos/parada_ChIJJ_Z2LviJpJIRO0t022t7rPE.jpg"
     },
     {
-        "id": "ChIJz_tU0cJfpJIR9DBV9bjDBdU",
-        "nome": "Avenida Milton Taveira, 1671A",
-        "latitude": -1.3536279,
-        "longitude": -48.3885151,
-        "status_clima": "⛅ Parcial. Nublado (29.8°C)",
+        "id": "ChIJzSMx7_iJpJIR7FLukUPqHUo",
+        "nome": "Rodovia Arthur Bernardes, 11b",
+        "latitude": -1.3766108,
+        "longitude": -48.4804164,
+        "status_clima": "desconhecido",
         "status_lotacao": "verde",
-        "foto_url": "fotos/parada_ChIJz_tU0cJfpJIR9DBV9bjDBdU.jpg"
+        "foto_url": "fotos/parada_ChIJzSMx7_iJpJIR7FLukUPqHUo.jpg"
     },
     {
-        "id": "ChIJnamH1MJfpJIR2MYPLuK9tOc",
-        "nome": "Avenida Milton Taveira, 1662a",
-        "latitude": -1.3536037,
-        "longitude": -48.3886908,
-        "status_clima": "⛅ Parcial. Nublado (29.8°C)",
+        "id": "ChIJqwxZlvmJpJIRGaJSsKofhQ4",
+        "nome": "Ponto Final - 639",
+        "latitude": -1.3776234,
+        "longitude": -48.4825837,
+        "status_clima": "desconhecido",
         "status_lotacao": "verde",
-        "foto_url": "fotos/parada_ChIJnamH1MJfpJIR2MYPLuK9tOc.jpg"
+        "foto_url": "fotos/parada_ChIJqwxZlvmJpJIRGaJSsKofhQ4.jpg"
     },
     {
-        "id": "ChIJFdADQedfpJIRoAxmP9msEaU",
-        "nome": "Travessa SN 21, 1271",
-        "latitude": -1.3560464,
-        "longitude": -48.3927512,
-        "status_clima": "⛅ Parcial. Nublado (29.8°C)",
+        "id": "ChIJpzPXyviJpJIRz5a40nzlJy8",
+        "nome": "Rodovia Arthur Bernardes, 246b",
+        "latitude": -1.3754887,
+        "longitude": -48.48003380000001,
+        "status_clima": "desconhecido",
         "status_lotacao": "verde",
-        "foto_url": "fotos/parada_ChIJFdADQedfpJIRoAxmP9msEaU.jpg"
+        "foto_url": "fotos/parada_ChIJpzPXyviJpJIRz5a40nzlJy8.jpg"
     },
     {
-        "id": "ChIJh52CyN1fpJIRYMmqGYK4M0U",
-        "nome": "Travessa SN 21, 6",
-        "latitude": -1.3539389,
-        "longitude": -48.3927691,
-        "status_clima": "⛅ Parcial. Nublado (29.8°C)",
+        "id": "ChIJW0c-mPmJpJIRCbwf5CIlyeQ",
+        "nome": "Final da Linha |639 Pratinha - Shopping Castanheira",
+        "latitude": -1.3776866,
+        "longitude": -48.4825591,
+        "status_clima": "desconhecido",
         "status_lotacao": "verde",
-        "foto_url": "fotos/parada_ChIJh52CyN1fpJIRYMmqGYK4M0U.jpg"
+        "foto_url": "fotos/parada_ChIJW0c-mPmJpJIRCbwf5CIlyeQ.jpg"
     },
     {
-        "id": "ChIJe3SUx91fpJIR8zwmk7n79Yw",
-        "nome": "Travessa Sn 21",
-        "latitude": -1.3540033,
-        "longitude": -48.3926404,
-        "status_clima": "⛅ Parcial. Nublado (29.8°C)",
+        "id": "ChIJj8-2af-JpJIRgIrWW8HAo-I",
+        "nome": "Rodovia Arthur Bernardes, 798",
+        "latitude": -1.3744037,
+        "longitude": -48.4795332,
+        "status_clima": "desconhecido",
         "status_lotacao": "verde",
-        "foto_url": "fotos/parada_ChIJe3SUx91fpJIR8zwmk7n79Yw.jpg"
+        "foto_url": "fotos/parada_ChIJj8-2af-JpJIRgIrWW8HAo-I.jpg"
     },
     {
-        "id": "ChIJ2SmyX6JfpJIRXP-LW8urckw",
-        "nome": "Avenida Zacarias de Assunção, 28",
-        "latitude": -1.3537586,
-        "longitude": -48.36625309999999,
-        "status_clima": "⛅ Parcial. Nublado (29.8°C)",
+        "id": "ChIJx21eOwyKpJIRLYJUX-yNArs",
+        "nome": "Rua São Clemente, 181",
+        "latitude": -1.3763665,
+        "longitude": -48.4630376,
+        "status_clima": "desconhecido",
         "status_lotacao": "verde",
-        "foto_url": "fotos/parada_ChIJ2SmyX6JfpJIRXP-LW8urckw.jpg"
+        "foto_url": "fotos/parada_ChIJx21eOwyKpJIRLYJUX-yNArs.jpg"
     },
     {
-        "id": "ChIJK1q_H3JgpJIRhdui9nPCtfg",
-        "nome": "Avenida Dom Vicente Zico, 292",
-        "latitude": -1.3520297,
-        "longitude": -48.4076473,
-        "status_clima": "⛅ Parcial. Nublado (29.8°C)",
+        "id": "ChIJpzRAow2KpJIR6OXvHgquziI",
+        "nome": "Rua Ajax de Oliveira, 151",
+        "latitude": -1.3775705,
+        "longitude": -48.4617864,
+        "status_clima": "desconhecido",
         "status_lotacao": "verde",
-        "foto_url": "fotos/parada_ChIJK1q_H3JgpJIRhdui9nPCtfg.jpg"
+        "foto_url": "fotos/parada_ChIJpzRAow2KpJIR6OXvHgquziI.jpg"
     },
     {
-        "id": "ChIJhRhROm5gpJIROICtsDPCfRY",
-        "nome": "Avenida Dom Vicente Zico, 75",
-        "latitude": -1.3507392,
-        "longitude": -48.4096051,
-        "status_clima": "⛅ Parcial. Nublado (29.8°C)",
+        "id": "ChIJdcjWCQ2KpJIRqHfGbiQxxc4",
+        "nome": "Rua Ajax de Oliveira, 625",
+        "latitude": -1.3773734,
+        "longitude": -48.4612647,
+        "status_clima": "desconhecido",
         "status_lotacao": "verde",
-        "foto_url": "fotos/parada_ChIJhRhROm5gpJIROICtsDPCfRY.jpg"
+        "foto_url": "fotos/parada_ChIJdcjWCQ2KpJIRqHfGbiQxxc4.jpg"
     },
     {
-        "id": "ChIJbxI3GHJgpJIRwvThnPhW9cE",
-        "nome": "Avenida Dom Vicente Zico, 271",
-        "latitude": -1.3523803,
-        "longitude": -48.4076755,
-        "status_clima": "⛅ Parcial. Nublado (29.8°C)",
+        "id": "ChIJH4bZFwyKpJIRcojqgJkXfUw",
+        "nome": "Rua São Clemente, 122",
+        "latitude": -1.3759348,
+        "longitude": -48.4630001,
+        "status_clima": "desconhecido",
         "status_lotacao": "verde",
-        "foto_url": "fotos/parada_ChIJbxI3GHJgpJIRwvThnPhW9cE.jpg"
+        "foto_url": "fotos/parada_ChIJH4bZFwyKpJIRcojqgJkXfUw.jpg"
     },
     {
-        "id": "ChIJjQoGP25gpJIRIqH8zGEU0yE",
-        "nome": "Avenida Dom Vicente Zico, 74",
-        "latitude": -1.3509799,
-        "longitude": -48.4099272,
-        "status_clima": "⛅ Parcial. Nublado (29.8°C)",
+        "id": "ChIJazI8dg2KpJIRBSHKlAKmdQ8",
+        "nome": "Avenida Padre Bruno Sechi, 525",
+        "latitude": -1.3780289,
+        "longitude": -48.4611804,
+        "status_clima": "desconhecido",
         "status_lotacao": "verde",
-        "foto_url": "fotos/parada_ChIJjQoGP25gpJIRIqH8zGEU0yE.jpg"
+        "foto_url": "fotos/parada_ChIJazI8dg2KpJIRBSHKlAKmdQ8.jpg"
     },
     {
-        "id": "ChIJ06wPGXJgpJIRxiFNb05G3To",
-        "nome": "Ponto de Ônibus",
-        "latitude": -1.3530621,
-        "longitude": -48.4068474,
-        "status_clima": "⛅ Parcial. Nublado (29.8°C)",
+        "id": "ChIJh7sUjQyKpJIRze-Q5H2eDS4",
+        "nome": "Avenida Padre Bruno Sechi, 157",
+        "latitude": -1.3758168,
+        "longitude": -48.4607792,
+        "status_clima": "desconhecido",
         "status_lotacao": "verde",
-        "foto_url": "fotos/parada_ChIJ06wPGXJgpJIRxiFNb05G3To.jpg"
+        "foto_url": "fotos/parada_ChIJh7sUjQyKpJIRze-Q5H2eDS4.jpg"
     },
     {
-        "id": "ChIJGfboPHdgpJIRrQjdNJ8UTZs",
-        "nome": "Travessa We Setenta e Cinco, 282",
-        "latitude": -1.3495266,
-        "longitude": -48.402763,
-        "status_clima": "⛅ Parcial. Nublado (29.8°C)",
+        "id": "ChIJkyRMmA2KpJIRvGBE9GCjI90",
+        "nome": "Travessa São Roque, 45",
+        "latitude": -1.3779727,
+        "longitude": -48.4618185,
+        "status_clima": "desconhecido",
         "status_lotacao": "verde",
-        "foto_url": "fotos/parada_ChIJGfboPHdgpJIRrQjdNJ8UTZs.jpg"
+        "foto_url": "fotos/parada_ChIJkyRMmA2KpJIRvGBE9GCjI90.jpg"
     },
     {
-        "id": "ChIJt4j70HdgpJIR7_9gI4xcdBI",
-        "nome": "Travessa We Setenta e Cinco, 642",
-        "latitude": -1.3496164,
-        "longitude": -48.39926,
-        "status_clima": "⛅ Parcial. Nublado (29.8°C)",
+        "id": "ChIJFW2bdg2KpJIRknFH_NWBuhs",
+        "nome": "Avenida Padre Bruno Sechi, 27",
+        "latitude": -1.3779785,
+        "longitude": -48.4610341,
+        "status_clima": "desconhecido",
         "status_lotacao": "verde",
-        "foto_url": "fotos/parada_ChIJt4j70HdgpJIR7_9gI4xcdBI.jpg"
+        "foto_url": "fotos/parada_ChIJFW2bdg2KpJIRknFH_NWBuhs.jpg"
     },
     {
-        "id": "ChIJUbHxy29gpJIR82KjvXVd-E4",
-        "nome": "Avenida Arterial 5-A, 284",
-        "latitude": -1.3500017,
-        "longitude": -48.40976939999999,
-        "status_clima": "⛅ Parcial. Nublado (29.8°C)",
+        "id": "ChIJ7xVtkA2KpJIR5jVjctf1Pv0",
+        "nome": "Travessa São Roque, 46",
+        "latitude": -1.3781578,
+        "longitude": -48.4618682,
+        "status_clima": "desconhecido",
         "status_lotacao": "verde",
-        "foto_url": "fotos/parada_ChIJUbHxy29gpJIR82KjvXVd-E4.jpg"
+        "foto_url": "fotos/parada_ChIJ7xVtkA2KpJIR5jVjctf1Pv0.jpg"
     },
     {
-        "id": "ChIJi4WbxXdgpJIRW8y5Oe-TsAA",
-        "nome": "Travessa We Setenta e Cinco, 640",
-        "latitude": -1.3494877,
-        "longitude": -48.3996195,
-        "status_clima": "⛅ Parcial. Nublado (29.8°C)",
+        "id": "ChIJZUe91wyKpJIRRSW3nBGSRAc",
+        "nome": "Rua Ajax de Oliveira, 85",
+        "latitude": -1.376699,
+        "longitude": -48.4592798,
+        "status_clima": "desconhecido",
         "status_lotacao": "verde",
-        "foto_url": "fotos/parada_ChIJi4WbxXdgpJIRW8y5Oe-TsAA.jpg"
+        "foto_url": "fotos/parada_ChIJZUe91wyKpJIRRSW3nBGSRAc.jpg"
     },
     {
-        "id": "ChIJpXY-jHRgpJIRunSW6NMbjAw",
-        "nome": "Travessa SN 24, 2537",
-        "latitude": -1.3539832,
-        "longitude": -48.4028141,
-        "status_clima": "⛅ Parcial. Nublado (29.8°C)",
+        "id": "ChIJy0Gg5hGKpJIRkwD-6oWJ4Gc",
+        "nome": "Ponte Irmão e Cia",
+        "latitude": -1.3789473,
+        "longitude": -48.4604253,
+        "status_clima": "desconhecido",
         "status_lotacao": "verde",
-        "foto_url": "fotos/parada_ChIJpXY-jHRgpJIRunSW6NMbjAw.jpg"
+        "foto_url": "fotos/parada_ChIJy0Gg5hGKpJIRkwD-6oWJ4Gc.jpg"
     },
     {
-        "id": "ChIJU87QQNlfpJIRlLDJ7ZOTsNs",
-        "nome": "Travessa We Setenta e Dois, 1078",
-        "latitude": -1.3509987,
-        "longitude": -48.3949412,
-        "status_clima": "⛅ Parcial. Nublado (29.8°C)",
+        "id": "ChIJ_7Fb8AyKpJIRmE07F_QrLuY",
+        "nome": "Avenida Padre Bruno Sechi, 22",
+        "latitude": -1.3762793,
+        "longitude": -48.460741,
+        "status_clima": "desconhecido",
         "status_lotacao": "verde",
-        "foto_url": "fotos/parada_ChIJU87QQNlfpJIRlLDJ7ZOTsNs.jpg"
+        "foto_url": "fotos/parada_ChIJ_7Fb8AyKpJIRmE07F_QrLuY.jpg"
     },
     {
-        "id": "ChIJAbcogXVgpJIR2Ipr3VAiUgQ",
-        "nome": "Travessa Sn-23, 661a",
-        "latitude": -1.3534112,
-        "longitude": -48.3989922,
-        "status_clima": "⛅ Parcial. Nublado (29.8°C)",
+        "id": "ChIJiwmM9v-JpJIR_1gKsPmyn5I",
+        "nome": "Rodovia Arthur Bernardes, 147",
+        "latitude": -1.3724493,
+        "longitude": -48.4789284,
+        "status_clima": "desconhecido",
         "status_lotacao": "verde",
-        "foto_url": "fotos/parada_ChIJAbcogXVgpJIR2Ipr3VAiUgQ.jpg"
+        "foto_url": "fotos/parada_ChIJiwmM9v-JpJIR_1gKsPmyn5I.jpg"
     },
     {
-        "id": "ChIJ3bNM3dhfpJIRZoNNzrgc6dk",
-        "nome": "Travessa We Setenta e Dois, 861a",
-        "latitude": -1.3508766,
-        "longitude": -48.3969461,
-        "status_clima": "⛅ Parcial. Nublado (29.8°C)",
+        "id": "ChIJhRXf8v-JpJIRDrNAIE74f18",
+        "nome": "Rodovia Arthur Bernardes, 132",
+        "latitude": -1.3730278,
+        "longitude": -48.4792265,
+        "status_clima": "desconhecido",
         "status_lotacao": "verde",
-        "foto_url": "fotos/parada_ChIJ3bNM3dhfpJIRZoNNzrgc6dk.jpg"
+        "foto_url": "fotos/parada_ChIJhRXf8v-JpJIRDrNAIE74f18.jpg"
     },
     {
-        "id": "ChIJ8ZppVNhfpJIRHqNnqR6Uv3c",
-        "nome": "Travessa SN 22 | oposto Restaurante Popular de Ananindeua",
-        "latitude": -1.3502157,
-        "longitude": -48.3965397,
-        "status_clima": "⛅ Parcial. Nublado (29.8°C)",
+        "id": "ChIJE_If9_9hpJIRH0c_vfjqcPc",
+        "nome": "Rodovia Arthur Bernardes, 33734",
+        "latitude": -1.3710951,
+        "longitude": -48.4784866,
+        "status_clima": "desconhecido",
         "status_lotacao": "verde",
-        "foto_url": "fotos/parada_ChIJ8ZppVNhfpJIRHqNnqR6Uv3c.jpg"
+        "foto_url": "fotos/parada_ChIJE_If9_9hpJIRH0c_vfjqcPc.jpg"
     },
     {
-        "id": "ChIJ_a_rH3ZgpJIRrkBEuGuuNIo",
-        "nome": "Travessa We Setenta e Dois",
-        "latitude": -1.350925,
-        "longitude": -48.3988845,
-        "status_clima": "⛅ Parcial. Nublado (29.8°C)",
+        "id": "ChIJl2cIhv9hpJIRMXVomhrjThw",
+        "nome": "Rodovia Arthur Bernardes, 245",
+        "latitude": -1.3704088,
+        "longitude": -48.4784053,
+        "status_clima": "desconhecido",
         "status_lotacao": "verde",
-        "foto_url": "fotos/parada_ChIJ_a_rH3ZgpJIRrkBEuGuuNIo.jpg"
+        "foto_url": "fotos/parada_ChIJl2cIhv9hpJIRMXVomhrjThw.jpg"
     },
     {
-        "id": "ChIJV9AIVthfpJIR71OeYIbtVV4",
-        "nome": "Travessa SN 22 | Restaurante Popular de Ananindeua",
-        "latitude": -1.3499371,
-        "longitude": -48.39663239999999,
-        "status_clima": "⛅ Parcial. Nublado (29.8°C)",
+        "id": "ChIJX9yo1guKpJIRTHORYTnzw0k",
+        "nome": "Rua São Clemente, 262",
+        "latitude": -1.3734585,
+        "longitude": -48.4634532,
+        "status_clima": "desconhecido",
         "status_lotacao": "verde",
-        "foto_url": "fotos/parada_ChIJV9AIVthfpJIR71OeYIbtVV4.jpg"
+        "foto_url": "fotos/parada_ChIJX9yo1guKpJIRTHORYTnzw0k.jpg"
     },
     {
-        "id": "ChIJC1A4w9hfpJIRnB3n7qVT6Cs",
-        "nome": "Travessa We Setenta e Dois, 861a",
-        "latitude": -1.3510028,
-        "longitude": -48.3969938,
-        "status_clima": "⛅ Parcial. Nublado (29.8°C)",
+        "id": "ChIJL-gN2guKpJIRyxpMl-6BMe4",
+        "nome": "Rua São Clemente, 113",
+        "latitude": -1.3736985,
+        "longitude": -48.46336059999999,
+        "status_clima": "desconhecido",
         "status_lotacao": "verde",
-        "foto_url": "fotos/parada_ChIJC1A4w9hfpJIRnB3n7qVT6Cs.jpg"
+        "foto_url": "fotos/parada_ChIJL-gN2guKpJIRyxpMl-6BMe4.jpg"
     },
     {
-        "id": "ChIJRaBL6dtfpJIRbDaQ8rV61R0",
-        "nome": "Travessa We Setenta e Dois, 1272",
-        "latitude": -1.3509732,
-        "longitude": -48.3929564,
-        "status_clima": "⛅ Parcial. Nublado (29.8°C)",
+        "id": "ChIJyR91-OFhpJIRI2YRzx6Foyk",
+        "nome": "Ponto Final - São Clemente",
+        "latitude": -1.3707821,
+        "longitude": -48.4638469,
+        "status_clima": "desconhecido",
         "status_lotacao": "verde",
-        "foto_url": "fotos/parada_ChIJRaBL6dtfpJIRbDaQ8rV61R0.jpg"
+        "foto_url": "fotos/parada_ChIJyR91-OFhpJIRI2YRzx6Foyk.jpg"
     },
     {
-        "id": "ChIJ1U82YcNfpJIRtfC_fwM9pAw",
-        "nome": "Avenida Milton Taveira, 1805",
-        "latitude": -1.3517549,
-        "longitude": -48.3873644,
-        "status_clima": "⛅ Parcial. Nublado (29.8°C)",
+        "id": "ChIJLUQ8JwuKpJIRic5VLi7LAzc",
+        "nome": "Avenida Padre Bruno Sechi, 557",
+        "latitude": -1.3732132,
+        "longitude": -48.4596097,
+        "status_clima": "desconhecido",
         "status_lotacao": "verde",
-        "foto_url": "fotos/parada_ChIJ1U82YcNfpJIRtfC_fwM9pAw.jpg"
+        "foto_url": "fotos/parada_ChIJLUQ8JwuKpJIRic5VLi7LAzc.jpg"
     },
     {
-        "id": "ChIJby-ZUsRfpJIRB0ky2iAROeo",
-        "nome": "Avenida Milton Taveira, 1521",
-        "latitude": -1.3497558,
-        "longitude": -48.3857417,
-        "status_clima": "⛅ Parcial. Nublado (29.8°C)",
+        "id": "ChIJPTvSJwuKpJIRD0194ZOBLxI",
+        "nome": "Avenida Padre Bruno Sechi, 3106",
+        "latitude": -1.3729946,
+        "longitude": -48.4593603,
+        "status_clima": "desconhecido",
         "status_lotacao": "verde",
-        "foto_url": "fotos/parada_ChIJby-ZUsRfpJIRB0ky2iAROeo.jpg"
-    },
-    {
-        "id": "ChIJn5nrVsRfpJIRVeu66n7NGLY",
-        "nome": "Avenida Milton Taveira, 1162",
-        "latitude": -1.3499918,
-        "longitude": -48.3861253,
-        "status_clima": "⛅ Parcial. Nublado (29.8°C)",
-        "status_lotacao": "verde",
-        "foto_url": "fotos/parada_ChIJn5nrVsRfpJIRVeu66n7NGLY.jpg"
-    },
-    {
-        "id": "ChIJ81HMgsRfpJIRlR0l-9_icJg",
-        "nome": "Avenida Milton Taveira, 546",
-        "latitude": -1.3514612,
-        "longitude": -48.3869554,
-        "status_clima": "⛅ Parcial. Nublado (29.8°C)",
-        "status_lotacao": "verde",
-        "foto_url": "fotos/parada_ChIJ81HMgsRfpJIRlR0l-9_icJg.jpg"
-    },
-    {
-        "id": "ChIJXzywt8VfpJIRVye2OsqXDgs",
-        "nome": "Ponto Final - Guajará",
-        "latitude": -1.3493134,
-        "longitude": -48.38521009999999,
-        "status_clima": "⛅ Parcial. Nublado (29.8°C)",
-        "status_lotacao": "verde",
-        "foto_url": "fotos/parada_ChIJXzywt8VfpJIRVye2OsqXDgs.jpg"
-    },
-    {
-        "id": "ChIJIzRDwNtfpJIRiH11pK-Dr1M",
-        "nome": "Travessa Sn 21, 3334",
-        "latitude": -1.3506622,
-        "longitude": -48.3926725,
-        "status_clima": "⛅ Parcial. Nublado (29.8°C)",
-        "status_lotacao": "verde",
-        "foto_url": "fotos/parada_ChIJIzRDwNtfpJIRiH11pK-Dr1M.jpg"
-    },
-    {
-        "id": "ChIJORDqwdtfpJIRDo8sro07lUo",
-        "nome": "Travessa Sn 21, 1304",
-        "latitude": -1.3507051,
-        "longitude": -48.3928174,
-        "status_clima": "⛅ Parcial. Nublado (29.8°C)",
-        "status_lotacao": "verde",
-        "foto_url": "fotos/parada_ChIJORDqwdtfpJIRDo8sro07lUo.jpg"
-    },
-    {
-        "id": "ChIJnWB-DLlfpJIRdQeA4-tLRjM",
-        "nome": "Ponto de Ônibus",
-        "latitude": -1.3497102,
-        "longitude": -48.3752834,
-        "status_clima": "⛅ Parcial. Nublado (29.8°C)",
-        "status_lotacao": "verde",
-        "foto_url": "fotos/parada_ChIJnWB-DLlfpJIRdQeA4-tLRjM.jpg"
-    },
-    {
-        "id": "ChIJ32z9w6NfpJIRss5mPHQnmQk",
-        "nome": "Avenida Zacarias de Assunção, 2172",
-        "latitude": -1.3521901,
-        "longitude": -48.3648263,
-        "status_clima": "⛅ Parcial. Nublado (29.8°C)",
-        "status_lotacao": "verde",
-        "foto_url": "fotos/parada_ChIJ32z9w6NfpJIRss5mPHQnmQk.jpg"
-    },
-    {
-        "id": "ChIJIRcyVaFfpJIRl6xcbJzzWDQ",
-        "nome": "Avenida Zacarias de Assunção, 807c",
-        "latitude": -1.3510651,
-        "longitude": -48.3637828,
-        "status_clima": "⛅ Parcial. Nublado (29.8°C)",
-        "status_lotacao": "verde",
-        "foto_url": "fotos/parada_ChIJIRcyVaFfpJIRl6xcbJzzWDQ.jpg"
-    },
-    {
-        "id": "ChIJuz-JlaZfpJIR2sK_zKfNXWI",
-        "nome": "Avenida Zacarias de Assunção, 2474",
-        "latitude": -1.3501117,
-        "longitude": -48.36285789999999,
-        "status_clima": "⛅ Parcial. Nublado (29.8°C)",
-        "status_lotacao": "verde",
-        "foto_url": "fotos/parada_ChIJuz-JlaZfpJIR2sK_zKfNXWI.jpg"
-    },
-    {
-        "id": "ChIJW3hyUqZfpJIRsTOQPJWhtIE",
-        "nome": "Avenida Zacarias de Assunção, 182",
-        "latitude": -1.3487586,
-        "longitude": -48.36162419999999,
-        "status_clima": "⛅ Parcial. Nublado (29.8°C)",
-        "status_lotacao": "verde",
-        "foto_url": "fotos/parada_ChIJW3hyUqZfpJIRsTOQPJWhtIE.jpg"
-    },
-    {
-        "id": "ChIJeYknKHlgpJIRgwB4FVz6O8Q",
-        "nome": "Avenida Arterial 5-B, 359a",
-        "latitude": -1.3449225,
-        "longitude": -48.40131460000001,
-        "status_clima": "⛅ Parcial. Nublado (29.8°C)",
-        "status_lotacao": "verde",
-        "foto_url": "fotos/parada_ChIJeYknKHlgpJIRgwB4FVz6O8Q.jpg"
-    },
-    {
-        "id": "ChIJ-RRjanlgpJIRzULGm5GtRdA",
-        "nome": "Avenida Arterial 5-A, 692",
-        "latitude": -1.3455212,
-        "longitude": -48.4027317,
-        "status_clima": "⛅ Parcial. Nublado (29.8°C)",
-        "status_lotacao": "verde",
-        "foto_url": "fotos/parada_ChIJ-RRjanlgpJIRzULGm5GtRdA.jpg"
-    },
-    {
-        "id": "ChIJXyiR13hgpJIRV6GqmEEDm8E",
-        "nome": "Avenida Arterial 5-B, 359a",
-        "latitude": -1.34496,
-        "longitude": -48.4012073,
-        "status_clima": "⛅ Parcial. Nublado (29.8°C)",
-        "status_lotacao": "verde",
-        "foto_url": "fotos/parada_ChIJXyiR13hgpJIRV6GqmEEDm8E.jpg"
-    },
-    {
-        "id": "ChIJCfO5bm5gpJIRPOag90AMevo",
-        "nome": "Estrada da Providência, 305",
-        "latitude": -1.3514183,
-        "longitude": -48.4105668,
-        "status_clima": "⛅ Parcial. Nublado (29.8°C)",
-        "status_lotacao": "verde",
-        "foto_url": "fotos/parada_ChIJCfO5bm5gpJIRPOag90AMevo.jpg"
-    },
-    {
-        "id": "ChIJ8dRUcXlgpJIRK31sm-VnuTI",
-        "nome": "Travessa SN 24, 752",
-        "latitude": -1.346175,
-        "longitude": -48.4028842,
-        "status_clima": "⛅ Parcial. Nublado (29.8°C)",
-        "status_lotacao": "verde",
-        "foto_url": "fotos/parada_ChIJ8dRUcXlgpJIRK31sm-VnuTI.jpg"
-    },
-    {
-        "id": "ChIJ270U9tVfpJIRn61eyheAPPI",
-        "nome": "Avenida Arterial 5-B, 160",
-        "latitude": -1.3438561,
-        "longitude": -48.3987451,
-        "status_clima": "⛅ Parcial. Nublado (29.8°C)",
-        "status_lotacao": "verde",
-        "foto_url": "fotos/parada_ChIJ270U9tVfpJIRn61eyheAPPI.jpg"
-    },
-    {
-        "id": "ChIJUWzScHlgpJIRupqn1-WKr3M",
-        "nome": "Travessa SN 24, 752",
-        "latitude": -1.3461717,
-        "longitude": -48.4030011,
-        "status_clima": "⛅ Parcial. Nublado (29.8°C)",
-        "status_lotacao": "verde",
-        "foto_url": "fotos/parada_ChIJUWzScHlgpJIRupqn1-WKr3M.jpg"
-    },
-    {
-        "id": "ChIJYUdRIXdgpJIR0Xx5rybAxTc",
-        "nome": "Travessa SN 24, 312",
-        "latitude": -1.3498371,
-        "longitude": -48.4028493,
-        "status_clima": "⛅ Parcial. Nublado (29.8°C)",
-        "status_lotacao": "verde",
-        "foto_url": "fotos/parada_ChIJYUdRIXdgpJIR0Xx5rybAxTc.jpg"
-    },
-    {
-        "id": "ChIJE1DhrdVfpJIRfEgw6FIqb_I",
-        "nome": "Avenida Arterial 5-B, 98",
-        "latitude": -1.3430388,
-        "longitude": -48.3966181,
-        "status_clima": "⛅ Parcial. Nublado (29.8°C)",
-        "status_lotacao": "verde",
-        "foto_url": "fotos/parada_ChIJE1DhrdVfpJIRfEgw6FIqb_I.jpg"
-    },
-    {
-        "id": "ChIJqd2osdVfpJIRBVAsk1JzCXk",
-        "nome": "Avenida Arterial 5-B, 913b",
-        "latitude": -1.3431889,
-        "longitude": -48.3967602,
-        "status_clima": "⛅ Parcial. Nublado (29.8°C)",
-        "status_lotacao": "verde",
-        "foto_url": "fotos/parada_ChIJqd2osdVfpJIRBVAsk1JzCXk.jpg"
-    },
-    {
-        "id": "ChIJA6imjtRfpJIR6auUBT_2x24",
-        "nome": "Avenida Arterial 5-B, 1124",
-        "latitude": -1.3423197,
-        "longitude": -48.39474449999999,
-        "status_clima": "⛅ Parcial. Nublado (29.8°C)",
-        "status_lotacao": "verde",
-        "foto_url": "fotos/parada_ChIJA6imjtRfpJIR6auUBT_2x24.jpg"
-    },
-    {
-        "id": "ChIJSaDh99VfpJIR0xUlq0L4y70",
-        "nome": "Avenida Arterial 5-B, 162",
-        "latitude": -1.3439934,
-        "longitude": -48.3988094,
-        "status_clima": "⛅ Parcial. Nublado (29.8°C)",
-        "status_lotacao": "verde",
-        "foto_url": "fotos/parada_ChIJSaDh99VfpJIR0xUlq0L4y70.jpg"
-    },
-    {
-        "id": "ChIJY85bjNRfpJIRAgRJTC4Z0kM",
-        "nome": "Avenida Arterial 5-B, 2b",
-        "latitude": -1.3422866,
-        "longitude": -48.3948974,
-        "status_clima": "⛅ Parcial. Nublado (29.8°C)",
-        "status_lotacao": "verde",
-        "foto_url": "fotos/parada_ChIJY85bjNRfpJIRAgRJTC4Z0kM.jpg"
-    },
-    {
-        "id": "ChIJba9FHHZgpJIRHCXfU29I7QE",
-        "nome": "Travessa Sn-23, 746",
-        "latitude": -1.3511847,
-        "longitude": -48.3990212,
-        "status_clima": "⛅ Parcial. Nublado (29.8°C)",
-        "status_lotacao": "verde",
-        "foto_url": "fotos/parada_ChIJba9FHHZgpJIRHCXfU29I7QE.jpg"
-    },
-    {
-        "id": "ChIJtWNOwNBfpJIRW-F8tCwipU4",
-        "nome": "Travessa Sn 21, 201",
-        "latitude": -1.3470046,
-        "longitude": -48.3926886,
-        "status_clima": "⛅ Parcial. Nublado (29.8°C)",
-        "status_lotacao": "verde",
-        "foto_url": "fotos/parada_ChIJtWNOwNBfpJIRW-F8tCwipU4.jpg"
-    },
-    {
-        "id": "ChIJz9HWwNBfpJIRYcW-D9GtEAw",
-        "nome": "Travessa Sn 21, 1262",
-        "latitude": -1.3470046,
-        "longitude": -48.39286569999999,
-        "status_clima": "⛅ Parcial. Nublado (29.8°C)",
-        "status_lotacao": "verde",
-        "foto_url": "fotos/parada_ChIJz9HWwNBfpJIRYcW-D9GtEAw.jpg"
-    },
-    {
-        "id": "ChIJ3RkXFdpfpJIR_ZRac9EHg4o",
-        "nome": "Travessa Sn 21, 27a",
-        "latitude": -1.3488441,
-        "longitude": -48.3926725,
-        "status_clima": "⛅ Parcial. Nublado (29.8°C)",
-        "status_lotacao": "verde",
-        "foto_url": "fotos/parada_ChIJ3RkXFdpfpJIR_ZRac9EHg4o.jpg"
-    },
-    {
-        "id": "ChIJt0LfadNfpJIRjrRKH9pXJ-Y",
-        "nome": "Avenida Arterial 5-B, 1746",
-        "latitude": -1.3416426,
-        "longitude": -48.39298549999999,
-        "status_clima": "⛅ Parcial. Nublado (29.9°C)",
-        "status_lotacao": "verde",
-        "foto_url": "fotos/parada_ChIJt0LfadNfpJIRjrRKH9pXJ-Y.jpg"
-    },
-    {
-        "id": "ChIJWSRXmdNfpJIRBAUwSgPDtaQ",
-        "nome": "Travessa Sn 21, 1917",
-        "latitude": -1.3428001,
-        "longitude": -48.3928764,
-        "status_clima": "⛅ Parcial. Nublado (29.9°C)",
-        "status_lotacao": "verde",
-        "foto_url": "fotos/parada_ChIJWSRXmdNfpJIRBAUwSgPDtaQ.jpg"
-    },
-    {
-        "id": "ChIJIdbJFdpfpJIRkh9GHIgVoKI",
-        "nome": "Travessa Sn 21, 1272",
-        "latitude": -1.3488334,
-        "longitude": -48.3928147,
-        "status_clima": "⛅ Parcial. Nublado (29.9°C)",
-        "status_lotacao": "verde",
-        "foto_url": "fotos/parada_ChIJIdbJFdpfpJIRkh9GHIgVoKI.jpg"
-    },
-    {
-        "id": "ChIJB2m16NNfpJIRJzg-Ixb55wY",
-        "nome": "Travessa Sn 21, 1272",
-        "latitude": -1.343862,
-        "longitude": -48.3928871,
-        "status_clima": "⛅ Parcial. Nublado (29.9°C)",
-        "status_lotacao": "verde",
-        "foto_url": "fotos/parada_ChIJB2m16NNfpJIRJzg-Ixb55wY.jpg"
-    },
-    {
-        "id": "ChIJQTWHbNNfpJIR-6OdHp91mHQ",
-        "nome": "Travessa Sn 21, 20",
-        "latitude": -1.3418777,
-        "longitude": -48.3927316,
-        "status_clima": "⛅ Parcial. Nublado (29.9°C)",
-        "status_lotacao": "verde",
-        "foto_url": "fotos/parada_ChIJQTWHbNNfpJIR-6OdHp91mHQ.jpg"
-    },
-    {
-        "id": "ChIJ_8CbF6hfpJIRSGLJBoMNUQE",
-        "nome": "Avenida Zacarias de Assunção, 2860",
-        "latitude": -1.3465693,
-        "longitude": -48.3595874,
-        "status_clima": "⛅ Parcial. Nublado (29.9°C)",
-        "status_lotacao": "verde",
-        "foto_url": "fotos/parada_ChIJ_8CbF6hfpJIRSGLJBoMNUQE.jpg"
-    },
-    {
-        "id": "ChIJcXpqnQdfpJIRwub1St6ikW4",
-        "nome": "Avenida Zacarias de Assunção, 988",
-        "latitude": -1.3455192,
-        "longitude": -48.3582057,
-        "status_clima": "⛅ Parcial. Nublado (29.9°C)",
-        "status_lotacao": "verde",
-        "foto_url": "fotos/parada_ChIJcXpqnQdfpJIRwub1St6ikW4.jpg"
-    },
-    {
-        "id": "ChIJBXHUEgdfpJIRp4fPmVgcbAI",
-        "nome": "Ponto Final - Distrito Industrial",
-        "latitude": -1.3449032,
-        "longitude": -48.35764899999999,
-        "status_clima": "⛅ Parcial. Nublado (29.9°C)",
-        "status_lotacao": "verde",
-        "foto_url": "fotos/parada_ChIJBXHUEgdfpJIRp4fPmVgcbAI.jpg"
-    },
-    {
-        "id": 650846602,
-        "nome": "Parada: Avenida Getúlio Vargas",
-        "latitude": -20.3744641,
-        "longitude": -43.4162498,
-        "status_clima": "⛅ Parcial. Nublado (27.6°C)",
-        "status_lotacao": "verde",
-        "foto_url": "fotos/parada_650846602.jpg"
-    },
-    {
-        "id": 651891007,
-        "nome": "Parada: Alameda Benjamim Guimarães",
-        "latitude": -20.3929001,
-        "longitude": -43.4393008,
-        "status_clima": "⛅ Parcial. Nublado (26.7°C)",
-        "status_lotacao": "verde",
-        "foto_url": "fotos/parada_651891007.jpg"
-    },
-    {
-        "id": 651891346,
-        "nome": "Parada: MG-129",
-        "latitude": -20.3887045,
-        "longitude": -43.4261296,
-        "status_clima": "⛅ Parcial. Nublado (27.3°C)",
-        "status_lotacao": "verde",
-        "foto_url": "fotos/parada_651891346.jpg"
-    },
-    {
-        "id": 652440521,
-        "nome": "Parada: Ladeira Tassara",
-        "latitude": -20.3864702,
-        "longitude": -43.4903616,
-        "status_clima": "⛅ Parcial. Nublado (24.0°C)",
-        "status_lotacao": "verde",
-        "foto_url": "fotos/parada_652440521.jpg"
-    },
-    {
-        "id": 652440584,
-        "nome": "Parada: Rua Albertina B. dos Santos",
-        "latitude": -20.3884717,
-        "longitude": -43.4150354,
-        "status_clima": "⛅ Parcial. Nublado (26.9°C)",
-        "status_lotacao": "verde",
-        "foto_url": "fotos/parada_652440584.jpg"
-    },
-    {
-        "id": 1300983050,
-        "nome": "Parada: Rua Vereador José Teixeira",
-        "latitude": -20.3918512,
-        "longitude": -43.4892156,
-        "status_clima": "⛅ Parcial. Nublado (24.6°C)",
-        "status_lotacao": "verde",
-        "foto_url": "fotos/parada_1300983050.jpg"
-    },
-    {
-        "id": 2062443214,
-        "nome": "Parada: Rua Pandiá Calógeras",
-        "latitude": -20.3948833,
-        "longitude": -43.498838,
-        "status_clima": "⛅ Parcial. Nublado (24.0°C)",
-        "status_lotacao": "verde",
-        "foto_url": "fotos/parada_2062443214.jpg"
-    },
-    {
-        "id": 3892427352,
-        "nome": "Parada: Rua Vereador José Teixeira",
-        "latitude": -20.3948673,
-        "longitude": -43.4892005,
-        "status_clima": "⛅ Parcial. Nublado (24.6°C)",
-        "status_lotacao": "verde",
-        "foto_url": "fotos/parada_3892427352.jpg"
-    },
-    {
-        "id": 4423711894,
-        "nome": "Parada: Praça Tancredo Neves",
-        "latitude": -20.3764014,
-        "longitude": -43.4170913,
-        "status_clima": "⛅ Parcial. Nublado (27.6°C)",
-        "status_lotacao": "verde",
-        "foto_url": "fotos/parada_4423711894.jpg"
-    },
-    {
-        "id": 4423733892,
-        "nome": "Parada: AMG-1730",
-        "latitude": -20.3941047,
-        "longitude": -43.4466965,
-        "status_clima": "⛅ Parcial. Nublado (26.6°C)",
-        "status_lotacao": "verde",
-        "foto_url": "fotos/parada_4423733892.jpg"
-    },
-    {
-        "id": 4423743190,
-        "nome": "Parada: Avenida Farmacêutico Duílio Passos",
-        "latitude": -20.3861603,
-        "longitude": -43.4801198,
-        "status_clima": "⛅ Parcial. Nublado (24.6°C)",
-        "status_lotacao": "verde",
-        "foto_url": "fotos/parada_4423743190.jpg"
-    },
-    {
-        "id": 4423745391,
-        "nome": "Parada: Avenida Farmacêutico Duílio Passos",
-        "latitude": -20.3867397,
-        "longitude": -43.4862786,
-        "status_clima": "⛅ Parcial. Nublado (24.0°C)",
-        "status_lotacao": "verde",
-        "foto_url": "fotos/parada_4423745391.jpg"
-    },
-    {
-        "id": 4423749589,
-        "nome": "Parada: Avenida Farmacêutico Duílio Passos",
-        "latitude": -20.3865055,
-        "longitude": -43.4830669,
-        "status_clima": "⛅ Parcial. Nublado (24.6°C)",
-        "status_lotacao": "verde",
-        "foto_url": "fotos/parada_4423749589.jpg"
-    },
-    {
-        "id": 4423749590,
-        "nome": "Parada: Avenida Farmacêutico Duílio Passos",
-        "latitude": -20.3859327,
-        "longitude": -43.4806035,
-        "status_clima": "⛅ Parcial. Nublado (24.6°C)",
-        "status_lotacao": "verde",
-        "foto_url": "fotos/parada_4423749590.jpg"
-    },
-    {
-        "id": 4423749689,
-        "nome": "Parada: Rua Presidente João Goulart",
-        "latitude": -20.3872764,
-        "longitude": -43.4739055,
-        "status_clima": "⛅ Parcial. Nublado (24.6°C)",
-        "status_lotacao": "verde",
-        "foto_url": "fotos/parada_4423749689.jpg"
-    },
-    {
-        "id": 4423749789,
-        "nome": "Parada: Rua Eugênio Eduardo Rapallo",
-        "latitude": -20.3948829,
-        "longitude": -43.4379647,
-        "status_clima": "⛅ Parcial. Nublado (26.8°C)",
-        "status_lotacao": "verde",
-        "foto_url": "fotos/parada_4423749789.jpg"
-    },
-    {
-        "id": 5521603489,
-        "nome": "Parada: Rua Rio Piracicaba",
-        "latitude": -20.3763318,
-        "longitude": -43.4983111,
-        "status_clima": "⛅ Parcial. Nublado (22.1°C)",
-        "status_lotacao": "verde",
-        "foto_url": "fotos/parada_5521603489.jpg"
-    },
-    {
-        "id": 7872065353,
-        "nome": "Parada: Rua Conselheiro Quintiliano",
-        "latitude": -20.3861779,
-        "longitude": -43.4942567,
-        "status_clima": "⛅ Parcial. Nublado (24.0°C)",
-        "status_lotacao": "verde",
-        "foto_url": "fotos/parada_7872065353.jpg"
-    },
-    {
-        "id": 9501673412,
-        "nome": "Parada: Avenida Farmacêutico Duílio Passos",
-        "latitude": -20.3866478,
-        "longitude": -43.4862015,
-        "status_clima": "⛅ Parcial. Nublado (24.0°C)",
-        "status_lotacao": "verde",
-        "foto_url": "fotos/parada_9501673412.jpg"
-    },
-    {
-        "id": 9501775715,
-        "nome": "Parada: Rua Conselheiro Quintiliano",
-        "latitude": -20.3837021,
-        "longitude": -43.4998066,
-        "status_clima": "⛅ Parcial. Nublado (24.0°C)",
-        "status_lotacao": "verde",
-        "foto_url": "fotos/parada_9501775715.jpg"
-    },
-    {
-        "id": 9807486379,
-        "nome": "Parada: Rua Rio Piracicaba",
-        "latitude": -20.3763185,
-        "longitude": -43.4852967,
-        "status_clima": "⛅ Parcial. Nublado (22.4°C)",
-        "status_lotacao": "verde",
-        "foto_url": "fotos/parada_9807486379.jpg"
-    },
-    {
-        "id": 9807486380,
-        "nome": "Parada: Avenida das Andorinhas",
-        "latitude": -20.3761656,
-        "longitude": -43.4849012,
-        "status_clima": "⛅ Parcial. Nublado (22.4°C)",
-        "status_lotacao": "verde",
-        "foto_url": "fotos/parada_9807486380.jpg"
-    },
-    {
-        "id": 12587361244,
-        "nome": "Parada: Rua Desidério de Matos",
-        "latitude": -20.3909962,
-        "longitude": -43.4892968,
-        "status_clima": "⛅ Parcial. Nublado (24.6°C)",
-        "status_lotacao": "verde",
-        "foto_url": "fotos/parada_12587361244.jpg"
-    },
-    {
-        "id": 12587396430,
-        "nome": "Parada: Rua Nossa Senhora do Parto",
-        "latitude": -20.3899871,
-        "longitude": -43.4906353,
-        "status_clima": "⛅ Parcial. Nublado (24.0°C)",
-        "status_lotacao": "verde",
-        "foto_url": "fotos/parada_12587396430.jpg"
-    },
-    {
-        "id": 13101135536,
-        "nome": "Parada: Rua do Cruzeiro",
-        "latitude": -20.3898436,
-        "longitude": -43.4932737,
-        "status_clima": "⛅ Parcial. Nublado (24.0°C)",
-        "status_lotacao": "verde",
-        "foto_url": "fotos/parada_13101135536.jpg"
-    },
-    {
-        "id": 13582998114,
-        "nome": "Parada: Rua Coronel Seraphim",
-        "latitude": -20.3890457,
-        "longitude": -43.4990617,
-        "status_clima": "⛅ Parcial. Nublado (24.0°C)",
-        "status_lotacao": "verde",
-        "foto_url": "fotos/parada_13582998114.jpg"
-    },
-    {
-        "id": 13582998115,
-        "nome": "Parada: Rua Coronel Seraphim",
-        "latitude": -20.3890195,
-        "longitude": -43.4988549,
-        "status_clima": "⛅ Parcial. Nublado (24.0°C)",
-        "status_lotacao": "verde",
-        "foto_url": "fotos/parada_13582998115.jpg"
-    },
-    {
-        "id": 13582998116,
-        "nome": "Parada: Rua Coronel Seraphim",
-        "latitude": -20.3890494,
-        "longitude": -43.4979375,
-        "status_clima": "⛅ Parcial. Nublado (24.0°C)",
-        "status_lotacao": "verde",
-        "foto_url": "fotos/parada_13582998116.jpg"
-    },
-    {
-        "id": 13582998117,
-        "nome": "Parada: Rua Barão de Ouro Branco",
-        "latitude": -20.3889931,
-        "longitude": -43.4977922,
-        "status_clima": "⛅ Parcial. Nublado (24.0°C)",
-        "status_lotacao": "verde",
-        "foto_url": "fotos/parada_13582998117.jpg"
-    },
-    {
-        "id": 13582998118,
-        "nome": "Parada: Rua Santa Efigênia",
-        "latitude": -20.3876018,
-        "longitude": -43.4977516,
-        "status_clima": "⛅ Parcial. Nublado (24.0°C)",
-        "status_lotacao": "verde",
-        "foto_url": "fotos/parada_13582998118.jpg"
-    },
-    {
-        "id": 13582998119,
-        "nome": "Parada: Rua Desidério de Matos",
-        "latitude": -20.3868532,
-        "longitude": -43.4942632,
-        "status_clima": "⛅ Parcial. Nublado (24.0°C)",
-        "status_lotacao": "verde",
-        "foto_url": "fotos/parada_13582998119.jpg"
-    },
-    {
-        "id": 13582998120,
-        "nome": "Parada: Rua Santa Rita",
-        "latitude": -20.3867802,
-        "longitude": -43.4941947,
-        "status_clima": "⛅ Parcial. Nublado (24.0°C)",
-        "status_lotacao": "verde",
-        "foto_url": "fotos/parada_13582998120.jpg"
-    },
-    {
-        "id": 13582998121,
-        "nome": "Parada: Rua Vereador José Teixeira",
-        "latitude": -20.3935474,
-        "longitude": -43.4887736,
-        "status_clima": "⛅ Parcial. Nublado (24.6°C)",
-        "status_lotacao": "verde",
-        "foto_url": "fotos/parada_13582998121.jpg"
-    },
-    {
-        "id": 13582998122,
-        "nome": "Parada: Rua Vereador José Teixeira",
-        "latitude": -20.394886,
-        "longitude": -43.48911,
-        "status_clima": "⛅ Parcial. Nublado (24.6°C)",
-        "status_lotacao": "verde",
-        "foto_url": "fotos/parada_13582998122.jpg"
-    },
-    {
-        "id": 13582998123,
-        "nome": "Parada: Rua das Mangueiras",
-        "latitude": -20.3937492,
-        "longitude": -43.4935242,
-        "status_clima": "⛅ Parcial. Nublado (24.6°C)",
-        "status_lotacao": "verde",
-        "foto_url": "fotos/parada_13582998123.jpg"
-    },
-    {
-        "id": 4421545891,
-        "nome": "Parada: Avenida Fernando Guilhon",
-        "latitude": -1.3651021,
-        "longitude": -48.3455393,
-        "status_clima": "⛅ Parcial. Nublado (29.9°C)",
-        "status_lotacao": "verde",
-        "foto_url": "fotos/parada_4421545891.jpg"
-    },
-    {
-        "id": 4421545892,
-        "nome": "Parada: Avenida Fernando Guilhon",
-        "latitude": -1.3651162,
-        "longitude": -48.3434596,
-        "status_clima": "⛅ Parcial. Nublado (30.3°C)",
-        "status_lotacao": "verde",
-        "foto_url": "fotos/parada_4421545892.jpg"
-    },
-    {
-        "id": 4421545893,
-        "nome": "Parada: Avenida Fernando Guilhon",
-        "latitude": -1.3651289,
-        "longitude": -48.3477598,
-        "status_clima": "⛅ Parcial. Nublado (29.9°C)",
-        "status_lotacao": "verde",
-        "foto_url": "fotos/parada_4421545893.jpg"
-    },
-    {
-        "id": 4421545903,
-        "nome": "Parada: Avenida Fernando Guilhon",
-        "latitude": -1.3653153,
-        "longitude": -48.3546866,
-        "status_clima": "⛅ Parcial. Nublado (29.9°C)",
-        "status_lotacao": "verde",
-        "foto_url": "fotos/parada_4421545903.jpg"
-    },
-    {
-        "id": 4421545913,
-        "nome": "Parada: Avenida Fernando Guilhon",
-        "latitude": -1.3653762,
-        "longitude": -48.3578047,
-        "status_clima": "⛅ Parcial. Nublado (29.9°C)",
-        "status_lotacao": "verde",
-        "foto_url": "fotos/parada_4421545913.jpg"
-    },
-    {
-        "id": 9188081377,
-        "nome": "Parada: Avenida Fernando Guilhon",
-        "latitude": -1.3643745,
-        "longitude": -48.3583004,
-        "status_clima": "⛅ Parcial. Nublado (29.9°C)",
-        "status_lotacao": "verde",
-        "foto_url": "fotos/parada_9188081377.jpg"
-    },
-    {
-        "id": 11656270352,
-        "nome": "Parada: Rua João Canúto",
-        "latitude": -1.3664573,
-        "longitude": -48.3757373,
-        "status_clima": "⛅ Parcial. Nublado (29.9°C)",
-        "status_lotacao": "verde",
-        "foto_url": "fotos/parada_11656270352.jpg"
-    },
-    {
-        "id": 11680110967,
-        "nome": "Parada: Rua 2 de Junho",
-        "latitude": -1.3818726,
-        "longitude": -48.3746712,
-        "status_clima": "⛅ Parcial. Nublado (29.9°C)",
-        "status_lotacao": "verde",
-        "foto_url": "fotos/parada_11680110967.jpg"
-    },
-    {
-        "id": 11687979103,
-        "nome": "Parada: Rua Cláudio Sanders",
-        "latitude": -1.3650403,
-        "longitude": -48.3739599,
-        "status_clima": "⛅ Parcial. Nublado (29.9°C)",
-        "status_lotacao": "verde",
-        "foto_url": "fotos/parada_11687979103.jpg"
-    },
-    {
-        "id": 11705839383,
-        "nome": "Parada: Rua das Orquideas",
-        "latitude": -1.3935616,
-        "longitude": -48.3678764,
-        "status_clima": "⛅ Parcial. Nublado (29.9°C)",
-        "status_lotacao": "verde",
-        "foto_url": "fotos/parada_11705839383.jpg"
-    },
-    {
-        "id": 11724515190,
-        "nome": "Parada: Rua F",
-        "latitude": -1.3947041,
-        "longitude": -48.371055,
-        "status_clima": "⛅ Parcial. Nublado (29.9°C)",
-        "status_lotacao": "verde",
-        "foto_url": "fotos/parada_11724515190.jpg"
-    },
-    {
-        "id": 11734333011,
-        "nome": "Parada: Avenida Marechal Zacarias de Assunção",
-        "latitude": -1.3652396,
-        "longitude": -48.3719371,
-        "status_clima": "⛅ Parcial. Nublado (29.9°C)",
-        "status_lotacao": "verde",
-        "foto_url": "fotos/parada_11734333011.jpg"
-    },
-    {
-        "id": 11734510215,
-        "nome": "Parada: Rua Cláudio Sanders",
-        "latitude": -1.3576472,
-        "longitude": -48.3753697,
-        "status_clima": "⛅ Parcial. Nublado (29.9°C)",
-        "status_lotacao": "verde",
-        "foto_url": "fotos/parada_11734510215.jpg"
-    },
-    {
-        "id": 11734738122,
-        "nome": "Parada: Rua Cláudio Sanders",
-        "latitude": -1.3496345,
-        "longitude": -48.3753532,
-        "status_clima": "⛅ Parcial. Nublado (29.9°C)",
-        "status_lotacao": "verde",
-        "foto_url": "fotos/parada_11734738122.jpg"
-    },
-    {
-        "id": 11734738123,
-        "nome": "Parada: Rua Cláudio Sanders",
-        "latitude": -1.349571,
-        "longitude": -48.3752066,
-        "status_clima": "⛅ Parcial. Nublado (29.9°C)",
-        "status_lotacao": "verde",
-        "foto_url": "fotos/parada_11734738123.jpg"
-    },
-    {
-        "id": 11736736963,
-        "nome": "Parada: Rua Cláudio Sanders",
-        "latitude": -1.3611495,
-        "longitude": -48.3746512,
-        "status_clima": "⛅ Parcial. Nublado (29.9°C)",
-        "status_lotacao": "verde",
-        "foto_url": "fotos/parada_11736736963.jpg"
-    },
-    {
-        "id": 11736840501,
-        "nome": "Parada: Rua Cláudio Sanders",
-        "latitude": -1.358188,
-        "longitude": -48.375142,
-        "status_clima": "⛅ Parcial. Nublado (29.9°C)",
-        "status_lotacao": "verde",
-        "foto_url": "fotos/parada_11736840501.jpg"
-    },
-    {
-        "id": 11737031152,
-        "nome": "Parada: Rua Cláudio Sanders",
-        "latitude": -1.3482045,
-        "longitude": -48.3755329,
-        "status_clima": "⛅ Parcial. Nublado (29.9°C)",
-        "status_lotacao": "verde",
-        "foto_url": "fotos/parada_11737031152.jpg"
-    },
-    {
-        "id": 12132831114,
-        "nome": "Parada: Rodovia BR-316",
-        "latitude": -1.3662147,
-        "longitude": -48.3149365,
-        "status_clima": "⛅ Parcial. Nublado (30.3°C)",
-        "status_lotacao": "verde",
-        "foto_url": "fotos/parada_12132831114.jpg"
-    },
-    {
-        "id": 12132898303,
-        "nome": "Parada: Rua Curuçá",
-        "latitude": -1.3584373,
-        "longitude": -48.319524,
-        "status_clima": "⛅ Parcial. Nublado (30.3°C)",
-        "status_lotacao": "verde",
-        "foto_url": "fotos/parada_12132898303.jpg"
-    },
-    {
-        "id": 12407246725,
-        "nome": "Parada: Avenida Marechal Zacarias de Assunção",
-        "latitude": -1.3665867,
-        "longitude": -48.3723137,
-        "status_clima": "⛅ Parcial. Nublado (29.9°C)",
-        "status_lotacao": "verde",
-        "foto_url": "fotos/parada_12407246725.jpg"
-    },
-    {
-        "id": 12409862541,
-        "nome": "Parada: Avenida Marechal Zacarias de Assunção",
-        "latitude": -1.3620921,
-        "longitude": -48.3711093,
-        "status_clima": "⛅ Parcial. Nublado (29.9°C)",
-        "status_lotacao": "verde",
-        "foto_url": "fotos/parada_12409862541.jpg"
-    },
-    {
-        "id": 12417594263,
-        "nome": "Parada: Avenida Marechal Zacarias de Assunção",
-        "latitude": -1.3616241,
-        "longitude": -48.3709197,
-        "status_clima": "⛅ Parcial. Nublado (29.9°C)",
-        "status_lotacao": "verde",
-        "foto_url": "fotos/parada_12417594263.jpg"
-    },
-    {
-        "id": 3357986690,
-        "nome": "Parada: MG-329",
-        "latitude": -20.3787616,
-        "longitude": -42.8479014,
-        "status_clima": "⛅ Parcial. Nublado (29.1°C)",
-        "status_lotacao": "verde",
-        "foto_url": "fotos/parada_3357986690.jpg"
-    },
-    {
-        "id": 3357986691,
-        "nome": "Parada: MG-329",
-        "latitude": -20.3791388,
-        "longitude": -42.8469841,
-        "status_clima": "⛅ Parcial. Nublado (29.1°C)",
-        "status_lotacao": "verde",
-        "foto_url": "fotos/parada_3357986691.jpg"
+        "foto_url": "fotos/parada_ChIJPTvSJwuKpJIRD0194ZOBLxI.jpg"
     }
 ]

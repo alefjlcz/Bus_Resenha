@@ -18,7 +18,6 @@ import {
 
 import { atualizarPosicao, auth, db, enviarLocalizacao, enviarMensagem, ouvirMensagens } from '../chat/firebase';
 
-// 1. CORREÇÃO DOS IDs: Agora eles batem exatamente com o que é salvo no perfil.tsx!
 const LISTA_AVATARES = [
   { id: 'Homem Meditando', img: require('../assets/avatares/meditacao_homem.png') },
   { id: 'Mulher Meditando', img: require('../assets/avatares/meditacao_mulher.png') }
@@ -33,7 +32,6 @@ export default function ChatTeste() {
   const [isUniversitario, setIsUniversitario] = useState(false);
   const [minhaTag, setMinhaTag] = useState('');
   
-  // 2. NOVOS ESTADOS PARA FOTOS
   const [meuAvatar, setMeuAvatar] = useState('Homem Meditando'); 
   const [minhaFotoGaleria, setMinhaFotoGaleria] = useState<string | null>(null);
 
@@ -50,7 +48,7 @@ export default function ChatTeste() {
           setIsUniversitario(dados.isUniversitario);
           setMinhaTag(dados.tagLinha || '');
           setMeuAvatar(dados.avatarId || 'Homem Meditando'); 
-          setMinhaFotoGaleria(dados.fotoPerfil || null); // Puxa a foto da galeria (se existir)
+          setMinhaFotoGaleria(dados.fotoPerfil || null); 
         } else {
           setUsuarioAtual(user.email?.split('@')[0] || 'Usuário'); 
         }
@@ -79,12 +77,10 @@ export default function ChatTeste() {
     }
 
     try {
-      Alert.alert("Iniciando", "Conectando ao satélite...");
+      Alert.alert("Iniciando", "Compartilhando a sua localização.");
       
       let localizacaoInicial = await Location.getCurrentPositionAsync({});
       const nomeCompleto = usuarioAtual + (isUniversitario ? ' 🎓' : '');
-      
-      // Define o que vai ser enviado: a string da galeria ou o nome do avatar
       const avatarParaSalvar = minhaFotoGaleria ? minhaFotoGaleria : meuAvatar;
       
       const msgId = await enviarLocalizacao(salaDoChat, nomeCompleto, minutos, minhaTag, avatarParaSalvar);
@@ -123,7 +119,6 @@ export default function ChatTeste() {
     setTexto(''); 
 
     try {
-      // Define o que vai ser enviado: a string da galeria ou o nome do avatar
       const avatarParaSalvar = minhaFotoGaleria ? minhaFotoGaleria : meuAvatar;
       await enviarMensagem(salaDoChat, mensagemGuardada, usuarioAtual + (isUniversitario ? ' 🎓' : ''), minhaTag, avatarParaSalvar);
     } catch (error: any) {
@@ -132,21 +127,29 @@ export default function ChatTeste() {
     }
   };
 
+  // ==================================================
+  // 🕒 NOVA FUNÇÃO: Traduz o horário do Firebase
+  // ==================================================
+  const formatarHorario = (firebaseTimestamp: any) => {
+    // Se o timestamp for nulo, a mensagem ainda está viajando pro servidor
+    if (!firebaseTimestamp) return "enviando..."; 
+    
+    try {
+      const data = firebaseTimestamp.toDate();
+      return data.toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' });
+    } catch (error) {
+      return "";
+    }
+  };
+
   const renderMensagem = ({ item }: { item: any }) => {
     const isMinhaMensagem = item.usuario.includes(usuarioAtual);
-    
-    // O Truque do Espelho turbinado:
-    // Se for minha mensagem, força a ler do meu estado atual (atualiza mensagens do passado).
-    // Se for de outro usuário, lê o que veio do banco.
     const identificadorFoto = isMinhaMensagem ? (minhaFotoGaleria || meuAvatar) : item.avatarId;
     
     let imagemDaMensagem;
-
-    // Se o identificador começar com "data:image", sabemos que é uma foto da galeria!
     if (identificadorFoto && identificadorFoto.startsWith('data:image')) {
       imagemDaMensagem = { uri: identificadorFoto };
     } else {
-      // Caso contrário, é um desenho do nosso catálogo
       imagemDaMensagem = LISTA_AVATARES.find(a => a.id === identificadorFoto)?.img || LISTA_AVATARES[0].img;
     }
 
@@ -176,7 +179,7 @@ export default function ChatTeste() {
           {item.tipo === 'localizacao' ? (
             <>
               <Text style={[styles.texto, isMinhaMensagem ? styles.textoBranco : null, { fontWeight: 'bold', marginBottom: 5 }]}>📍 Viagem ao Vivo</Text>
-              <Text style={[styles.texto, isMinhaMensagem ? styles.textoBranco : null, { fontSize: 12, marginBottom: 10 }]}>{item.texto}</Text>
+              <Text style={[styles.texto, isMinhaMensagem ? styles.textoBranco : null, { fontSize: 12, marginBottom: 5 }]}>{item.texto}</Text>
               <TouchableOpacity style={styles.botaoAcompanhar} onPress={() => router.push({ pathname: '/mapa_viagem', params: { chatId: salaDoChat, msgId: item.id } })}>
                 <Text style={styles.textoBotaoAcompanhar}>🗺️ Ver no Mapa</Text>
               </TouchableOpacity>
@@ -186,6 +189,12 @@ export default function ChatTeste() {
               {item.texto}
             </Text>
           )}
+
+          {/* 🕒 AQUI ENTRA O HORÁRIO DA MENSAGEM */}
+          <Text style={[styles.horarioTxt, isMinhaMensagem ? styles.horarioTxtMinha : null]}>
+            {formatarHorario(item.timestamp)}
+          </Text>
+
         </View>
       </View>
     );
@@ -204,7 +213,6 @@ export default function ChatTeste() {
       <FlatList
         ref={flatListRef}
         data={mensagens}
-        // extraData força a lista a re-desenhar as mensagens antigas quando você troca a foto
         extraData={{ meuAvatar, minhaFotoGaleria }} 
         keyExtractor={(item) => item.id}
         renderItem={renderMensagem}
@@ -261,6 +269,9 @@ const styles = StyleSheet.create({
   
   texto: { fontSize: 16, color: '#333' },
   textoBranco: { color: '#FFF' },
+
+  horarioTxt: { fontSize: 10, color: '#999', alignSelf: 'flex-end', marginTop: 4 },
+  horarioTxtMinha: { color: '#D0F0C0' }, 
   
   inputContainer: { flexDirection: 'row', padding: 10, backgroundColor: '#FFF', borderTopWidth: 1, borderColor: '#CCC', alignItems: 'center' },
   botaoAnexo: { marginRight: 10 }, 

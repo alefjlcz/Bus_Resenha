@@ -59,7 +59,15 @@ export default function MenuLateral({ visivel, fecharMenu }: MenuLateralProps) {
     }, 300);
   };
 
-  // NOVA FUNÇÃO: Ir para a tela de configurações recém criada
+  // === 🚌 NOVA FUNÇÃO: Ir para a tela de favoritos ===
+  const irParaFavoritos = () => {
+    fecharMenu();
+    setTimeout(() => {
+      router.push('/favoritos'); // Apontando para a tela que acabamos de criar
+    }, 300);
+  };
+
+  // Ir para a tela de configurações
   const irParaConfiguracoes = () => {
     fecharMenu();
     setTimeout(() => {
@@ -111,7 +119,13 @@ export default function MenuLateral({ visivel, fecharMenu }: MenuLateralProps) {
               <Text style={styles.textoItemMenu}>O Meu Perfil</Text>
             </TouchableOpacity>
 
-            {/* AQUI ESTÁ: O botão que conecta com a sua tela nova! */}
+            {/* === BOTÃO DA TELA DE FAVORITOS === */}
+            <TouchableOpacity style={styles.itemMenu} onPress={irParaFavoritos}>
+              <Ionicons name="star" size={24} color="#FFCC00" />
+              <Text style={styles.textoItemMenu}>Paradas Favoritas</Text>
+            </TouchableOpacity>
+
+            {/* O botão de configurações continua aqui */}
             <TouchableOpacity style={styles.itemMenu} onPress={irParaConfiguracoes}>
               <Ionicons name="settings" size={24} color="#666" />
               <Text style={styles.textoItemMenu}>Configurações</Text>

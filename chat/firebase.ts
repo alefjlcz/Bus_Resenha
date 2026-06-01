@@ -22,8 +22,8 @@ import {
   collection,
   deleteDoc,
   doc,
-  getDoc, // <-- Adicionado para a verificação de reset
-  getDocs, // <-- Unificado aqui
+  getDoc,
+  getDocs,
   getFirestore,
   onSnapshot,
   orderBy,
@@ -33,7 +33,7 @@ import {
   Timestamp,
   updateDoc,
   where,
-  writeBatch // <-- Unificado aqui
+  writeBatch
 } from "firebase/firestore";
 
 /* CONFIGURAÇÃO COM A SUA CHAVE DIRETA */
@@ -47,13 +47,12 @@ const firebaseConfig = {
   measurementId: "G-8YJ271DM1T"
 };
 
-// 1. ESCUDO ANTI TELA VERMELHA
 const app = getApps().length === 0 ? initializeApp(firebaseConfig) : getApp();
 
 // 2. Inicializa o Banco
 export const db = getFirestore(app);
 
-// 3. ESCUDO DO AUTH
+// 3. AUTH
 let authInstance;
 try {
   authInstance = initializeAuth(app, {
@@ -66,7 +65,7 @@ try {
 export const auth = authInstance;
 
 // =============================
-// 🔐 AUTENTICAÇÃO E PERFIL
+//   AUTENTICAÇÃO E PERFIL
 // =============================
 export async function criarConta(nome: string, email: string, senha: string) {
   const credencial = await createUserWithEmailAndPassword(auth, email, senha);
@@ -130,7 +129,7 @@ export function verChats(filtro: string, callback: any) {
 }
 
 // =============================
-// 📢 REGISTRAR RESENHA DA PARADA
+//  REGISTRAR RESENHA DA PARADA
 // =============================
 export async function registrarResenhaNoBanco(paradaId: string, novoStatus: string) {
   try {
@@ -202,6 +201,36 @@ export async function favoritarParada(userId: string, paradaId: string, isFavori
     }
   } catch (error) {
     console.error("Erro ao favoritar:", error);
+  }
+}
+
+// =============================
+//   INCREMENTAR REPORTE DE PERIGO
+//       (Vermelho ou 190)
+// =============================
+export async function incrementarReportePerigo(paradaId: string, tipo: "vermelho" | "190") {
+  const paradaRef = doc(db, "paradas", paradaId);
+  const paradaSnap = await getDoc(paradaRef);
+
+  if (paradaSnap.exists()) {
+    const data = paradaSnap.data();
+    if (tipo === "vermelho") {
+      await updateDoc(paradaRef, {
+        reportesVermelho: (data.reportesVermelho || 0) + 1,
+      });
+    } else {
+      await updateDoc(paradaRef, {
+        reportes190: (data.reportes190 || 0) + 1,
+        policiaChamada: true,
+      });
+    }
+  } else {
+    //  Cria documento do zero
+    await setDoc(paradaRef, {
+      reportesVermelho: tipo === "vermelho" ? 1 : 0,
+      reportes190: tipo === "190" ? 1 : 0,
+      policiaChamada: tipo === "190",
+    });
   }
 }
 

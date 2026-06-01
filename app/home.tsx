@@ -1,9 +1,9 @@
-import React, { useEffect, useState, useRef } from 'react';
-import { SafeAreaView, StatusBar, StyleSheet, View, Alert } from 'react-native';
+import React, { useEffect, useRef, useState } from 'react';
+import { Alert, SafeAreaView, StatusBar, StyleSheet, View } from 'react-native';
 
-import { collection, onSnapshot, doc } from 'firebase/firestore';
+import { collection, doc, onSnapshot } from 'firebase/firestore';
 // Unificamos as importações do Firebase na mesma linha
-import { db, auth, verificarEResetarChats } from '../chat/firebase'; 
+import { auth, db, verificarEResetarChats } from '../chat/firebase';
 
 import paradasData from '../assets/dados/banco_de_paradas.json';
 import CardParada from '../components/CardParada';
@@ -17,7 +17,7 @@ import { useGPS } from '../hooks/useGPS';
 const traduzirClima = (codigo: number) => {
   if (codigo === 0) return "☀️ Limpo";
   if ([1, 2, 3].includes(codigo)) return "⛅ Parc. Nublado";
-  if ([45, 48].includes(codigo)) return "🌫️ Nevoeiro";
+  if ([45, 48].includes(codigo)) return "🌫️ Nevoeiro";s
   if ([51, 53, 55].includes(codigo)) return "🌧️ Chuva Leve";
   if ([61, 63, 65].includes(codigo)) return "🌧️ Chuvoso";
   if ([80, 81, 82].includes(codigo)) return "🌦️ Pancadas de Chuva";
