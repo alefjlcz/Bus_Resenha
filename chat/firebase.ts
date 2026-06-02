@@ -143,6 +143,42 @@ export async function registrarResenhaNoBanco(paradaId: string, novoStatus: stri
 }
 
 // =============================
+//  GRAVAR NO HISTÓRICO PERMANENTE
+//  (nunca é apagado pelo reset)
+// =============================
+async function gravarHistorico(
+  paradaId: string,
+  tipo: "vermelho" | "190" | "cuidado" | "ok",
+  userId: string
+) {
+  try {
+    const agora = new Date();
+    const mes = `${agora.getFullYear()}-${String(agora.getMonth() + 1).padStart(2, "0")}`;
+
+    // Busca o nome da parada no documento de status (se existir)
+    let paradaNome = paradaId;
+    try {
+      const paradaRef = doc(db, "status_paradas", paradaId);
+      const paradaSnap = await getDoc(paradaRef);
+      if (paradaSnap.exists() && paradaSnap.data().nome) {
+        paradaNome = paradaSnap.data().nome;
+      }
+    } catch (_) {}
+
+    await addDoc(collection(db, "historico_ocorrencias"), {
+      paradaId,
+      paradaNome,
+      tipo,
+      userId,
+      mes,
+      timestamp: serverTimestamp(),
+    });
+  } catch (error) {
+    console.error("Erro ao gravar histórico:", error);
+  }
+}
+
+// =============================
 //       ENVIAR MENSAGEM COMUM
 // =============================
 export async function enviarMensagem(chatId: string, texto: string, usuario: string, tagLinha: string = "", avatarId: string = "padrao") {
@@ -211,6 +247,12 @@ export async function favoritarParada(userId: string, paradaId: string, isFavori
 export async function incrementarReportePerigo(paradaId: string, tipo: "vermelho" | "190") {
   const paradaRef = doc(db, "paradas", paradaId);
   const paradaSnap = await getDoc(paradaRef);
+
+  // Dentro de incrementarReportePerigo, após o updateDoc/setDoc:
+  if (tipo === "190") {
+  const user = auth.currentUser;
+  await gravarHistorico(paradaId, "190", user?.uid || "anonimo");
+  }
 
   if (paradaSnap.exists()) {
     const data = paradaSnap.data();
@@ -293,6 +335,9 @@ export async function atualizarPerfilUsuario(userId: string, nome: string, fotoU
 // ==========================================
 // 🧹 RESET GLOBAL DE 48 HORAS
 // ==========================================
+// ==========================================
+// 🧹 RESET GLOBAL DE 48 HORAS + DECAY DE STATUS
+// ==========================================
 export async function verificarEResetarChats() {
   try {
     const agora = new Date();
@@ -308,7 +353,7 @@ export async function verificarEResetarChats() {
       if (diferencaHoras >= 48) {
         realizarReset = true;
       } else {
-        console.log(`⏳ Próximo reset em: ${Math.round(48 - diferencaHoras)}h`);
+        console.log(`⏳ Próximo reset global em: ${Math.round(48 - diferencaHoras)}h`);
       }
     } else {
       await setDoc(docRef, { ultimoResetGlobal: serverTimestamp() });
@@ -330,7 +375,226 @@ export async function verificarEResetarChats() {
       await batch.commit();
       console.log("✅ Sistema resetado com sucesso!");
     }
+
+    // ==========================================
+    // ⏱️ DECAY AUTOMÁTICO DE STATUS DAS PARADAS
+    // Roda toda vez que o app abre (independente do reset de 48h)
+    // ==========================================
+    await aplicarDecayDeStatus();
+
   } catch (error) {
     console.error("Erro no reset global:", error);
   }
 }
+
+// ==========================================
+// 🟡🟢 DECAY: paradas voltam ao verde com o tempo
+//
+// Regras:
+//   - Vermelho sem 190: → Amarelo após 1h → Verde após 2h
+//   - Vermelho com 190: → fica Perigoso por 24h, depois → Amarelo → Verde (1h depois)
+//   - Amarelo:          → Verde após 1h
+// ==========================================
+async function aplicarDecayDeStatus() {
+  try {
+    const agora = Date.now();
+    const UMA_HORA  = 1 * 60 * 60 * 1000;
+    const DUAS_HORAS = 2 * 60 * 60 * 1000;
+    const VINTE_QUATRO_HORAS = 24 * 60 * 60 * 1000;
+
+    const statusSnap = await getDocs(collection(db, "status_paradas"));
+    const batch = writeBatch(db);
+    let alteracoes = 0;
+
+    for (const docSnap of statusSnap.docs) {
+      const data = docSnap.data();
+      const statusAtual: string = data.status || "ok";
+
+      // Pula paradas que já estão OK
+      if (statusAtual === "ok") continue;
+
+      // Pega o timestamp da última atualização
+      const atualizadoEm: number = data.atualizadoEm?.toMillis?.() || 0;
+      const tempoPassado = agora - atualizadoEm;
+
+      // Busca se essa parada teve 190 acionado
+      let policiaChamada = false;
+      try {
+        const paradaRef = doc(db, "paradas", docSnap.id);
+        const paradaSnap = await getDoc(paradaRef);
+        if (paradaSnap.exists()) {
+          policiaChamada = paradaSnap.data().policiaChamada === true;
+        }
+      } catch (_) {}
+
+      let novoStatus: string | null = null;
+
+      if (statusAtual === "perigoso") {
+        if (policiaChamada) {
+          // 190 acionado: só começa o decay depois de 24h
+          if (tempoPassado >= VINTE_QUATRO_HORAS + UMA_HORA) {
+            novoStatus = "ok";       // 25h+ → verde direto
+          } else if (tempoPassado >= VINTE_QUATRO_HORAS) {
+            novoStatus = "cuidado";  // 24h  → amarelo
+          }
+        } else {
+          // Vermelho normal
+          if (tempoPassado >= DUAS_HORAS) {
+            novoStatus = "ok";       // 2h+ → verde
+          } else if (tempoPassado >= UMA_HORA) {
+            novoStatus = "cuidado";  // 1h  → amarelo
+          }
+        }
+      } else if (statusAtual === "cuidado") {
+        if (tempoPassado >= UMA_HORA) {
+          novoStatus = "ok";         // 1h  → verde
+        }
+      }
+
+      if (novoStatus) {
+        console.log(`🔄 Decay: parada ${docSnap.id} → ${statusAtual} para ${novoStatus}`);
+        batch.update(docSnap.ref, {
+          status: novoStatus,
+          atualizadoEm: serverTimestamp(),
+          // Se voltou ao verde, zera o contador de spam também
+          ...(novoStatus === "ok" ? { reportesVerdeSequencial: 0 } : {}),
+        });
+
+        // Se voltou ao verde completamente, limpa o policiaChamada também
+        if (novoStatus === "ok" && policiaChamada) {
+          const paradaRef = doc(db, "paradas", docSnap.id);
+          batch.update(paradaRef, {
+            policiaChamada: false,
+            reportesVermelho: 0,
+            reportes190: 0,
+          });
+        }
+
+        alteracoes++;
+      }
+    }
+
+    if (alteracoes > 0) {
+      await batch.commit();
+      console.log(`✅ Decay aplicado em ${alteracoes} parada(s).`);
+    } else {
+      console.log("✅ Decay: nenhuma parada precisava de atualização.");
+    }
+
+  } catch (error) {
+    console.error("Erro no decay de status:", error);
+  }
+}
+
+// =============================
+//  RESET MANUAL DE TODAS AS PARADAS
+//  (use no VSCode para testes)
+// =============================
+export async function resetarTodasAsParadas() {
+  try {
+    console.log("🔄 Iniciando reset de todas as paradas...");
+    const batch = writeBatch(db);
+
+    // 1. Zera todos os status_paradas
+    const statusSnap = await getDocs(collection(db, "status_paradas"));
+    statusSnap.forEach((docSnap) => {
+      batch.set(docSnap.ref, { status: "ok", atualizadoEm: serverTimestamp() });
+    });
+
+    // 2. Zera todos os contadores de perigo em paradas
+    const paradasSnap = await getDocs(collection(db, "paradas"));
+    paradasSnap.forEach((docSnap) => {
+      batch.set(docSnap.ref, {
+        reportesVermelho: 0,
+        reportes190: 0,
+        policiaChamada: false,
+      });
+    });
+
+    await batch.commit();
+    console.log("✅ Todas as paradas foram resetadas para OK!");
+  } catch (error) {
+    console.error("❌ Erro ao resetar paradas:", error);
+  }
+}
+
+// =============================
+//  REGISTRAR REPORTE COM PROTEÇÃO
+// =============================
+export async function registrarReporteComProtecao(
+  paradaId: string,
+  userId: string,
+  novoStatus: string
+): Promise<{ permitido: boolean; mensagem: string }> {
+  try {
+    const COOLDOWN_MS = 2 * 60 * 1000;
+    const LIMITE_SPAM = 5;
+
+    const controleRef = doc(db, "controle_reportes", `${userId}_${paradaId}`);
+    const controleSnap = await getDoc(controleRef);
+    const agora = Date.now();
+
+    if (controleSnap.exists()) {
+      const ultimoReporte = controleSnap.data().ultimoReporte?.toMillis?.() || 0;
+      const diff = agora - ultimoReporte;
+
+      if (diff < COOLDOWN_MS) {
+        const segundosRestantes = Math.ceil((COOLDOWN_MS - diff) / 1000);
+        return {
+          permitido: false,
+          mensagem: `Aguarde ${segundosRestantes}s para reportar novamente.`,
+        };
+      }
+    }
+
+    if (novoStatus === "ok") {
+      const paradaStatusRef = doc(db, "status_paradas", paradaId);
+      const paradaStatusSnap = await getDoc(paradaStatusRef);
+
+      if (paradaStatusSnap.exists()) {
+        const statusAtual = paradaStatusSnap.data().status;
+        const reportesVerdeSpam = paradaStatusSnap.data().reportesVerdeSequencial || 0;
+
+        if (statusAtual === "perigoso" && reportesVerdeSpam >= LIMITE_SPAM) {
+          return {
+            permitido: false,
+            mensagem: "Muitos reportes de 'tudo ok' seguidos foram detectados. Esta parada permanece em alerta por segurança.",
+          };
+        }
+
+        if (novoStatus === "ok") {
+          await updateDoc(paradaStatusRef, {
+            reportesVerdeSequencial: reportesVerdeSpam + 1,
+          });
+        }
+      }
+    } else {
+      const paradaStatusRef = doc(db, "status_paradas", paradaId);
+      const paradaStatusSnap = await getDoc(paradaStatusRef);
+      if (paradaStatusSnap.exists()) {
+        await updateDoc(paradaStatusRef, { reportesVerdeSequencial: 0 });
+      }
+    }
+
+    await setDoc(controleRef, {
+      ultimoReporte: Timestamp.fromMillis(agora),
+      paradaId,
+      userId,
+    });
+
+    await registrarResenhaNoBanco(paradaId, novoStatus);
+
+    // ✅ Grava no histórico permanente
+    const tipoHistorico = novoStatus === "perigoso" ? "vermelho"
+      : novoStatus === "cuidado" ? "cuidado"
+      : "ok";
+
+    await gravarHistorico(paradaId, tipoHistorico as any, userId);
+
+    return { permitido: true, mensagem: "Reporte registrado com sucesso!" };
+  } catch (error) {
+    console.error("Erro ao registrar reporte com proteção:", error);
+    return { permitido: false, mensagem: "Erro ao registrar reporte." };
+  }
+}
+

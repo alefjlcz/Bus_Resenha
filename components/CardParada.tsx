@@ -1,10 +1,10 @@
-import { Ionicons } from '@expo/vector-icons'; // <-- Adicionado para os ícones
-import { doc, onSnapshot } from 'firebase/firestore'; // <-- Adicionado para escutar o banco em tempo real
 import React, { useEffect, useState } from 'react';
 import { Alert, Image, Modal, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { Ionicons } from '@expo/vector-icons'; // <-- Adicionado para os ícones
+import { doc, onSnapshot } from 'firebase/firestore'; // <-- Adicionado para escutar o banco em tempo real
 
 import { mapaFotos } from '../assets/dados/mapa_fotos';
-import { auth, db, favoritarParada, incrementarReportePerigo, registrarResenhaNoBanco } from '../chat/firebase';
+import { auth, db, favoritarParada, incrementarReportePerigo, registrarResenhaNoBanco, registrarReporteComProtecao } from '../chat/firebase';
 
 interface CardParadaProps {
   parada: any;
@@ -73,19 +73,31 @@ export default function CardParada({
   // 📢 SALVAR RESENHA NO BANCO
   // =============================
   const enviarReporte = async (statusId: string, mensagem: string) => {
-    try {
-      await registrarResenhaNoBanco(parada.id.toString(), statusId);
+  const usuarioAtual = auth.currentUser;
+  if (!usuarioAtual) {
+    Alert.alert("Erro", "Você precisa estar logado para reportar.");
+    return;
+  }
 
-      if (statusId === "perigoso") {
-        await incrementarReportePerigo(parada.id.toString(), "vermelho");
-      }
+  const resultado = await registrarReporteComProtecao(
+    parada.id.toString(),
+    usuarioAtual.uid,
+    statusId
+  );
 
-      Alert.alert("Resenha Registrada!", mensagem);
-      setModalVisivel(false);
-    } catch (error) {
-      Alert.alert("Erro", "Não foi possível registrar o feedback.");
-    }
-  };
+  if (!resultado.permitido) {
+    Alert.alert("⏳ Aguarde", resultado.mensagem);
+    return;
+  }
+
+  // Se for vermelho, incrementa o contador de perigo
+  if (statusId === "perigoso") {
+    await incrementarReportePerigo(parada.id.toString(), "vermelho");
+  }
+
+  Alert.alert("Resenha Registrada!", mensagem);
+  setModalVisivel(false);
+};
 
   // =============================
   // 🚨 LÓGICA DE EMERGÊNCIA (190)

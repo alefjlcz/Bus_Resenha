@@ -2,7 +2,6 @@ import React, { useEffect, useRef, useState } from 'react';
 import { Alert, SafeAreaView, StatusBar, StyleSheet, View } from 'react-native';
 
 import { collection, doc, onSnapshot } from 'firebase/firestore';
-// Unificamos as importações do Firebase na mesma linha
 import { auth, db, verificarEResetarChats } from '../chat/firebase';
 
 import paradasData from '../assets/dados/banco_de_paradas.json';
@@ -13,11 +12,10 @@ import MenuLateral from '../components/MenuLateral';
 
 import { useGPS } from '../hooks/useGPS';
 
-// Função de tradução de clima 
 const traduzirClima = (codigo: number) => {
   if (codigo === 0) return "☀️ Limpo";
   if ([1, 2, 3].includes(codigo)) return "⛅ Parc. Nublado";
-  if ([45, 48].includes(codigo)) return "🌫️ Nevoeiro";s
+  if ([45, 48].includes(codigo)) return "🌫️ Nevoeiro";
   if ([51, 53, 55].includes(codigo)) return "🌧️ Chuva Leve";
   if ([61, 63, 65].includes(codigo)) return "🌧️ Chuvoso";
   if ([80, 81, 82].includes(codigo)) return "🌦️ Pancadas de Chuva";
@@ -29,24 +27,16 @@ export default function App() {
   const { minhaLocalizacao, paradaAtualGeofence } = useGPS();
 
   const [menuAberto, setMenuAberto] = useState(false);
-  const [paradaSelecionada, setParadaSelecionada] = useState<any>(null); 
+  const [paradaSelecionada, setParadaSelecionada] = useState<any>(null);
   const [statusGlobal, setStatusGlobal] = useState<Record<string, string>>({});
   const [climaAtual, setClimaAtual] = useState("🌦️ Buscando clima...");
-  
   const [minhasFavoritas, setMinhasFavoritas] = useState<string[]>([]);
   const alertasEnviados = useRef<Set<string>>(new Set());
 
-  // ==========================================
-  // 🧹 0. VERIFICAÇÃO DE LIMPEZA GLOBAL (48H)
-  // ==========================================
   useEffect(() => {
-    // Roda a verificação de 48h assim que o mapa inicia
     verificarEResetarChats();
   }, []);
 
-  // ==========================================
-  // 1. ESCUTAR DADOS DO USUÁRIO (Favoritos)
-  // ==========================================
   useEffect(() => {
     const user = auth.currentUser;
     if (!user) return;
@@ -59,9 +49,6 @@ export default function App() {
     return () => unsubscribeUser();
   }, []);
 
-  // ==========================================
-  // 2. ESCUTAR STATUS DAS PARADAS (Firebase)
-  // ==========================================
   useEffect(() => {
     const q = collection(db, "status_paradas");
     const unsubscribeStatus = onSnapshot(q, (snapshot) => {
@@ -74,16 +61,12 @@ export default function App() {
     return () => unsubscribeStatus();
   }, []);
 
-  // ==========================================
-  // 🚨 3. O CÉREBRO DAS NOTIFICAÇÕES
-  // ==========================================
   useEffect(() => {
     minhasFavoritas.forEach(idParada => {
       if (statusGlobal[idParada] === "perigoso") {
-        
         if (!alertasEnviados.current.has(idParada)) {
           const nomeDaParada = paradasData.find(p => p.id.toString() === idParada)?.nome || "Uma parada favorita";
-          
+
           Alert.alert(
             "🔔 ALERTA DE SEGURANÇA",
             `Atenção! Relatos de PERIGO recentes em sua parada favorita:\n\n📍 ${nomeDaParada}\n\nEvite o local e mantenha-se seguro.`
@@ -95,15 +78,11 @@ export default function App() {
         alertasEnviados.current.delete(idParada);
       }
     });
-  }, [statusGlobal, minhasFavoritas]); 
+  }, [statusGlobal, minhasFavoritas]);
 
-
-  // ==========================================
-  // 🌤️ 4. MOTOR DE CLIMA
-  // ==========================================
   useEffect(() => {
     const buscarClima = async () => {
-      if (!minhaLocalizacao) return; 
+      if (!minhaLocalizacao) return;
       try {
         const url = `https://api.open-meteo.com/v1/forecast?latitude=${minhaLocalizacao.latitude}&longitude=${minhaLocalizacao.longitude}&current_weather=true`;
         const resposta = await fetch(url);
@@ -114,10 +93,10 @@ export default function App() {
         console.log("Erro clima:", error);
       }
     };
-    buscarClima(); 
+    buscarClima();
     const intervaloClima = setInterval(buscarClima, 10 * 60 * 1000);
     return () => clearInterval(intervaloClima);
-  }, [minhaLocalizacao]); 
+  }, [minhaLocalizacao]);
 
   return (
     <SafeAreaView style={styles.container}>
@@ -125,24 +104,24 @@ export default function App() {
       <HeaderHome abrirMenu={() => setMenuAberto(true)} />
 
       <View style={styles.mapaContainer}>
-        <MapaResenha 
+        <MapaResenha
           paradas={paradasData}
           minhaLocalizacao={minhaLocalizacao}
           paradaSelecionada={paradaSelecionada}
           setParadaSelecionada={setParadaSelecionada}
-          statusGlobal={statusGlobal} 
+          statusGlobal={statusGlobal}
         />
       </View>
 
       <MenuLateral visivel={menuAberto} fecharMenu={() => setMenuAberto(false)} />
 
-      <CardParada 
-        parada={paradaSelecionada} 
-        usuarioEstaNaParada={paradaAtualGeofence?.id === paradaSelecionada?.id} 
+      <CardParada
+        parada={paradaSelecionada}
+        usuarioEstaNaParada={paradaAtualGeofence?.id === paradaSelecionada?.id}
         fecharCard={() => setParadaSelecionada(null)}
-        statusGlobal={statusGlobal} 
-        clima={climaAtual} 
-        favoritas={minhasFavoritas} 
+        statusGlobal={statusGlobal}
+        clima={climaAtual}
+        favoritas={minhasFavoritas}
       />
     </SafeAreaView>
   );
@@ -150,5 +129,5 @@ export default function App() {
 
 const styles = StyleSheet.create({
   container: { flex: 1, backgroundColor: '#00A86B' },
-  mapaContainer: { flex: 1, backgroundColor: '#EEE' }, 
+  mapaContainer: { flex: 1, backgroundColor: '#EEE' },
 });

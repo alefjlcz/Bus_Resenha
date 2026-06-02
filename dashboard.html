@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ResenhasBus — Dashboard</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Syne:wght@400;600;800&display=swap');
+
+    :root {
+      --bg:        #0a0e13;
+      --surface:   #111620;
+      --border:    #1e2736;
+      --green:     #00c97a;
+      --yellow:    #f5c518;
+      --red:       #ff4444;
+      --blue:      #3d9cff;
+      --muted:     #4a5568;
+      --text:      #e2e8f0;
+      --text-dim:  #7a8799;
+      --mono:      'JetBrains Mono', monospace;
+      --sans:      'Syne', sans-serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--sans);
+      min-height: 100vh;
+      padding: 32px 24px;
+    }
+
+    header {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      margin-bottom: 40px;
+      padding-bottom: 24px;
+      border-bottom: 1px solid var(--border);
+    }
+    .logo { display: flex; flex-direction: column; gap: 4px; }
+    .logo-tag { font-family: var(--mono); font-size: 11px; color: var(--green); letter-spacing: 3px; text-transform: uppercase; }
+    .logo-title { font-size: 28px; font-weight: 800; letter-spacing: -1px; }
+    .logo-title span { color: var(--green); }
+
+    .header-right { text-align: right; display: flex; flex-direction: column; gap: 8px; align-items: flex-end; }
+    .last-update { font-family: var(--mono); font-size: 12px; color: var(--text-dim); }
+
+    .btn-row { display: flex; gap: 8px; }
+    .btn {
+      border: none; border-radius: 6px; padding: 8px 16px;
+      font-family: var(--mono); font-size: 12px; font-weight: 700;
+      cursor: pointer; transition: opacity .2s;
+    }
+    .btn:hover { opacity: .8; }
+    .btn:disabled { opacity: .4; cursor: not-allowed; }
+    .btn-green  { background: var(--green); color: #000; }
+    .btn-orange { background: #ff8c00; color: #000; }
+    .btn-muted  { background: var(--surface); color: var(--text-dim); border: 1px solid var(--border); }
+
+    /* NOTICE BANNER */
+    .notice {
+      background: rgba(255,140,0,.1);
+      border: 1px solid rgba(255,140,0,.3);
+      border-radius: 8px;
+      padding: 14px 18px;
+      margin-bottom: 28px;
+      font-family: var(--mono);
+      font-size: 12px;
+      color: #ffb347;
+      display: none;
+    }
+    .notice.visible { display: block; }
+
+    /* FILTERS */
+    .filters { display: flex; gap: 12px; margin-bottom: 32px; flex-wrap: wrap; align-items: flex-start; }
+    .filters select {
+      background: var(--surface); border: 1px solid var(--border); color: var(--text);
+      font-family: var(--mono); font-size: 13px; padding: 8px 14px; border-radius: 6px;
+      outline: none; cursor: pointer;
+    }
+    .filters select:focus { border-color: var(--green); }
+
+    /* AUTOCOMPLETE */
+    .autocomplete-wrap { position: relative; }
+    .autocomplete-wrap input {
+      background: var(--surface); border: 1px solid var(--border); color: var(--text);
+      font-family: var(--mono); font-size: 13px; padding: 8px 14px; border-radius: 6px;
+      outline: none; width: 280px;
+    }
+    .autocomplete-wrap input:focus { border-color: var(--green); }
+    .autocomplete-list {
+      position: absolute; top: 100%; left: 0; right: 0; z-index: 100;
+      background: var(--surface); border: 1px solid var(--green); border-top: none;
+      border-radius: 0 0 6px 6px; max-height: 220px; overflow-y: auto; display: none;
+    }
+    .autocomplete-list.open { display: block; }
+    .autocomplete-item {
+      padding: 9px 14px; font-family: var(--mono); font-size: 12px; cursor: pointer;
+      border-bottom: 1px solid var(--border); color: var(--text);
+    }
+    .autocomplete-item:last-child { border-bottom: none; }
+    .autocomplete-item:hover, .autocomplete-item.selected { background: rgba(0,201,122,.1); color: var(--green); }
+    .autocomplete-item mark { background: none; color: var(--green); font-weight: 700; }
+
+    /* KPIS */
+    .kpis { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 16px; margin-bottom: 40px; }
+    .kpi { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 20px; position: relative; overflow: hidden; }
+    .kpi::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; }
+    .kpi.verde::before   { background: var(--green); }
+    .kpi.amarelo::before { background: var(--yellow); }
+    .kpi.vermelho::before{ background: var(--red); }
+    .kpi.policia::before { background: var(--blue); }
+    .kpi.total::before   { background: var(--muted); }
+    .kpi-label { font-family: var(--mono); font-size: 11px; color: var(--text-dim); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 10px; }
+    .kpi-value { font-size: 36px; font-weight: 800; line-height: 1; }
+    .kpi.verde   .kpi-value { color: var(--green); }
+    .kpi.amarelo .kpi-value { color: var(--yellow); }
+    .kpi.vermelho .kpi-value { color: var(--red); }
+    .kpi.policia .kpi-value { color: var(--blue); }
+    .kpi.total   .kpi-value { color: var(--text); }
+    .kpi-sub { font-family: var(--mono); font-size: 11px; color: var(--text-dim); margin-top: 6px; }
+
+    .section-title { font-size: 13px; font-weight: 600; color: var(--text-dim); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 16px; font-family: var(--mono); }
+
+    .tables-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 40px; }
+    @media (max-width: 860px) { .tables-grid { grid-template-columns: 1fr; } }
+
+    .table-card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; overflow: hidden; }
+    .table-card-header { padding: 16px 20px; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; }
+    .table-card-title { font-family: var(--mono); font-size: 12px; color: var(--text-dim); letter-spacing: 1px; text-transform: uppercase; }
+    .table-card-count { font-family: var(--mono); font-size: 11px; background: var(--border); color: var(--text-dim); padding: 3px 8px; border-radius: 4px; }
+
+    table { width: 100%; border-collapse: collapse; }
+    th { font-family: var(--mono); font-size: 10px; color: var(--text-dim); text-transform: uppercase; letter-spacing: 1px; padding: 10px 20px; text-align: left; border-bottom: 1px solid var(--border); background: rgba(255,255,255,.02); }
+    td { font-family: var(--mono); font-size: 13px; padding: 12px 20px; border-bottom: 1px solid rgba(255,255,255,.04); vertical-align: middle; }
+    tr:last-child td { border-bottom: none; }
+    tr:hover td { background: rgba(255,255,255,.03); }
+
+    .badge { display: inline-flex; align-items: center; gap: 5px; padding: 3px 8px; border-radius: 4px; font-size: 11px; font-weight: 700; font-family: var(--mono); }
+    .badge.verde    { background: rgba(0,201,122,.15); color: var(--green); }
+    .badge.amarelo  { background: rgba(245,197,24,.15); color: var(--yellow); }
+    .badge.vermelho { background: rgba(255,68,68,.15);  color: var(--red); }
+    .badge.policia  { background: rgba(61,156,255,.15); color: var(--blue); }
+
+    .bar-wrap { display: flex; align-items: center; gap: 8px; }
+    .bar-bg { flex: 1; height: 6px; background: var(--border); border-radius: 3px; overflow: hidden; }
+    .bar-fill { height: 100%; border-radius: 3px; transition: width .4s ease; }
+    .bar-num { font-family: var(--mono); font-size: 12px; color: var(--text-dim); min-width: 24px; text-align: right; }
+
+    .log-card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; overflow: hidden; margin-bottom: 40px; }
+    .month-card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; overflow: hidden; margin-bottom: 40px; }
+
+    .empty { padding: 40px 20px; text-align: center; font-family: var(--mono); font-size: 13px; color: var(--muted); }
+
+    .dot { width: 8px; height: 8px; border-radius: 50%; display: inline-block; margin-right: 4px; }
+    .dot.verde    { background: var(--green); }
+    .dot.amarelo  { background: var(--yellow); }
+    .dot.vermelho { background: var(--red); }
+    .dot.policia  { background: var(--blue); }
+
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .spinner { width: 18px; height: 18px; border: 2px solid var(--border); border-top-color: var(--green); border-radius: 50%; animation: spin .7s linear infinite; display: inline-block; vertical-align: middle; margin-right: 8px; }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="logo">
+    <span class="logo-tag">Back-end Admin</span>
+    <h1 class="logo-title">Resenhas<span>Bus</span></h1>
+  </div>
+  <div class="header-right">
+    <div class="last-update" id="last-update">Aguardando dados...</div>
+    <div class="btn-row">
+      <button class="btn btn-muted"  id="btn-seed"    onclick="popularDadosTeste()">🧪 Popular dados de teste</button>
+      <button class="btn btn-green"  id="btn-refresh" onclick="carregarDados()">↻ Atualizar</button>
+    </div>
+  </div>
+</header>
+
+<div class="notice" id="notice"></div>
+
+<!-- FILTROS -->
+<div class="filters">
+  <select id="filtro-mes" onchange="renderTudo()">
+    <option value="">Todos os meses</option>
+  </select>
+  <select id="filtro-tipo" onchange="renderTudo()">
+    <option value="">Todos os tipos</option>
+    <option value="vermelho">🔴 Perigoso</option>
+    <option value="190">🔵 190 Acionado</option>
+    <option value="cuidado">🟡 Cuidado</option>
+    <option value="ok">🟢 OK</option>
+  </select>
+  <div class="autocomplete-wrap">
+    <input id="filtro-parada" type="text" placeholder="🔍 Buscar parada..." autocomplete="off"
+      oninput="onBuscaInput(this.value)"
+      onkeydown="onBuscaKey(event)"
+      onfocus="abrirLista()"
+      onblur="setTimeout(fecharLista, 200)"
+    />
+    <div class="autocomplete-list" id="autocomplete-list"></div>
+  </div>
+</div>
+
+<!-- KPIs -->
+<div class="kpis">
+  <div class="kpi total">
+    <div class="kpi-label">Total de Reportes</div>
+    <div class="kpi-value" id="kpi-total">—</div>
+    <div class="kpi-sub">no período</div>
+  </div>
+  <div class="kpi vermelho">
+    <div class="kpi-label">🔴 Perigoso</div>
+    <div class="kpi-value" id="kpi-vermelho">—</div>
+    <div class="kpi-sub">reportes de perigo</div>
+  </div>
+  <div class="kpi policia">
+    <div class="kpi-label">🔵 190 Acionado</div>
+    <div class="kpi-value" id="kpi-190">—</div>
+    <div class="kpi-sub">chamadas à polícia</div>
+  </div>
+  <div class="kpi amarelo">
+    <div class="kpi-label">🟡 Cuidado</div>
+    <div class="kpi-value" id="kpi-cuidado">—</div>
+    <div class="kpi-sub">alertas de alagamento</div>
+  </div>
+  <div class="kpi verde">
+    <div class="kpi-label">🟢 OK</div>
+    <div class="kpi-value" id="kpi-ok">—</div>
+    <div class="kpi-sub">confirmações de segurança</div>
+  </div>
+</div>
+
+<p class="section-title">Paradas com mais ocorrências</p>
+<div class="tables-grid">
+  <div class="table-card">
+    <div class="table-card-header">
+      <span class="table-card-title">🔴 Mais perigosas</span>
+      <span class="table-card-count" id="count-vermelho">0</span>
+    </div>
+    <table><thead><tr><th>Parada</th><th>Ocorrências</th></tr></thead>
+    <tbody id="tab-vermelho"><tr><td colspan="2" class="empty">Sem dados</td></tr></tbody></table>
+  </div>
+  <div class="table-card">
+    <div class="table-card-header">
+      <span class="table-card-title">🔵 Mais acionamentos 190</span>
+      <span class="table-card-count" id="count-190">0</span>
+    </div>
+    <table><thead><tr><th>Parada</th><th>Chamadas</th></tr></thead>
+    <tbody id="tab-190"><tr><td colspan="2" class="empty">Sem dados</td></tr></tbody></table>
+  </div>
+  <div class="table-card">
+    <div class="table-card-header">
+      <span class="table-card-title">🟡 Mais alagamentos</span>
+      <span class="table-card-count" id="count-cuidado">0</span>
+    </div>
+    <table><thead><tr><th>Parada</th><th>Ocorrências</th></tr></thead>
+    <tbody id="tab-cuidado"><tr><td colspan="2" class="empty">Sem dados</td></tr></tbody></table>
+  </div>
+  <div class="table-card">
+    <div class="table-card-header">
+      <span class="table-card-title">📊 Ranking geral</span>
+      <span class="table-card-count" id="count-geral">0</span>
+    </div>
+    <table><thead><tr><th>Parada</th><th>Total</th></tr></thead>
+    <tbody id="tab-geral"><tr><td colspan="2" class="empty">Sem dados</td></tr></tbody></table>
+  </div>
+</div>
+
+<p class="section-title">Ocorrências por mês</p>
+<div class="month-card">
+  <div class="table-card-header">
+    <span class="table-card-title">Histórico mensal</span>
+    <span class="table-card-count" id="count-meses">0 meses</span>
+  </div>
+  <table>
+    <thead><tr><th>Mês</th><th>🔴 Perigoso</th><th>🔵 190</th><th>🟡 Cuidado</th><th>🟢 OK</th><th>Total</th></tr></thead>
+    <tbody id="tab-mensal"><tr><td colspan="6" class="empty">Sem dados</td></tr></tbody>
+  </table>
+</div>
+
+<p class="section-title">Log de ocorrências</p>
+<div class="log-card">
+  <div class="table-card-header">
+    <span class="table-card-title">Últimas ocorrências</span>
+    <span class="table-card-count" id="count-log">0</span>
+  </div>
+  <table>
+    <thead><tr><th>Data/Hora</th><th>Parada</th><th>Tipo</th><th>Usuário</th></tr></thead>
+    <tbody id="tab-log"><tr><td colspan="4" class="empty">Sem dados</td></tr></tbody>
+  </table>
+</div>
+
+<!-- Firebase SDK -->
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+  import { getFirestore, collection, getDocs, addDoc, query, orderBy, Timestamp }
+    from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+  const firebaseConfig = {
+    apiKey:            "AIzaSyAbI_hrb6zQf-U93kPdIl_MBy6kpGSwxc0",
+    authDomain:        "resenhabus.firebaseapp.com",
+    projectId:         "resenhabus",
+    storageBucket:     "resenhabus.firebasestorage.app",
+    messagingSenderId: "531865506051",
+    appId:             "1:531865506051:web:e2ae22ec6a05a7047c9936",
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const db  = getFirestore(app);
+
+  window._db = db;
+  window._fsLib = { collection, getDocs, addDoc, query, orderBy, Timestamp };
+
+  window.carregarDados();
+</script>
+
+<script>
+  let todosOsDados    = [];
+  let todasAsParadas  = [];   // lista única de nomes para autocomplete
+  let paradaFiltrada  = "";   // valor confirmado no filtro
+  let acIndex         = -1;   // índice do item hover no autocomplete
+
+  // ─────────────────────────────────────────
+  // NOTICE
+  // ─────────────────────────────────────────
+  function mostrarNotice(msg, cor) {
+    const el = document.getElementById("notice");
+    el.textContent = msg;
+    el.style.borderColor = (cor === "verde") ? "rgba(0,201,122,.3)" : "rgba(255,140,0,.3)";
+    el.style.color        = (cor === "verde") ? "#00c97a" : "#ffb347";
+    el.style.background   = (cor === "verde") ? "rgba(0,201,122,.07)" : "rgba(255,140,0,.1)";
+    el.classList.add("visible");
+    setTimeout(() => el.classList.remove("visible"), 5000);
+  }
+
+  // ─────────────────────────────────────────
+  // POPULAR DADOS DE TESTE
+  // ─────────────────────────────────────────
+  window.popularDadosTeste = async function () {
+    const btn = document.getElementById("btn-seed");
+    btn.disabled = true;
+    btn.textContent = "⏳ Populando...";
+
+    while (!window._db) await new Promise(r => setTimeout(r, 200));
+    const { collection, addDoc, Timestamp } = window._fsLib;
+    const db = window._db;
+
+    const paradas = [
+      "Av. Arthur Bernardes, 44",
+      "Av. Arthur Bernardes, 241",
+      "Av. Arthur Bernardes, 15886",
+      "Terminal de Icoaraci",
+      "Av. Almirante Barroso, 1200",
+      "Praça da República",
+      "Entroncamento - BR-316",
+      "Av. Augusto Montenegro, 890",
+      "Rua dos Mundurucus, 500",
+      "Av. Doca de Souza Franco",
+    ];
+    const tipos  = ["vermelho","vermelho","190","cuidado","ok"];
+    const meses  = ["2025-03","2025-04","2025-05","2025-06","2026-01","2026-02","2026-03","2026-04","2026-05","2026-06"];
+    const uids   = ["user_abc123","user_def456","user_ghi789","user_jkl012","user_mno345"];
+
+    const agora  = Date.now();
+    const HORA   = 3600000;
+    let count = 0;
+
+    for (let i = 0; i < 120; i++) {
+      const parada = paradas[Math.floor(Math.random() * paradas.length)];
+      const tipo   = tipos[Math.floor(Math.random() * tipos.length)];
+      const mes    = meses[Math.floor(Math.random() * meses.length)];
+      const uid    = uids[Math.floor(Math.random() * uids.length)];
+      const ts     = Timestamp.fromMillis(agora - Math.floor(Math.random() * 90 * 24 * HORA));
+
+      try {
+        await addDoc(collection(db, "historico_ocorrencias"), {
+          paradaId:   parada.replace(/\s/g,"_").toLowerCase(),
+          paradaNome: parada,
+          tipo, mes, userId: uid,
+          timestamp:  ts,
+        });
+        count++;
+      } catch(e) { console.error(e); }
+    }
+
+    mostrarNotice(`✅ ${count} registros de teste criados com sucesso! Recarregando...`, "verde");
+    btn.disabled = false;
+    btn.textContent = "🧪 Popular dados de teste";
+    carregarDados();
+  };
+
+  // ─────────────────────────────────────────
+  // BUSCA NO FIREBASE
+  // ─────────────────────────────────────────
+  window.carregarDados = async function () {
+    const btn = document.getElementById("btn-refresh");
+    btn.disabled = true;
+    btn.innerHTML = '<span class="spinner"></span>Carregando...';
+
+    let tentativas = 0;
+    while (!window._db && tentativas < 20) {
+      await new Promise(r => setTimeout(r, 200));
+      tentativas++;
+    }
+
+    if (!window._db) {
+      mostrarNotice("Erro ao conectar com o Firebase. Verifique sua conexão.");
+      btn.disabled = false; btn.innerHTML = "↻ Atualizar";
+      return;
+    }
+
+    try {
+      const { collection, getDocs, query, orderBy } = window._fsLib;
+      const db = window._db;
+
+      const q    = query(collection(db, "historico_ocorrencias"), orderBy("timestamp", "desc"));
+      const snap = await getDocs(q);
+
+      todosOsDados = snap.docs.map(doc => {
+        const d = doc.data();
+        return {
+          id:         doc.id,
+          paradaId:   d.paradaId   || "—",
+          paradaNome: d.paradaNome || d.paradaId || "Desconhecida",
+          tipo:       d.tipo       || "ok",
+          userId:     d.userId     || "anônimo",
+          mes:        d.mes        || "—",
+          timestamp:  d.timestamp?.toDate?.() || null,
+        };
+      });
+
+      // Lista única de paradas para autocomplete
+      todasAsParadas = [...new Set(todosOsDados.map(d => d.paradaNome))].sort();
+
+      // Preenche seletor de meses
+      const meses = [...new Set(todosOsDados.map(d => d.mes))].sort().reverse();
+      const sel   = document.getElementById("filtro-mes");
+      const vAtual = sel.value;
+      sel.innerHTML = '<option value="">Todos os meses</option>';
+      meses.forEach(m => {
+        const opt = document.createElement("option");
+        opt.value = m; opt.textContent = formatarMes(m);
+        if (m === vAtual) opt.selected = true;
+        sel.appendChild(opt);
+      });
+
+      document.getElementById("last-update").textContent =
+        "Atualizado: " + new Date().toLocaleString("pt-BR");
+
+      renderTudo();
+
+      if (todosOsDados.length === 0) {
+        mostrarNotice('⚠️ Nenhum dado encontrado em historico_ocorrencias. Clique em "Popular dados de teste" para ver o dashboard funcionando, ou faça reportes reais no app.');
+      }
+
+    } catch (err) {
+      console.error(err);
+      mostrarNotice("Erro ao buscar dados: " + err.message);
+    }
+
+    btn.disabled = false;
+    btn.innerHTML = "↻ Atualizar";
+  };
+
+  // ─────────────────────────────────────────
+  // AUTOCOMPLETE
+  // ─────────────────────────────────────────
+  function onBuscaInput(val) {
+    paradaFiltrada = ""; // limpa filtro confirmado enquanto digita
+    acIndex = -1;
+    renderLista(val);
+    renderTudo();
+  }
+
+  function renderLista(val) {
+    const list = document.getElementById("autocomplete-list");
+    const termo = val.trim().toLowerCase();
+
+    if (!termo) {
+      // sem texto: mostra todas
+      const itens = todasAsParadas.slice(0, 30);
+      if (itens.length === 0) { list.classList.remove("open"); return; }
+      list.innerHTML = itens.map((p, i) =>
+        `<div class="autocomplete-item" data-index="${i}" data-val="${p}" onmousedown="selecionarParada('${p.replace(/'/g,"\\'")}')">
+          ${p}
+        </div>`).join("");
+      list.classList.add("open");
+      return;
+    }
+
+    const filtradas = todasAsParadas.filter(p => p.toLowerCase().includes(termo)).slice(0, 15);
+    if (filtradas.length === 0) { list.classList.remove("open"); return; }
+
+    list.innerHTML = filtradas.map((p, i) => {
+      const idx = p.toLowerCase().indexOf(termo);
+      const highlighted = p.substring(0,idx) +
+        `<mark>${p.substring(idx, idx+termo.length)}</mark>` +
+        p.substring(idx+termo.length);
+      return `<div class="autocomplete-item" data-index="${i}" data-val="${p}"
+        onmousedown="selecionarParada('${p.replace(/'/g,"\\'")}')">
+        ${highlighted}
+      </div>`;
+    }).join("");
+    list.classList.add("open");
+  }
+
+  function selecionarParada(nome) {
+    paradaFiltrada = nome;
+    document.getElementById("filtro-parada").value = nome;
+    fecharLista();
+    renderTudo();
+  }
+
+  window.abrirLista  = () => renderLista(document.getElementById("filtro-parada").value);
+  window.fecharLista = () => document.getElementById("autocomplete-list").classList.remove("open");
+
+  window.onBuscaInput = onBuscaInput;
+  window.selecionarParada = selecionarParada;
+
+  window.onBuscaKey = function(e) {
+    const list  = document.getElementById("autocomplete-list");
+    const items = list.querySelectorAll(".autocomplete-item");
+    if (!items.length) return;
+
+    if (e.key === "ArrowDown") {
+      acIndex = Math.min(acIndex + 1, items.length - 1);
+    } else if (e.key === "ArrowUp") {
+      acIndex = Math.max(acIndex - 1, 0);
+    } else if (e.key === "Enter" && acIndex >= 0) {
+      selecionarParada(items[acIndex].dataset.val);
+      e.preventDefault(); return;
+    } else if (e.key === "Escape") {
+      fecharLista(); return;
+    } else { return; }
+
+    items.forEach((el, i) => el.classList.toggle("selected", i === acIndex));
+    e.preventDefault();
+  };
+
+  // ─────────────────────────────────────────
+  // FILTRO + RENDER
+  // ─────────────────────────────────────────
+  window.renderTudo = function () {
+    const mes   = document.getElementById("filtro-mes").value;
+    const tipo  = document.getElementById("filtro-tipo").value;
+    const busca = (paradaFiltrada || document.getElementById("filtro-parada").value).toLowerCase();
+
+    const dados = todosOsDados.filter(d => {
+      if (mes   && d.mes  !== mes)                              return false;
+      if (tipo  && d.tipo !== tipo)                             return false;
+      if (busca && !d.paradaNome.toLowerCase().includes(busca)) return false;
+      return true;
+    });
+
+    renderKPIs(dados);
+    renderTopParadas(dados, "vermelho", "tab-vermelho", "count-vermelho");
+    renderTopParadas(dados, "190",      "tab-190",      "count-190");
+    renderTopParadas(dados, "cuidado",  "tab-cuidado",  "count-cuidado");
+    renderGeralParadas(dados);
+    renderMensal(dados);
+    renderLog(dados);
+  };
+
+  // ─────────────────────────────────────────
+  // KPIs
+  // ─────────────────────────────────────────
+  function renderKPIs(dados) {
+    const c = t => dados.filter(d => d.tipo === t).length;
+    document.getElementById("kpi-total").textContent    = dados.length;
+    document.getElementById("kpi-vermelho").textContent = c("vermelho");
+    document.getElementById("kpi-190").textContent      = c("190");
+    document.getElementById("kpi-cuidado").textContent  = c("cuidado");
+    document.getElementById("kpi-ok").textContent       = c("ok");
+  }
+
+  // ─────────────────────────────────────────
+  // TOP PARADAS POR TIPO
+  // ─────────────────────────────────────────
+  function renderTopParadas(dados, tipo, tbodyId, countId) {
+    const filtrados = dados.filter(d => d.tipo === tipo);
+    document.getElementById(countId).textContent = filtrados.length;
+
+    const contagem = {};
+    filtrados.forEach(d => { contagem[d.paradaNome] = (contagem[d.paradaNome]||0)+1; });
+
+    const sorted = Object.entries(contagem).sort((a,b)=>b[1]-a[1]).slice(0,10);
+    const max    = sorted[0]?.[1] || 1;
+    const tbody  = document.getElementById(tbodyId);
+    const cor    = { vermelho:"#ff4444", "190":"#3d9cff", cuidado:"#f5c518", ok:"#00c97a" };
+
+    if (!sorted.length) {
+      tbody.innerHTML = '<tr><td colspan="2" class="empty">Nenhuma ocorrência</td></tr>';
+      return;
+    }
+    tbody.innerHTML = sorted.map(([nome,qtd]) => `
+      <tr>
+        <td>${nome}</td>
+        <td><div class="bar-wrap">
+          <div class="bar-bg"><div class="bar-fill" style="width:${(qtd/max)*100}%;background:${cor[tipo]||'#888'}"></div></div>
+          <span class="bar-num">${qtd}</span>
+        </div></td>
+      </tr>`).join("");
+  }
+
+  // ─────────────────────────────────────────
+  // RANKING GERAL
+  // ─────────────────────────────────────────
+  function renderGeralParadas(dados) {
+    const contagem = {};
+    dados.filter(d => ["vermelho","190"].includes(d.tipo))
+      .forEach(d => { contagem[d.paradaNome] = (contagem[d.paradaNome]||0)+1; });
+
+    const sorted = Object.entries(contagem).sort((a,b)=>b[1]-a[1]).slice(0,10);
+    const max    = sorted[0]?.[1] || 1;
+    document.getElementById("count-geral").textContent = sorted.length;
+    const tbody = document.getElementById("tab-geral");
+
+    if (!sorted.length) {
+      tbody.innerHTML = '<tr><td colspan="2" class="empty">Nenhuma ocorrência de perigo</td></tr>';
+      return;
+    }
+    tbody.innerHTML = sorted.map(([nome,qtd]) => `
+      <tr>
+        <td>${nome}</td>
+        <td><div class="bar-wrap">
+          <div class="bar-bg"><div class="bar-fill" style="width:${(qtd/max)*100}%;background:#ff4444"></div></div>
+          <span class="bar-num">${qtd}</span>
+        </div></td>
+      </tr>`).join("");
+  }
+
+  // ─────────────────────────────────────────
+  // MENSAL
+  // ─────────────────────────────────────────
+  function renderMensal(dados) {
+    const porMes = {};
+    dados.forEach(d => {
+      if (!porMes[d.mes]) porMes[d.mes] = { vermelho:0, "190":0, cuidado:0, ok:0 };
+      porMes[d.mes][d.tipo] = (porMes[d.mes][d.tipo]||0)+1;
+    });
+
+    const meses = Object.keys(porMes).sort().reverse();
+    document.getElementById("count-meses").textContent = meses.length + " meses";
+    const tbody = document.getElementById("tab-mensal");
+
+    if (!meses.length) {
+      tbody.innerHTML = '<tr><td colspan="6" class="empty">Sem dados mensais</td></tr>';
+      return;
+    }
+    tbody.innerHTML = meses.map(m => {
+      const r = porMes[m];
+      const total = (r.vermelho||0)+(r["190"]||0)+(r.cuidado||0)+(r.ok||0);
+      return `<tr>
+        <td>${formatarMes(m)}</td>
+        <td style="color:#ff4444;font-weight:700">${r.vermelho||0}</td>
+        <td style="color:#3d9cff;font-weight:700">${r["190"]||0}</td>
+        <td style="color:#f5c518;font-weight:700">${r.cuidado||0}</td>
+        <td style="color:#00c97a;font-weight:700">${r.ok||0}</td>
+        <td>${total}</td>
+      </tr>`;
+    }).join("");
+  }
+
+  // ─────────────────────────────────────────
+  // LOG
+  // ─────────────────────────────────────────
+  function renderLog(dados) {
+    document.getElementById("count-log").textContent = dados.length;
+    const tbody = document.getElementById("tab-log");
+
+    if (!dados.length) {
+      tbody.innerHTML = '<tr><td colspan="4" class="empty">Nenhum registro encontrado</td></tr>';
+      return;
+    }
+    const tipoLabel = {
+      vermelho: '<span class="badge vermelho"><span class="dot vermelho"></span>Perigoso</span>',
+      "190":    '<span class="badge policia"><span class="dot policia"></span>190</span>',
+      cuidado:  '<span class="badge amarelo"><span class="dot amarelo"></span>Cuidado</span>',
+      ok:       '<span class="badge verde"><span class="dot verde"></span>OK</span>',
+    };
+    tbody.innerHTML = dados.slice(0,200).map(d => `
+      <tr>
+        <td>${d.timestamp ? d.timestamp.toLocaleString("pt-BR") : "—"}</td>
+        <td>${d.paradaNome}</td>
+        <td>${tipoLabel[d.tipo]||d.tipo}</td>
+        <td>${d.userId.substring(0,14)}...</td>
+      </tr>`).join("");
+  }
+
+  // ─────────────────────────────────────────
+  // HELPERS
+  // ─────────────────────────────────────────
+  function formatarMes(mes) {
+    if (!mes || mes === "—") return mes;
+    const [ano, m] = mes.split("-");
+    const nomes = ["","Jan","Fev","Mar","Abr","Mai","Jun","Jul","Ago","Set","Out","Nov","Dez"];
+    return `${nomes[parseInt(m)]} ${ano}`;
+  }
+</script>
+</body>
+</html>
