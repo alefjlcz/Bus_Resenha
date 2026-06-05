@@ -316,6 +316,29 @@
   window._db = db;
   window._fsLib = { collection, getDocs, addDoc, query, orderBy, Timestamp };
 
+  // Carrega banco de paradas para cruzar IDs com nomes
+  try {
+    const resp = await fetch('./banco_de_paradas.json');
+    window._bancoParadas = await resp.json();
+  } catch(e) {
+    console.warn("banco_de_paradas.json não encontrado ao lado do dashboard.html — nomes de paradas podem aparecer como ID");
+    window._bancoParadas = [];
+  }
+
+  // Carrega usuários do Firebase para cruzar UIDs com nomes
+  try {
+    const { collection, getDocs } = window._fsLib;
+    const snap = await getDocs(collection(db, "usuarios"));
+    window._mapaUsuarios = {};
+    snap.docs.forEach(d => {
+      const data = d.data();
+      if (data.nome) window._mapaUsuarios[d.id] = data.nome;
+    });
+  } catch(e) {
+    console.warn("Erro ao carregar usuários:", e);
+    window._mapaUsuarios = {};
+  }
+
   window.carregarDados();
 </script>
 
@@ -422,17 +445,30 @@
       const snap = await getDocs(q);
 
       todosOsDados = snap.docs.map(doc => {
-        const d = doc.data();
-        return {
-          id:         doc.id,
-          paradaId:   d.paradaId   || "—",
-          paradaNome: d.paradaNome || d.paradaId || "Desconhecida",
-          tipo:       d.tipo       || "ok",
-          userId:     d.userId     || "anônimo",
-          mes:        d.mes        || "—",
-          timestamp:  d.timestamp?.toDate?.() || null,
-        };
-      });
+      const d = doc.data();
+
+      // Cruza o paradaId com o nome real do banco de paradas
+      const paradaNoJson = (window._bancoParadas || []).find(p => p.id === d.paradaId);
+      const nomeParadaReal = paradaNoJson
+        ? paradaNoJson.nome
+        : (d.paradaNome && !d.paradaNome.startsWith("ChIJ") ? d.paradaNome : d.paradaId);
+
+      // Cruza o userId com o nome real do usuário
+      const nomeUsuarioReal = (window._mapaUsuarios || {})[d.userId]
+        || d.nomeUsuario
+        || d.userId?.substring(0, 14) + "...";
+
+      return {
+        id:          doc.id,
+        paradaId:    d.paradaId   || "—",
+        paradaNome:  nomeParadaReal,
+        tipo:        d.tipo       || "ok",
+        userId:      d.userId     || "anônimo",
+        nomeUsuario: nomeUsuarioReal,
+        mes:         d.mes        || "—",
+        timestamp:   d.timestamp?.toDate?.() || null,
+      };
+    });
 
       // Lista única de paradas para autocomplete
       todasAsParadas = [...new Set(todosOsDados.map(d => d.paradaNome))].sort();
@@ -688,7 +724,7 @@
         <td>${d.timestamp ? d.timestamp.toLocaleString("pt-BR") : "—"}</td>
         <td>${d.paradaNome}</td>
         <td>${tipoLabel[d.tipo]||d.tipo}</td>
-        <td>${d.userId.substring(0,14)}...</td>
+        <td>${d.nomeUsuario}</td>
       </tr>`).join("");
   }
 

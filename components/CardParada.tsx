@@ -1,10 +1,10 @@
+import { Ionicons } from '@expo/vector-icons';
+import { doc, onSnapshot } from 'firebase/firestore';
 import React, { useEffect, useState } from 'react';
 import { Alert, Image, Modal, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
-import { Ionicons } from '@expo/vector-icons'; // <-- Adicionado para os ícones
-import { doc, onSnapshot } from 'firebase/firestore'; // <-- Adicionado para escutar o banco em tempo real
 
 import { mapaFotos } from '../assets/dados/mapa_fotos';
-import { auth, db, favoritarParada, incrementarReportePerigo, registrarResenhaNoBanco, registrarReporteComProtecao } from '../chat/firebase';
+import { auth, db, favoritarParada, incrementarReportePerigo, registrarReporteComProtecao, registrarResenhaNoBanco } from '../chat/firebase';
 
 interface CardParadaProps {
   parada: any;
@@ -26,8 +26,6 @@ export default function CardParada({
 
   const [modalVisivel, setModalVisivel] = useState(false);
   const [pessoasNaParada, setPessoasNaParada] = useState(12);
-  
-  // === NOVOS ESTADOS PARA OS ALERTAS ===
   const [reportesPerigo, setReportesPerigo] = useState(0);
   const [policiaChamada, setPoliciaChamada] = useState(false);
 
@@ -36,14 +34,26 @@ export default function CardParada({
   }, [usuarioEstaNaParada]);
 
   // ==========================================
-  // BUSCAR DADOS DE PERIGO DA PARADA EM TEMPO REAL
+  // ✅ CORREÇÃO BUG 2: statusGlobal nas dependências
+  // Quando o status muda para "ok", os alertas somem imediatamente
   // ==========================================
   useEffect(() => {
     if (!parada) return;
 
-    // Conecta diretamente no documento desta parada no Firebase
+    setReportesPerigo(0);
+    setPoliciaChamada(false);
+
     const paradaRef = doc(db, "paradas", parada.id.toString());
     const unsubscribe = onSnapshot(paradaRef, (docSnap) => {
+
+      // ✅ Se o status atual for "ok", não mostra alertas independente do banco
+      const statusAtual = statusGlobal[parada.id.toString()] || "ok";
+      if (statusAtual === "ok") {
+        setReportesPerigo(0);
+        setPoliciaChamada(false);
+        return;
+      }
+
       if (docSnap.exists()) {
         const data = docSnap.data();
         setReportesPerigo((data.reportesVermelho || 0) + (data.reportes190 || 0));
@@ -55,7 +65,7 @@ export default function CardParada({
     });
 
     return () => unsubscribe();
-  }, [parada]);
+  }, [parada, statusGlobal]); // ✅ statusGlobal adicionado aqui
 
   if (!parada) return null;
 
@@ -73,31 +83,31 @@ export default function CardParada({
   // 📢 SALVAR RESENHA NO BANCO
   // =============================
   const enviarReporte = async (statusId: string, mensagem: string) => {
-  const usuarioAtual = auth.currentUser;
-  if (!usuarioAtual) {
-    Alert.alert("Erro", "Você precisa estar logado para reportar.");
-    return;
-  }
+    const usuarioAtual = auth.currentUser;
+    if (!usuarioAtual) {
+      Alert.alert("Erro", "Você precisa estar logado para reportar.");
+      return;
+    }
 
-  const resultado = await registrarReporteComProtecao(
-    parada.id.toString(),
-    usuarioAtual.uid,
-    statusId
-  );
+    const resultado = await registrarReporteComProtecao(
+      parada.id.toString(),
+      parada.nome,
+      usuarioAtual.uid,
+      statusId
+    );
 
-  if (!resultado.permitido) {
-    Alert.alert("⏳ Aguarde", resultado.mensagem);
-    return;
-  }
+    if (!resultado.permitido) {
+      Alert.alert("⏳ Aguarde", resultado.mensagem);
+      return;
+    }
 
-  // Se for vermelho, incrementa o contador de perigo
-  if (statusId === "perigoso") {
-    await incrementarReportePerigo(parada.id.toString(), "vermelho");
-  }
+    if (statusId === "perigoso") {
+      await incrementarReportePerigo(parada.id.toString(), "vermelho", parada.nome);
+    }
 
-  Alert.alert("Resenha Registrada!", mensagem);
-  setModalVisivel(false);
-};
+    Alert.alert("Resenha Registrada!", mensagem);
+    setModalVisivel(false);
+  };
 
   // =============================
   // 🚨 LÓGICA DE EMERGÊNCIA (190)
@@ -118,9 +128,7 @@ export default function CardParada({
             );
 
             await registrarResenhaNoBanco(parada.id.toString(), "perigoso");
-            await incrementarReportePerigo(parada.id.toString(), "190");
-
-            // O onSnapshot vai atualizar a tela automaticamente, não precisamos fechar o card
+            await incrementarReportePerigo(parada.id.toString(), "190", parada.nome);
           }
         }
       ]
@@ -160,9 +168,7 @@ export default function CardParada({
 
       <Text style={styles.cardTitle}>{parada.nome}</Text>
 
-      {/* ========================================== */}
-      {/* 🛑 ÁREA DE ALERTAS IGUAL AOS FAVORITOS */}
-      {/* ========================================== */}
+      {/* ALERTAS — só aparecem se o status NÃO for ok */}
       <View style={styles.alertasContainer}>
         {reportesPerigo > 0 && (
           <View style={styles.reporteContainer}>
@@ -258,15 +264,12 @@ const styles = StyleSheet.create({
   imagemParada: { width: '100%', height: 120, borderRadius: 10, marginBottom: 10 },
   imagemPlaceholder: { width: '100%', height: 120, borderRadius: 10, marginBottom: 10, backgroundColor: '#e0e0e0', justifyContent: 'center', alignItems: 'center' },
   textoPlaceholder: { color: '#888', fontStyle: 'italic' },
-  cardTitle: { fontSize: 18, fontWeight: 'bold', color: '#333', marginBottom: 5 }, // Reduzi a margem para encaixar os alertas
-  
-  // === ESTILOS DOS ALERTAS ===
+  cardTitle: { fontSize: 18, fontWeight: 'bold', color: '#333', marginBottom: 5 },
   alertasContainer: { marginBottom: 10 },
   reporteContainer: { flexDirection: 'row', alignItems: 'center', marginBottom: 5 },
   textoReporte: { fontSize: 14, fontWeight: 'bold', color: '#FF3B30', marginLeft: 6 },
   bannerPolicia: { flexDirection: 'row', alignItems: 'center', backgroundColor: '#FF3B30', borderRadius: 8, paddingHorizontal: 10, paddingVertical: 8, marginBottom: 5 },
   textoBannerPolicia: { color: '#FFFFFF', fontSize: 13, fontWeight: '700', marginLeft: 6, flexShrink: 1 },
-
   badgesRow: { flexDirection: 'row', flexWrap: 'wrap', marginBottom: 10 },
   badge: { paddingVertical: 5, paddingHorizontal: 10, borderRadius: 20, marginRight: 10, marginBottom: 5 },
   badgeText: { fontSize: 12, fontWeight: 'bold' },
