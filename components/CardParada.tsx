@@ -127,7 +127,8 @@ export default function CardParada({
               "A viatura mais próxima recebeu as coordenadas deste ponto e está a caminho. Procure um local seguro."
             );
 
-            await registrarResenhaNoBanco(parada.id.toString(), "perigoso");
+            // ✅ INSERE O NÚMERO 12 COMO TERCEIRO PARÂMETRO (TRAVA DE 12 HORAS)
+            await registrarResenhaNoBanco(parada.id.toString(), "perigoso", 12);
             await incrementarReportePerigo(parada.id.toString(), "190", parada.nome);
           }
         }

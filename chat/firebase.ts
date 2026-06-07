@@ -124,12 +124,26 @@ export function verChats(filtro: string, callback: any) {
 // =============================
 //  REGISTRAR RESENHA DA PARADA
 // =============================
-export async function registrarResenhaNoBanco(paradaId: string, novoStatus: string) {
+// =============================
+//  REGISTRAR RESENHA DA PARADA
+// =============================
+export async function registrarResenhaNoBanco(paradaId: string, novoStatus: string, travaHoras: number = 0) {
   try {
-    await setDoc(doc(db, "status_paradas", paradaId), {
+    const updateData: any = {
       status: novoStatus,
       atualizadoEm: serverTimestamp(),
-    }, { merge: true });
+    };
+
+    // Se tivermos um tempo de trava (4h ou 12h), adicionamos o limite no banco
+    if (travaHoras > 0) {
+      const agora = new Date();
+      agora.setHours(agora.getHours() + travaHoras);
+      updateData.travaAte = Timestamp.fromDate(agora);
+    } else if (novoStatus === "ok") {
+      updateData.travaAte = null; // Remove a trava se ficar verde legitimamente
+    }
+
+    await setDoc(doc(db, "status_paradas", paradaId), updateData, { merge: true });
   } catch (error) {
     console.error("Erro ao salvar status:", error);
   }
@@ -355,15 +369,11 @@ export async function verificarEResetarChats() {
 }
 
 // ==========================================
-//  DECAY DE STATUS
+//  DECAY DE STATUS (Respeitando a Trava)
 // ==========================================
 async function aplicarDecayDeStatus() {
   try {
     const agora = Date.now();
-    const UMA_HORA           = 1  * 60 * 60 * 1000;
-    const DUAS_HORAS         = 2  * 60 * 60 * 1000;
-    const VINTE_QUATRO_HORAS = 24 * 60 * 60 * 1000;
-
     const statusSnap = await getDocs(collection(db, "status_paradas"));
     const batch = writeBatch(db);
     let alteracoes = 0;
@@ -373,29 +383,25 @@ async function aplicarDecayDeStatus() {
       const statusAtual: string = data.status || "ok";
       if (statusAtual === "ok") continue;
 
-      const atualizadoEm: number = data.atualizadoEm?.toMillis?.() || 0;
+      const travaAte = data.travaAte?.toMillis?.() || 0;
+      const atualizadoEm = data.atualizadoEm?.toMillis?.() || 0;
       const tempoPassado = agora - atualizadoEm;
-
-      let policiaChamada = false;
-      try {
-        const paradaSnap = await getDoc(doc(db, "paradas", docSnap.id));
-        if (paradaSnap.exists()) {
-          policiaChamada = paradaSnap.data().policiaChamada === true;
-        }
-      } catch (_) {}
 
       let novoStatus: string | null = null;
 
       if (statusAtual === "perigoso") {
-        if (policiaChamada) {
-          if (tempoPassado >= VINTE_QUATRO_HORAS + UMA_HORA) novoStatus = "ok";
-          else if (tempoPassado >= VINTE_QUATRO_HORAS)       novoStatus = "cuidado";
-        } else {
-          if (tempoPassado >= DUAS_HORAS) novoStatus = "ok";
-          else if (tempoPassado >= UMA_HORA) novoStatus = "cuidado";
+        // Se existe uma trava (4h ou 12h) e ela acabou, rebaixa pro amarelo (cuidado)
+        if (travaAte > 0 && agora >= travaAte) {
+          novoStatus = "cuidado";
+        } else if (travaAte === 0 && tempoPassado >= 4 * 60 * 60 * 1000) {
+          // Fallback: se por acaso não tiver trava gravada, decai em 4h
+          novoStatus = "cuidado";
         }
       } else if (statusAtual === "cuidado") {
-        if (tempoPassado >= UMA_HORA) novoStatus = "ok";
+        // Amarelo volta pra verde em 1 hora
+        if (tempoPassado >= 1 * 60 * 60 * 1000) {
+          novoStatus = "ok";
+        }
       }
 
       if (novoStatus) {
@@ -403,7 +409,7 @@ async function aplicarDecayDeStatus() {
         batch.update(docSnap.ref, {
           status: novoStatus,
           atualizadoEm: serverTimestamp(),
-          ...(novoStatus === "ok" ? { reportesVerdeSequencial: 0 } : {}),
+          ...(novoStatus === "ok" ? { reportesVerdeSequencial: 0, travaAte: null } : {}),
         });
 
         if (novoStatus === "ok") {
@@ -413,7 +419,6 @@ async function aplicarDecayDeStatus() {
             policiaChamada: false,
           }, { merge: true });
         }
-
         alteracoes++;
       }
     }
@@ -421,8 +426,6 @@ async function aplicarDecayDeStatus() {
     if (alteracoes > 0) {
       await batch.commit();
       console.log(`✅ Decay aplicado em ${alteracoes} parada(s).`);
-    } else {
-      console.log("✅ Decay: nenhuma parada precisava de atualização.");
     }
   } catch (error) {
     console.error("Erro no decay:", error);
@@ -450,8 +453,13 @@ export async function resetarTodasAsParadas() {
   }
 }
 
+
+
 // =============================
 //  REPORTE COM PROTEÇÃO ANTI-SPAM
+// =============================
+// =============================
+//  REPORTE COM PROTEÇÃO ANTI-SPAM & TRAVA DE TEMPO
 // =============================
 export async function registrarReporteComProtecao(
   paradaId: string,
@@ -466,7 +474,7 @@ export async function registrarReporteComProtecao(
     const controleSnap = await getDoc(controleRef);
     const agora = Date.now();
 
-    // Verifica cooldown
+    // 1. Verifica cooldown do usuário
     if (controleSnap.exists()) {
       const ultimoReporte = controleSnap.data().ultimoReporte?.toMillis?.() || 0;
       const diff = agora - ultimoReporte;
@@ -479,56 +487,64 @@ export async function registrarReporteComProtecao(
       }
     }
 
-    // Lógica anti-spam verde
-    if (novoStatus === "ok") {
-      const paradaStatusRef = doc(db, "status_paradas", paradaId);
-      const paradaStatusSnap = await getDoc(paradaStatusRef);
+    // 2. Verifica a REGRA DE TRAVA (4h ou 12h)
+    const paradaStatusRef = doc(db, "status_paradas", paradaId);
+    const paradaStatusSnap = await getDoc(paradaStatusRef);
+    
+    let travaHoras = novoStatus === "perigoso" ? 4 : 0; // Vermelho = 4h por padrão
 
-      if (paradaStatusSnap.exists()) {
-        const statusAtual = paradaStatusSnap.data().status;
-        const reportesVerdeSpam = paradaStatusSnap.data().reportesVerdeSequencial || 0;
+    if (paradaStatusSnap.exists()) {
+      const data = paradaStatusSnap.data();
+      const statusAtual = data.status;
+      const travaAte = data.travaAte?.toMillis?.() || 0;
+      const reportesVerdeSpam = data.reportesVerdeSequencial || 0;
 
-        // Bloqueia ANTES de incrementar se já tem 3+ reportes verdes em parada de alerta
-        if ((statusAtual === "perigoso" || statusAtual === "cuidado") && reportesVerdeSpam >= 3) {
+      // Se a parada estiver no vermelho e ainda estiver dentro do tempo da trava...
+      if (statusAtual === "perigoso" && agora < travaAte) {
+        
+        // Impede que alguém coloque amarelo ou verde
+        if (novoStatus === "ok" || novoStatus === "cuidado") {
+          const horasRestantes = Math.ceil((travaAte - agora) / (1000 * 60 * 60));
           return {
             permitido: false,
-            mensagem: `Esta parada está em alerta. Muitos reportes de "tudo ok" foram detectados. O alerta será mantido por segurança.`,
+            mensagem: `Esta parada está sob alerta máximo travado por mais ${horasRestantes}h. Não é possível rebaixar o nível de perigo agora.`
           };
         }
 
-        // Incrementa o contador de spam
-        await updateDoc(paradaStatusRef, {
-          reportesVerdeSequencial: reportesVerdeSpam + 1,
-        });
-
-        // Se acumulou 2+ mas não bloqueou ainda, registra e avisa
-        if (reportesVerdeSpam + 1 >= 2 && statusAtual !== "ok") {
-          await setDoc(controleRef, { ultimoReporte: Timestamp.fromMillis(agora), paradaId, userId });
-          await registrarResenhaNoBanco(paradaId, novoStatus);
-          await gravarHistorico(paradaId, paradaNome, "ok", userId);
-          return {
-            permitido: true,
-            mensagem: `Reporte registrado. Esta parada ainda está sendo monitorada.`,
-          };
+        // Se reportarem vermelho de novo, mas já tinha um 190 rodando (12h), mantém as 12h!
+        if (novoStatus === "perigoso") {
+          const tempoRestanteHoras = (travaAte - agora) / (1000 * 60 * 60);
+          if (tempoRestanteHoras > 4) {
+             travaHoras = tempoRestanteHoras; // Garante que a trava do 190 não encurte
+          }
         }
       }
-    } else {
-      // Reporte de perigo/cuidado: zera o contador verde
-      const paradaStatusRef = doc(db, "status_paradas", paradaId);
-      const paradaStatusSnap = await getDoc(paradaStatusRef);
-      if (paradaStatusSnap.exists()) {
+
+      // --- Lógica anti-spam verde original ---
+      if (novoStatus === "ok") {
+        if ((statusAtual === "perigoso" || statusAtual === "cuidado") && reportesVerdeSpam >= 3) {
+          return { permitido: false, mensagem: `Esta parada está em alerta. Muitos reportes de "tudo ok" detectados. O alerta será mantido.` };
+        }
+        await updateDoc(paradaStatusRef, { reportesVerdeSequencial: reportesVerdeSpam + 1 });
+        
+        if (reportesVerdeSpam + 1 >= 2 && statusAtual !== "ok") {
+          await setDoc(controleRef, { ultimoReporte: Timestamp.fromMillis(agora), paradaId, userId });
+          await registrarResenhaNoBanco(paradaId, novoStatus, 0); // Libera a trava
+          await gravarHistorico(paradaId, paradaNome, "ok", userId);
+          return { permitido: true, mensagem: `Reporte registrado. Parada em monitoramento.` };
+        }
+      } else {
         await updateDoc(paradaStatusRef, { reportesVerdeSequencial: 0 });
       }
     }
 
-    // Salva cooldown, status e histórico
+    // Salva o cooldown
     await setDoc(controleRef, { ultimoReporte: Timestamp.fromMillis(agora), paradaId, userId });
-    await registrarResenhaNoBanco(paradaId, novoStatus);
+    
+    // Registra o status passando as horas da trava!
+    await registrarResenhaNoBanco(paradaId, novoStatus, travaHoras);
 
-    const tipoHistorico = novoStatus === "perigoso" ? "vermelho"
-      : novoStatus === "cuidado" ? "cuidado"
-      : "ok";
-
+    const tipoHistorico = novoStatus === "perigoso" ? "vermelho" : novoStatus === "cuidado" ? "cuidado" : "ok";
     await gravarHistorico(paradaId, paradaNome, tipoHistorico as any, userId);
 
     return { permitido: true, mensagem: "Reporte registrado com sucesso!" };
@@ -537,3 +553,4 @@ export async function registrarReporteComProtecao(
     return { permitido: false, mensagem: "Erro ao registrar reporte." };
   }
 }
+

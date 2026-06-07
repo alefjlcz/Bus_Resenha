@@ -1,5 +1,5 @@
 // scripts/resetarParadas.ts
-// Para rodar: npx ts-node scripts/resetarParadas.t
+// Para rodar: npx ts-node scripts/resetarParadas.ts
 import { initializeApp } from "firebase/app";
 import {
   collection,

@@ -1,4 +1,6 @@
-import React, { useEffect, useMemo, useRef, useState } from 'react';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import { useFocusEffect } from 'expo-router';
+import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { StyleSheet } from 'react-native';
 import MapView, { Circle, Marker } from 'react-native-maps';
 
@@ -36,10 +38,30 @@ export default function MapaResenha({
 
   const mapRef = useRef<MapView>(null);
   const [focoInicialFeito, setFocoInicialFeito] = useState(false);
+  
+  // ✅ Estado do Raio Visual (padrão 500m)
+  const [raioVisualKm, setRaioVisualKm] = useState(0.5); 
+  const RAIO_PRESENCA_KM = 0.03; // Mantido fixo (30 metros)
 
-  const RAIO_VISUAL_KM   = 30.5; // 500 metros
-  const RAIO_PRESENCA_KM = 0.03; // 30 metros
+  // ✅ Carrega a preferência de distância sempre que o mapa entra em foco na tela
+  useFocusEffect(
+    useCallback(() => {
+      const carregarRaioVisual = async () => {
+        try {
+          const raioSalvo = await AsyncStorage.getItem('@raio_visual');
+          if (raioSalvo !== null) {
+            setRaioVisualKm(parseFloat(raioSalvo));
+          }
+        } catch (error) {
+          console.error("Erro ao carregar o raio visual do AsyncStorage", error);
+        }
+      };
 
+      carregarRaioVisual();
+    }, [])
+  );
+
+  // ✅ A dependência agora observa o "raioVisualKm" para recalcular as paradas se o usuário mudar a config
   const paradasVisiveis = useMemo(() => {
     if (!paradas || paradas.length === 0 || !minhaLocalizacao) {
       return [];
@@ -67,8 +89,8 @@ export default function MapaResenha({
 
         return { ...parada, distanciaAteUsuario: distancia };
       })
-      .filter(p => p !== null && p.distanciaAteUsuario <= RAIO_VISUAL_KM);
-  }, [paradas, minhaLocalizacao]);
+      .filter(p => p !== null && p.distanciaAteUsuario <= raioVisualKm); // Usando a variável de estado
+  }, [paradas, minhaLocalizacao, raioVisualKm]); 
 
   useEffect(() => {
     if (minhaLocalizacao && mapRef.current && !focoInicialFeito) {
@@ -102,7 +124,7 @@ export default function MapaResenha({
             latitude: minhaLocalizacao.latitude,
             longitude: minhaLocalizacao.longitude
           }}
-          radius={RAIO_VISUAL_KM * 1000} 
+          radius={raioVisualKm * 1000} // ✅ O círculo verde agora se expande ou retrai dinamicamente
           strokeColor="rgba(0, 168, 107, 0.4)"
           fillColor="rgba(0, 168, 107, 0.08)"
         />
