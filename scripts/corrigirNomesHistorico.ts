@@ -6,7 +6,7 @@ const { initializeApp } = require("firebase/app");
 const { collection, doc, getDocs, getFirestore, updateDoc } = require("firebase/firestore");
 
 // Ajuste o caminho se necessário
-const bancoParadas: any[] = require("C:/Users/alessandrolb.CIIR/Desktop/Bus/Bus Resenha/assets/dados/banco_de_paradas.json");
+const bancoParadas: any[] = require("C:/Users/alelb/Desktop/Facul/Projetos/Bus Resenha/assets/dados/banco_de_paradas.json");
 
 
 const firebaseConfig = {
