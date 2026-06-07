@@ -2022,7 +2022,7 @@
         "longitude": 31.7422207,
         "status_clima": "desconhecido",
         "status_lotacao": "verde",
-        "foto_url": "fotos/parada_4530597290.jpg"
+        "foto_url": null
     },
     {
         "id": 4531008190,
@@ -2040,7 +2040,7 @@
         "longitude": 31.6073887,
         "status_clima": "desconhecido",
         "status_lotacao": "verde",
-        "foto_url": "fotos/parada_4559889691.jpg"
+        "foto_url": null
     },
     {
         "id": 4840677242,
@@ -2382,7 +2382,7 @@
         "longitude": -79.2747575,
         "status_clima": "desconhecido",
         "status_lotacao": "verde",
-        "foto_url": "fotos/parada_5480832892.jpg"
+        "foto_url": null
     },
     {
         "id": 6255404286,
@@ -2391,7 +2391,7 @@
         "longitude": 31.7480969,
         "status_clima": "desconhecido",
         "status_lotacao": "verde",
-        "foto_url": "fotos/parada_6255404286.jpg"
+        "foto_url": null
     },
     {
         "id": 9864957517,
@@ -2409,7 +2409,7 @@
         "longitude": 33.9754827,
         "status_clima": "desconhecido",
         "status_lotacao": "verde",
-        "foto_url": "fotos/parada_10661686607.jpg"
+        "foto_url": null
     },
     {
         "id": 11107858966,
@@ -2499,7 +2499,7 @@
         "longitude": -77.9294543,
         "status_clima": "desconhecido",
         "status_lotacao": "verde",
-        "foto_url": "fotos/parada_13142473818.jpg"
+        "foto_url": null
     },
     {
         "id": 13143420246,
@@ -2508,7 +2508,7 @@
         "longitude": -77.7947965,
         "status_clima": "desconhecido",
         "status_lotacao": "verde",
-        "foto_url": "fotos/parada_13143420246.jpg"
+        "foto_url": null
     },
     {
         "id": 13143420247,
@@ -2517,7 +2517,7 @@
         "longitude": -77.7938672,
         "status_clima": "desconhecido",
         "status_lotacao": "verde",
-        "foto_url": "fotos/parada_13143420247.jpg"
+        "foto_url": null
     },
     {
         "id": 13143420248,
@@ -2526,7 +2526,7 @@
         "longitude": -77.7928766,
         "status_clima": "desconhecido",
         "status_lotacao": "verde",
-        "foto_url": "fotos/parada_13143420248.jpg"
+        "foto_url": null
     },
     {
         "id": 13143420249,
@@ -2535,7 +2535,7 @@
         "longitude": -77.7920547,
         "status_clima": "desconhecido",
         "status_lotacao": "verde",
-        "foto_url": "fotos/parada_13143420249.jpg"
+        "foto_url": null
     },
     {
         "id": 13143420250,
@@ -2544,7 +2544,7 @@
         "longitude": -77.794824,
         "status_clima": "desconhecido",
         "status_lotacao": "verde",
-        "foto_url": "fotos/parada_13143420250.jpg"
+        "foto_url": null
     },
     {
         "id": 13153010488,
@@ -3561,7 +3561,7 @@
         "longitude": -48.3583004,
         "status_clima": "desconhecido",
         "status_lotacao": "verde",
-        "foto_url": "fotos/parada_9188081377.jpg"
+        "foto_url": null
     },
     {
         "id": 11656270352,
@@ -4210,5 +4210,1814 @@
         "status_clima": "desconhecido",
         "status_lotacao": "verde",
         "foto_url": "fotos/parada_3357986691.jpg"
+    },
+    {
+        "id": 260420937,
+        "nome": "Parada: BR-316",
+        "latitude": -1.4032934,
+        "longitude": -48.4290607,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_260420937.jpg"
+    },
+    {
+        "id": 302106648,
+        "nome": "Parada: Rodovia Mário Covas",
+        "latitude": -1.3726372,
+        "longitude": -48.4188289,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_302106648.jpg"
+    },
+    {
+        "id": 302106796,
+        "nome": "Parada: Rodovia Mário Covas",
+        "latitude": -1.3745137,
+        "longitude": -48.4153723,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_302106796.jpg"
+    },
+    {
+        "id": 302108202,
+        "nome": "Parada: Rodovia Mário Covas",
+        "latitude": -1.3726521,
+        "longitude": -48.4187061,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_302108202.jpg"
+    },
+    {
+        "id": 495714712,
+        "nome": "Parada: Travessa WE 02",
+        "latitude": -1.3217717,
+        "longitude": -48.4301079,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_495714712.jpg"
+    },
+    {
+        "id": 643905314,
+        "nome": "Parada: Passagem Jarbas Passarinho",
+        "latitude": -1.3812418,
+        "longitude": -48.4265726,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_643905314.jpg"
+    },
+    {
+        "id": 2543000619,
+        "nome": "Parada: Passagem Dalva",
+        "latitude": -1.4014176,
+        "longitude": -48.4400349,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_2543000619.jpg"
+    },
+    {
+        "id": 2766312002,
+        "nome": "Parada: Travessa SN Três",
+        "latitude": -1.3700134,
+        "longitude": -48.4067085,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_2766312002.jpg"
+    },
+    {
+        "id": 3674278042,
+        "nome": "Parada: Avenida Dalva",
+        "latitude": -1.403857,
+        "longitude": -48.4442735,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_3674278042.jpg"
+    },
+    {
+        "id": 3682719055,
+        "nome": "Parada: Avenida Pedro Álvares Cabral",
+        "latitude": -1.4077798,
+        "longitude": -48.4437862,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_3682719055.jpg"
+    },
+    {
+        "id": 3711328480,
+        "nome": "Parada: Avenida Pedro Álvares Cabral",
+        "latitude": -1.4087559,
+        "longitude": -48.4466901,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_3711328480.jpg"
+    },
+    {
+        "id": 4241421054,
+        "nome": "Parada: Avenida Tavares Bastos",
+        "latitude": -1.4093937,
+        "longitude": -48.4447357,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_4241421054.jpg"
+    },
+    {
+        "id": 4243712609,
+        "nome": "Parada: Avenida Tavares Bastos",
+        "latitude": -1.411446,
+        "longitude": -48.442996,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_4243712609.jpg"
+    },
+    {
+        "id": 4411861689,
+        "nome": "Parada: Avenida Primeiro de Dezembro",
+        "latitude": -1.4082625,
+        "longitude": -48.426735,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_4411861689.jpg"
+    },
+    {
+        "id": 4421545455,
+        "nome": "Parada: Avenida Almirante Barroso",
+        "latitude": -1.4226882,
+        "longitude": -48.449596,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_4421545455.jpg"
+    },
+    {
+        "id": 4423062827,
+        "nome": "Parada: Avenida Hélio Gueiros",
+        "latitude": -1.3393154,
+        "longitude": -48.4234738,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_4423062827.jpg"
+    },
+    {
+        "id": 4850105936,
+        "nome": "Parada: Rodovia Augusto Montenegro",
+        "latitude": -1.3866232,
+        "longitude": -48.4362889,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_4850105936.jpg"
+    },
+    {
+        "id": 4850105937,
+        "nome": "Parada: Rodovia Augusto Montenegro",
+        "latitude": -1.3857254,
+        "longitude": -48.4369154,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_4850105937.jpg"
+    },
+    {
+        "id": 4850171973,
+        "nome": "Parada: Rodovia Augusto Montenegro",
+        "latitude": -1.3842299,
+        "longitude": -48.4374535,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_4850171973.jpg"
+    },
+    {
+        "id": 4850171974,
+        "nome": "Parada: Rodovia Augusto Montenegro",
+        "latitude": -1.3828937,
+        "longitude": -48.4382922,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_4850171974.jpg"
+    },
+    {
+        "id": 4850204322,
+        "nome": "Parada: Rodovia Augusto Montenegro",
+        "latitude": -1.3794266,
+        "longitude": -48.4399019,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_4850204322.jpg"
+    },
+    {
+        "id": 4850204323,
+        "nome": "Parada: Rodovia Augusto Montenegro",
+        "latitude": -1.3795455,
+        "longitude": -48.4395675,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_4850204323.jpg"
+    },
+    {
+        "id": 4850221608,
+        "nome": "Parada: Rodovia Transcoqueiro",
+        "latitude": -1.3847218,
+        "longitude": -48.4355144,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_4850221608.jpg"
+    },
+    {
+        "id": 4850221613,
+        "nome": "Parada: Rodovia Transcoqueiro",
+        "latitude": -1.373545,
+        "longitude": -48.4222419,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_4850221613.jpg"
+    },
+    {
+        "id": 4850221614,
+        "nome": "Parada: Rodovia Transcoqueiro",
+        "latitude": -1.3752457,
+        "longitude": -48.4249958,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_4850221614.jpg"
+    },
+    {
+        "id": 4850221615,
+        "nome": "Parada: Rodovia Transcoqueiro",
+        "latitude": -1.3792824,
+        "longitude": -48.4281154,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_4850221615.jpg"
+    },
+    {
+        "id": 4850221616,
+        "nome": "Parada: Rodovia Transcoqueiro",
+        "latitude": -1.3782746,
+        "longitude": -48.4307885,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_4850221616.jpg"
+    },
+    {
+        "id": 4850221618,
+        "nome": "Parada: Rodovia Mário Covas",
+        "latitude": -1.3697434,
+        "longitude": -48.420825,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_4850221618.jpg"
+    },
+    {
+        "id": 4850221619,
+        "nome": "Parada: Rodovia Mário Covas",
+        "latitude": -1.3685304,
+        "longitude": -48.4220879,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_4850221619.jpg"
+    },
+    {
+        "id": 4850221620,
+        "nome": "Parada: Avenida Hélio Gueiros",
+        "latitude": -1.36866,
+        "longitude": -48.4212051,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_4850221620.jpg"
+    },
+    {
+        "id": 4850223722,
+        "nome": "Parada: Rodovia Mário Covas",
+        "latitude": -1.3655156,
+        "longitude": -48.424248,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_4850223722.jpg"
+    },
+    {
+        "id": 4850223723,
+        "nome": "Parada: Rodovia Mário Covas",
+        "latitude": -1.3655526,
+        "longitude": -48.4243036,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_4850223723.jpg"
+    },
+    {
+        "id": 4863194489,
+        "nome": "Parada: Avenida Doutor Nonato Sanova",
+        "latitude": -1.3687312,
+        "longitude": -48.405619,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_4863194489.jpg"
+    },
+    {
+        "id": 4863194490,
+        "nome": "Parada: Travessa SN Três",
+        "latitude": -1.3685119,
+        "longitude": -48.4058426,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_4863194490.jpg"
+    },
+    {
+        "id": 4863194492,
+        "nome": "Parada: Travessa SN Três",
+        "latitude": -1.3665713,
+        "longitude": -48.405845,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_4863194492.jpg"
+    },
+    {
+        "id": 4863194493,
+        "nome": "Parada: Avenida Três Corações",
+        "latitude": -1.3711776,
+        "longitude": -48.4080619,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_4863194493.jpg"
+    },
+    {
+        "id": 4863225209,
+        "nome": "Parada: Avenida Dom Vicente Zico",
+        "latitude": -1.350799,
+        "longitude": -48.4096732,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_4863225209.jpg"
+    },
+    {
+        "id": 4863225210,
+        "nome": "Parada: Estrada da Providencia",
+        "latitude": -1.3514625,
+        "longitude": -48.4104999,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_4863225210.jpg"
+    },
+    {
+        "id": 4863246777,
+        "nome": "Parada: Avenida Hélio Gueiros",
+        "latitude": -1.3685591,
+        "longitude": -48.4211108,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_4863246777.jpg"
+    },
+    {
+        "id": 4863246781,
+        "nome": "Parada: Rodovia Mário Covas",
+        "latitude": -1.3697837,
+        "longitude": -48.4209079,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_4863246781.jpg"
+    },
+    {
+        "id": 4864915537,
+        "nome": "Parada: Avenida Três Corações",
+        "latitude": -1.3756597,
+        "longitude": -48.4130694,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_4864915537.jpg"
+    },
+    {
+        "id": 4864915539,
+        "nome": "Parada: Avenida Três Corações",
+        "latitude": -1.3728775,
+        "longitude": -48.4100251,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_4864915539.jpg"
+    },
+    {
+        "id": 4864915541,
+        "nome": "Parada: Avenida Três Corações",
+        "latitude": -1.3752198,
+        "longitude": -48.4127499,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_4864915541.jpg"
+    },
+    {
+        "id": 4864915542,
+        "nome": "Parada: Rodovia Mário Covas",
+        "latitude": -1.3778013,
+        "longitude": -48.4134853,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_4864915542.jpg"
+    },
+    {
+        "id": 4864915543,
+        "nome": "Parada: Rodovia Mário Covas",
+        "latitude": -1.377554,
+        "longitude": -48.413721,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_4864915543.jpg"
+    },
+    {
+        "id": 4962390281,
+        "nome": "Parada: Rodovia Transcoqueiro",
+        "latitude": -1.3774605,
+        "longitude": -48.4266122,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_4962390281.jpg"
+    },
+    {
+        "id": 5144295393,
+        "nome": "Parada: Avenida Hélio Gueiros",
+        "latitude": -1.3340262,
+        "longitude": -48.4247922,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_5144295393.jpg"
+    },
+    {
+        "id": 5203438267,
+        "nome": "Parada: Avenida Almirante Barroso",
+        "latitude": -1.4224537,
+        "longitude": -48.4495774,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_5203438267.jpg"
+    },
+    {
+        "id": 5203438268,
+        "nome": "Parada: Avenida Almirante Barroso",
+        "latitude": -1.4225874,
+        "longitude": -48.4493632,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_5203438268.jpg"
+    },
+    {
+        "id": 5203438269,
+        "nome": "Parada: Avenida Almirante Barroso",
+        "latitude": -1.4203329,
+        "longitude": -48.448178,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_5203438269.jpg"
+    },
+    {
+        "id": 5203438270,
+        "nome": "Parada: Avenida Almirante Barroso",
+        "latitude": -1.4189195,
+        "longitude": -48.4472558,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_5203438270.jpg"
+    },
+    {
+        "id": 5203438271,
+        "nome": "Parada: Avenida Almirante Barroso",
+        "latitude": -1.4193304,
+        "longitude": -48.4472193,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_5203438271.jpg"
+    },
+    {
+        "id": 5203438272,
+        "nome": "Parada: Avenida Almirante Barroso",
+        "latitude": -1.4165591,
+        "longitude": -48.4454089,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_5203438272.jpg"
+    },
+    {
+        "id": 5203438273,
+        "nome": "Parada: Avenida Almirante Barroso",
+        "latitude": -1.4148637,
+        "longitude": -48.4442699,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_5203438273.jpg"
+    },
+    {
+        "id": 5203438274,
+        "nome": "Parada: Avenida Almirante Barroso",
+        "latitude": -1.413891,
+        "longitude": -48.4438419,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_5203438274.jpg"
+    },
+    {
+        "id": 5203438275,
+        "nome": "Parada: Avenida Almirante Barroso",
+        "latitude": -1.4112148,
+        "longitude": -48.4418436,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_5203438275.jpg"
+    },
+    {
+        "id": 5203438276,
+        "nome": "Parada: Avenida Almirante Barroso",
+        "latitude": -1.4113309,
+        "longitude": -48.4416435,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_5203438276.jpg"
+    },
+    {
+        "id": 5203438277,
+        "nome": "Parada: Avenida Almirante Barroso",
+        "latitude": -1.4092225,
+        "longitude": -48.439569,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_5203438277.jpg"
+    },
+    {
+        "id": 5203438278,
+        "nome": "Parada: Avenida Almirante Barroso",
+        "latitude": -1.4099553,
+        "longitude": -48.4404215,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_5203438278.jpg"
+    },
+    {
+        "id": 5203438279,
+        "nome": "Parada: Avenida Almirante Barroso",
+        "latitude": -1.4085035,
+        "longitude": -48.4372824,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_5203438279.jpg"
+    },
+    {
+        "id": 5203438280,
+        "nome": "Parada: BR-316",
+        "latitude": -1.4036546,
+        "longitude": -48.4291069,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_5203438280.jpg"
+    },
+    {
+        "id": 5203438282,
+        "nome": "Parada: BR-316",
+        "latitude": -1.4019754,
+        "longitude": -48.4276183,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_5203438282.jpg"
+    },
+    {
+        "id": 5203438283,
+        "nome": "Parada: BR-316",
+        "latitude": -1.3980806,
+        "longitude": -48.4245349,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_5203438283.jpg"
+    },
+    {
+        "id": 5203443188,
+        "nome": "Parada: Rodovia BR-316",
+        "latitude": -1.3898701,
+        "longitude": -48.4140773,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_5203443188.jpg"
+    },
+    {
+        "id": 5203443971,
+        "nome": "Parada: Rodovia Mário Covas",
+        "latitude": -1.3750325,
+        "longitude": -48.415006,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_5203443971.jpg"
+    },
+    {
+        "id": 5209425417,
+        "nome": "Parada: Rodovia Transcoqueiro",
+        "latitude": -1.3823952,
+        "longitude": -48.4340772,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_5209425417.jpg"
+    },
+    {
+        "id": 5209425418,
+        "nome": "Parada: Rodovia Transcoqueiro",
+        "latitude": -1.3799812,
+        "longitude": -48.4325308,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_5209425418.jpg"
+    },
+    {
+        "id": 5209450368,
+        "nome": "Parada: Avenida Três Corações",
+        "latitude": -1.3732835,
+        "longitude": -48.4103278,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_5209450368.jpg"
+    },
+    {
+        "id": 5216552360,
+        "nome": "Parada: Rodovia Mário Covas",
+        "latitude": -1.3683256,
+        "longitude": -48.4225088,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_5216552360.jpg"
+    },
+    {
+        "id": 5256083827,
+        "nome": "Parada: Rodovia Mário Covas",
+        "latitude": -1.3843956,
+        "longitude": -48.4110896,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_5256083827.jpg"
+    },
+    {
+        "id": 5256083867,
+        "nome": "Parada: BR-316;BR-010",
+        "latitude": -1.3860198,
+        "longitude": -48.407933,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_5256083867.jpg"
+    },
+    {
+        "id": 5256914810,
+        "nome": "Parada: Rua União",
+        "latitude": -1.389385,
+        "longitude": -48.4277473,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_5256914810.jpg"
+    },
+    {
+        "id": 5256914812,
+        "nome": "Parada: Passagem Jarbas Passarinho",
+        "latitude": -1.3867329,
+        "longitude": -48.4251496,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_5256914812.jpg"
+    },
+    {
+        "id": 5256914814,
+        "nome": "Parada: Passagem Jarbas Passarinho",
+        "latitude": -1.3831398,
+        "longitude": -48.4257898,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_5256914814.jpg"
+    },
+    {
+        "id": 5256914815,
+        "nome": "Parada: Passagem Jarbas Passarinho",
+        "latitude": -1.3795492,
+        "longitude": -48.428068,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_5256914815.jpg"
+    },
+    {
+        "id": 5256914816,
+        "nome": "Parada: Rodovia Transcoqueiro",
+        "latitude": -1.3794839,
+        "longitude": -48.4283072,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_5256914816.jpg"
+    },
+    {
+        "id": 5256914818,
+        "nome": "Parada: Rodovia BR-316",
+        "latitude": -1.3923563,
+        "longitude": -48.4180521,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_5256914818.jpg"
+    },
+    {
+        "id": 5256914819,
+        "nome": "Parada: Rodovia BR-316",
+        "latitude": -1.3925275,
+        "longitude": -48.4179612,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_5256914819.jpg"
+    },
+    {
+        "id": 5256914820,
+        "nome": "Parada: Rodovia BR-316",
+        "latitude": -1.3942664,
+        "longitude": -48.4210318,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_5256914820.jpg"
+    },
+    {
+        "id": 5256914821,
+        "nome": "Parada: Rodovia BR-316",
+        "latitude": -1.3941543,
+        "longitude": -48.4205489,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_5256914821.jpg"
+    },
+    {
+        "id": 5256914822,
+        "nome": "Parada: BR-316",
+        "latitude": -1.3989669,
+        "longitude": -48.4249878,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_5256914822.jpg"
+    },
+    {
+        "id": 5256971231,
+        "nome": "Parada: Rua União",
+        "latitude": -1.3894557,
+        "longitude": -48.429906,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_5256971231.jpg"
+    },
+    {
+        "id": 5261142345,
+        "nome": "Parada: Rodovia Mário Covas",
+        "latitude": -1.3843695,
+        "longitude": -48.4108539,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_5261142345.jpg"
+    },
+    {
+        "id": 5283004450,
+        "nome": "Parada: Rodovia Transcoqueiro",
+        "latitude": -1.3695269,
+        "longitude": -48.4213903,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_5283004450.jpg"
+    },
+    {
+        "id": 5449349069,
+        "nome": "Parada: Travessa We 13B",
+        "latitude": -1.3700366,
+        "longitude": -48.4082078,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_5449349069.jpg"
+    },
+    {
+        "id": 5449349070,
+        "nome": "Parada: Rua Estrada Providencia",
+        "latitude": -1.3712383,
+        "longitude": -48.4072919,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_5449349070.jpg"
+    },
+    {
+        "id": 5473820901,
+        "nome": "Parada: Avenida Rio Solimões",
+        "latitude": -1.3367966,
+        "longitude": -48.3871681,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_5473820901.jpg"
+    },
+    {
+        "id": 5473820902,
+        "nome": "Parada: Estrada Curuçambá Oeste",
+        "latitude": -1.3337644,
+        "longitude": -48.3882929,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_5473820902.jpg"
+    },
+    {
+        "id": 5478813697,
+        "nome": "Parada: Passagem Ceará",
+        "latitude": -1.3575106,
+        "longitude": -48.4422605,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_5478813697.jpg"
+    },
+    {
+        "id": 5908982995,
+        "nome": "Parada: Rodovia Augusto Montenegro",
+        "latitude": -1.399674,
+        "longitude": -48.4346897,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_5908982995.jpg"
+    },
+    {
+        "id": 6096781890,
+        "nome": "Parada: Rua NS 9",
+        "latitude": -1.3385442,
+        "longitude": -48.437143,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_6096781890.jpg"
+    },
+    {
+        "id": 6947171122,
+        "nome": "Parada: Avenida Governador Hélio da Mota Gueiros",
+        "latitude": -1.3454816,
+        "longitude": -48.4202004,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_6947171122.jpg"
+    },
+    {
+        "id": 6947256586,
+        "nome": "Parada: Avenida Hélio Gueiros",
+        "latitude": -1.3430975,
+        "longitude": -48.4218301,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_6947256586.jpg"
+    },
+    {
+        "id": 7854856736,
+        "nome": "Parada: Rua da Pedreirinha",
+        "latitude": -1.3991027,
+        "longitude": -48.4103952,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_7854856736.jpg"
+    },
+    {
+        "id": 8645285595,
+        "nome": "Parada: Avenida Hélio Gueiros",
+        "latitude": -1.3413977,
+        "longitude": -48.4227138,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_8645285595.jpg"
+    },
+    {
+        "id": 9887886026,
+        "nome": "Parada: Avenida São Pedro",
+        "latitude": -1.3502549,
+        "longitude": -48.4359017,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_9887886026.jpg"
+    },
+    {
+        "id": 9995780395,
+        "nome": "Parada: Rodovia Augusto Montenegro",
+        "latitude": -1.3292317,
+        "longitude": -48.4496235,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_9995780395.jpg"
+    },
+    {
+        "id": 9995780396,
+        "nome": "Parada: Rodovia Augusto Montenegro",
+        "latitude": -1.3292253,
+        "longitude": -48.4497555,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_9995780396.jpg"
+    },
+    {
+        "id": 9996731765,
+        "nome": "Parada: Rodovia BR-316",
+        "latitude": -1.3899153,
+        "longitude": -48.4137737,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_9996731765.jpg"
+    },
+    {
+        "id": 10587911428,
+        "nome": "Parada: Avenida Governador Hélio da Mota Gueiros",
+        "latitude": -1.3485825,
+        "longitude": -48.4196979,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_10587911428.jpg"
+    },
+    {
+        "id": 10587911429,
+        "nome": "Parada: Avenida Governador Hélio da Mota Gueiros",
+        "latitude": -1.3507666,
+        "longitude": -48.4190476,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_10587911429.jpg"
+    },
+    {
+        "id": 10979546922,
+        "nome": "Parada: Rodovia dos Trabalhadores",
+        "latitude": -1.3508103,
+        "longitude": -48.4120777,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_10979546922.jpg"
+    },
+    {
+        "id": 11689388745,
+        "nome": "Parada: Passagem Independência",
+        "latitude": -1.390738,
+        "longitude": -48.3981789,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_11689388745.jpg"
+    },
+    {
+        "id": 11689388750,
+        "nome": "Parada: Rua Osvaldo Cruz",
+        "latitude": -1.3908354,
+        "longitude": -48.3982596,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_11689388750.jpg"
+    },
+    {
+        "id": 11689388757,
+        "nome": "Parada: Rua Osvaldo Cruz",
+        "latitude": -1.3923195,
+        "longitude": -48.3982203,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_11689388757.jpg"
+    },
+    {
+        "id": 12182776168,
+        "nome": "Parada: Avenida Rio Solimões",
+        "latitude": -1.335949,
+        "longitude": -48.3889765,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_12182776168.jpg"
+    },
+    {
+        "id": 12708125856,
+        "nome": "Parada: Rua do Benjamin",
+        "latitude": -1.3627721,
+        "longitude": -48.4326223,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_12708125856.jpg"
+    },
+    {
+        "id": 12708140505,
+        "nome": "Parada: Avenida Independência",
+        "latitude": -1.3626363,
+        "longitude": -48.4328778,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_12708140505.jpg"
+    },
+    {
+        "id": 12708311634,
+        "nome": "Parada: Avenida Governador Hélio da Mota Gueiros",
+        "latitude": -1.3489879,
+        "longitude": -48.4196039,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_12708311634.jpg"
+    },
+    {
+        "id": 12708311635,
+        "nome": "Parada: Avenida Governador Hélio da Mota Gueiros",
+        "latitude": -1.3489946,
+        "longitude": -48.4195087,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_12708311635.jpg"
+    },
+    {
+        "id": 12708311636,
+        "nome": "Parada: Avenida Governador Hélio da Mota Gueiros",
+        "latitude": -1.3455409,
+        "longitude": -48.420261,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_12708311636.jpg"
+    },
+    {
+        "id": 274341456,
+        "nome": "Parada: Avenida Perimetral da Ciência",
+        "latitude": -1.4505046,
+        "longitude": -48.4466242,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_274341456.jpg"
+    },
+    {
+        "id": 505204989,
+        "nome": "Parada: Avenida Visconde de Souza Franco",
+        "latitude": -1.4476836,
+        "longitude": -48.4873574,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_505204989.jpg"
+    },
+    {
+        "id": 505204991,
+        "nome": "Parada: Avenida Visconde de Souza Franco",
+        "latitude": -1.4469913,
+        "longitude": -48.4874065,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_505204991.jpg"
+    },
+    {
+        "id": 767920860,
+        "nome": "Parada: Avenida Almirante Barroso",
+        "latitude": -1.4490573,
+        "longitude": -48.4670457,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_767920860.jpg"
+    },
+    {
+        "id": 767920861,
+        "nome": "Parada: Avenida Almirante Barroso",
+        "latitude": -1.4490537,
+        "longitude": -48.4668721,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_767920861.jpg"
+    },
+    {
+        "id": 1602561683,
+        "nome": "Parada: Via Principal da Ufra",
+        "latitude": -1.4532525,
+        "longitude": -48.4435746,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_1602561683.jpg"
+    },
+    {
+        "id": 1961443941,
+        "nome": "Parada: Rua Boaventura da Silva",
+        "latitude": -1.4488822,
+        "longitude": -48.4874691,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_1961443941.jpg"
+    },
+    {
+        "id": 3585994621,
+        "nome": "Parada: Travessa Primeira de Queluz",
+        "latitude": -1.4450068,
+        "longitude": -48.4640854,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_3585994621.jpg"
+    },
+    {
+        "id": 3659509008,
+        "nome": "Parada: Avenida Cipriano Santos",
+        "latitude": -1.4499231,
+        "longitude": -48.4669561,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_3659509008.jpg"
+    },
+    {
+        "id": 3804189560,
+        "nome": "Parada: Avenida Cipriano Santos",
+        "latitude": -1.4496619,
+        "longitude": -48.4649283,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_3804189560.jpg"
+    },
+    {
+        "id": 3817851209,
+        "nome": "Parada: Avenida Perimetral da Ciência",
+        "latitude": -1.4442218,
+        "longitude": -48.447222,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_3817851209.jpg"
+    },
+    {
+        "id": 3957398663,
+        "nome": "Parada: Travessa São Pedro",
+        "latitude": -1.4582283,
+        "longitude": -48.4962421,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_3957398663.jpg"
+    },
+    {
+        "id": 3989443037,
+        "nome": "Parada: Avenida Júlio César",
+        "latitude": -1.4229031,
+        "longitude": -48.4505159,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_3989443037.jpg"
+    },
+    {
+        "id": 4235051726,
+        "nome": "Parada: Rua Osvaldo de Caldas Brito",
+        "latitude": -1.4702211,
+        "longitude": -48.5004647,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_4235051726.jpg"
+    },
+    {
+        "id": 4834701448,
+        "nome": "Parada: Via Waldir Bouhid",
+        "latitude": -1.4586028,
+        "longitude": -48.4364928,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_4834701448.jpg"
+    },
+    {
+        "id": 4834716028,
+        "nome": "Parada: Estrada Principal da Ufra",
+        "latitude": -1.452411,
+        "longitude": -48.4407731,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_4834716028.jpg"
+    },
+    {
+        "id": 4834750617,
+        "nome": "Parada: Via Waldir Bouhid",
+        "latitude": -1.4600561,
+        "longitude": -48.4367813,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_4834750617.jpg"
+    },
+    {
+        "id": 4834750618,
+        "nome": "Parada: Via Felisberto Camargo",
+        "latitude": -1.4597965,
+        "longitude": -48.4359326,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_4834750618.jpg"
+    },
+    {
+        "id": 4834750619,
+        "nome": "Parada: Via Felisberto Camargo",
+        "latitude": -1.4579687,
+        "longitude": -48.4327933,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_4834750619.jpg"
+    },
+    {
+        "id": 4834750620,
+        "nome": "Parada: Estrada Principal da Ufra",
+        "latitude": -1.4567176,
+        "longitude": -48.4343068,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_4834750620.jpg"
+    },
+    {
+        "id": 4834751321,
+        "nome": "Parada: Via Waldir Bouhid",
+        "latitude": -1.4580278,
+        "longitude": -48.4357058,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_4834751321.jpg"
+    },
+    {
+        "id": 4834751322,
+        "nome": "Parada: Estrada Principal da Ufra",
+        "latitude": -1.4549975,
+        "longitude": -48.4368799,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_4834751322.jpg"
+    },
+    {
+        "id": 4834751324,
+        "nome": "Parada: Via de Zootecnia",
+        "latitude": -1.453309,
+        "longitude": -48.4337068,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_4834751324.jpg"
+    },
+    {
+        "id": 4834751325,
+        "nome": "Parada: Via de Zootecnia",
+        "latitude": -1.4528912,
+        "longitude": -48.4358922,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_4834751325.jpg"
+    },
+    {
+        "id": 4834751326,
+        "nome": "Parada: Via de Zootecnia",
+        "latitude": -1.4528568,
+        "longitude": -48.4369416,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_4834751326.jpg"
+    },
+    {
+        "id": 4835283756,
+        "nome": "Parada: Estrada Principal da Ufra",
+        "latitude": -1.4540041,
+        "longitude": -48.4383683,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_4835283756.jpg"
+    },
+    {
+        "id": 4865074133,
+        "nome": "Parada: Avenida Júlio César",
+        "latitude": -1.3918668,
+        "longitude": -48.4804228,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_4865074133.jpg"
+    },
+    {
+        "id": 5203438231,
+        "nome": "Parada: Avenida Perimetral da Ciência",
+        "latitude": -1.4535416,
+        "longitude": -48.4464522,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_5203438231.jpg"
+    },
+    {
+        "id": 5203438232,
+        "nome": "Parada: Avenida Perimetral da Ciência",
+        "latitude": -1.4529963,
+        "longitude": -48.4464323,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_5203438232.jpg"
+    },
+    {
+        "id": 5203438233,
+        "nome": "Parada: Avenida Perimetral da Ciência",
+        "latitude": -1.4516277,
+        "longitude": -48.4466255,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_5203438233.jpg"
+    },
+    {
+        "id": 5203438234,
+        "nome": "Parada: Avenida Perimetral da Ciência",
+        "latitude": -1.4492667,
+        "longitude": -48.4468399,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_5203438234.jpg"
+    },
+    {
+        "id": 5203438235,
+        "nome": "Parada: Avenida Perimetral da Ciência",
+        "latitude": -1.4466519,
+        "longitude": -48.4470845,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_5203438235.jpg"
+    },
+    {
+        "id": 5203438236,
+        "nome": "Parada: Avenida Perimetral da Ciência",
+        "latitude": -1.4462683,
+        "longitude": -48.4469945,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_5203438236.jpg"
+    },
+    {
+        "id": 5203438265,
+        "nome": "Parada: Avenida Almirante Barroso",
+        "latitude": -1.4249039,
+        "longitude": -48.4508886,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_5203438265.jpg"
+    },
+    {
+        "id": 5203438266,
+        "nome": "Parada: Avenida Almirante Barroso",
+        "latitude": -1.4246212,
+        "longitude": -48.4510074,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_5203438266.jpg"
+    },
+    {
+        "id": 5355709628,
+        "nome": "Parada: Via Felisberto Camargo",
+        "latitude": -1.4590315,
+        "longitude": -48.4343881,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_5355709628.jpg"
+    },
+    {
+        "id": 5429874380,
+        "nome": "Parada: Fim do Mundo",
+        "latitude": -1.4614134,
+        "longitude": -48.4421043,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_5429874380.jpg"
+    },
+    {
+        "id": 5429874382,
+        "nome": "Parada: Rua do PCT",
+        "latitude": -1.4642322,
+        "longitude": -48.4447275,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_5429874382.jpg"
+    },
+    {
+        "id": 5429874384,
+        "nome": "Parada: Rua do PCT",
+        "latitude": -1.4641953,
+        "longitude": -48.4448978,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_5429874384.jpg"
+    },
+    {
+        "id": 5429874393,
+        "nome": "Parada: Rua da Engenharia Naval",
+        "latitude": -1.472065,
+        "longitude": -48.4480508,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_5429874393.jpg"
+    },
+    {
+        "id": 5429874394,
+        "nome": "Parada: Rua da Engenharia Naval",
+        "latitude": -1.4721414,
+        "longitude": -48.4479649,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_5429874394.jpg"
+    },
+    {
+        "id": 5429874395,
+        "nome": "Parada: Rua do NEB",
+        "latitude": -1.4725101,
+        "longitude": -48.4488434,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_5429874395.jpg"
+    },
+    {
+        "id": 6102930279,
+        "nome": "Parada: Estrada Principal da Ufra",
+        "latitude": -1.4569097,
+        "longitude": -48.4340171,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_6102930279.jpg"
+    },
+    {
+        "id": 6838704268,
+        "nome": "Parada: Rua São Domingos",
+        "latitude": -1.4625569,
+        "longitude": -48.4550557,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_6838704268.jpg"
+    },
+    {
+        "id": 6838704269,
+        "nome": "Parada: Rua São Domingos",
+        "latitude": -1.4625952,
+        "longitude": -48.4550922,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_6838704269.jpg"
+    },
+    {
+        "id": 6838704271,
+        "nome": "Parada: Rua São Domingos",
+        "latitude": -1.4613759,
+        "longitude": -48.4541978,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_6838704271.jpg"
+    },
+    {
+        "id": 6838704272,
+        "nome": "Parada: Rua São Domingos",
+        "latitude": -1.4598505,
+        "longitude": -48.4535072,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_6838704272.jpg"
+    },
+    {
+        "id": 6838704273,
+        "nome": "Parada: Rua São Domingos",
+        "latitude": -1.4583949,
+        "longitude": -48.4529596,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_6838704273.jpg"
+    },
+    {
+        "id": 6838704274,
+        "nome": "Parada: Avenida Celso Malcher",
+        "latitude": -1.4563649,
+        "longitude": -48.4513316,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_6838704274.jpg"
+    },
+    {
+        "id": 6838704275,
+        "nome": "Parada: Avenida Celso Malcher",
+        "latitude": -1.4563892,
+        "longitude": -48.4513072,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_6838704275.jpg"
+    },
+    {
+        "id": 6838704276,
+        "nome": "Parada: Rua São Domingos",
+        "latitude": -1.4560844,
+        "longitude": -48.451295,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_6838704276.jpg"
+    },
+    {
+        "id": 6838704277,
+        "nome": "Parada: Avenida Celso Malcher",
+        "latitude": -1.4568404,
+        "longitude": -48.4507177,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_6838704277.jpg"
+    },
+    {
+        "id": 6838736645,
+        "nome": "Parada: Avenida Perimetral da Ciência",
+        "latitude": -1.4492907,
+        "longitude": -48.4469083,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_6838736645.jpg"
+    },
+    {
+        "id": 6838736646,
+        "nome": "Parada: Avenida Cipriano Santos",
+        "latitude": -1.4481967,
+        "longitude": -48.4510497,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_6838736646.jpg"
+    },
+    {
+        "id": 6838736648,
+        "nome": "Parada: Passagem Rosa Maria",
+        "latitude": -1.4467699,
+        "longitude": -48.452104,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_6838736648.jpg"
+    },
+    {
+        "id": 6838736649,
+        "nome": "Parada: Passagem São Francisco Xavier",
+        "latitude": -1.4472561,
+        "longitude": -48.4508638,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_6838736649.jpg"
+    },
+    {
+        "id": 6935099999,
+        "nome": "Parada: Avenida Celso Malcher",
+        "latitude": -1.4570165,
+        "longitude": -48.4505583,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_6935099999.jpg"
+    },
+    {
+        "id": 6935100000,
+        "nome": "Parada: Avenida Celso Malcher",
+        "latitude": -1.4570473,
+        "longitude": -48.450774,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_6935100000.jpg"
+    },
+    {
+        "id": 6955672136,
+        "nome": "Parada: Avenida Celso Malcher",
+        "latitude": -1.4544482,
+        "longitude": -48.4530537,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_6955672136.jpg"
+    },
+    {
+        "id": 9020912731,
+        "nome": "Parada: Rua Jabatiteua",
+        "latitude": -1.4465175,
+        "longitude": -48.4585345,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_9020912731.jpg"
+    },
+    {
+        "id": 9029294308,
+        "nome": "Parada: Rua Jabatiteua",
+        "latitude": -1.4464726,
+        "longitude": -48.4576371,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_9029294308.jpg"
+    },
+    {
+        "id": 9029371886,
+        "nome": "Parada: Rua Jabatiteua",
+        "latitude": -1.4466267,
+        "longitude": -48.4595275,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_9029371886.jpg"
+    },
+    {
+        "id": 9556990468,
+        "nome": "Parada: Avenida Padre Bruno Sechi",
+        "latitude": -1.3779798,
+        "longitude": -48.4610601,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_9556990468.jpg"
+    },
+    {
+        "id": 9845582348,
+        "nome": "Parada: Avenida Padre Bruno Sechi",
+        "latitude": -1.3757679,
+        "longitude": -48.4607243,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_9845582348.jpg"
+    },
+    {
+        "id": 9845582349,
+        "nome": "Parada: Avenida Padre Bruno Sechi",
+        "latitude": -1.3779659,
+        "longitude": -48.4611562,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_9845582349.jpg"
+    },
+    {
+        "id": 10981706723,
+        "nome": "Parada: Via Waldir Bouhid",
+        "latitude": -1.4600561,
+        "longitude": -48.4367813,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_10981706723.jpg"
+    },
+    {
+        "id": 11749646442,
+        "nome": "Parada: Avenida Cipriano Santos",
+        "latitude": -1.4494602,
+        "longitude": -48.462921,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_11749646442.jpg"
+    },
+    {
+        "id": 12194096236,
+        "nome": "Parada: Rodovia Artur Bernardes",
+        "latitude": -1.4211002,
+        "longitude": -48.4901091,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_12194096236.jpg"
+    },
+    {
+        "id": 12194096237,
+        "nome": "Parada: Rodovia Artur Bernardes",
+        "latitude": -1.4211632,
+        "longitude": -48.4901636,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_12194096237.jpg"
+    },
+    {
+        "id": 12194096238,
+        "nome": "Parada: Rodovia Artur Bernardes",
+        "latitude": -1.4223033,
+        "longitude": -48.4894912,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_12194096238.jpg"
+    },
+    {
+        "id": 12194096239,
+        "nome": "Parada: Rodovia Artur Bernardes",
+        "latitude": -1.4223234,
+        "longitude": -48.4895878,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_12194096239.jpg"
+    },
+    {
+        "id": 12194096240,
+        "nome": "Parada: Rodovia Artur Bernardes",
+        "latitude": -1.4239179,
+        "longitude": -48.4895078,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_12194096240.jpg"
+    },
+    {
+        "id": 12194096261,
+        "nome": "Parada: Passagem Mirandinha",
+        "latitude": -1.4153008,
+        "longitude": -48.4873964,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_12194096261.jpg"
+    },
+    {
+        "id": 12405638234,
+        "nome": "Parada: Avenida Júlio César",
+        "latitude": -1.4187527,
+        "longitude": -48.4548462,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_12405638234.jpg"
+    },
+    {
+        "id": 12543374071,
+        "nome": "Parada: Avenida Governador José Malcher",
+        "latitude": -1.4483243,
+        "longitude": -48.4707663,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_12543374071.jpg"
+    },
+    {
+        "id": 12543374077,
+        "nome": "Parada: Avenida Visconde Souza Franco",
+        "latitude": -1.4502707,
+        "longitude": -48.4862692,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_12543374077.jpg"
+    },
+    {
+        "id": 12394458270,
+        "nome": "Parada: Rodovia BR-316",
+        "latitude": -1.3645012,
+        "longitude": -48.2961755,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_12394458270.jpg"
+    },
+    {
+        "id": 12394458271,
+        "nome": "Parada: Rodovia BR-316",
+        "latitude": -1.3648351,
+        "longitude": -48.2963377,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_12394458271.jpg"
+    },
+    {
+        "id": 12602284197,
+        "nome": "Parada: Avenida Deoclecio Gurjão",
+        "latitude": -1.3638893,
+        "longitude": -48.2873968,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_12602284197.jpg"
+    },
+    {
+        "id": 12602284200,
+        "nome": "Parada: Avenida Deoclecio Gurjão",
+        "latitude": -1.3416057,
+        "longitude": -48.2904984,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_12602284200.jpg"
+    },
+    {
+        "id": 12602294703,
+        "nome": "Parada: Avenida Deoclecio Gurjão",
+        "latitude": -1.3266774,
+        "longitude": -48.28476,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_12602294703.jpg"
+    },
+    {
+        "id": 12602294704,
+        "nome": "Parada: Avenida Deoclecio Gurjão",
+        "latitude": -1.321173,
+        "longitude": -48.2870425,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_12602294704.jpg"
+    },
+    {
+        "id": 369114286,
+        "nome": "Parada: MG-129",
+        "latitude": -20.3885974,
+        "longitude": -43.4266719,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_369114286.jpg"
+    },
+    {
+        "id": 4423711893,
+        "nome": "Parada: Rua do Catete",
+        "latitude": -20.3766918,
+        "longitude": -43.4183301,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_4423711893.jpg"
+    },
+    {
+        "id": 4423749790,
+        "nome": "Parada: Rua do Catete",
+        "latitude": -20.3761675,
+        "longitude": -43.4179462,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_4423749790.jpg"
+    },
+    {
+        "id": 12768258993,
+        "nome": "Parada: Avenida Nossa Senhora do Carmo",
+        "latitude": -20.3848168,
+        "longitude": -43.4234971,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_12768258993.jpg"
+    },
+    {
+        "id": 12769325561,
+        "nome": "Parada: Praça Tancredo Neves",
+        "latitude": -20.3765462,
+        "longitude": -43.4176615,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_12769325561.jpg"
+    },
+    {
+        "id": 12769325562,
+        "nome": "Parada: Avenida Nossa Senhora do Carmo",
+        "latitude": -20.3850174,
+        "longitude": -43.4240262,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_12769325562.jpg"
+    },
+    {
+        "id": 12769325563,
+        "nome": "Parada: Avenida Nossa Senhora do Carmo",
+        "latitude": -20.3814974,
+        "longitude": -43.4208158,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_12769325563.jpg"
+    },
+    {
+        "id": 4580507991,
+        "nome": "Parada: Rua José Felipe Freitas",
+        "latitude": -20.4174534,
+        "longitude": -42.911438,
+        "status_clima": "desconhecido",
+        "status_lotacao": "verde",
+        "foto_url": "fotos/parada_4580507991.jpg"
     }
 ]

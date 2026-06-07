@@ -24,27 +24,23 @@ URL_OVERPASS = os.getenv("URL_OVERPASS")
 URL_NOMINATIM = os.getenv("URL_NOMINATIM")
 
 CATALOGO_BAIRROS = {
-    # --- BAIRROS DO CENTRO DE BELÉM ---
-    "umarizal": "-1.4460,-48.4850,-1.4330,-48.4730",
-    "nazare": "-1.4550,-48.4850,-1.4410,-48.4710",
-    "batista_campos": "-1.4650,-48.4950,-1.4520,-48.4820",
-    "reduto": "-1.4480,-48.4980,-1.4380,-48.4880",
-    "campina": "-1.4580,-48.5050,-1.4480,-48.4940",
-    "cidade_velha": "-1.4680,-48.5080,-1.4550,-48.4980",
-    "sao_bras": "-1.4450,-48.4750,-1.4350,-48.4620",
-    "pedreira": "-1.4350,-48.4850,-1.4150,-48.4650",
-    "marco": "-1.4450,-46.4650,-1.4250,-48.4450",  # Corrigido typo clássico do Overpass de -46 para -48 se necessário, mantido o seu
-    "guama": "-1.4850,-48.4750,-1.4550,-48.4450",
-    "jurunas": "-1.4750,-48.5000,-1.4600,-48.4850",
-    "cremacao": "-1.4650,-48.4850,-1.4500,-48.4650",
-    "condor": "-1.4780,-48.4900,-1.4600,-48.4750",
-    "sacramenta": "-1.4250,-48.4750,-1.4050,-48.4550",
-    "telegrafo": "-1.4250,-48.4850,-1.4050,-48.4700",
-    "marituba": "-1.4000,-48.3800,-1.3200,-48.3000",
-    "maracangalha": "-1.4050,-48.4900,-1.3750,-48.4650",
+    # ==========================================
+    #   VARREDURA POR CIDADES INTEIRAS 
+    # ==========================================
+    
+    # Cidade Nova, Maguari, Icuí, Coqueiro, Águas Lindas, Guanabara, etc.
+    "ananindeua_toda": "-1.4300,-48.4500,-1.2800,-48.3300",
+    
+    # Centro, Icoaraci, Augusto Montenegro, Guamá, Pedreira, etc.
+    "belem_toda": "-1.5000,-48.5200,-1.3700,-48.4200",
+    
+    # Marituba até a divisa com Benevides
+    "marituba_toda": "-1.4000,-48.3800,-1.3200,-48.2800",
 
-    # --- BAIRROS DO CENTRO DE ANANINDEUA ---
-    "cidade_nova": "-1.3900,-48.4050,-1.3450,-48.3600",
+    # ==========================================
+    # TESTAR UM PEDAÇO MENOR 
+    # ==========================================
+    "cidade_nova_foco": "-1.3900,-48.4100,-1.3400,-48.3600",
 
     # --- BAIRROS FORA DO PARÁ DE EXEMPLO ---
     "mariana_mg": "-20.4500,-43.5000,-20.3000,-43.3500",
@@ -56,13 +52,22 @@ CATALOGO_BAIRROS = {
 # ==========================================
 def adicionar_novo_bairro(bbox, nome_bairro):
     print(f"\n=======================================================")
-    print(f"🚀 Iniciando a pesquisa sobre o bairro: {nome_bairro.upper()}...")
+    print(f" Iniciando a pesquisa sobre o bairro: {nome_bairro.upper()}...")
     print(f"=======================================================")
     novas_paradas = []
     
 # --- BUSCAR PARADAS ---
-    print("📍 Procurando paradas no mapa (OpenStreetMap)...")
-    query = f'[out:json][timeout:60];(node["highway"="bus_stop"]({bbox}););out body;'
+    print(" Procurando paradas no mapa (OpenStreetMap)...")
+    query = f"""
+    [out:json][timeout:60];
+    (
+      node["highway"="bus_stop"]({bbox});
+      node["public_transport"="platform"]({bbox});
+      node["amenity"="bus_station"]({bbox});
+    );
+    out body;
+    """
+    
     cabecalho = {'User-Agent': 'BusResenhaApp/1.0'}
     
     elementos = []

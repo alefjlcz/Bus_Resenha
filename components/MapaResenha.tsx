@@ -37,7 +37,7 @@ export default function MapaResenha({
   const mapRef = useRef<MapView>(null);
   const [focoInicialFeito, setFocoInicialFeito] = useState(false);
 
-  const RAIO_VISUAL_KM   = 0.5; // 500 metros
+  const RAIO_VISUAL_KM   = 30.5; // 500 metros
   const RAIO_PRESENCA_KM = 0.03; // 30 metros
 
   const paradasVisiveis = useMemo(() => {
