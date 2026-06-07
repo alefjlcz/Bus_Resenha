@@ -2566,7 +2566,7 @@
     },
     {
         "id": 3605648419,
-        "nome": "Parada: Rua Augusto Corrêa",
+        "nome": ": Rua Augusto Corrêa",
         "latitude": -1.4759296,
         "longitude": -48.4594663,
         "status_clima": "desconhecido",
@@ -5262,7 +5262,7 @@
         "longitude": -48.4435746,
         "status_clima": "desconhecido",
         "status_lotacao": "verde",
-        "foto_url": "fotos/parada_1602561683.jpg"
+        "foto_url": null
     },
     {
         "id": 1961443941,
@@ -5352,7 +5352,7 @@
         "longitude": -48.4407731,
         "status_clima": "desconhecido",
         "status_lotacao": "verde",
-        "foto_url": "fotos/parada_4834716028.jpg"
+        "foto_url": null
     },
     {
         "id": 4834750617,
@@ -5406,7 +5406,7 @@
         "longitude": -48.4368799,
         "status_clima": "desconhecido",
         "status_lotacao": "verde",
-        "foto_url": "fotos/parada_4834751322.jpg"
+        "foto_url": null
     },
     {
         "id": 4834751324,
@@ -5415,7 +5415,7 @@
         "longitude": -48.4337068,
         "status_clima": "desconhecido",
         "status_lotacao": "verde",
-        "foto_url": "fotos/parada_4834751324.jpg"
+        "foto_url": null
     },
     {
         "id": 4834751325,
@@ -5424,7 +5424,7 @@
         "longitude": -48.4358922,
         "status_clima": "desconhecido",
         "status_lotacao": "verde",
-        "foto_url": "fotos/parada_4834751325.jpg"
+        "foto_url": null
     },
     {
         "id": 4834751326,
@@ -5433,7 +5433,7 @@
         "longitude": -48.4369416,
         "status_clima": "desconhecido",
         "status_lotacao": "verde",
-        "foto_url": "fotos/parada_4834751326.jpg"
+        "foto_url": null
     },
     {
         "id": 4835283756,
@@ -5442,7 +5442,7 @@
         "longitude": -48.4383683,
         "status_clima": "desconhecido",
         "status_lotacao": "verde",
-        "foto_url": "fotos/parada_4835283756.jpg"
+        "foto_url": null
     },
     {
         "id": 4865074133,
