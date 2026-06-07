@@ -35,13 +35,15 @@ export default function TelaFavoritos() {
           // Promise.all para buscar os dados reais de cada parada no Firebase
           const paradasMapeadas = await Promise.all(
             idsSalvos.map(async (idDaParada: string) => {
-              const paradaEncontrada = bancoDeParadas.find((p: any) => p.id === idDaParada);
+              
+              // ✅ CORREÇÃO AQUI: Convertendo ambos para String antes de comparar
+              const paradaEncontrada = bancoDeParadas.find((p: any) => String(p.id) === String(idDaParada));
 
               let reportesPerigo = 0;
               let policiaChamada = false;
 
               try {
-                const paradaRef = doc(db, "paradas", idDaParada);
+                const paradaRef = doc(db, "paradas", String(idDaParada));
                 const paradaSnap = await getDoc(paradaRef);
 
                 if (paradaSnap.exists()) {
@@ -54,7 +56,7 @@ export default function TelaFavoritos() {
               }
 
               return {
-                id: idDaParada,
+                id: String(idDaParada),
                 nome: paradaEncontrada ? paradaEncontrada.nome : 'Parada Desconhecida',
                 reportesPerigo,
                 policiaChamada,
