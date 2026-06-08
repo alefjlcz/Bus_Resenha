@@ -48,7 +48,7 @@ export default function TelaConfiguracoes() {
   const mostrarSobreOApp = () => {
     Alert.alert(
       "ℹ️ Sobre o Bus Resenha",
-      "Versão: 1.0.0 (MVP)\n\nDesenvolvido para facilitar a vida de quem usa transporte público na região metropolitana, trazendo alertas em tempo real através da colaboração dos passageiros.\n\n"
+      "\n\nDesenvolvido para facilitar a vida de quem usa transporte público na região metropolitana, trazendo alertas em tempo real através da colaboração dos passageiros.\n\n"
     );
   };
 

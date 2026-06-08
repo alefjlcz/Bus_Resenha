@@ -18,8 +18,8 @@ export default function TelaLogin() {
 
   const [request, response, promptAsync] = Google.useAuthRequest({
     webClientId: clientId, 
-    androidClientId: clientId, // O TRUQUE: Enganando o Android no Expo Go
-    iosClientId: clientId,     // O TRUQUE: Enganando o iOS no Expo Go
+    androidClientId: clientId,
+    iosClientId: clientId,     
   });
   // ===============================
 

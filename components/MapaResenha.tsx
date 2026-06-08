@@ -2,7 +2,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useFocusEffect } from 'expo-router';
 import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { StyleSheet } from 'react-native';
-import MapView, { Circle, Marker } from 'react-native-maps';
+import MapView, { Circle, Marker, PROVIDER_GOOGLE } from 'react-native-maps';
 
 const iconeOnibusAzul     = require('../assets/images/icon_bus_ok.png');
 const iconeOnibusAmarelo  = require('../assets/images/icon_bus.png');
@@ -106,6 +106,7 @@ export default function MapaResenha({
 
   return (
     <MapView
+      provider={PROVIDER_GOOGLE}
       ref={mapRef}
       style={styles.map}
       initialRegion={{
@@ -163,7 +164,11 @@ export default function MapaResenha({
               latitude: Number(typeof parada.latitude === 'string' ? parada.latitude.replace(',', '.') : parada.latitude ?? parada.lat),
               longitude: Number(typeof parada.longitude === 'string' ? parada.longitude.replace(',', '.') : parada.longitude ?? parada.lng ?? parada.lon)
             }}
-            onPress={() => setParadaSelecionada(parada)}
+            onPress={(e) => {
+              // A mágica para o iOS: impede que o clique no pino vaze para o MapView
+              e.stopPropagation(); 
+              setParadaSelecionada(parada);
+            }}
             icon={imagemDoIcone}
             zIndex={isSelecionada ? 99 : 1}
           />

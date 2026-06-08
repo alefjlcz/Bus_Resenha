@@ -34,6 +34,11 @@ CATALOGO_BAIRROS = {
     "marituba_toda": "-1.4000,-48.3800,-1.3200,-48.2800",
 
     # ==========================================
+    #   ESPIRITO SANTO
+    # ==========================================
+    "guarapari_es": "-20.7300,-40.5500,-20.6000,-40.4500",
+
+    # ==========================================
     # TESTAR UM PEDAÇO MENOR 
     # ==========================================
     "cidade_nova_foco": "-1.3900,-48.4100,-1.3400,-48.3600",
@@ -48,7 +53,7 @@ def buscar_paradas_na_regiao(nome_regiao, bbox):
     Varre a região definida pelo bbox (lat_sul, lon_oeste, lat_norte, lon_leste)
     usando a API do Google Places e retorna um dicionário com as paradas encontradas.
     """
-    url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json"
+    url = "ttps://maps.googleapis.com/maps/api/place/nearhbysearch/json"
     paradas_encontradas = {}
 
     print(f"\n=======================================================")
